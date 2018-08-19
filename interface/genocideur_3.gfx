@@ -1,0 +1,9 @@
+spriteTypes = {
+	spriteType = {
+	name = "GFX_trait_genocideur_3"
+	texturefile = "gfx/traits/genocideur_3.tga" 
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

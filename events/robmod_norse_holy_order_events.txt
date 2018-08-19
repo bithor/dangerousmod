@@ -1,0 +1,692 @@
+#####---------====<[ROBMOD]>====----------#####
+#---------------------------------------------#
+####----=<NORSE HOLY ORDER EVENTS 1xxxx>=----####
+# last edited 27-06-17
+# CHANGELOG #
+# 27-06-17: Created
+# IDs robmodnorse.10000 - robmodnorse.10013
+
+namespace = robmodnorse
+
+
+########################################
+# The Hammers of Thor
+########################################
+
+# The rise of the Hammers
+narrative_event = {
+	id = robmodnorse.10001
+	title = EVTTITLE_ROBMODNORSE_10001
+	desc = EVTDESC_ROBMODNORSE_10001
+	picture = GFX_evt_thor
+	
+	major = yes
+	
+	only_playable = yes
+	hide_from = yes
+	religion = catholic
+	has_global_flag = norse_reformation
+	
+	trigger = {
+		NOT = {
+			is_title_active = d_thorshammers
+		}
+		controls_religion = yes # Let it happen for the Pope - he's always around
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		activate_title = { title = d_thorshammers status = yes }
+		create_character = {
+			random_traits = no
+			dynasty = random
+			religion = norse_pagan_reformed
+			culture = norse
+			female = no
+			age = 37
+			trait = brilliant_strategist
+			trait = zealous
+			trait = humble
+			trait = ambitious
+			trait = strategist
+			trait = holy_warrior
+		}
+		new_character = {
+			wealth = 500
+			d_thorshammers = {
+				grant_title = PREV
+			}
+			set_government_type = feudal_government
+			create_character = {
+				random_traits = yes
+				religion = norse_pagan_reformed
+				culture = norse
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = no
+				age = 20
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = no
+				age = 25
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = no
+				age = 28
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = yes
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = norse_pagan_reformed
+				culture = norse
+				female = yes
+				age = 17
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_10001
+		trigger = {
+			religion = norse_pagan_reformed
+		}
+	}
+	option = {
+		name = EVTOPTB_SOA_2009
+		trigger = {
+			NOT = { religion = norse_pagan_reformed }
+		}
+	}
+}
+
+# The son of a ruler volunteers to join Thor's hammers
+character_event = {
+	id = robmodnorse.10002
+	hide_window = yes
+	
+	only_men = yes
+	min_age = 16
+	max_age = 45
+	only_capable = yes
+	prisoner = no
+	religion_group = pagan_group
+	
+	trigger = {
+		is_ruler = no
+		religion = norse_pagan_reformed
+		
+		martial = 5
+		
+		is_title_active = d_thorshammers
+		
+		OR = {
+			father_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+			mother_even_if_dead = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		
+		liege = {
+			holy_order = no
+			liege = {
+				holy_order = no
+			}
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_thorshammers }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_thorshammers
+			}
+		}
+
+		NOT = {
+			any_spouse = {
+				OR = {
+					is_landed = yes
+					AND = {
+						is_pregnant = yes
+					father_of_unborn = { character = ROOT } # Won't happen if spouse is pregnant with non-bastard child
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.2
+			trait = robmodnorse_oathsman
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}
+		modifier = {
+			factor = 0.5
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.7
+			trait = content
+		}
+		modifier = {
+			factor = 0.75
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 25 }
+		}
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}
+		modifier = {
+			factor = 2.0
+			trait = lustful
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			any_heir_title = {
+				always = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			is_primary_heir = yes
+		}
+		modifier = {
+			factor = 2
+			any_spouse = {
+				reverse_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = robmodnorse.10003
+			}
+		}
+	}
+}
+
+# Son or brother asks to join the Hammers
+character_event = {
+	id = robmodnorse.10003
+	desc = EVTDESC_ROBMODNORSE_10003
+	picture = GFX_evt_son_asking_father
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_10003 # Agree
+		ai_chance = {
+			factor = 100
+		}
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = 100
+		}
+		
+		FROM = {
+			character_event = {
+				id = robmodnorse.10004
+				tooltip = EVTTOOLTIP_ROBMODNORSE_10003_01
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_10003 # Refuse
+		
+		if = {
+			limit = {
+				religion = FROM
+			}
+			piety = -100
+		}
+		
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_refused_request_holy_order
+				years = 10
+			}
+		}
+	}
+}
+
+# Son or brother joins the Hammers
+character_event = {
+	id = robmodnorse.10004
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_thorshammers = {
+			holder_scope = {
+				save_event_target_as = order_target
+				ROOT = {
+					character_event = { id = SoA.2864 }
+				}
+			}
+		}
+	}
+}
+
+# Ping event when donating money to the Hammers
+character_event = {
+	id = robmodnorse.10010
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		wealth = 300
+		FROM = {
+			letter_event = {
+				id = robmodnorse.10005
+			}
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_generous_donation
+		}
+	}
+}
+
+# Notification event when donating money to the Hammers
+letter_event = {
+	id = robmodnorse.10005
+	desc = EVTDESC_ROBMODNORSE_10005
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# The Thorrin requests the right to build a castle in your demesne
+character_event = {
+	id = robmodnorse.10006
+	hide_window = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		religion = norse_pagan_reformed
+				
+		d_thorshammers = {
+			holder_scope = {
+				wealth = 300
+				NOT = {
+					realm_size = 10
+				}
+			}
+		}
+		
+		any_demesne_province = {
+			has_empty_holding = yes
+			port = yes
+		}
+		
+		has_dlc = "Sons of Abraham"
+		
+		NOT = { has_character_modifier = expelled_d_thorshammers }
+		NOT = {
+			any_liege = {
+				has_character_modifier = expelled_d_thorshammers
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			d_thorshammers = {
+				holder_scope = {
+					NOT = { demesne_size = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			d_thorshammers = {
+				holder_scope = {
+					NOT = { demesne_size = 2 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_thorshammers = {
+				holder_scope = {
+					num_of_count_titles = 1
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			d_thorshammers = {
+				holder_scope = {
+					realm_size = 5
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_empty_holding = yes
+				port = yes
+			}
+			province_event = {
+				id = robmodnorse.10007
+			}
+		}
+	}
+}
+
+province_event = {
+	id = robmodnorse.10007
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		d_thorshammers = {
+			holder_scope = {
+				character_event = {
+					id = robmodnorse.10008
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = robmodnorse.10008
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			letter_event = {
+				id = robmodnorse.10009
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = robmodnorse.10009
+	desc = EVTDESC_ROBMODNORSE_10009
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SOA_1023 # Agree
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				has_character_modifier = expelled_d_jomsvikings
+			}
+			modifier = {
+				factor = 0.01
+				FROMFROM = {
+					region = world_europe_north
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			FROMFROM = {
+				province_event = { id = robmodnorse.10011 }
+			}
+			remove_character_modifier = expelled_d_thorshammers
+		}
+		
+		piety = 200
+		wealth = 100
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1553 # Refuse
+		ai_chance = {
+			factor = 20
+		}
+		
+		piety = -100
+	}
+}
+
+# Castle has been erected
+province_event = {
+	id = robmodnorse.10011
+	desc = EVTDESC_ROBMODNORSE_10011
+	picture = GFX_evt_castle_construction
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			wealth = -300
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_SOA_1024
+		build_holding = {
+		   type = castle
+		   holder = FROMFROM
+		}
+	}
+}
+
+# Ping event when expelling the Hammers of Thor
+character_event = {
+	id = robmodnorse.10012
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		any_title_under = {
+			limit = {
+				tier = BARON
+				location = {
+					owner = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+			}
+			usurp_title = FROM
+		}
+		
+		if = {
+			limit = {
+				is_liege_or_above = FROM
+			}
+			set_defacto_liege = THIS
+		}
+	
+		FROM = {
+			letter_event = {
+				id = robmodnorse.10013
+			}
+		}
+		
+		opinion = {
+			who = FROM
+			modifier = opinion_expelled_from_realm
+		}
+	}
+}
+
+# Notification event when expelling a Pagan Holy Order
+letter_event = {
+	id = robmodnorse.10013
+	desc = EVTDESC_SOA_1561
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_character_modifier = donated_to_holy_order
+	}
+	
+	option = {
+		name = EVTOPTB_SOA_1061
+	}
+}
+
+# Expelling a Holy Order confirmation event
+character_event = {
+	id = robmodnorse.10000
+	desc = "EVTDESC_SOA_2990"
+	picture = GFX_evt_vikings_arriving_oldgods
+	border = "GFX_event_normal_frame_religion"
+	
+	title = { # Hammers of Thor
+		trigger = {
+			has_character_flag = expel_the_thorshammers_check
+		}
+		text = expel_the_thorshammers
+	}
+	
+	only_rulers = yes
+	
+	is_triggered_only = yes
+	
+		option = { # Hammers
+		trigger = {
+			has_character_flag = expel_the_thorshammers_check
+		}
+		name = "EVTOPTA_SOA_2990"
+		piety = -1000
+		
+		religion_authority = {
+			modifier = holy_order_expelled
+			years = 20
+		}
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_a
+		}
+		hidden_tooltip = {
+			d_thorshammers = {
+				holder_scope = {
+					character_event = {
+						id = robmodnorse.10012
+					}
+				}
+			}
+			add_character_modifier = {
+				name = expelled_d_thorshammers
+				duration = -1
+				inherit = yes
+			}
+			clr_character_flag = expel_the_thorshammers_check
+		}
+	}
+	
+	option = { # Allow them to stay
+		name = "EVTOPTB_SOA_2990"
+		custom_tooltip = {
+			text = expelling_holy_order_event_tooltip_b
+		}
+		hidden_tooltip = {
+			clr_character_flag = expel_the_thorshammers_check
+		}
+	}
+}

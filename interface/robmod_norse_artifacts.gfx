@@ -1,0 +1,26 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_strange_skull"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\strange_skull.dds"
+	}
+	spriteType = {
+		name = "GFX_strange_skull_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\strange_skull_small.dds"
+	}
+	spriteType = {
+		name = "GFX_ancient_axe"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\ancient_axe.dds"
+	}
+	spriteType = {
+		name = "GFX_ancient_axe_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\ancient_axe_small.dds"
+	}
+	spriteType = {
+		name = "GFX_ancient_banner_norse"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\ancient_banner_norse.dds"
+	}
+	spriteType = {
+		name = "GFX_ancient_banner_norse_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\ancient_banner_norse_small.dds"
+	}
+}

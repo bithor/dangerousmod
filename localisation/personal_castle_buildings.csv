@@ -1,0 +1,40 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+ca_library;Castle Library;Bibliothèque du château;Burgbibliothek;;Biblioteca del castillo;;;;;;;;;x
+ca_study;Personal Study;Bureau personnel;Persönliches Studierzimmer;;Officium Privatus.;;;;;;;;;x
+fp_study;Personal Study;Bureau personnel;Persönliches Studierzimmer;;Officium Privatus.;;;;;;;;;x
+ca_study_desc;A place for intensive studying away from the bustle of court life.;Un endroit au calme pour étudier intensivement, loin de l'agitation de la cour.;Ein ruhiger Ort für intensives Studium, weit weg von der Hektik des höfischen Lebens.;;Un lugar para estudiar lejos del bullicio de la corte.;;;;;;;;;x
+ca_library_desc;An archive of knowledge.;Les archives du savoir.;Ein Archiv des Wissens.;;Un lugar de conocimiento.;;;;;;;;;x
+library_pos;Allowed to use Library;Accès autorisé à la bibliothèque.;Darf Bibliothek nutzen;;Puedes usar la Biblioteca.;;;;;;;;;x
+library_neg;Denied use of Library;Accès refusé à la bibliothèque.;Darf Bibliothek nicht nutzen;;No puedes usar la Biblioteca;;;;;;;;;x
+throw_book_neg;Hit by Book;Frappé par un livre.;Von Buch getroffen;;Golpeado por un libro.;;;;;;;;;x
+throw_pond_neg;Pushed into the Pond;Poussé dans l'étang.;In den Teich gestoßen;;Empujado al estanque.;;;;;;;;;x
+bio_pos;Brought Honor to Us All;Nous rend tous les honneurs.;Brachte uns allen Ehre;;Has traido gran honor a todos nosotros.;;;;;;;;;x
+bio_neg;Brought Us Great Dishonor;Nous inflige une grande honte.;Brachte große Schande über uns;;Nos has causado gran deshonor.;;;;;;;;;x
+poem_pos;Liked Poem;A aimé le poème.;Mochte das Gedicht;;Excelente poema.;;;;;;;;;x
+poem_neg;Hated Poem;A détesté le poème.;Hasste das Gedicht;;Horrible poema.;;;;;;;;;x
+training_yard_pos;Allowed to use Training Yard;Accès autorisé au terrain d'exercice.;Darf Übungsplatz nutzen;;Puedes usar la palestra.;;;;;;;;;x
+training_yard_neg;Denied use of Training Yard;Accès refusé au terrain d'exercice.;Darf Übungsplatz nicht nutzen;;No puedes usar la palestra.;;;;;;;;;x
+ca_garden_1;Garden;Jardin;Garten;;Jardin.;;;;;;;;;x
+ca_garden_desc;Although not much more than a few trees and wildflower plantings, the garden offers a pleasant refuge from the stresses of ruling.;Bien qu'il ne soit composé que de quelques arbres et plate-bandes de fleurs sauvages, le jardin offre un agréable refuge loin du stress de l'exercice du pouvoir.;Auch wenn nicht mehr als ein paar Bäume und Wildblumen darin stehen, stellt der Garten doch einen wohltuenden Zufluchtsort vor Euren zermürbenden Herrschaftstätigkeiten dar.;;Aunque no es mucho más que unos pocos árboles y plantaciones de flores silvestres, el jardín ofrece un refugio agradable del estrés de gobernar.;;;;;;;;;x
+ca_garden_2;Scenic Pond ;Étang pittoresque;Malerischer Teich;;Estanque decorado.;;;;;;;;;x
+ca_garden_2_desc;A magnificent pond decorated with beautiful lilies and filled with the rarest fish is the glittering centerpiece of your garden.;Un magnifique étang, orné de beaux lys et rempli des poissons les plus rares, compose le centre étincelant de votre jardin.;Eine prächtiger Teich, geschmückt mit schönen Lilien und mit den seltensten Fisch gefüllt, ist er der glitzernde Mittelpunkt Eures Gartens.;;Un magnífico estanque con hermosos lirios y lleno de los peces más raros es la pieza central y mas brillante del jardín.;;;;;;;;;x
+ca_garden_3;Hedge Maze;Labyrinthe végétal;Heckenlabyrinth;;Laberinto de setos.;;;;;;;;;x
+ca_garden_3_desc;Dignitaries and visitors can only stand in awe at the towering walls of the Hedge Maze. ;Dignitaires et visiteurs ne peuvent qu'admirer les haies imposantes de votre labyrinthe.;Würdenträger und Besucher können die emporragenden Wände Eures Heckenlabyrinths nur bewundern.;;Dignatarios y visitantes lo recorren admirados por la belleza y altura de sus imponentes paredes.;;;;;;;;;x
+ca_wine_cellar;Wine Cellar;Cave à vin;Weinkeller;;Bodega.;;;;;;;;;x
+ca_secret_passages;Secret Passages;Passages secrets;Geheimgänge ;;Pasajes secretos.;;;;;;;;;x
+ca_secret_passages_desc;Secret passages line the walls of your castle and lead to clandestine meeting rooms deep in the heart of the keep.;Les passages secrets s'étendant entre les murs de votre château mènent à des salles de réunions secrètes au cœur du donjon.;Geheimgänge verlaufen zwischen den Wänden Eurer Burg und führen zu geheimen Tagungsräumen tief im Herzen des Bergfrieds.;;Pasajes secretos paralelos a las paredes del castillo, conducen a clandestinas habitaciones en el mas recóndito corazón del torreón.;;;;;;;;;x
+ca_training_yard_desc;The training yard is equipped with all sorts of dummies and an archery range. It is the perfect place to develop and refine your martial skills.;Le terrain d'exercice est équipé de toutes sortes de mannequins et d'un pas de tir à l'arc. C'est l'endroit idéal pour développer et affiner vos compétences martiales.;Der Übungsplatz ist mit allen erdenklichen Übungspuppen und einem Bogenschießstand ausgerüstet. Es ist der perfekte Ort um Eure Kampfkünste zu entwickeln und zu verfeinern.;;La palestra está equipada con toda clase de muñecos y un campo de tiro. Es el lugar perfecto para desarrollar y perfeccionar las habilidades marciales.;;;;;;;;;x
+ca_training_yard;Personal Training Yard;Terrain d'exercice personel;Persönlicher Übungsplatz;;Palestra personal.;;;;;;;;;x
+studied_war;Studied the Art of War;Étudier l'art de la guerre.;Hat Kriegskünste studiert;;Estudiar el arte de la guerra.;;;;;;;;;x
+studied_art;Studied Culture;Étudier la culture.;Hat Kultur studiert;;Estudiar cultura.;;;;;;;;;x
+studied_economy;Studied Economy;Étudier l'économie.;Hat Wirtschaft studiert;;Estudiar economia.;;;;;;;;;x
+studying_hard;Studying Intensively;Étudier intensivement.;Studiert intensiv;;Estudiar sin descanso.;;;;;;;;;x
+ca_chapel;Chapel;Chapelle;Kapelle;;Capilla.;;;;;;;;;x
+fp_chapel;Chapel;Chapelle;Kapelle;;Capilla.;;;;;;;;;x
+ca_chapel_desc;A small chapel within your castle walls.;Une petite chapelle au sein de votre château.;Eine kleine Kapelle innerhalb Eurer Burgmauern.;;Una pequeña capilla dentro de las murallas del castillo.;;;;;;;;;x
+fp_chapel_desc;A small chapel within your palace.;Une petite chapelle au sein de votre palais.;Eine kleine Kapelle im Inneren Eures Palastes.;;Una pequeña capilla dentro de el Palacio.;;;;;;;;;x
+studied_art_capital;Ruler Studying Culture;Le souverain étudie la culture.;Herrscher studiert Kultur;;Gobernante estudiando cultura.;;;;;;;;;x
+studied_war_capital;Ruler Studying the Art of War;Le souverain étudie l'art de la guerre.;Herrscher studiert Kriegskünste;;Gobernante estudiando el arte de la guerra.;;;;;;;;;x
+studied_economy_capital;Ruler Studying Economy;Le souverain étudie l'économie.;Herrscher studiert Wirtschaft;;Gobernante estudiando economia.;;;;;;;;;x
+ca_wine_cellar_2;Grand Banquet Hall;Grande salle de réception;Großer Festsaal;;Gran Salón de Banquetes.;;;;;;;;;x
+ca_wine_cellar_2_desc;An extravagant hall in the heart of the castle for entertaining guests with lavish feasts;Un hall extravagant au cœur du château pour recevoir des invités avec des fêtes somptueuses.;Ein extravaganter Saal im Herzen Eurer Burg für den Empfang Eurer Gäste zu üppigen Festen.;;Una extravagante sala en el corazón del castillo para entretener a los invitados con fiestas fastuosas.;;;;;;;;;x

@@ -1,0 +1,263 @@
+namespace = percas
+character_event = {
+id = percas.0
+desc = "EVTDESCPERCAS0"
+picture = GFX_event_personal_library
+border = GFX_event_normal_frame_diplomacy
+
+only_rulers = yes
+prisoner = no
+min_age = 16
+only_capable = yes
+
+	mean_time_to_happen = {
+		months = 3 
+	}
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+		}
+		capital_holding = {
+			has_building = ca_library
+		}
+		any_courtier = {
+			learning = 8
+			prisoner = no
+			age = 16
+		}
+		NOT = { has_character_flag = library_obtained_1 }
+	}
+	immediate = {
+		set_character_flag = library_obtained_1
+	}
+	option = {
+		name = allow_library
+		economy_techpoints = 15
+		culture_techpoints = 15
+		military_techpoints = 15
+		any_courtier = {
+			limit = {
+				learning = 8
+				prisoner = no
+				age = 16
+			}
+			opinion = {
+				modifier = library_pos
+				who = ROOT
+				years = 2
+			}
+		
+		}
+	}
+	option = {
+		name = dont_allow_library
+		add_trait = proud
+		any_courtier = {
+			limit = {
+				learning = 8
+				prisoner = no
+				age = 16
+			}
+			opinion = {
+				modifier = library_neg
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+
+}
+
+character_event = {
+id = percas.1
+desc = "EVTDESCPERCAS1"
+picture = GFX_event_personal_library
+border = GFX_event_normal_frame_religion
+
+only_rulers = yes
+prisoner = no
+min_age = 16
+only_capable = yes
+
+	mean_time_to_happen = {
+		months = 2 
+	}
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+		}
+		capital_holding = {
+			has_building = ca_library
+		}
+		NOT = { has_character_flag = library_obtained_2 }
+	}
+	immediate = {
+		set_character_flag = library_obtained_2
+	}
+	option = {
+		name = use_library_much
+		tooltip_info = learning
+		change_learning = 2
+		fertility = -0.10
+		trigger = {
+			OR ={
+				learning = 7
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholar
+			}
+		}
+	}
+	option = {
+		name = use_library_some
+		change_learning = 1
+	}
+	option = {
+		name = use_library_wrong
+		tooltip_info = lunatic
+		custom_tooltip = { text = throw_book_tooltip }
+		trigger = {
+			trait = lunatic
+		}
+		random_courtier = {
+			limit = {
+				learning = 3
+				prisoner = no
+			}
+			opinion = {
+				modifier = throw_book_neg
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = use_library_wrong
+		custom_tooltip = { text = throw_book_tooltip_stupid }
+		trigger = {
+			OR = {
+				trait = inbred
+				trait = imbecile
+				trait = slow
+			}
+			NOT = { trait = lunatic }
+		}
+		random_courtier = {
+			limit = {
+				prisoner = no
+			}
+			opinion = {
+				modifier = throw_book_neg
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}
+character_event = {
+id = percas.2
+desc = "EVTDESCPERCAS102"
+picture = GFX_study_window
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	option = {
+		name = writing_a_book
+		trigger = {
+			ai = no
+			NOT = { 
+				has_character_flag = nothing_to_write
+			}
+		} 
+		hidden_tooltip = { character_event = { id = percas.3 } }
+	}
+	option = {
+		name = learn_techs
+		hidden_tooltip = {
+			character_event = { id = studyt.1 }
+		}
+		clr_character_flag = nothing_to_write
+	}
+}
+character_event = {
+id = percas.3
+desc = "EVTDESCPERCAS103"
+picture = GFX_event_write
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = write_biography
+		hidden_tooltip = { character_event = { id = percas.4 days = 180 random = 40 } }
+		custom_tooltip = { text = bio_reg }
+		trigger = {
+			NOT = { has_character_flag = wrote_biography }
+			age = 25
+		}
+	}
+	option = {
+		name = write_poem
+		set_character_flag = writing_poem
+		custom_tooltip = { text = poem_reg }
+		trigger = {
+			NOT = { has_character_flag = wrote_poem }
+			is_married = yes
+		}
+	}	
+	option = {
+		name = write_bible
+		hidden_tooltip = { character_event = { id = percas.5 days = 180 random = 60 } }
+		trigger = {
+			NOT = { has_character_flag = wrote_bible }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
+		trigger = {
+			has_character_flag = wrote_bible
+		}
+		name = nothing_write
+		set_character_flag = nothing_to_write
+		hidden_tooltip = { character_event = {id = percas.2} }
+	}
+}
+character_event = {
+id = percas.4
+desc = "PERCAS4"
+picture = GFX_event_write
+border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bio_ready
+		set_character_flag = writing_biography
+		set_character_flag = wrote_biography
+		clr_character_flag = do_not_disturb
+	}
+}
+character_event = {
+id = percas.5
+desc = "PERCAS5"
+picture = GFX_event_write
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bible_ready
+		set_character_flag = bible_writing
+		set_character_flag = wrote_bible
+		clr_character_flag = do_not_disturb
+	}
+}

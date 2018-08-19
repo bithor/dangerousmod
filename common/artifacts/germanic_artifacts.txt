@@ -1,0 +1,321 @@
+### Pagan ###
+
+#Germanic
+Angurvadal = {
+	martial = 4
+	combat_rating = 5
+	command_modifier = {
+		damage = 0.1
+	    }
+	    diplomacy = -2
+        quality = 5
+	    active = {
+		is_adult = yes
+	    }
+    flags = { norse_pagan very_rare combat_weapon unholy }
+    picture = "GFX_sword_T3_glow_red"
+    stacking = no
+    slot = weapon
+}
+
+Skofnung = {
+    monthly_character_prestige = 0.5
+	martial = 4
+	combat_rating = 4
+    quality = 4
+	active = {
+		is_adult = yes
+	}
+    flags = { norse_pagan very_rare combat_weapon }
+    picture = "GFX_sword_engraved"
+    stacking = no
+    slot = weapon
+}
+
+Hrunting = {
+    monthly_character_prestige = 0.8
+	martial = 2
+	vassal_opinion = 5
+    quality = 4
+	active = {
+		OR = {
+		culture_group = west_germanic
+		culture_group = north_germanic
+		culture_group = central_germanic
+		religion = norse_pagan
+		religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { very_rare }
+    picture = "GFX_sword_rusty"
+    stacking = no
+    slot = ceremonial_weapon
+}
+
+Nagling = {
+    monthly_character_prestige = 0.8
+	martial = 2
+	vassal_opinion = 5
+    quality = 4
+	active = {
+	OR = {
+		culture_group = west_germanic
+		culture_group = north_germanic
+		culture_group = central_germanic
+		religion = norse_pagan
+		religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { very_rare }
+    picture = "GFX_sword_rusty"
+    stacking = no
+    slot = ceremonial_weapon
+}
+
+Gungnir = {
+    monthly_character_prestige = 1
+	monthly_character_piety = 1
+	command_modifier = {
+		heavy_infantry = 0.1
+		morale_defence = 0.2
+	}
+	retinuesize_perc = 0.2
+    same_religion_opinion = 10
+    quality = 5
+	active = {
+		OR = {
+		    culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags =	{ religious norse_pagan very_rare troops_morale }
+    picture = "GFX_spear_of_destiny"
+    stacking = no
+    slot = ceremonial_weapon
+}
+
+Brisingamen = {
+    diplomacy = 2
+    fertility = 0.1
+	health = 1
+    quality = 4
+	same_religion_opinion = 5
+	active = {
+		OR = {
+		    culture_group = north_germanic
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { religious norse_pagan very_rare necklace jewelry crown_jewel }
+    picture = "GFX_necklace_of_radiance"
+    stacking = no
+    slot = neck
+}
+
+Gleipnir = {
+    arrest_chance_modifier = 0.2
+    quality = 3
+	active = {
+		OR = {
+		    culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { religious norse_pagan very_rare chains } 
+    stacking = no
+    picture = "GFX_relic_box_simple"
+}
+
+Draupnir = {
+	demesne_size = 2
+	global_revolt_risk = -0.03
+	build_time_modifier = -0.3
+	vassal_opinion = 8
+    quality = 5
+	active = {
+		OR = {
+		    culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { religious norse_pagan very_rare ring }
+    picture = "GFX_bracelet_jeweled_gold"
+    stacking = no
+    slot = wrist
+}
+
+Gambanteinn = {
+    intrigue = 2
+	learning = 2
+	combat_rating = 2
+    quality = 4
+	active = {
+		OR = {
+		    culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { religious norse_pagan very_rare staff }
+    picture = GFX_royal_scepter
+    stacking = no
+    slot = scepter
+}
+
+Singasteinn = {
+    learning = 3
+	intrigue = 3
+	plot_power_modifier = 0.2
+	plot_discovery_chance = 0.8
+	same_religion_opinion = 5
+    quality = 5
+	active = {
+		OR = {
+		    culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { religious norse_pagan very_rare }
+    picture = "GFX_emerald_tablet"
+    stacking = no
+}
+   
+Aegishjalmr = {
+   martial = 2
+   command_modifier = { 
+   morale_offence = 0.1
+   }
+   monthly_character_prestige = 0.5
+   vassal_opinion = 5
+   same_religion_opinion = 5
+    quality = 3
+	active = {
+		OR = {
+			culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+    flags = { religious norse_pagan very_rare troops_morale combat}
+    picture = GFX_iron_crown_of_lombardy
+    stacking = no
+    slot = crown
+}
+   
+Bragis_harp = {
+    diplomacy = 4
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.5
+	vassal_opinion = 5
+	same_religion_opinion = 5
+    quality = 5
+	active = {
+		OR = {
+			culture_group = north_germanic
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+     flags = { religious norse_pagan very_rare }
+     picture = "GFX_king_davids_harp"
+     stacking = no
+}
+   
+Eitur = {
+    health = 3
+    assassinate_chance_modifier = 0.3
+    quality = 4
+	active = {
+		OR = {
+			culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+      flags = { religious norse_pagan very_rare }
+     picture = "GFX_pouch"
+     stacking = no
+}
+   
+Galdrabok = {
+   command_modifier = { 
+   morale_defence = 0.1
+   }
+    learning = 4
+	same_religion_opinion = 5
+    quality = 3
+	active = {
+		OR = {
+		    culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			trait = mystic
+		}
+		is_adult = yes
+		learning = 10
+	}
+    flags = { religious norse_pagan very_rare book }
+    picture = "GFX_book_blue_glow"
+    stacking = no
+}
+   
+Mimirs_head = {
+    learning = 6
+	plot_power_modifier = 0.8
+	same_religion_opinion = 5
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.4
+    quality = 4
+	active = {
+		OR = {
+		    culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			trait = lunatic
+		}
+		is_adult = yes
+		learning = 10
+	}
+    flags = { religious norse_pagan very_rare trophy skull }
+    picture = "GFX_saints_skull"
+    stacking = no
+}
+
+Gram = {
+	monthly_character_prestige = 1
+	martial = 3
+	combat_rating = 3
+	vassal_opinion = 10
+	short_reign_length = -2
+	quality = 5
+	active = {
+		OR = {
+		culture_group = west_germanic
+		culture_group = north_germanic
+		culture_group = central_germanic
+		religion = norse_pagan
+		religion = norse_pagan_reformed
+		}
+		is_adult = yes
+	}
+	flags = { religious norse_pagan very_rare combat_weapon }
+	stacking = no
+	picture = "GFX_sword_of_heroes"
+	slot = weapon
+}

@@ -1,0 +1,64 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_robmod_create_norse_monks"
+		texturefile = "gfx\\interface\\decision_icon_norse_monks.dds"
+	}
+	spriteType = {
+		name = "GFX_expel_the_thorshammers"
+		texturefile = "gfx\\interface\\decision_icon_expel_holy_order.dds"
+	}
+	spriteType = {
+		name = "GFX_donate_money_to_thorshammers"
+		texturefile = "gfx\\interface\\decision_icon_donate_to_holy_order.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_robmod_norse_raise_oathsmen"
+		texturefile = "gfx\\interface\\decision_icon_norse_monks.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_norse_monastic_order_invite_sorcerer"
+		texturefile = "gfx\\interface\\decision_icon_invite_holy_ascetic.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_norse_monastic_order_heal"
+		texturefile = "gfx\\interface\\decision_icon_ancestor_worship.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_norse_monastic_order_learn_seidr"
+		texturefile = "gfx\\interface\\decision_icon_ancestor_worship.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_robmod_norse_choose_pantheon"
+		texturefile = "gfx\\interface\\decision_icon_pick_main_deity.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_norse_champions_learn_to_swordfight"
+		texturefile = "gfx\\interface\\decision_icon_learn_swordfighting.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_norse_champions_acquire_weapon"
+		texturefile = "gfx\\interface\\decision_icon_smith.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_norse_champions_inspire_troops"
+		texturefile = "gfx\\interface\\decision_icon_inspire_armies.dds"
+	}
+	spriteType = {
+		name = "GFX_norse_champions_raise_army"
+		texturefile = "gfx\\interface\\decision_icon_raise_army.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_norse_champions_tournament"
+		texturefile = "gfx\\interface\\decision_icon_learn_swordfighting.dds"
+	}
+}

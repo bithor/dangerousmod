@@ -1,0 +1,42 @@
+#CODE;ENGLISH;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAssists;Spouse Assists with Rule;;;;;;;;;;;;;x
+EVTDESCsoulmates.5201;Seeing that you are terribly busy with handling day-to-day affairs of the realm, your [Root.Spouse.GetHusbandWife] has taken it upon [Root.Spouse.GetHerselfHimself] to treat with dignitaries of foreign realms. Unfortunately, [Root.Spouse.GetSheHe] has only managed to infuriate them...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5201;I'm sure this is just a misunderstanding.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5202;Seeing that you are terribly busy with handling day-to-day affairs of the realm, your [Root.Spouse.GetHusbandWife] has taken it upon [Root.Spouse.GetHerselfHimself] to treat with dignitaries of foreign realms. [Root.Spouse.GetSheHeCap] has settled grievances with some minor lords in a manner that advances your own agenda!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5202;Excellent.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5203;Seeing that you are terribly busy with handling day-to-day affairs of the realm, your [Root.Spouse.GetHusbandWife] has taken it upon [Root.Spouse.GetHerselfHimself] to treat with dignitaries of foreign realms. [Root.Spouse.GetSheHeCap] has impressed several major lords in a manner that is satisfactory!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5203;Excellent.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5204;Seeing that you are terribly busy with handling day-to-day affairs of the realm, your [Root.Spouse.GetHusbandWife] has taken it upon [Root.Spouse.GetHerselfHimself] to treat with dignitaries of foreign realms. [Root.Spouse.GetSheHeCap] has achieved an unprecedented treaty of cultural exchange between our two realms!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5204;Wonderful news!;;;;;;;;;;;;;x
+EVTDESCsoulmates.5211;Your [Root.Spouse.GetHusbandWife], fancying [Root.Spouse.GetHerselfHimself] a competent fighter, decided to try and drill the soldiers [Root.Spouse.GetHerselfHimself]. [Root.Spouse.GetSheHeCap] had been struck down in an accidental blow that [Root.Spouse.GetSheHe] had been unable to parry, leaving her with a nasty gash. The damage should heal, over time.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5211;Oh dear.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5212;Your [Root.Spouse.GetHusbandWife] has been out all day drilling the troops. While [Root.Spouse.GetSheHe] has achieved some success, the troops are not particularly impressed.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5212;Well, at least [Root.Spouse.GetSheHe] is trying [Root.Spouse.GetHerHis] best...;;;;;;;;;;;;;x
+EVTDESCsoulmates.5213;Your [Root.Spouse.GetHusbandWife] has been drilling the commanders of the realm all day and instructing them in the arts of war. They appear to have learned something from [Root.Spouse.GetHerHim].;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5213;Excellent.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5214;Your talented [Root.Spouse.GetHusbandWife] has been instructing the commanders of the realm in truly revolutionary ways to wage war. They appear to have learned much from [Root.Spouse.GetHerHis] expert teachings.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5214;Wonderful news!;;;;;;;;;;;;;x
+EVTDESCsoulmates.5221;Your foolish [Root.Spouse.GetHusbandWife] had gone with a large pouch of gold intending to invest in some profitable ventures, only to run into some charlatans. [Root.Spouse.GetSheHeCap] believed in what they had offered, and refused to listen to any of the other courtiers' warnings! Needless to say, the crafty swindlers have long since departed your realm...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5221;My beautiful gold coins...gone forever...;;;;;;;;;;;;;x
+EVTDESCsoulmates.5222;Your [Root.Spouse.GetHusbandWife] had gone to the market today with a large pouch of gold. After a day of trading and bartering goods, [Root.GetSheHe] has returned to the castle with a pouch slightly heavier than it was at the start of the day.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5222;Gold is always good. I only wish it were more...;;;;;;;;;;;;;x
+EVTDESCsoulmates.5223;Several investments that your [Root.Spouse.GetHusbandWife] has made in the past has borne fruit. Quite a fair amount of gold flows from these investments - straight into your coffers.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5223;I could kiss [Root.Spouse.GetHerHim] for that!;;;;;;;;;;;;;x
+EVTDESCsoulmates.5224;It seems that [Root.Spouse.GetFirstName]'s financial acumen knows no bounds. Your ledgers are in perfect order, and your tax collectors know exactly how much each peasant, merchant and noble owes you. Gold flows freely into your coffers, thanks to [Root.Spouse.GetHerHis] revolutionary work.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5224;[Root.Spouse.GetSheHeCap] truly has a golden touch.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5231;[Root.Spouse.GetFirstName] has been indulging in the darker arts of court intrigue lately. Too openly, it seems, as in the line of working to further your aims, [Root.Spouse.GetSheHe] appears to have incurred the wrath of some local thugs. [Root.Spouse.GetSheHeCap] has escaped, though not unscathed.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5231;Why can't [Root.Spouse.GetSheHe] just let some other fool do the job!?;;;;;;;;;;;;;x
+EVTDESCsoulmates.5232;Working in the shadows, [Root.Spouse.GetFirstName], with the aid of some aides of ill-repute, has managed to acquire a few...things. Things that your rivals and foes should not miss...probably.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5232;Excellent. That should be useful.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5233;Working in the shadows, [Root.Spouse.GetFirstName], with the aid of some aides of ill-repute, has managed to acquire several items. Items which your rivals and foes would sorely miss.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5233;Very good.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5234;Working in the shadows, [Root.Spouse.GetFirstName] has somehow acquired the most heavily-guarded treasures and secrets of your foes. These could be either studied or ransomed back, of course...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5234;Wonderful news!;;;;;;;;;;;;;x
+EVTDESCsoulmates.5241;Your [Root.Spouse.GetHusbandWife], being trained as a cleric, has taken it upon [Root.Spouse.GetHerselfHimself] to treat with the priests to gather support for your rule. So far, it seems to be working rather poorly. Everything that [Root.Spouse.GetSheHe] has said has only offended the priests...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5241;Don't talk to the turbulent priests, just get rid of them!;;;;;;;;;;;;;x
+EVTDESCsoulmates.5242;Your [Root.Spouse.GetHusbandWife], being trained as a cleric, has taken it upon [Root.Spouse.GetHerselfHimself] to treat with the priests to gather support for your rule. So far, it seems to be working in a mediocre way. Very few are taking [Root.Spouse.GetHerHim] seriously at all...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5242;Well, it's better than nothing...;;;;;;;;;;;;;x
+EVTDESCsoulmates.5243;Your [Root.Spouse.GetHusbandWife], being trained as a cleric, has taken it upon [Root.Spouse.GetHerselfHimself] to treat with the priests to gather support for your rule. So far, it seems to be working rather well. Everything that [Root.Spouse.GetSheHe] has said garnered their attention, and a few have contributed rare tomes to the castle libraries!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5243;Excellent.;;;;;;;;;;;;;x
+EVTDESCsoulmates.5244;Your [Root.Spouse.GetHusbandWife], being trained as a cleric, has taken it upon [Root.Spouse.GetHerselfHimself] to treat with the priests to gather support for your rule. So far, it is working brilliantly! Numerous priests are talking of your piety, and many have contributed valuable manuscripts to your libraries, in the hopes of furthering your enlightened rule!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.5244;Wonderful news!;;;;;;;;;;;;;x

@@ -1,0 +1,9 @@
+hasartifact = {
+	random = no
+	customizer = no
+}
+
+hasartifactrare = {
+	random = no
+	customizer = no
+}

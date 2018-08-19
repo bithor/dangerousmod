@@ -1,0 +1,91 @@
+###### ROBMOD ######
+### DIPOSITION ON-ACTION EVENTS ###
+# last edited 19-10-16 
+# CHANGELOG #
+# 19-10-16: Created
+
+#character
+
+on_death = {
+	events = {
+		robmodnorse.00008 # in case of death during trial of thor
+		robmodnorse.00009 # in case of death during friggsister training
+		robmodnorse.00318 # bestow grand champion trait
+		robmodnorse.00039 # Backup in case first raven dies
+		robmodnorse.00373 # Squire dies
+	}
+}
+
+on_yearly_childhood_pulse = {
+	events = {
+		robmodnorse.00014 # Beyd childhood animal event chain - orphan
+		robmodnorse.00015 # Beyd childhood animal event chain - not orphan
+		robmodnorse.00019 # Beyd childhood ceremony event chain - orphan
+		robmodnorse.00020 # Beyd childhood ceremony event chain - orphan
+	}
+}
+
+on_adulthood = {
+	events = {
+		# in case of death during trial of thor
+		robmodnorse.00008
+		# in case of death during friggsister training
+		robmodnorse.00009
+	}
+}
+
+# A character asks to join a society. Only works on player
+# Root = Character
+# From = Society
+on_character_ask_to_join_society = {
+	events = {
+		robmodnorse.00255 #Order of the Vanir
+		robmodnorse.00258 #Champions of Aesir
+	}
+}
+
+on_character_leave_society = {
+	events = {
+		robmodnorse.00318 # bestow grand champion trait
+	}
+}
+
+on_character_society_rank_up = {
+	events = {
+		robmodnorse.00319 # nickname grant for grand champion
+	}
+}
+
+on_society_bi_yearly_pulse = {
+	events = {
+		robmodnorse.00276 # Champions of Aesir tombola
+	}
+}
+
+on_battle_won_leader = {
+	random_events = {
+		1500 = 0
+		500 = robmodnorse.00299 # Norse champions grandmaster impressed
+		10 = robmodnorse.00029 # Tyr joins you on the battlefield
+	}
+}
+
+# From = Attacker, Root = Defender
+on_war_ended_victory = {
+	events = {
+		robmodnorse.00306 #if defender loses against you, ping to your grandmaster for war of aggression
+	}
+}
+
+on_navy_returns_with_loot = {
+	events = {
+		robmodnorse.00295 #viking raid quest
+	}
+}
+
+# When a pagan religion is reformed
+on_reform_religion = {
+	events = {
+		robmodnorse.00038	# begins first raven events
+	}
+}

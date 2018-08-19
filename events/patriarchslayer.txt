@@ -1,0 +1,86 @@
+namespace = greatestblot
+character_event = {
+    id = greatestblot.0009
+    title = "Colossal Luck"
+    picture = GFX_evt_vikings_arriving_oldgods
+    border = GFX_event_normal_frame_intrigue
+    desc = EVTDESCgreatestblot.0009
+	mean_time_to_happen = {
+	months = 3
+ 	}
+    trigger = {
+		has_dlc = "The Old Gods"
+		is_ruler = yes
+		ai = no
+		NOT = { has_global_flag = patriarch_delayed }
+		any_courtier = {
+			prisoner = yes
+			religion = orthodox
+			controls_religion = yes
+ 		}
+    }
+    option = {
+       name = EVTOPTAgreatestblot.0009
+       character_event = { id = greatestblot.0010 days = 10 }
+    }
+}
+character_event = {
+    id = greatestblot.0010 
+    title = "Anatolian Father"
+    picture = GFX_evt_viking_throneroom_oldgods
+    border = GFX_event_normal_frame_intrigue
+    desc = EVTDESCgreatestblot.0010
+    is_triggered_only = yes
+        mean_time_to_happen = {
+	days = 1
+ 	}
+    option = {
+        name = EVTOPTAgreatestblot.0010
+        character_event = { id = greatestblot.0011 days = 10 }
+    }
+    option = {
+	name = EVTOPTBgreatestblot.0010
+		hidden_tooltip = {
+        		set_global_flag = patriarch_delayed
+		}	
+    }
+}
+character_event = {
+    id = greatestblot.0011 
+    title = "Offering up the Ecumenical One"
+    picture = GFX_evt_Beheading
+    border = GFX_event_normal_frame_intrigue
+    desc = EVTDESCgreatestblot.0011
+    is_triggered_only = yes
+        mean_time_to_happen = {
+	days = 1
+ 	}
+    option = {
+       name = EVTOPTAgreatestblot.0011
+	add_trait = Patriarch_Slayer
+	prestige = 100
+	piety = 150
+	religion_authority = {
+			modifier = sacrificed_head_good
+			years = 20
+	}
+	k_orthodox = {
+	holder_scope = {
+	       		death = {
+			death_reason = death_sacrificed_norse
+			killer = FROM
+			}
+        }
+	}
+    }
+}
+character_event = {
+    id = greatestblot.00012
+	trigger = {
+	had_global_flag = { flag = patriarch_delayed days = 800 }
+	}
+	option = {
+		name = EVTOPTAgreatestblot.00012
+		clr_global_flag = patriarch_delayed
+	}
+}

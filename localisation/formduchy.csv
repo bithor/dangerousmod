@@ -1,0 +1,6 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+form_new_duchy;Found a new Duchy;Former un nouveau Duché;Bildet ein neues Herzogtum;;Formar un nuevo Ducado;;;;;;;;;x;;
+form_new_duchy_desc;A powerful [Root.PrimaryTitle.GetRulerTitle] such as me surely deserves to be recognized as something more. Perhaps the time has come to claim my place in the sun...;Notre influence croît au fur et à mesure que la domaine s'étend. L'époque où nous formions un petit compté est révolue, faites place au nouveau duché !;Mit unserem Reich ist auch unser Einfluss gewachsen. Wir sind jetzt kein bloßes Grafschaft mehr, wir können uns zum Herzogtum erklären!;;A medida que nuestros dominios han crecido, también lo ha hecho nuestra influencia. Ya no podemos ser considerados sólo un condado, ¡ahora nos podemos proclamar ducado!;;;;;;;;x;;;
+form_new_duchy_tooltip;A new Duchy is founded!;Un nouveau Duché a vu le jour;Ein neues Herzogtum hat sich gebildet.;;Un nuevo Ducado se ha formado;;;;;;;;;x;;
+form_new_duchy_requirement_tooltip;Hold 3 county titles\n;Détient 3 titres de compté\n;Besitzt 3 Grafschaft\n;;Sustentar 3 títulos de condados\n;;;;;;;;;x
+

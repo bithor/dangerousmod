@@ -1,0 +1,183 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x;,,,,,,,,,,,,
+## HOLY ORDER TITLES
+JOMSCHIEF;Hofðingi;Hofðingi;Hofðingi;;Hofðingi;;;;;;;;;x
+JOMSCHIEF_FOA;Your Mightiness;Votre Altesse;Ihre Mächtigkeit;;Su Poderío;;;;;;;;;x
+d_jomsvikings;Jomsvíkingar;Jomsvíkingar;Jomsvíkingar;;Jomsvíkingar;;;;;;;;;x																																								
+d_jomsvikings_adj;Jomir;Jomir;Jomir;;Jomir;;;;;;;;;x																																								
+THORSMAN;Þorinn;Þorinn;Þorinn;;Þorinn;;;;;;;;;x
+THORSMAN_FOA;Your Mightiness;Votre Altesse;Ihre Mächtigkeit;;Su Poderío;;;;;;;;;x
+d_thorshammers;Þórshamrar;Þórshamrar;Þórshamrar;;Þórshamrar;;;;;;;;;x																																								
+d_thorshammers_adj;Hamrari;Hamrari;Hamrari;;Hamrari;;;;;;;;;x																																								
+## NEW PROVINCE NAMES
+c_zeeland_norse;Þoln;Þoln;Þoln;;Þoln;;;;;;;;;x
+b_tholen_norse;Þolnhof;Þolnhof;Þolnhof;;Þolnhof;;;;;;;;;x
+c_braunschweig_norse;Paðrheimr;Paðrheimr;Paðrheimr;;Paðrheimr;;;;;;;;;x
+b_paderborn_norse;Paðrhof;Paðrhof;Paðrhof;;Paðrhof;;;;;;;;;x
+## RELIGION
+STRITH_GINNHEILAGR;Ofriðr-Skírr;Ofriðr-Skírr;Ofriðr-Skírr;;Ofriðr-Skírr;;;;;;;;;x
+d_norse_pagan_reformed;Hrafnset;Hrafnset;Hrafnset;;Hrafnset;;;;;;;;;x
+d_norse_pagan_reformed_adj;Norse;nordique;nordisch;;Nórdico;;;;;;;;;x
+norse_pagan_reformed;Beyð;Beyð;Beyð;;Beyð;;;;;;;;;x
+norse_pagan_reformed_DESC;The reformed Norse Pagan faith has a Holy Book - the Guðalog (Godslaws) - written in runes with chapters on Creation, the Gods, Ragnarok, and the eponymous Godslaws govering Miðgarðr, the realm of men. Beyð translates as 'Offered' or 'Invited', and refers to the Bjóða-Guða ('offer oneself to the Gods' or 'invite the Gods'), the rite of admission and adoption to the faith - similar to a baptism - performed by Norse children at the age of nine. This age is significant: it symbolises the nine worlds in Norse cosmology, and is also an age at which consent can be inferred (choice being an important tenet of the faith). The church has a standardized liturgy and a formal hierarchy led by the Oðinshrafn ('Odin's Raven', named for Huginn and Muninn, a pair of ravens that fly all over the world and bring information to the god Odin). Much like an Islamic Caliph, the Hrafn is both a secular ruler and the religious leader of the faithful.;La foi nordique réformée a un livre sacré écrit en runes, incluant des chapitres sur la Création, les dieux, le Ragnarök, et les incantations secrètes ('galdrs'). Les religieux possèdent une liturgie standardisée et une hiérarchie symbolique dirigée par le « fylkir » qui, un peu comme le calife islamique, est à la fois chef séculier et chef spirituel.;Das reformierte nordische Heidentum besitzt ein Heiliges Buch, geschrieben in Runen, mit Kapiteln über die Schöpfung, die Götter, Ragnarok und geheime Zaubersprüche - 'galdrs'. Die Kirche besitzt standardisierte Liturgien und eine formelle Kirchenhierarchie, angeführt vom 'Fylkir', der - ähnlich dem islamischen Kaliphen - sowohl ein sekulärer Herrscher als auch ein religiöser Anführer ist.;;La reformada fe Pagana Nórdica tiene un Libro Sagrado escrito en runas con capítulos dedicados a la Creación, los dioses, Ragnarok, y los hechizos secretos, "galdrs". La iglesia tiene una liturgia estandarizada y una jerarquía formal dirigida por el Fylkir, que, al igual que un Califa Islámico, es a la vez un gobernante secular y el líder religioso de los fieles.;;;;;;;;;x
+norse_pagan;Norse;Nordique;Nordisch;;Nórdico;;;;;;;;;x
+GODI;Goði;Goði;Goði;;Goði;;;;;;;;;x,,,,
+GOD_ODIN;Oðinn;Oðinn;Oðinn;;Oðinn;;;;;;;;;x,,,,
+GOD_FREY;the Lord Freyr;le Seigneur Freyr;der Herr Freyr;;el Señor Freyr;;;;;;;;;x,,,,
+GOD_FRIGG;Frigg;Frigg;Frigg;;Frigg;;;;;;;;;x,,,,
+GOD_AESIR;the Æsir;les Æsir;die Æsir;;los Æsir;;;;;;;;;x,,,,
+GOD_VANIR;the Vanir;les Vanir;die Vanir;;los Vanir;;;;;;;;;x,,,,
+GOD_FREYJA;the Lady;la Dame;die Dame;;la Dama;;;;;;;;;x,,,,
+THE_GUDALOGA;the Guðalog;les Guðalog;die Guðalog;;las Guðalog;;;;;;;;;x,,,,
+PIETY_NORSE;Guðalút;Guðalút;Guðalút;;Guðalút;;;;;;;;;x,,,,
+STAT_PIETY_PIETY_NORSE;Guðalút;Guðalút;Guðalút;;Guðalút;;;;;;;;;x,,,,
+STAT_PIETY_MENU_PIETY_NORSE;Guðalút;Guðalút;Guðalút;;Guðalút;;;;;;;;;x,,,,
+STAT_PIETY_DESC_PIETY_NORSE;Guðalút means 'Reverence for (or bowed before) the Gods'. Guðalút is respected by the Goðis and like prestige is added to your score on death.;Guðalút signifie 'Reverence pour (ou s'incline devant) les dieux'. Guðalút est respecté par les Goðis et comme le prestige est ajouté à votre score sur le décès.;Guðalút bedeutet "Ehrfurcht vor (oder verbeugte vor) die Götter". Guðalút wird von den Goðis respektiert und wie Prestige wird zu Ihrem Ergebnis beim Tode hinzugefügt.;;Guðalút significa 'Reverencia por (o inclinado ante) los Dioses'. Guðalút es respetado por el Goðis y como prestigio se añade a su puntuación en la muerte.;;;;;;;;;x,,,,
+MONTHLY_PIETY_PIETY_NORSE;Monthly Guðalút;Guðalút mensuel;Monatliche Guðalút;;Mensual Guðalút;;;;;;;;;x;,,,,,,,,,,,,
+## LANDED TITLES
+# Fylkir
+FYLKIR;Oðinshrafn;Oðinshrafn;Oðinshrafn;;Oðinshrafn;;;;;;;;;x
+FYLKJA;Oðinshrafnja;Oðinshrafnja;Oðinshrafnja;;Oðinshrafnja;;;;;;;;;x
+FYLKIR_FOA;Your Mightiness;Votre Altesse;Ihre Mächtigkeit;;Su Poderío;;;;;;;;;x
+# Vice-royalties
+vice_royalty_duke_norse;Efri-Jarl;Efri-Jarl;Efri-Jarl;;Efri-Jarl;;;;;;;;;x,,,,
+vice_royalty_king_norse;Hilmir;Hilmir;Hilmir;;Hilmir;;;;;;;;;x,,,,
+vice_royalty_duchy_of_norse;Heimr af;Heimr af;Heimr af;;Heimr af;;;;;;;;;x,,,,
+vice_royalty_kingdom_of_norse;Hilmirset af;Hilmirset af;Hilmirset af;;Hilmirset af;;;;;;;;;x,,,,
+vice_royalty_duke_female_norse;Efri-Jarlja;Efri-Jarlja;Efri-Jarlja;;Efri-Jarlja;;;;;;;;;x,,,,
+vice_royalty_king_female_norse;Hilmja;Hilmja;Hilmja;;Hilmja;;;;;;;;;x,,,,
+vice_royalty_desc_norse;A Hilmir is a Chief of a Norse Kingdom, appointed by the Flykir to hold the land in his name. Such grants are not inherited and will revert back to the Fylkir when the holder dies.;Les empereurs peuvent donner des royaumes ou des duchés à leurs vassaux en tant que vice-royautés. Ces concessions ne sont pas héréditaires et reviennent à l'empereur à la mort du vice-roi. Une manière bien commode de ne pas dépasser votre limite de vassaux.;Kaiser können Vasallen mit Königreichen oder Herzogtümer belehnen, die dann als Vizekönigreiche gelten. Diese Lehen werden nicht vererbt, sondern fallen an den Kaiser zurück, wenn der Vizekönig stirbt. So ist es leichter, unter dem Vasallenlimit zu bleiben.;;Los emperadores pueden conceder reinos o ducados a los vasallos como Virreinatos. Otorgamientos como éste no se heredan y volverán al emperador cuando muera el virrey -una manera práctica de permanecer por debajo de tu Límite de Vasallos.;;;;;;;;;x
+# Regents and Queen Mothers
+title_regent_norse;Hilmir;Hilmir;Hilmir;;Hilmir;;;;;;;;;x
+title_regent_female_norse;Hilmja;Hilmja;Hilmja;;Hilmja;;;;;;;;;x
+title_queen_mother_norse;Dróttning-Móðir;Dróttning-Móðir;Dróttning-Móðir;;Dróttning-Móðir;;;;;;;;;x
+emperor_title_queen_mother_female_norse;Fylkja-Móðir;Fylkja-Móðir;Fylkja-Móðir;;Fylkja-Móðir;;;;;;;;;x
+# Castle
+baron_norse;Lendrmaðr;Lendrmaðr;Lendrmaðr;;Lendrmaðr;;;;;;;;;x,,,,
+baron_female_norse;Lendrfreyja;Lendrfreyja;Lendrfreyja;;Lendrfreyja;;;;;;;;;,,,,
+baron_title_ruler_consort_norse;Herra;Herra;Herra;;Herra;;;;;;;;;x,,,,
+baron_title_ruler_consort_female_norse;Snót;Snót;Snót;;Snót;;;;;;;;;x,,,,
+barony_of_norse;Land af;Land af;Land af;;Land af;;;;;;;;;x,,,,
+count_norse;Jarl;Jarl;Jarl;Jarl;;Jarl;;;;;;;;;x,,,,
+count_female_norse;Jarlja;Jarlja;Jarlja;;Jarlja;;;;;;;;;x,,,,
+count_title_ruler_consort_female_norse;Jarlskona;Jarlskona;Jarlskona;;Jarlskona;;;;;;;;;x,,,,
+count_title_ruler_consort_norse;Jarljasmaðr;Jarljasmaðr;Jarljasmaðr;;Jarljasmaðr;;;;;;;;;x,,,,
+county_of_norse;Jarlsland af;Jarlsland af;Jarlsland af;;Jarlsland af;;;;;;;;;x,,,,
+duke_norse;Gull-Jarl;Gull-Jarl;Gull-Jarl;Gull-Jarl;;Gull-Jarl;;;;;;;;;x,,,,
+duke_female_norse;Gull-Jarlja;Gull-Jarlja;Gull-Jarlja;;Gull-Jarlja;;;;;;;;;x,,,,
+duke_title_ruler_consort_female_norse;Gullskona;Gullskona;Gullskona;;Gullskona;;;;;;;;;x,,,,
+duke_title_ruler_consort_norse;Gullsmaðr;Gullsmaðr;Gullsmaðr;;Gullsmaðr;;;;;;;;;x,,,,
+duchy_of_norse;Heimr af;Heimr af;Heimr af;;Heimr af;;;;;;;;;x,,,,
+king_norse;Konungr;Konungr;Konungr;Konungr;;Konungr;;;;;;;;;x,,,,
+king_female_norse;Dróttning;Dróttning;Dróttning;;Dróttning;;;;;;;;;x,,,,
+king_title_ruler_consort_female_norse;Konungskona;Konungskona;Konungskona;;Konungskona;;;;;;;;;x,,,,
+king_title_ruler_consort_norse;Dróttsmaðr;Dróttsmaðr;Dróttsmaðr;;Dróttsmaðr;;;;;;;;;x,,,,
+kingdom_of_norse;Ríki af;Ríki af;Ríki af;;Ríki af;;;;;;;;;x,,,,
+emperor_norse;Fylkir;Fylkir;Fylkir;Fylkir;;Fylkir;;;;;;;;;x,,,,
+emperor_female_norse;Fylkja;Fylkja;Fylkja;;Fylkja;;;;;;;;;x,,,,
+emperor_title_ruler_consort_female_norse;Fylkirskona;Fylkriskona;Fylkirskona;;Fylkirskona;;;;;;;;;x,,,,
+emperor_title_ruler_consort_norse;Fylkjasmaðr;Fylkjasmaðr;Fylkjasmaðr;;Fylkjasmaðr;;;;;;;;;x,,,,
+empire_of_norse;Ríkimærr af;Ríkimærr af;Ríkimærr af;;Ríkimærr af;;;;;;;;;x,,,,
+# City
+city_baron_norse;Sýslumaðr;Sýslumaðr;Sýslumaðr;;Sýslumaðr;;;;;;;;;x,,,,
+city_baron_female_norse;Sýslufljóð;Sýslufljóð;Sýslufljóð;;Sýslufljóð;;;;;;;;;,,,,
+city_barony_of_norse;Borg af;Borg af;Borg af;;Borg af;;;;;;;;;x,,,,
+title_patrician_norse;Vinr-Litt;Vinr-Litt;Vinr-Litt;Vinr-Litt;;Vinr-Litt;;;;;;;;;x,,,,
+city_count_norse;Vinr;Vinr;Vinr;Vinr;;Vinr;;;;;;;;;x,,,,
+city_count_female_norse;Vynja;Vynja;Vynja;;Vynja;;;;;;;;;x,,,,
+city_county_of_norse;Borg-Frjáls af;Borg-Frjáls af;Borg-Frjáls af;;Borg-Frjáls af;;;;;;;;;x,,,,
+city_duke_norse;Herra-Vinr;Herra-Vinr;Herra-Vinr;Herra-Vinr;;Herra-Vinr;;;;;;;;;x,,,,
+city_duke_female_norse;Snót-Vynja;Snót-Vynja;Snót-Vynja;;Snót-Vynja;;;;;;;;;x,,,,
+city_duchy_of_norse;Heimr-Frjáls af;Heimr-Frjáls af;Heimr-Frjáls af;;Heimr-Frjáls af;;;;;;;;;x,,,,
+city_king_norse;Vinr-Mærr;Vinr-Mærr;Vinr-Mærr;Vinr-Mærr;;Vinr-Mærr;;;;;;;;;x,,,,
+city_king_female_norse;Vynja-Mærr;Vynja-Mærr;Vynja-Mærr;;Vynja-Mærr;;;;;;;;;x,,,,
+city_kingdom_of_norse;Heimrmærr af;Heimrmærr af;Heimrmærr af;;Heimrmærr af;;;;;;;;;x,,,,
+# Temple
+temple_baron_norse_pagan_reformed;Goði;Goði;Goði;;Goði;;;;;;;;;x,,,,
+temple_baron_female_norse_pagan_reformed;Gyðja;Gyðja;Gyðja;;Gyðja;;;;;;;;;,,,,
+temple_barony_of_norse_pagan_reformed;Hofsborg af;Hofsborg af;Hofsborg af;;Hofsborg af;;;;;;;;;x,,,,
+temple_count_norse_pagan_reformed;Efri-Goði;Efri-Goði;Efri-Goði;Efri-Goði;;Efri-Goði;;;;;;;;;x,,,,
+temple_count_female_norse_pagan_reformed;Efri-Gyðja;Efri-Gyðja;Efri-Gyðja;;Efri-Gyðja;;;;;;;;;x,,,,
+temple_county_of_norse_pagan_reformed;Hofsland af;Hofsland af;Hofsland af;;Hofsland af;;;;;;;;;x,,,,
+temple_duke_norse_pagan_reformed;Herra-Goði;Herra-Goði;Herra-Goði;Herra-Goði;;Herra-Goði;;;;;;;;;x,,,,
+temple_duke_female_norse_pagan_reformed;Snót-Gyðja;Snót-Gyðja;Snót-Gyðja;;Snót-Gyðja;;;;;;;;;x,,,,
+temple_duchy_of_norse_pagan_reformed;Hofsheimr af;Hofsheimr af;Hofsheimr af;;Hofsheimr af;;;;;;;;;x,,,,
+temple_king_norse_pagan_reformed;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;;Lofðungr-Goði;;;;;;;;;x,,,,
+temple_king_female_norse_pagan_reformed;Drótt-Gyðja;Drótt-Gyðja;Drótt-Gyðja;;Drótt-Gyðja;;;;;;;;;x,,,,
+temple_kingdom_of_norse_pagan_reformed;Hofsríki af;Hofsríki af;Hofsríki af;;Hofsríki af;;;;;;;;;x,,,,
+temple_emperor_norse_pagan_reformed;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;;Lofðungr-Goði;;;;;;;;;x,,,,
+temple_emperor_female_norse_pagan_reformed;Drótt-Gyðja;Drótt-Gyðja;Drótt-Gyðja;;Drótt-Gyðja;;;;;;;;;x,,,,
+temple_baron_norse_pagan;Goði;Goði;Goði;;Goði;;;;;;;;;x,,,,
+temple_baron_female_norse_pagan;Gyðja;Gyðja;Gyðja;;Gyðja;;;;;;;;;,,,,
+temple_barony_of_norse_pagan;Hofsborg af;Hofsborg af;Hofsborg af;;Hofsborg af;;;;;;;;;x,,,,
+temple_count_norse_pagan;Efri-Goði;Efri-Goði;Efri-Goði;Efri-Goði;;Efri-Goði;;;;;;;;;x,,,,
+temple_count_female_norse_pagan;Efri-Gyðja;Efri-Gyðja;Efri-Gyðja;;Efri-Gyðja;;;;;;;;;x,,,,
+temple_county_of_norse_pagan;Hofsland af;Hofsland af;Hofsland af;;Hofsland af;;;;;;;;;x,,,,
+temple_duke_norse_pagan;Herra-Goði;Herra-Goði;Herra-Goði;Herra-Goði;;Herra-Goði;;;;;;;;;x,,,,
+temple_duke_female_norse_pagan;Snót-Gyðja;Snót-Gyðja;Snót-Gyðja;;Snót-Gyðja;;;;;;;;;x,,,,
+temple_duchy_of_norse_pagan;Hofsheimr af;Hofsheimr af;Hofsheimr af;;Hofsheimr af;;;;;;;;;x,,,,
+temple_king_norse_pagan;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;;Lofðungr-Goði;;;;;;;;;x,,,,
+temple_king_female_norse_pagan;Drótt-Gyðja;Drótt-Gyðja;Drótt-Gyðja;;Drótt-Gyðja;;;;;;;;;x,,,,
+temple_kingdom_of_norse_pagan;Hofsríki af;Hofsríki af;Hofsríki af;;Hofsríki af;;;;;;;;;x,,,,
+temple_emperor_norse_pagan;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;Lofðungr-Goði;;Lofðungr-Goði;;;;;;;;;x,,,,
+temple_emperor_female_norse_pagan;Drótt-Gyðja;Drótt-Gyðja;Drótt-Gyðja;;Drótt-Gyðja;;;;;;;;;x,,,,
+#FOAS#
+emperor_foa_norse;Minn Fylkir-Máttugr;Minn Fylkir-Máttugr;Minn Fylkir-Máttugr;;Minn Fylkir-Máttugr;;;;;;;;;x
+emperor_foa_female_norse;Minn Fylkja-Máttugr;Minn Fylkja-Máttugr;Minn Fylkja-Máttugr;;Minn Fylkja-Máttugr;;;;;;;;;x
+king_foa_norse;Minn Konungr-Ríkr;Minn Konungr-Ríkr;Minn Konungr-Ríkr;;Minn Konungr-Ríkr;;;;;;;;;x
+king_foa_female_norse;Minn Dróttning-Ríkr;Minn Dróttning-Ríkr;Minn Dróttning-Ríkr;;Minn Dróttning-Ríkr;;;;;;;;;x
+duke_foa_norse;Minn Jarl-Ríkr;Minn Jarl-Ríkr;Minn Jarl-Ríkr;;Minn Jarl-Ríkr;;;;;;;;;x
+duke_foa_female_norse;Minn Jarlja-Ríkr;Minn Jarlja-Ríkr;Minn Jarlja-Ríkr;;Minn Jarlja-Ríkr;;;;;;;;;x
+count_foa_norse;Minn Jarl;Minn Jarl;Minn Jarl;;Minn Jarl;;;;;;;;;x
+count_foa_female_norse;Minn Jarlja;Minn Jarlja;Minn Jarlja;;Minn Jarlja;;;;;;;;;x
+baron_foa_norse;Minn Herra;Minn Herra;Minn Herra;;Minn Herra;;;;;;;;;x
+baron_foa_female_norse;Minn Snót;Minn Snót;Minn Snót;;Minn Snót;;;;;;;;;x
+## MINOR TITLES
+title_prince_norse_pagan_reformed;Þengill;Þengill;Þengill;;Þengill;;;;;;;;;x,,,,
+title_prince_female_norse_pagan_reformed;Þengillja;Þengillja;Þengillja;;Þengillja;;;;;;;;;x,,,,
+title_prince_norse_pagan;Þengill;Þengill;Þengill;;Þengill;;;;;;;;;x,,,,
+title_prince_female_norse_pagan;Þengillja;Þengillja;Þengillja;;Þengillja;;;;;;;;;x,,,,
+title_prince_norse;Þengill;Þengill;Þengill;;Þengill;;;;;;;;;x,,,,
+title_prince_female_norse;Þengillja;Þengillja;Þengillja;;Þengillja;;;;;;;;;x,,,,
+title_courtesan_norse_pagan_reformed;Sigrskona;Sigrskona;Sigrskona;;Sigrskona;;;;;;;;;x,,,,,
+job_chancellor_norse;Friðsmíðr;Friðsmíðr;Friðsmíðr;;Friðsmíðr;;;;;;;;;x,,,,,
+job_chancellor_norse_desc;Literally meaning ‘peace-smith’, the Norse Friðrsmíðr’s true role is often less pacific in practice, being responsible for managing relations with foreign officials in a militaristic world.;Signifiant littéralement «le forgeron de la paix», le véritable rôle de Norse Friðrsmíðr est souvent moins pacifique dans la pratique, étant responsable de la gestion des relations avec des responsables étrangers dans un monde militariste.;Wörtlich heißt "Friedensschmied", ist die nordische Friðrsmíðrs wahre Rolle in der Praxis oft weniger friedlich und verantwortlich für die Verwaltung der Beziehungen zu ausländischen Beamten in einer militaristischen Welt.;;Literalmente significa 'paz-herrero', el verdadero papel de los nórdicos Friðrsmíðr es a menudo menos pacífico en la práctica, siendo responsable de gestionar las relaciones con los funcionarios extranjeros en un mundo militarista.;;;;;;;;;x,,,,,
+job_marshal_norse;Stallari;Stallari;Stallari;;Stallari;;;;;;;;;x,,,,,
+job_marshal_norse_desc;Leader of the host and second only to the liege on matters of war, the Stallari was the most powerful military position in any Norse realm.;Le chef de l'hôte et le second sur le sujet des affaires de guerre, le Stallari était la position militaire la plus puissante dans n'importe quel royaume nordique.;Führer des Gastgebers und zweitens nur zum Lied auf Kriegsangelegenheiten, war der Stallari die stärkste militärische Position in jedem nordischen Reich.;;Líder del anfitrión y segundo sólo para el soberano en asuntos de guerra, el Stallari era la posición militar más poderosa en cualquier reino nórdico.;;;;;;;;;x,,,,,
+job_treasurer_norse;Landvorðr;Landvorðr;Landvorðr;;Landvorðr;;;;;;;;;x,,,,,
+job_treasurer_norse_desc;Translated as ‘Keeper of the Land’, every tribe has a Landvorðr to manage the communal properties and resolve disputes between karls. One of his key roles is collecting gjald (taxes) for his liege;Traduit comme «Gardien de la Terre», chaque tribu a un Landvorðr pour gérer les propriétés communales et résoudre les différends entre karls. L'un de ses principaux rôles consiste à collecter gjald (taxes) pour son liege;Als "Hüter des Landes" übersetzt, hat jeder Stamm ein Landvorðr, um die gemeinschaftlichen Eigenschaften zu bewältigen und Streitigkeiten zwischen den Karls zu lösen. Eine seiner Schlüsselrollen sammelt gjald (Steuern) für seinen Lüge;;Traducido como 'guardián de la tierra', cada tribu tiene un Landvorðr para gestionar las propiedades comunales y resolver disputas entre karls. Uno de sus papeles clave es recoger gjald (impuestos) para su señor;;;;;;;;;x,,,,,
+job_spymaster_norse;Rúnsríta;Rúnsríta;Rúnsríta;;Rúnsríta;;;;;;;;;x,,,,,
+job_spymaster_norse_desc;Derived from the role of tribal rune-writer, this facet of the position is now largely ceremonial. Rún can also mean ‘secret’, which hints at the true endeavours of the contemporary Rúnsrita… ;Dérivé du rôle d'écrivain tribal tribal, cette facette de la position est aujourd'hui largement cérémonielle. Rún peut aussi signifier un «secret», qui atteste les véritables efforts du Rúnsrita contemporain ...;Abgeleitet aus der Rolle des Stammes-Runenschriftstellers, ist diese Facette der Position jetzt weitgehend zeremoniell. Rún kann auch "Geheimnis" bedeuten, was auf die wahren Bestrebungen der zeitgenössischen Rúnsrita hindeutet ...;;Derivado del papel del escritor rúnico tribal, esta faceta de la posición es ahora en gran parte ceremonial. Rún también puede significar "secreto", lo que insinúa los verdaderos esfuerzos de la contemporánea Rúnsrita ...;;;;;;;;;x,,,,,
+job_spiritual_norse_pagan_reformed;Hofð-Goði;Hofð-Goði;Hofð-Goði;;Hofð-Goði;;;;;;;;;x;,,,,,
+job_spiritual_female_norse_pagan_reformed;Hofð-Gyðja;Hofð-Gyðja;Hofð-Gyðja;;Hofð-Gyðja;;;;;;;;;x;,,,,,
+job_spiritual_norse_pagan_reformed_desc;The Head-Goði advises his liege on matters of the faith, and is also responsible for exposing Neita-Beyð (apostates and heretics).;Traduit en tant que locuteur de Dieu, le Guðasogu conseille son liege sur les questions de la foi. Il est également responsable d'exposer Neita-Beyð (apostats et hérétiques);Übersetzt als Gottes Sprecher, berät der Guðasogu seine Lüge in Angelegenheiten des Glaubens. Er ist auch verantwortlich für die Aussage von Neita-Beyð (Abtrünnige und Ketzer);;Traducido como orador de Dios, el Guðasogu aconseja a su señor sobre asuntos de la fe. También es responsable de exponer a Neita-Beyð (apóstatas y herejes);;;;;;;;;x;,,,,,
+title_councilmember_king_norse;Ráðmaðr;Ráðmaðr;Ráðmaðr;;Ráðmaðr;;;;;;;;;x
+title_councilmember_king_norse_desc;Ráðmaðr translates as Counsel-man. In the Norse Kingdoms, the Konungs-Þing (King's assembly) is the executive body, analogous with a Privy Council.;Ráðmaðr;Ráðmaðr;;Ráðmaðr;;;;;;;;;x
+title_councilmember_emperor_norse;Ráðmaðr;Ráðmaðr;Ráðmaðr;;Ráðmaðr;;;;;;;;;x
+title_councilmember_emperor_norse_desc;Ráðmaðr translates as Counsel-man. In the Norse Empire, the Flykirs-Þing (Fylkir's assembly) is the executive body, analogous with a Privy Council.;Ráðmaðr;Ráðmaðr;;Ráðmaðr;;;;;;;;;x
+title_court_jester_norse;Skemtunmogr;Skemtunmogr;Skemtunmogr;;Skemtunmogr;;;;;;;;;x;,,,,,
+title_court_jester_norse_desc;The 'Amusement-boy' is the Norse equivalent of a Court Jester, providing general entertainment to the court. Frequently found in the laughing stock, the joke is usually on them - hardly the most prestigious office at court...;Le «garçon d'amusement» est l'équivalent nord-né d'un tribunal Jester, offrant des divertissements généraux à la cour. Fréquemment trouvé dans le stock de rire, la blague est habituellement sur eux - à peine le bureau le plus prestigieux à la cour ...;Der "Junge des Vergnügens" ist das nordische Äquivalent eines Gerichtssägers, der dem Gericht eine allgemeine Unterhaltung bietet. Häufig in der Lachstock gefunden, ist der Witz in der Regel auf sie - kaum das prestigeträchtigste Büro am Hofe ...;;El "muchacho de la diversión" es el equivalente nórdico de un bufón de la corte, proporcionando entretenimiento general a la corte. Frecuentemente se encuentran en la risa, la broma suele estar en ellos - no es la oficina más prestigiosa en la corte ...;;;;;;;;;x;,,,
+title_ravenkeeper;Hrafnvorðr;Hrafnvorðr;Hrafnvorðr;;Hrafnvorðr;;;;;;;;;x
+title_ravenkeeper_desc;Due to their association with Odin, ravens are very important in Norse culture. The Royal Ravenkeeper is responsible for the King's private collection of ravens, although today the role is mostly ceremonial and requires little ornithological knowledge.;En raison de leur association avec Odin, les corbeaux sont très importants dans la culture nordique. Le Ravenkeeper royal s'occupe des corbeaux du Roi, mais aujourd'hui le rôle est surtout cérémonial et nécessite peu de connaissances ornithologiques.;Aufgrund ihrer Assoziation mit Odin sind Raben in der nordischen Kultur sehr wichtig. Der Königliche Ravenkeeper kümmert sich um die Raben des Königs, obwohl heute die Rolle meist zeremoniell ist und wenig ornithologisches Wissen erfordert.;;Debido a su asociación con Odin, los cuervos son muy importantes en la cultura nórdica. El Ravenkeeper real cuida de los cuervos del rey, aunque hoy el papel es sobre todo ceremonial y requiere poco conocimiento ornithological.;;;;;;;;;x
+title_ravenseye;Hrafns-Auga;Hrafns-Auga;Hrafns-Auga;;Hrafns-Auga;;;;;;;;;x
+title_ravenseye_desc;The Eye of the Odin's Raven is a religious position in the Hrafnset. This Goði is responsible for watching over the followers of the Beyð faith, rooting out heretics and apostates.;L'oeil du Raven d'Odin est une position religieuse dans le bureau de l'Oðinns-Hrafn. Ce Goði est chargé de veiller sur les partisans de la foi Beyð, en supprimant les hérétiques et les apostats.;Das Auge des Odin's Raven ist eine religiöse Position im Amt des Oðinns-Hrafn. Diese Goði ist verantwortlich für die Beobachtung über die Anhänger des Beyð-Glaubens, die Verwüstung von Ketzern und Abtrünnigen.;;El ojo del cuervo de Odin es una posición religiosa en la oficina de los Oðinns-Hrafn. Este Goði es responsable de vigilar a los seguidores de la fe Beyð, erradicando herejes y apóstatas.;;;;;;;;;x
+title_ravensbeak;Hrafns-Gron;Hrafns-Gron;Hrafns-Gron;;Hrafns-Gron;;;;;;;;;x
+title_ravensbeak_desc;A religious position reporting to the Oðinns-Hrafn, the Beak is responsible for making proclamations within the Realm of Miðgarðr. They carry the authority of the Hrafn, and much respect with it.;Un poste religieux relevant de l'Oðinns-Hrafn, le Beak est responsable de faire des proclamations dans le Royaume de Miðgarðr. Ils portent l'autorité de l'Hrafn et respectent beaucoup.;Eine religiöse Position, die dem Oðinns-Hrafn berichtet, ist der Beak verantwortlich für die Proklamation im Reich von Miðgarðr. Sie tragen die Autorität der Hrafn und viel Respekt mit ihr.;;Una posición religiosa que reporta al Oðinns-Hrafn, el Beak es responsable de hacer proclamaciones dentro del Reino de Miðgarðr. Llevan la autoridad del Hrafn, y mucho respeto con ella.;;;;;;;;;x
+title_commander_norse;Fólkhagi;Fólkhagi;Fólkhagi;;Fólkhagi;;;;;;;;;x;,,,,,
+title_commander_norse_desc;The Norse equivalent of a General or Field Marshal, the Fólkhagi was very much expected to lead from the front;L'équivalent nord-né d'un général, le Fólkhagi était très attendu pour conduire de l'avant;Das nordische Äquivalent eines Generals, der Fólkhagi wurde von vornherein sehr erwartet;;El equivalente nórdico de un general, el Fólkhagi era muy esperado para conducir desde el frente;;;;;;;;;x;,,,
+title_lawspeaker_norse;Logsogu;Logsogu;Logsogu;;Logsogu;;;;;;;;;x;,,,,,
+title_champions_squire;Champion's Squire;Écolier de champion;Championsknappe;;Escudero del campeón;;;;;;;;;x;,,,,,
+title_champions_squire_desc;Champions of Miðgarðr have the right to take a squire under their wing and train them in the ways of the Champions. The squire must have at least some ability.;Tous les Champions de Miðgarðr ont le droit de prendre un écuyer sous leur aile et de les entraîner dans les manières des Champions. L'écuyer doit avoir au moins une certaine capacité.;Alle Champions von Miðgarðr haben das Recht, einen Squire unter ihren Flügel zu nehmen und sie in den Wegen der Champions zu trainieren. Der Knappe muss mindestens eine gewisse Fähigkeit haben.;;Todos los campeones de Miðgarðr tienen el derecho de tomar a un escudero bajo su ala y entrenarlos en las maneras de los campeones. El escudero debe tener al menos alguna habilidad.;;;;;;;;;x;,,,
+title_norse_preferred_heir;Kauderfingi;Kauderfingi;Kauderfingi;;Kauderfingi;;;;;;;;;x;,,,,,
+title_norse_preferred_heir_desc;Kauderfingi translates as 'chosen heir'. With feudal elective government, a Beyð Konungr or Fylkir can nominate a dynasty member from amongst their court or vassals as their chosen successor. This is likely to get electors on the Kauderfingi's side, but with the shady machinations of the Þing at play, this is far from guaranteed.;Kauderfingi traduit comme «héritier choisi». Avec le gouvernement électif féodal, un Beyð Konungr ou Fylkir peut nommer un membre de la dynastie de son tribunal comme successeur choisi. Cela devrait permettre aux électeurs du côté du successeur choisi, bien qu'avec les machinations ombragées du jeu, cela est loin d'être garanti.;Kauderfingi übersetzt als "auserwählter Erbe". Mit der feudalen Wahlregierung kann ein Beyð Konungr oder Fylkir ein Dynastiemitglied von seinem Hof als gewählter Nachfolger benennen. Das ist wahrscheinlich, Wähler auf die gewählte Nachfolgerseite zu bekommen, obwohl mit den schattigen Machenschaften des Spiels, das ist bei weitem nicht garantiert.;;Kauderfingi se traduce como 'heredero elegido'. Con el gobierno feudal electivo, un Beyð Konungr o Fylkir puede nominar a un miembro de la dinastía de su corte como su sucesor elegido. Esto es probable que los electores en el lado del sucesor elegido, aunque con las maquinaciones sombrías de la Þing en el juego, esto está lejos de ser garantizado.;;;;;;;;;x;,,,
+ROBMODNORSE_TT_PREF_HEIR_MALE;Can only nominate a female heir if women can hold your primary title.;Ne peut nommer qu'une héritière féminine si les femmes peuvent détenir votre titre principal.;Kann nur einen weiblichen Erben nominieren, wenn Frauen Ihren Haupttitel halten können.;;Sólo puede nominar a una heredera si las mujeres pueden sostener su título principal.;;;;;;;;;x;,,,
+## ARMIES
+OATHSMEN_ARMY;Oathsmen;Hommes assermentés;Eidmänner;;Juramentadores;;;;;;;;;x;,,,,,
+OATHSMEN_ARMY_OF;Oathsmen of;Hommes assermentés de;Eidmänner von;;Juramentadores de;;;;;;;;;x;,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,
+;;;;;;;;;;;;;;x,,,,,,,,,,,,

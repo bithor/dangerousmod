@@ -1,0 +1,902 @@
+namespace = RTABLE
+namespace = GKNIGHT
+#namespace = MORGAN
+
+#Round Table Restored
+narrative_event = {
+	id = RTABLE.1
+	title = EVTNAME_RTABLE_1
+	desc = EVTDESC_RTABLE_1
+	picture = GFX_evt_round_table
+	border = GFX_event_narrative_frame_diplomacy
+
+	is_triggered_only = yes
+
+	option = {
+		name = SO_BE_IT
+		#name = EVTOPT39830_GREG # May the realm prosper!
+		#name = EVTOPTA_JD_10107 # May [Root.Religion.GetHighGodName] watch over us.
+		hidden_tooltip = { narrative_event = { id = GKNIGHT.100 days = 7 random = 1 } } # Green Knight Debut
+	}
+}
+
+#Master
+character_event = {
+	id = RTABLE.100
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			200 = { # A Knight Improves Skill
+				character_event = { id = RTABLE.200 }
+				modifier = { factor = 1.1 trait = just }
+				modifier = { factor = 1.1 trait = brave }
+				modifier = { factor = 1.1 trait = twi_chivalrous }
+				modifier = { factor = 1.1 trait = inspiring_leader }
+				modifier = { factor = 0.9 trait = hedonist }
+				modifier = { factor = 0.9 trait = slothful }
+				trigger = {
+					any_courtier_or_vassal = {
+						count > 0
+						has_minor_title = title_knight_round_table
+						ROOT = { is_liege_of = THIS }
+						#save_event_target_as = knight_improved
+					}
+				}
+			}
+			100 = { # Noble Joins Court
+				character_event = { id = RTABLE.300 }
+				modifier = { factor = 1.1 trait = just }
+				modifier = { factor = 1.1 trait = brave }
+				modifier = { factor = 1.1 trait = twi_chivalrous }
+				modifier = { factor = 1.1 trait = inspiring_leader }
+				modifier = { factor = 1.1 trait = falconer }
+				modifier = { factor = 0.9 trait = hedonist }
+				modifier = { factor = 0.9 trait = slothful }
+			}
+			1000 = { # Challenger
+				character_event = { id = RTABLE.400 }
+				modifier = { factor = 1.1 trait = craven }
+				modifier = { factor = 1.1 trait = arbitrary }
+				modifier = { factor = 1.1 trait = deceitful }
+				modifier = { factor = 1.1 trait = kinslayer }
+				modifier = { factor = 1.1 trait = hedonist }
+				modifier = { factor = 1.1 trait = slothful }
+				trigger = {
+					any_courtier_or_vassal = {
+						count > 0
+						has_minor_title = title_knight_round_table
+						ROOT = { is_liege_of = THIS }
+						ai = yes
+					}
+				}
+			}
+#			33 = { # Morgan le Fay tries to covert you/someone to the old ways. Celtic Trinity
+#				#narrative_event = { id = MORGAN.100 }
+#				modifier = { factor = 0.5 trait = zealous }
+#				modifier = { factor = 0.5 trait = slothful }
+#				modifier = { factor = 1.0 trait = mystic }
+#				modifier = { factor = 2.0 trait = excommunicated }
+#			}
+#			33 = { # Holy Grail Vision. Christian Trinity
+#				narrative_event = { id = HGRAIL.1 }
+#				modifier = { factor = 1.1 AND = { religion_group = christian trait = zealous } }
+#				modifier = { factor = 1.1 trait = mystic }
+#				modifier = { factor = 0
+#					NOR = {
+#						has_character_flag = questing_holy_grail_flag
+#						has_character_modifier = questing_holy_grail_mod
+#						has_artifact = holy_grail
+#					}
+#				}
+#			}
+		}
+#		character_event = { id = RTABLE.100 days = 7 } # Reload Master
+		character_event = { id = RTABLE.100 days = 100 random = 50 } # Reload Master
+#		character_event = { id = RTABLE.100 days = 600 random = 350 } # Reload Master
+	}
+}
+
+character_event = { # A Knight Improves Skill
+	id = RTABLE.200
+	title = EVTNAME_RTABLE_1
+	desc = EVTDESC_RTABLE_200
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = EVTOPTA_WoL_4163 # Hail to the [Root.GetTitle]!
+		random_realm_character = {
+			limit = {
+					has_minor_title = title_knight_round_table
+					ROOT = { is_liege_of = THIS }
+					#save_event_target_as = knight_improved
+			}
+			random_list = {
+				10 = { add_trait = brave }
+				10 = { add_trait = just }
+				10 = { add_trait = honest }
+				10 = { add_trait = inspiring_leader }
+				1 = { add_trait = twi_chivalrous }
+			}
+		}
+	}
+}
+
+#Noble joins Round Table
+character_event = {
+	id = RTABLE.300
+	title = EVTNAME_RTABLE_1
+	desc = EVTDESC_RTABLE_300.1
+	desc = EVTDESC_RTABLE_300.2
+	desc = EVTDESC_RTABLE_300.3
+	desc = EVTDESC_RTABLE_300.4
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	immediate = { fn_twi_generate_noble_for_round_table = yes }
+
+	option = {
+		name = EXCELLENT
+		name = EVTOPTA73009 # Welcome him to your court.
+		name = EVTOPTA106121 # Stay at my court for as long as you wish
+	}
+
+	option = {
+		name = EVTOPTB_RTABLE_300.1
+		name = EVTOPTB_RTABLE_300.2
+		#name = EVTOPTB_NE_1 # is not what I asked for # Kapputt
+		hidden_tooltip = { new_character = { death = { death_reason = death_missing } } }
+	}
+}
+
+#Challenger
+character_event = {
+	id = RTABLE.400
+	title = EVTNAME_RTABLE_400
+	desc = EVTDESC_RTABLE_400.1
+	desc = EVTDESC_RTABLE_400.2
+	desc = EVTDESC_RTABLE_400.3
+	desc = EVTDESC_RTABLE_400.4
+	desc = EVTDESC_RTABLE_400.5
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	trigger = {
+		has_law = round_table_law_1
+	}
+
+	immediate = {
+		fn_twi_generate_challenger_for_round_table = yes
+		random_realm_character = {
+			limit = {
+				has_minor_title = title_knight_round_table
+				ROOT = { is_liege_of = THIS }
+				ai = yes
+			}
+			save_event_target_as = round_table_challenged
+			ROOT = { character_event = { id = RTABLE.410 days = 14 } } # Challenge takes place in a fortnight.
+		}
+	}
+
+	option = {
+		name = OK
+		name = EVTOPTC_WOL_11006
+	}
+
+}
+
+#Challenge takes Place
+character_event = {
+	id = RTABLE.410
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = { event_target:round_table_challenged = { is_alive = yes } } # Test
+
+	immediate = {
+		event_target:round_table_challenged = {
+			random_list = {
+				1000 = { # Knight fights.
+					modifier = { factor = 2.0 trait = proud }
+					modifier = { factor = 2.0 trait = wroth }
+					modifier = { factor = 2.0 trait = diligent }
+					modifier = { factor = 2.0 trait = brave }
+					modifier = { factor = 2.0 trait = twi_chivalrous }
+					modifier = { factor = 2.0 trait = duelist }
+					modifier = { factor = 2.0 trait = unyielding_leader }
+					modifier = { factor = 0.0 prisoner = yes }
+					random_list = {
+						50 = { }
+						10 = { trigger = { trait = craven } remove_trait = craven }
+						10 = { trigger = { trait = slothful } remove_trait = slothful }
+						10 = { trigger = { NOT = { trait = brave } } add_trait = brave }
+						10 = { trigger = { NOT = { trait = diligent } } add_trait = diligent }
+						10 = { trigger = { NOT = { trait = twi_chivalrous } } add_trait = twi_chivalrous }
+						10 = { trigger = { NOT = { trait = duelist } } add_trait = duelist }
+					}
+					random_list = {
+						100 = { # Knight fights and wins.
+							modifier = { factor = 2.0 combat_rating_diff = { character = event_target:round_table_challenger value = 1 } }
+							modifier = { factor = 2.0 combat_rating_diff = { character = event_target:round_table_challenger value = 2 } }
+							modifier = { factor = 2.0 combat_rating_diff = { character = event_target:round_table_challenger value = 3 } }
+							modifier = { factor = 2.0 combat_rating_diff = { character = event_target:round_table_challenger value = 4 } }
+							modifier = { factor = 2.0 combat_rating_diff = { character = event_target:round_table_challenger value = 5 } }
+							#modifier = { factor = 2.0 combat_rating > 2 }
+							#modifier = { factor = 2.0 combat_rating > 3 }
+							#modifier = { factor = 2.0 combat_rating > 4 }
+							#modifier = { factor = 2.0 combat_rating > 5 }
+							modifier = { factor = 3.0 trait = duelist }
+							modifier = { factor = 2.0 trait = strong }
+							modifier = { factor = 2.0 trait = robust }
+							modifier = { factor = 2.0 trait = hunter }
+							modifier = { factor = 2.0 trait = strategist }
+							modifier = { factor = 2.0 trait = deceitful }
+							modifier = { factor = 2.0 OR = { trait = vet_1 trait = vet_2 trait = vet_3 } }
+							modifier = { factor = 2.0 trait = adventurer }
+							random = { chance = 10 add_trait = wounded } # Victory Battle Effect
+							random_list = { # Victory Mental Effects
+								5 = { trigger = { NOT = { trait = proud } } add_trait = proud }
+								5 = { trigger = { trait = humble } remove_trait = humble }
+								10 = { trigger = { trait = shy } remove_trait = shy }
+								10 = { trigger = { trait = stressed } remove_trait = stressed }
+								10 = { trigger = { trait = depressed } remove_trait = depressed }
+								10 = { trigger = { NOT = { trait = inspiring_leader } } add_trait = inspiring_leader }
+								10 = { } # Nothing
+							}
+							random_list = { # Notify liege of Knight victory.
+								1 = { liege = { character_event = { id = RTABLE.411 } } } # Challenger joins.
+								1 = { liege = { character_event = { id = RTABLE.412 } } } # Challenger vanishes.
+							}
+						}
+						100 = { # Knight fights and loses.
+							modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating_diff = { character = event_target:round_table_challenged value = 1 } } }
+							modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating_diff = { character = event_target:round_table_challenged value = 2 } } }
+							modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating_diff = { character = event_target:round_table_challenged value = 3 } } }
+							modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating_diff = { character = event_target:round_table_challenged value = 4 } } }
+							modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating_diff = { character = event_target:round_table_challenged value = 5 } } }
+							#modifier = { factor = 1000.0 OR = { combat_rating_diff = { who = FROM value = 4 } FROM = { combat_rating_diff = { who = ROOT value = 4 } } } }
+							#modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating > 2 } }
+							#modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating > 3 } }
+							#modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating > 4 } }
+							#modifier = { factor = 2.0 event_target:round_table_challenger = { combat_rating > 5 } }
+							#modifier = { factor = 2.0 combat_rating < 1 }
+							modifier = { factor = 2.0 is_sick = yes }
+							modifier = { factor = 2.0 trait = wounded }
+							modifier = { factor = 2.0 trait = weak }
+							modifier = { factor = 2.0 trait = feeble }
+							modifier = { factor = 2.0 trait = hedonist }
+							modifier = { factor = 2.0 trait = slothful }
+							modifier = { factor = 10.0 trait = blinded }
+							liege = { character_event = { id = RTABLE.420 } }
+							random_list = { # Mental Defeat Effects
+								10 = { } # Nothing
+								5 = { trigger = { NOT = { trait = humble } } add_trait = humble }
+								5 = { trigger = { trait = proud } remove_trait = proud }
+								10 = { trigger = { NOT = { trait = stressed } } add_trait = stressed }
+							}
+							random_list = { # Physical Battle Effects
+								30 = { } # Nothing
+								50 = { trigger = { NOT = { trait = wounded } } add_trait = wounded }
+								5 = { trigger = { NOT = { trait = blinded } } add_trait = blinded }
+								5 = { trigger = { NOT = { trait = maimed } } add_trait = maimed }
+								5 = { death = { death_reason = death_duel killer = event_target:round_table_challenger } }
+							}
+						}
+					}
+				}
+				1000 = { # Knight flees Challenge.
+					modifier = { factor = 2.0 trait = craven }
+					modifier = { factor = 2.0 trait = hedonist }
+					modifier = { factor = 2.0 trait = slothful }
+					modifier = { factor = 2.0 trait = shy }
+					modifier = { factor = 2.0 trait = stressed }
+					modifier = { factor = 2.0 trait = deceitful }
+					liege = { character_event = { id = RTABLE.430 } }
+					random_list = {
+						50 = { trigger = { NOT = { trait = craven } } add_trait = craven }
+						10 = { trigger = { NOT = { trait = shy } } add_trait = shy }
+						5 = { trigger = { NOT = { trait = humble } } add_trait = humble }
+						5 = { trigger = { trait = proud } remove_trait = proud }
+						10 = { trigger = { trait = brave } remove_trait = brave }
+						100 = { trigger = { trait = twi_chivalrous } remove_trait = twi_chivalrous }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Challenger loses and offers to join
+character_event = {
+	id = RTABLE.411
+	desc = EVTDESC_RTABLE_411
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	#show_root = no
+	#sound = court_view
+
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+		name = EVTOPTA73009 # Welcome him to your court.
+		name = EVTOPTA106121 # Stay at my court for as long as you wish
+		prestige = 20
+	}
+
+	option = {
+		name = EVTOPTB_RTABLE_300.1
+		name = EVTOPTB_RTABLE_300.2
+		prestige = 20
+		hidden_tooltip = { event_target:round_table_challenger = { death = { death_reason = death_missing } } } # Challenger vanishes.
+		#hidden_tooltip = { new_character = { death = { death_reason = death_missing } } } # Challenger vanishes.
+	}
+}
+
+# Challenger loses and vanishes
+character_event = {
+	id = RTABLE.412
+	desc = EVTDESC_RTABLE_412.1
+	desc = EVTDESC_RTABLE_412.2
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	#show_root = no
+	#sound = court_view
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		prestige = 10
+		hidden_tooltip = { event_target:round_table_challenger = { death = { death_reason = death_missing } } } # Challenger vanishes.
+	}
+}
+
+# Challenger wins and vanishes
+character_event = {
+	id = RTABLE.420
+	desc = EVTDESC_RTABLE_420.1
+	desc = EVTDESC_RTABLE_420.2
+	desc = EVTDESC_RTABLE_420.3
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	#show_root = no
+	#sound = court_view
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		prestige = -10
+		hidden_tooltip = { event_target:round_table_challenger = { death = { death_reason = death_missing } } } # Challenger vanishes.
+		#hidden_tooltip = { new_character = { death = { death_reason = death_missing } } } # Challenger vanishes.
+	}
+}
+
+# Challenger is uncontested, because Knight flees.
+character_event = {
+	id = RTABLE.430
+	desc = EVTDESC_RTABLE_430.1
+	desc = EVTDESC_RTABLE_430.2
+	desc = EVTDESC_RTABLE_430.3
+	desc = EVTDESC_RTABLE_430.4
+	desc = EVTDESC_RTABLE_430.5
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	#show_root = no
+	#sound = court_view
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		prestige = -20
+		hidden_tooltip = { event_target:round_table_challenger = { death = { death_reason = death_missing } } } # Challenger vanishes.
+		#hidden_tooltip = { new_character = { death = { death_reason = death_missing } } } # Challenger vanishes.
+	}
+}
+
+#Green Knight Debuts
+narrative_event = {
+	id = GKNIGHT.100
+	title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_100
+	picture = GFX_evt_battle
+	border = GFX_event_narrative_frame_economy
+	show_root = no
+	#sound = court_view
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = EVTOPTA_GKNIGHT_100.1 #Ask him what he wants.
+		name = EVTOPTA_GKNIGHT_100.2 #You ask him what he wants...
+		name = EVTOPTA_GKNIGHT_100.3 #What do you want?
+		hidden_tooltip = { character_event = { id = GKNIGHT.110 } }
+	}
+}
+
+character_event = {
+	id = GKNIGHT.110
+	#title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_110
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_economy
+	show_root = no
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = EVTOPTA_GKNIGHT_110.1 #Go on...
+		name = EVTOPTA_GKNIGHT_110.2 #Well, what is it you want, then?
+		name = EVT_OPTA_60307 # That sounds like a reasonable request.
+		name = EVTOPTA_WoL_4162 # Very well, let's play!
+		hidden_tooltip = { character_event = { id = GKNIGHT.120 } }
+	}
+}
+
+character_event = {
+	id = GKNIGHT.120
+	#title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_120
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_economy
+	show_root = no
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = {
+			text = EVTOPTA61223 # Have at thee!
+			trigger = { trait = wroth }
+		}
+		name = EVTOPTA_JD_10064_dynasty # I am not afraid of getting my hands dirty.
+		name = EVTOPTA_WOL_1020 # Very well, I can be the greater [Root.GetManWoman].
+		name = EVTOPTA_WOL_1032 # Challenge accepted!
+		name = EVTOPTA_WOL_11000 # Challenge accepted.
+		name = EVTTOOLTIP_TOG_5002 # You accept his challenge.
+
+		ai_chance = {
+			factor = 100
+			modifier = { factor = 3.0 trait = honest }
+			modifier = { factor = 3.0 trait = brave }
+			modifier = { factor = 3.0 trait = wroth }
+			modifier = { factor = 3.0 trait = lunatic }
+		}
+
+		save_event_target_as = green_axe_target
+		random_list = {
+			75 = { trigger = { NOT = { trait = brave } } add_trait = brave }
+			1 = { trigger = { NOT = { trait = twi_chivalrous } } add_trait = twi_chivalrous }
+			10 = { trigger = { trait = craven } remove_trait = craven }
+			5 = { trigger = { trait = slothful } remove_trait = slothful }
+			5 = { } # nothing
+		}
+		hidden_tooltip = { character_event = { id = GKNIGHT.121 } }
+	}
+
+	option = {
+		name = EVTOPTB_GKNIGHT_120.1 # Order someone to come forth.
+		name = EVTOPTB_GKNIGHT_120.2 # Let someone else take him on.
+		name = EVTOPTB_GKNIGHT_120.3 # Allow someone else to take the challenge.
+		name = EVTOPTB_GKNIGHT_120.4 # Let someone take care of him.
+
+		random_courtier_or_vassal = {
+			limit = {
+				NOT = { has_global_flag = bestowed_green_axe }
+				ROOT = { is_liege_of = THIS }
+			}
+			save_event_target_as = green_axe_target
+			random_list = {
+				75 = { trigger = { NOT = { trait = brave } } add_trait = brave }
+				5 = { trigger = { NOT = { trait = twi_loyal } } add_trait = twi_loyal }
+				1 = { trigger = { NOT = { trait = twi_chivalrous } } add_trait = twi_chivalrous }
+				10 = { trigger = { trait = craven } remove_trait = craven }
+				5 = { trigger = { trait = slothful } remove_trait = slothful }
+				5 = { } # nothing
+			}
+			liege = {
+				random_list = {
+					2 = { trigger = { trait = brave } remove_trait = brave }
+					1 = { trigger = { trait = twi_chivalrous } remove_trait = twi_chivalrous }
+					2 = { trigger = { NOT = { trait = craven } } add_trait = craven }
+					5 = { trigger = { NOT = { trait = slothful } } add_trait = slothful }
+					90 = { } # nothing
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 50
+			modifier = { factor = 3.0 trait = deceitful }
+			modifier = { factor = 3.0 trait = craven }
+			modifier = { factor = 3.0 trait = shy }
+			modifier = { factor = 2.0 trait = hedonist }
+			modifier = { factor = 2.0 trait = slothful }
+		}
+		hidden_tooltip = { character_event = { id = GKNIGHT.122 } }
+	}
+
+	option = {
+		name = EVTOPTB1986 # I... cannot risk it
+		name = EVTOPTA86110 # It's too great of a risk...
+		name = EVTOPTB_WOL_11000 # No, that sounds dangerous.
+		name = EVTTOOLTIP_TOG_5003 # You refuse his challenge.
+
+		ai_chance = {
+			factor = 50
+			modifier = { factor = 3.0 trait = deceitful }
+			modifier = { factor = 3.0 trait = craven }
+			modifier = { factor = 3.0 trait = shy }
+			modifier = { factor = 2.0 trait = hedonist }
+			modifier = { factor = 2.0 trait = slothful }
+		}
+		random_list = {
+			50 = { trigger = { NOT = { trait = craven } } add_trait = craven }
+			50 = { } # nothing
+		}
+		hidden_tooltip = {
+			character_event = { id = RTABLE.100 days = 3 random = 1 } # Master
+			narrative_event = { id = GKNIGHT.300 days = 366 } # The Green Knight will keep revisiting, every Year and a Day
+		}
+		clr_global_flag = round_table_initiation
+	}
+}
+
+character_event = {
+	id = GKNIGHT.121
+	#title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_121
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_economy
+	show_root = no
+	sound = neutral_beheading_01
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = crazymurderdog_court_tooltip # The Court is shocked! # Test
+		name = EVTOPTA_GKNIGHT_121.1 # The court cheers!
+		name = EVTOPTA_GKNIGHT_121.2 # The court is appalled!
+		hidden_tooltip = { narrative_event = { id = GKNIGHT.130 } }
+	}
+}
+
+character_event = {
+	id = GKNIGHT.122
+	#title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_122
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_economy
+	show_root = no
+	sound = neutral_beheading_01
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = OK
+		name = crazymurderdog_court_tooltip # The Court is shocked! # Test
+		name = EVTOPTA_GKNIGHT_121.1 # The court cheers!
+		name = EVTOPTA_GKNIGHT_121.2 # The court is appalled!
+		hidden_tooltip = { narrative_event = { id = GKNIGHT.130 } }
+	}
+}
+
+narrative_event = {
+	id = GKNIGHT.130
+	title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_130
+	picture = GFX_evt_battle
+	border = GFX_event_narrative_frame_economy
+	show_root = no
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = EVTOPTA_GKNIGHT_130.1 # What sort of trickery is this?!
+		name = EVTOPTA_GKNIGHT_130.2 # The court is appalled!
+		name = bear.6.a # Is this the work of a foul sorcerer?
+		name = crazymurderdog_court_tooltip # The Court is shocked! # Test
+
+		hidden_tooltip = {
+			character_event = { id = RTABLE.100 days = 3 random = 1 } # Master
+			event_target:green_axe_target = { character_event = { id = GKNIGHT.200 days = 3 } } # Green Knight Revisits to settle the score. A Year and a Day
+			# what to do if target dies?
+		}
+	}
+}
+
+character_event = {
+	id = GKNIGHT.200
+	title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_200.1
+	desc = EVTDESC_GKNIGHT_200.2
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+	option = {
+		name = SO_BE_IT
+		name = EVTOPTB1985 # Fine...
+		name = EVTOPTA61224 # Come then. Let us settle this.
+		name = EVTOPTC73011 # I do not fear death...
+		name = { text = EVTOPTA30036 trigger = { trait = craven } } # But... Fine
+		name = { text = EVTOPTB69072 trigger = { trait = craven } } # Go ahead! I'm n-not afraid...
+		event_target:green_axe_target = {
+			clr_global_flag = round_table_initiation
+			set_global_flag = bestowed_green_axe
+			add_artifact = green_axe
+			new_artifact = { set_creation_date = 1.1.1 }
+		}
+		hidden_tooltip = { character_event = { id = GKNIGHT.210 days = 366 } }
+	}
+	option = {
+		name = EVTOPTB1986 # I... cannot risk it
+		name = EVTOPTB61224 # He actually came? I... I am needed elsewhere.
+		name = EVTOPTA86110 # It's too great of a risk...
+		name = EVTOPTB_WOL_11000 # No, that sounds dangerous.
+		hidden_tooltip = {
+			narrative_event = { id = GKNIGHT.300 days = 366 } # The Green Knight will still keep revisiting, every Year and a Day
+			clr_global_flag = round_table_initiation
+		}
+	}
+}
+
+#Green Knight Returns KING
+character_event = {
+	id = GKNIGHT.210
+	title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_210
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = SO_BE_IT
+		name = EVTOPTB1985 # Fine...
+		name = EVTOPTA61224 # Come then. Let us settle this.
+		name = EVTOPTC73011 # I do not fear death...
+		name = { text = EVTOPTA30036 trigger = { trait = craven } } # But... Fine
+		name = { text = EVTOPTB69072 trigger = { trait = craven } } # Go ahead! I'm n-not afraid...
+		ai_chance = {
+			factor = 100
+			modifier = { factor = 3.0 trait = honest }
+			modifier = { factor = 3.0 trait = brave }
+			modifier = { factor = 3.0 trait = wroth }
+			modifier = { factor = 3.0 trait = lunatic }
+		}
+		random_list = {
+			100 = { trigger = { NOT = { trait = brave } } add_trait = brave }
+			5 = { trigger = { NOT = { trait = honest } } add_trait = honest }
+			1 = { trigger = { NOT = { trait = twi_chivalrous } } add_trait = twi_chivalrous }
+			5 = { trigger = { trait = craven } remove_trait = craven }
+			5 = { trigger = { trait = slothful } remove_trait = slothful }
+			5 = { } # nothing
+		}
+		hidden_tooltip = { character_event = { id = GKNIGHT.211 days = 366 } }
+	}
+	option = {
+		name = EVTOPTB1986 # I... cannot risk it
+		name = EVTOPTB61224 # He actually came? I... I am needed elsewhere.
+		name = EVTOPTA86110 # It's too great of a risk...
+		name = EVTOPTB_WOL_11000 # No, that sounds dangerous.
+		ai_chance = {
+			factor = 100
+			modifier = { factor = 3.0 trait = deceitful }
+			modifier = { factor = 3.0 trait = craven }
+			modifier = { factor = 3.0 trait = shy }
+			modifier = { factor = 2.0 trait = hedonist }
+			modifier = { factor = 2.0 trait = slothful }
+		}
+		random_list = {
+			100 = { trigger = { NOT = { trait = craven } } add_trait = craven }
+			5 = { trigger = { NOT = { trait = deceitful } } add_trait = deceitful }
+			5 = { } # nothing
+		}
+		hidden_tooltip = {
+			liege = {
+				narrative_event = { id = GKNIGHT.300 days = 366 } # The Green Knight will still keep revisiting, every Year and a Day
+				clr_global_flag = round_table_initiation
+			}
+		}
+	}
+}
+
+#Green Knight Tests Knight of the Round Table
+character_event = {
+	id = GKNIGHT.211
+	title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_211
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = SO_BE_IT
+		name = EVTOPTB1985 # Fine...
+		name = EVTOPTA61224 # Come then. Let us settle this.
+		name = EVTOPTC73011 # I do not fear death...
+		name = { text = EVTOPTA30036 trigger = { trait = craven } } # But... Fine
+		name = { text = EVTOPTB69072 trigger = { trait = craven } } # Go ahead! I'm n-not afraid...
+		ai_chance = {
+			factor = 100
+			modifier = { factor = 3.0 trait = honest }
+			modifier = { factor = 3.0 trait = brave }
+			modifier = { factor = 3.0 trait = wroth }
+			modifier = { factor = 3.0 trait = lunatic }
+		}
+		random = { chance = 50 add_trait = wounded }
+		random_list = {
+			100 = { trigger = { NOT = { trait = brave } } add_trait = brave }
+			10 = { trigger = { NOT = { trait = honest } } add_trait = honest }
+			1 = { trigger = { NOT = { trait = twi_chivalrous } } add_trait = twi_chivalrous }
+			10 = { trigger = { trait = craven } remove_trait = craven }
+			10 = { trigger = { trait = slothful } remove_trait = slothful }
+			10 = { trigger = { trait = envious } remove_trait = envious }
+			10 = { trigger = { trait = greedy } remove_trait = greedy }
+			10 = { trigger = { trait = gluttonous } remove_trait = gluttonous }
+			10 = { trigger = { trait = lustful } remove_trait = lustful }
+		}
+		hidden_tooltip = { character_event = { id = GKNIGHT.211 days = 366 } }
+	}
+	option = {
+		name = EVTOPTB1986 # I... cannot risk it
+		name = EVTOPTB61224 # He actually came? I... I am needed elsewhere.
+		name = EVTOPTA86110 # It's too great of a risk...
+		ai_chance = {
+			factor = 100
+			modifier = { factor = 3.0 trait = deceitful }
+			modifier = { factor = 3.0 trait = craven }
+			modifier = { factor = 3.0 trait = shy }
+			modifier = { factor = 2.0 trait = hedonist }
+			modifier = { factor = 2.0 trait = slothful }
+		}
+		random_list = {
+			100 = { modifier = { factor = 0 trait = craven } add_trait = craven }
+			5 = { modifier = { factor = 0 trait = deceitful } add_trait = deceitful }
+			5 = { } # nothing
+		}
+		hidden_tooltip = {
+			liege = {
+				narrative_event = { id = GKNIGHT.300 days = 366 } # The Green Knight will still keep revisiting, every Year and a Day
+				clr_global_flag = round_table_initiation
+			}
+		}
+	}
+}
+
+narrative_event = { # Green Knight Visits (Recurring)
+	id = GKNIGHT.300
+	title = EVTNAME_GKNIGHT_1
+	desc = EVTDESC_GKNIGHT_300
+	picture = GFX_evt_battle
+	border = GFX_event_narrative_frame_economy
+
+	is_triggered_only = yes
+	trigger = {
+		is_adult = yes
+		has_law = round_table_law_1
+	}
+
+	option = {
+		name = OK
+		hidden_tooltip = {
+			narrative_event = { id = GKNIGHT.300 days = 366 } # The Green Knight will still keep revisiting, every Year and a Day
+		}
+	}
+}
+
+#End
+#character_event = {
+#	id = HGRAIL.900
+#	desc = EVTDESC_HGRAIL_900
+#	picture = GFX_evt_battle
+#	border = GFX_event_normal_frame_war
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		is_powerful_vassal = yes
+#	}
+#	
+#	option = {
+#		name = EXCELLENT
+#		name = EVTOPTA20443 # Splendid!
+#		name = EVTOPTA_TOG_600 # I can hardly wait!
+#		name = EVTOPTA324 # For [Root.Religion.GetRandomGodName]!
+#		hidden_tooltip = {
+#			character_event = { id = RTABLE.3 days = 100 random = 50 } # Search Round Table Rumours
+#			clr_character_flag = questing_round_table_mod
+#			set_variable = { which = round_table_piece value = 0 }
+#		}
+#	}
+#}
+
+#Round Table Restored (Major)
+#narrative_event = {
+#	id = RTABLE.2
+#	title = EVTNAME_RTABLE_1
+#	desc = EVTDESC_RTABLE_2
+#	picture = GFX_evt_round_table
+#	border = GFX_event_narrative_frame_diplomacy
+#
+#	is_triggered_only = yes
+#	major = yes
+#	
+#	trigger = {
+#		NOT = { character = ROOT }
+#	}
+#	major_trigger = {
+#		capital_scope = {
+#			NOT = {
+#				distance = {
+#					where = 235 # Lombardy # change to Great Britain
+#					value = 800	# Same part of the world
+#				}
+#			}
+#		}
+#	}
+#
+#	option = {
+#		name = OK
+#		name = I_SEE
+#		name = INTERESTING
+#		name = EVTOPTB_MNM_9902 # Hmm, interesting.
+#		name = EVTOPTC_RIP_4021 # Very interesting, but now I have a realm to rule.
+#	}
+#}

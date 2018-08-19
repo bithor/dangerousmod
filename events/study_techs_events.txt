@@ -1,0 +1,359 @@
+namespace = studyt
+character_event = {
+id = studyt.1
+desc = "EVTDESCSTUDYT1"
+picture = GFX_event_write
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_character_modifier = {
+			name = studying_hard
+			duration = 500
+		}
+	}
+	option = {
+		name = study_war
+			capital_scope = {
+				add_province_modifier = {
+					name = studied_war_capital
+					duration = 500
+				}
+			}
+		hidden_tooltip = { character_event = { id = studyt.2 days = 500} }
+	}
+	option = {
+		name = study_art
+		capital_scope = {
+			add_province_modifier = {
+				name = studied_art_capital
+				duration = 500
+			}
+		}
+		hidden_tooltip = { character_event = { id = studyt.3 days = 500} }
+	}
+	option = {
+		name = study_economy
+		capital_scope = {
+			add_province_modifier = {
+				name = studied_economy_capital
+				duration = 500
+			}
+		}
+		hidden_tooltip = { character_event = { id = studyt.4 days = 500} }
+	}
+	option = {
+		trigger = {
+			trait = lunatic
+			NOT = {
+				has_character_flag = mastered_flight
+			}
+		}
+		name = study_nuts
+		tooltip_info = lunatic
+		custom_tooltip = { text = study_nuts_reg }
+		hidden_tooltip = { character_event = { id = studyt.5 days = 150 random = 20} }
+	}
+}
+character_event = {
+id = studyt.2
+desc = "EVTDESCSTUDYT2"
+picture = GFX_event_write
+border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+	}
+	option = {
+		name = study_done
+		trigger = {
+			NOT = {
+				martial = 6
+			}
+		}
+		custom_tooltip = { text = studylow }
+		add_character_modifier = {
+			name = studied_war
+			duration = 250
+		}
+	}				
+	option = {
+		name = study_done
+		trigger = {
+			martial = 6
+			NOT = {
+				martial = 11
+			}
+		}
+		custom_tooltip = { text = studyfairlylow }
+		add_character_modifier = {
+			name = studied_war
+			duration = 250
+		}
+	}
+	option = {
+		name = study_done
+		trigger = {
+			martial = 11
+			NOT = {
+				martial = 15
+			}
+		}
+		custom_tooltip = { text = studymedium }
+		military_techpoints = 5
+		add_character_modifier = {
+			name = studied_war
+			duration = 250
+		}
+	}		
+	option = {
+		name = study_done
+		trigger = {
+			martial = 15
+			NOT = {
+				martial = 20
+			}
+		}
+		custom_tooltip = { text = studyhigh }
+		military_techpoints = 10
+		add_character_modifier = {
+			name = studied_war
+			duration = 250
+		}
+	}		
+	option = {
+		name = study_done
+		trigger = {
+			martial = 20
+		}
+		custom_tooltip = { text = studyveryhigh }
+		military_techpoints = 15
+		add_character_modifier = {
+			name = studied_war
+			duration = 250
+		}
+	}	
+}
+character_event = {
+id = studyt.3
+desc = "EVTDESCSTUDYT3"
+picture = GFX_event_write
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+	}
+	option = {
+		name = study_done
+		trigger = {
+			NOT = {
+				diplomacy = 6
+			}
+		}
+		custom_tooltip = { text = studylow }
+		add_character_modifier = {
+			name = studied_art
+			duration = 250
+		}
+	}				
+	option = {
+		name = study_done
+		trigger = {
+			diplomacy = 6
+			NOT = {
+				diplomacy = 11
+			}
+		}
+		custom_tooltip = { text = studyfairlylow }
+		add_character_modifier = {
+			name = studied_art
+			duration = 250
+		}
+	}
+	option = {
+		name = study_done
+		trigger = {
+			diplomacy = 11
+			NOT = {
+				diplomacy = 15
+			}
+		}
+		custom_tooltip = { text = studymedium }
+		culture_techpoints = 5
+		add_character_modifier = {
+			name = studied_art
+			duration = 250
+		}
+	}		
+	option = {
+		name = study_done
+		trigger = {
+			diplomacy = 15
+				NOT = {
+					diplomacy = 20
+				}
+		}
+		custom_tooltip = { text = studyhigh }
+		culture_techpoints = 10
+		add_character_modifier = {
+			name = studied_art
+			duration = 250
+		}
+	}		
+	option = {
+		name = study_done
+		trigger = {
+			diplomacy = 20
+		}
+		custom_tooltip = { text = studyveryhigh }
+		culture_techpoints = 15
+		add_character_modifier = {
+			name = studied_art
+			duration = 250
+		}
+	}	
+}
+character_event = {
+id = studyt.4
+desc = "EVTDESCSTUDYT4"
+picture = GFX_event_write
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+	}
+	option = {
+		name = study_done
+		trigger = {
+			NOT = {
+				stewardship = 6
+			}
+		}
+		custom_tooltip = { text = studylow }
+		add_character_modifier = {
+			name = studied_economy
+			duration = 250
+		}
+	}				
+	option = {
+		name = study_done
+		trigger = {
+			stewardship = 6
+			NOT = {
+				stewardship = 11
+			}
+		}
+		custom_tooltip = { text = studyfairlylow }
+		add_character_modifier = {
+			name = studied_economy
+			duration = 250
+		}
+	}
+	option = {
+		name = study_done
+		trigger = {
+			stewardship = 11
+			NOT = {
+				stewardship = 15
+			}
+		}
+		custom_tooltip = { text = studymedium }
+		economy_techpoints = 5
+		add_character_modifier = {
+			name = studied_economy
+			duration = 250
+		}
+	}		
+	option = {
+		name = study_done
+		trigger = {
+			stewardship = 15
+			NOT = {
+				stewardship = 20
+			}
+		}
+		custom_tooltip = { text = studyhigh }
+		economy_techpoints = 10
+		add_character_modifier = {
+			name = studied_economy
+			duration = 250
+		}
+	}		
+	option = {
+		name = study_done
+		trigger = {
+			stewardship = 20
+		}
+		custom_tooltip = { text = studyveryhigh }
+		economy_techpoints = 15
+		add_character_modifier = {
+			name = studied_economy
+			duration = 250
+		}
+	}	
+}
+character_event = {
+id = studyt.5
+desc = "EVTDESCSTUDYT5"
+picture = GFX_flying_machine
+border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+		set_character_flag = mastered_flight
+		remove_character_modifier = studying_hard
+	}
+	option = {
+		name = fly_away
+		custom_tooltip = { text = jump_away }
+		hidden_tooltip = { character_event = { id = studyt.6 } }
+	}
+}
+character_event = {
+id = studyt.6
+desc = "EVTDESCSTUDYT6"
+picture = GFX_evt_castle_construction
+border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cluck
+		random_list = {
+			50 = {	
+				custom_tooltip = { text = flight_failure }
+				death = {
+					death_reason = death_accident
+				}
+			}
+			50 = {
+				custom_tooltip = { text = flight_success }
+				hidden_tooltip = { character_event = { id = studyt.7 } }
+			}
+		}
+	}
+}			
+character_event = {
+id = studyt.7
+desc = "EVTDESCSTUDYT7"
+picture = GFX_flying_machine
+border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = fly_success
+		give_nickname = nick_the_cuckoo
+		prestige = 500
+		change_diplomacy = 2
+	}
+}

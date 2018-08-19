@@ -1,0 +1,585 @@
+#####---------====<[ROBMOD]>====----------#####
+#---------------------------------------------#
+####----=<NORSE RELIGIOUS DECISIONS >=----####
+# last edited 25-06-2017
+# CHANGELOG #
+# 25-06-17: Created
+
+decisions = {
+	
+	robmod_create_norse_monks = {
+		is_high_prio = yes
+	
+		potential = {
+			is_playable = yes
+			religion = norse_pagan_reformed
+			controls_religion = yes
+			NOT = { has_global_flag = robmodnorse_monks_activated }
+			has_global_flag = robmodnorse_sisters_emerged
+		}
+		
+		allow = {
+			religion_authority = 0.5
+			piety = 500
+			wealth = 250
+		}
+		
+		effect = {
+			set_global_flag = robmodnorse_monks_activated
+			custom_tooltip = { text = ROBMODNORSE_MONKS_TT }
+			piety = -500
+			wealth = -250
+			hidden_tooltip = {
+				religion_authority = {
+					modifier = robmod_norse_monks_activated
+					years = 100
+				}
+			}
+			hidden_tooltip = {
+				narrative_event = { id = robmodnorse.00001 }
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					trait = greedy
+					trait = cynical
+					trait = rationalist
+				}
+			}
+		}
+	}
+	
+	robmod_norse_raise_oathsmen = {
+		only_playable = yes
+		is_high_prio = yes
+		is_mercenary = yes
+
+		potential = {
+			has_dlc = "The Old Gods"
+			is_playable = yes
+			is_landed = yes
+			religion = norse_pagan_reformed
+			controls_religion = yes
+			has_global_flag = robmodnorse_monks_activated
+		}
+
+		allow = {
+			war = yes
+			custom_tooltip = {
+				text = robmod_norse_raise_oathsmen_tooltip
+				hidden_tooltip = {
+					any_war = {
+						any_defender = {
+							character = ROOT
+							is_primary_war_defender = yes
+						}
+						#Defender is Germanic reformed but attacker is not
+						attacker = {
+							NOT = { religion = norse_pagan_reformed }
+						}
+					}
+				}
+			}
+			piety = 250
+			custom_tooltip = {
+				text = robmod_norse_raise_oathsmen_tooltip_2
+				NOT = { has_character_modifier = robmodnorse_raised_oathsmen }
+			}
+		}
+
+		effect = {
+			custom_tooltip = { text = robmod_norse_summon_defensive_unit }
+			piety = -250
+			if = {
+				limit = {
+					NOT = { piety = 350 }
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						ROOT = {
+							spawn_unit = {
+								owner = ROOT
+								home = PREV
+								province = PREV
+								disband_on_peace = yes
+								maintenance_multiplier = 0
+								attrition = 1.0 
+
+								troops = {
+									archers = { 200 200 }
+									light_infantry = { 500 500 }
+									heavy_infantry = { 200 200 }
+									light_cavalry = { 100 100 }
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					piety = 350
+					NOT = { piety = 450 }
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						ROOT = {
+							spawn_unit = {
+								owner = ROOT
+								home = PREV
+								province = PREV
+								disband_on_peace = yes
+								maintenance_multiplier = 0
+								attrition = 1.0 
+
+								troops = {
+									archers = { 200 200 }
+									light_infantry = { 500 500 }
+									heavy_infantry = { 200 200 }
+									light_cavalry = { 100 100 }
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					piety = 450
+					NOT = { piety = 550 }
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						ROOT = {
+							spawn_unit = {
+								owner = ROOT
+								home = PREV
+								province = PREV
+								disband_on_peace = yes
+								maintenance_multiplier = 0
+								attrition = 1.0 
+
+								troops = {
+									archers = { 300 300 }
+									light_infantry = { 750 750 }
+									heavy_infantry = { 300 300 }
+									light_cavalry = { 150 150 }
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					piety = 550
+					NOT = { piety = 650 }
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						ROOT = {
+							spawn_unit = {
+								owner = ROOT
+								home = PREV
+								province = PREV
+								disband_on_peace = yes
+								maintenance_multiplier = 0
+								attrition = 1.0 
+
+								troops = {
+									archers = { 400 400 }
+									light_infantry = { 1000 1000 }
+									heavy_infantry = { 400 400 }
+									light_cavalry = { 200 200 }
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					piety = 650
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						ROOT = {
+							spawn_unit = {
+								owner = ROOT
+								home = PREV
+								province = PREV
+								disband_on_peace = yes
+								maintenance_multiplier = 0
+								attrition = 1.0 
+
+								troops = {
+									archers = { 500 500 }
+									light_infantry = { 1250 1250 }
+									heavy_infantry = { 500 500 }
+									light_cavalry = { 250 250 }
+								}
+							}
+						}
+					}
+				}
+			}
+			hidden_tooltip = {
+				add_character_modifier = {
+					modifier = robmodnorse_raised_oathsmen
+					years = 5
+				}
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	robmod_norse_choose_pantheon = {
+		is_high_prio = yes
+	
+		potential = {
+			is_playable = yes
+			religion = norse_pagan_reformed
+			NOT = { has_character_flag = robmod_norse_chose_pantheon }
+		}
+		
+		allow = {
+			is_adult = yes
+			war = no
+			in_command = no
+			prisoner = no
+			is_incapable = no
+		}
+		
+		effect = {
+			character_event = {
+				id = robmodnorse.00011
+				tooltip = robmod_choose_pantheon_tt
+			}
+			set_character_flag = robmod_norse_chose_pantheon
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+targetted_decisions = {
+	
+	robmod_order_oathsman = {
+		filter = court
+		ai_target_filter = court
+
+		from_potential = {
+			is_playable = yes
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			religion = norse_pagan_reformed
+			has_global_flag = robmodnorse_monks_activated
+			has_regent = no
+			wealth = 10
+			NOT = { has_character_modifier = robmodnorse_orderedoathsman }
+		}
+
+		potential = {
+			prisoner = no
+			host = { character = FROM }
+			age = 16
+			religion = norse_pagan_reformed
+			is_female = no
+			NOR = { 
+				has_character_flag = robmodnorse_tooktrials
+				trait = robmodnorse_oathsman
+				trait = robmodnorse_unworthy
+				trait = robmodnorse_oathseeker
+			}
+		}
+
+		allow = {
+			is_heir = no
+			is_married = no
+			is_landed = no
+			OR = {
+				trait = misguided_warrior
+				trait = tough_soldier
+				trait = skilled_tactician
+				trait = brilliant_strategist
+				martial = 8
+				combat_rating = 2
+				trait = viking
+				trait = ravager
+				trait = seaking
+			}
+			NOR = {
+				health_traits = 1
+				trait = lunatic
+				trait = clubfooted
+				trait = hunchback
+				trait = dwarf
+				trait = imbecile
+				trait = inbred
+				trait = weak
+				trait = feeble
+				trait = bad_priest_norse
+				trait = blinded
+			}
+		}
+
+		effect = {
+			set_character_flag = robmodnorse_tooktrials
+			hidden_tooltip = {
+				character_event = { 
+					id = robmodnorse.00003
+					days = 700
+					random = 50
+				}
+			}
+			add_trait = robmodnorse_oathseeker
+			if = {
+				limit = { 
+					NOR = {
+						trait = craven
+						trait = cynical
+						trait = rationalist
+						trait = lustful
+						trait = greedy
+						trait = gluttonous
+					}
+				}
+				opinion = {
+					modifier = opinion_robmodnorse_oathhonour
+					years = 100
+					who = FROM
+				}
+			}
+			FROM = {
+				piety = 10
+				wealth = -10
+				add_character_modifier = {
+					modifier = robmodnorse_orderedoathsman
+					years = 2
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				OR = {
+					trait = craven
+					trait = cynical
+					trait = rationalist
+					trait = lustful
+					trait = greedy
+					trait = gluttonous
+					NOR = { 
+						trait = skilled_tactician
+						trait = brilliant_strategist
+						martial = 12
+						combat_rating = 3
+						trait = viking
+						trait = ravager
+						trait = seaking
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				dynasty = FROM
+			}
+			modifier = {
+				factor = 0.1
+				is_child_of = FROM
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					OR = {
+						trait = cynical
+						trait = rationalist
+						trait = greedy
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					OR = {
+						trait = zealous
+						trait = doctrinaire
+						trait = charitable
+					}
+				}
+			}
+		}
+	}
+	
+	robmod_order_friggsister = {
+		filter = court
+		ai_target_filter = court
+
+		from_potential = {
+			is_playable = yes
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			religion = norse_pagan_reformed
+			has_global_flag = robmodnorse_monks_activated
+			has_regent = no
+			wealth = 10
+			NOT = { has_character_modifier = robmodnorse_orderedfriggsister }
+		}
+
+		potential = {
+			prisoner = no
+			host = { character = FROM }
+			age = 16
+			religion = norse_pagan_reformed
+			is_female = yes
+			NOR = {
+				has_character_flag = robmodnorse_friggtraining
+				trait = robmodnorse_friggseeker
+				trait = robmodnorse_friggsister
+			}
+		}
+
+		allow = {
+			is_heir = no
+			is_married = no
+			is_landed = no
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+				trait = physician
+				trait = mystic
+				learning = 8
+			}
+		}
+
+		effect = {
+			hidden_tooltip = {
+				character_event = { 
+					id = robmodnorse.00004
+					days = 700
+					random = 50
+				}
+				set_character_flag = robmodnorse_friggtraining
+			}
+			add_trait = robmodnorse_friggseeker
+			if = {
+				limit = { 
+					NOR = {
+						trait = cynical
+						trait = rationalist
+						trait = lustful
+						trait = greedy
+						trait = gluttonous
+					}
+				}
+				opinion = {
+					modifier = opinion_robmodnorse_sisterhonour
+					years = 100
+					who = FROM
+				}
+			}
+			
+			FROM = {
+				piety = 10
+				wealth = -10
+				add_character_modifier = {
+					modifier = robmodnorse_orderedfriggsister
+					years = 2
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				OR = {
+					trait = cynical
+					trait = rationalist
+					trait = lustful
+					trait = greedy
+					trait = gluttonous
+					NOR = { 
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+						learning = 12
+						trait = physician
+						trait = mystic
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				dynasty = FROM
+			}
+			modifier = {
+				factor = 0.1
+				is_child_of = FROM
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					OR = {
+						trait = cynical
+						trait = rationalist
+						trait = greedy
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					OR = {
+						trait = zealous
+						trait = doctrinaire
+						trait = charitable
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				OR = {
+						trait = zealous
+						trait = doctrinaire
+						trait = physician
+						trait = mystic
+				}
+			}
+		}
+	}
+}

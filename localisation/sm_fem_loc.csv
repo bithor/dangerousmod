@@ -1,0 +1,50 @@
+#CODE;ENGLISH;;;;;;;;;;;;;x
+EVTTITLEsoulmatesFSpouseStressGive;Giving a Helping Hand;;;;;;;;;;;;;x
+EVTDESCsoulmates.3000;Day after day, night after night, you cannot help but notice that your [Root.Spouse.GetHusbandWife] appears to be finding the burdens of life too much to handle. [Root.Spouse.GetSheHeCap] often wakes up at night in cold sweat, or weeps inconsolably when [Root.Spouse.GetSheHe] thinks nobody is watching. You feel that you need to help somehow.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3000;Perhaps a wild ride shall give [Root.Spouse.GetHerHim] something to look forward to every night?;;;;;;;;;;;;;x
+EVTOPTAATTsoulmates.3000;Your prowess in bed shall distract [Root.Spouse.GetHerHim] from [Root.Spouse.GetHerHis] troubles!;;;;;;;;;;;;;x
+EVTOPTABTTsoulmates.3000;Your prowess in bed was found wanting...;;;;;;;;;;;;;x
+EVTOPTBsoulmates.3000;A great feast to show everyone's gratitude to [Root.Spouse.GetHerHim] shall suffice!;;;;;;;;;;;;;x
+EVTOPTBATTsoulmates.3000;The feast impresses your [Root.Spouse.GetHusbandWife].;;;;;;;;;;;;;x
+EVTOPTBBTTsoulmates.3000;The feast is merely ignored by your [Root.Spouse.GetHusbandWife].;;;;;;;;;;;;;x
+EVTOPTCsoulmates.3000;A few days out in the wilds always helped to sort out one's thoughts...;;;;;;;;;;;;;x
+EVTOPTCATTsoulmates.3000;The tranquility of the wilds manages to help your [Root.Spouse.GetHusbandWife].;;;;;;;;;;;;;x
+EVTOPTCBTTsoulmates.3000;Something unexpected happens and prevents the trip.;;;;;;;;;;;;;x
+EVTOPTDsoulmates.3000;My [Root.Spouse.GetHusbandWife] could use some soothing words.;;;;;;;;;;;;;x
+EVTOPTDATTsoulmates.3000;Your words help to soothe your [Root.Spouse.GetHusbandWife]'s mind.;;;;;;;;;;;;;x
+EVTOPTDBTTsoulmates.3000;Your words fail to do anything for your [Root.Spouse.GetHusbandWife]'s mind.;;;;;;;;;;;;;x
+EVTOPTEsoulmates.3000;I dare not make [Root.Spouse.GetHerHis] thoughts any darker...;;;;;;;;;;;;;x
+EVTOPTETTsoulmates.3000;You decide to do nothing at this time.;;;;;;;;;;;;;x
+EVTDESCsoulmates.3001;An ambush with a bed covered with perfumed roses proved the greatest of solutions for my [Root.Spouse.GetHusbandWife]'s problems! After making love until the wee hours of the morning, [Root.Spouse.GetSheHe] returned to court with a broad smile on [Root.Spouse.GetHerHis] face.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3001;Now if only I could walk straight today...;;;;;;;;;;;;;x
+EVTDESCsoulmates.3002;An ambush with a bed of perfumed roses did not work as well as I thought it would. My [Root.Spouse.GetHusbandWife] remains unimpressed, falling asleep after pushing aside the roses...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3002;And I walked away unsatisfied. How vexing!;;;;;;;;;;;;;x
+EVTDESCsoulmates.3003;A small feast I held with all the courtiers in attendance proved to be what my [Root.Spouse.GetHusbandWife] needed. Their declarations of gratitude reminded [Root.Spouse.GetHerHim] of all the good that [Root.Spouse.GetSheHe] has done for the realm.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3003;[Root.Spouse.GetHerHisCap]'s smile outshines the Sun!;;;;;;;;;;;;;x
+EVTDESCsoulmates.3004;A small feast I held with all the courtiers in attendance merely irritated my [Root.Spouse.GetHusbandWife]. [Root.Spouse.GetSheHeCap] declared that it reminded [Root.Spouse.GetHerHim] of just another day in court!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3004;The courtiers are also offended, but at least I smoothed it over...;;;;;;;;;;;;;x
+EVTDESCsoulmates.3005;After a few days that we have stayed in the solitude of a private hunting camp, my [Root.Spouse.GetHusbandWife] approaches me with a smile on [Root.Spouse.GetHerHis] face. Apparently, the serenity of the wilderness has helped [Root.Spouse.GetHerHim] to collect [Root.Spouse.GetHerHis] thoughts!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3005;Now if only I could get rid of the grass stains on my clothes so easily...;;;;;;;;;;;;;x
+EVTDESCsoulmates.3006;We had planned to go on a private hunting trip, but it seemed that [Root.Religion.GetHighGodName] had other plans. Vicious thunderstorms struck, ensuring that we would not be able to leave. In the end, my [Root.Spouse.GetHusbandWife] states that [Root.Spouse.GetSheHe] cannot leave [Root.Spouse.GetHerHis] tasks alone any longer...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3006;And I was looking forward to it as well...;;;;;;;;;;;;;x
+EVTDESCsoulmates.3007;A session of grooming my [Root.Spouse.GetHusbandWife] before bed, while speaking at length about [Root.Spouse.GetHerHis] problems, has borne fruit. After voicing [Root.Spouse.GetHerHis] problems last night, [Root.Spouse.GetSheHe] appears to be much happier now.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3007;Excellent.;;;;;;;;;;;;;x
+EVTDESCsoulmates.3008;Whatever honeyed words that I had prepared sounded hollow and meaningless last night. Though my [Root.Spouse.GetHusbandWife] listened to everything I had to say, there appears to be no difference in [Root.Spouse.GetHerHis] mood...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3008;What more do I need to say...?;;;;;;;;;;;;;x
+EVTTITLEsoulmatesFSpouseStressReceive;Receiving a Helping Hand;;;;;;;;;;;;;x
+EVTDESCsoulmates.3101;As I changed into my underthings at night, I turned around to find my [Root.Spouse.GetHusbandWife] on my bed, with a veritable multitude of roses surrounding [Root.Spouse.GetHerHim]! By [Root.Religion.GetRandomGodName], the things we did that night...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3101;I may not be able to walk straight, but my mind feels much better now!;;;;;;;;;;;;;x
+EVTDESCsoulmates.3102;After a long day at court, the last thing I wanted was another task to do. My [Root.Spouse.GetHusbandWife] was on my bed at night, demanding my attention. By [Root.Religion.GetRandomGodName], can I not have a moment of the day to myself!?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3102;Alas, [Root.Spouse.GetSheHe] could not be dissuaded. I feel exhausted.;;;;;;;;;;;;;x
+EVTDESCsoulmates.3103;I received an invitation to a feast that I did not recall organising in my own halls. As I entered the great hall, I came face to face with the beaming faces of all my courtiers! My [Root.Spouse.GetHusbandWife] approaches me with a broad smile, saying that they wish to thank me for all I have done for the realm!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3103;And this is exactly why I must continue with what I do!;;;;;;;;;;;;;x
+EVTDESCsoulmates.3104;I received an invitation to a feast that I did not recall organising in my own halls. Another feast, another gathering of courtiers...can I never be free of their demands?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3104;Leave me alone!;;;;;;;;;;;;;x
+EVTDESCsoulmates.3105;My [Root.Spouse.GetHusbandWife] invited me to a private hunting trip. This has turned out to be a blessing in disguise, as while I am away from my courtiers, I find myself finally able to gather my thoughts!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3105;I owe my [Root.Spouse.GetHusbandWife] my thanks for this gift!;;;;;;;;;;;;;x
+EVTDESCsoulmates.3106;My [Root.Spouse.GetHusbandWife] invited me to a private hunting trip. The weather, however, proved completely hostile, only clearing up just as I was needed back in my court...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3106;Even [Root.Religion.GetHighGodName] seems against it...;;;;;;;;;;;;;x
+EVTDESCsoulmates.3107;A bottle of scented oil and a warm bath greeted me as I returned to my chambers. My [Root.Spouse.GetHusbandWife] offered to listen to my problems as [Root.Spouse.GetSheHe] gently tended to my body. Though it seems foolish, I find myself with fewer dark thoughts running about in my head afterwards.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3107;[Root.Spouse.GetFirstName] is truly a dedicated [Root.Spouse.GetHusbandWife].;;;;;;;;;;;;;x
+EVTDESCsoulmates.3108;A bottle of scented oil and a warm bath greeted me as I returned to my chambers. My [Root.Spouse.GetHusbandWife] offered to listen to my problems as [Root.Spouse.GetSheHe] gently tended to my body. Though I appreciated the gesture, the dark thoughts in my head remains unchanged.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.3108;Another day, another farmer and his pig to listen to...;;;;;;;;;;;;;x

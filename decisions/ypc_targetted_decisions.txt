@@ -1,0 +1,40 @@
+targetted_decisions = {
+	cure_possessed_courtier = {
+		filter = court
+		ai_target_filter = court
+		from_potential = {
+			ai = no
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			OR = {
+				capital_holding = {
+					has_building = ca_chapel
+				}
+				family_palace = {
+					has_building = fp_chapel
+				}
+			}
+			NOT = { trait = possessed }
+			NOT = {	has_character_flag = chapel_curing_possessed_courtier }
+			job_spiritual = {
+				is_alive = yes
+			}
+		}
+		potential = {
+			prisoner = no
+			trait = possessed
+			NOT = { has_character_flag = possessed_subject_for_curing }
+		}
+		allow = {
+			in_command = no
+		}
+		effect = {
+			FROM = {
+				set_character_flag = chapel_curing_possessed_courtier
+			}
+			custom_tooltip = { text = chapel_start_cure }
+			ROOT = { hidden_tooltip = { character_event = { id = chaper.1 } } }
+		}
+	}
+}

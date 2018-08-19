@@ -1,0 +1,93 @@
+title_court_healer = {
+	show_as_title = yes
+	realm_in_name = no
+	opinion_effect = 10
+	
+	monthly_salary = 0.05
+	monthly_prestige = 0.02
+	
+	allowed_to_hold = {
+		is_landed = no
+		learning = 12
+	}
+	
+	allowed_to_grant = {
+		NOT = { has_dlc = "Reapers" }
+		OR = {
+			capital_holding = {
+				has_building = ca_medical_1
+			}
+			family_palace = {
+				has_building = fp_medical_1
+			}
+		}
+	}
+	
+	grant_limit = 1
+	gain_effect = {
+		prestige = 20
+	}
+	lose_effect = {
+	}
+	message = yes
+}
+title_court_master_librarian = {
+	show_as_title = yes
+	realm_in_name = no
+	opinion_effect = 10
+	
+	monthly_salary = 0.03
+	monthly_prestige = 0.002
+	
+	allowed_to_hold = {
+		is_landed = no
+		trait = scholar
+	}
+	allowed_to_grant = {
+		OR = {
+			capital_holding = {
+				has_building = ca_library
+			}
+			family_palace = {
+				has_building = fp_shrine_3
+			}
+		}
+	}
+	grant_limit = 1
+	gain_effect = {
+		prestige = 10
+	}
+	lose_effect = {
+	}
+	message = yes
+}
+title_court_master_gardener = {
+	show_as_title = yes
+	realm_in_name = no
+	opinion_effect = 10
+	
+	monthly_salary = 0.03
+	monthly_prestige = 0.005
+	
+	allowed_to_hold = {
+		is_landed = no
+		trait = gardener
+	}
+	allowed_to_grant = {
+		OR = {
+			capital_holding = {
+				has_building = ca_garden_1
+			}
+			family_palace = {
+				has_building = fp_garden_1
+			}
+		}
+	}
+	grant_limit = 1
+	gain_effect = {
+		prestige = 10
+	}
+	lose_effect = {
+	}
+	message = yes
+}

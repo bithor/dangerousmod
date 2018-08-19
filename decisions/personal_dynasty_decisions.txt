@@ -1,0 +1,215 @@
+# Targetted decisions are possible vs _all_ other characters and shown are in the Diplomacy View, not the Intrigue View. The taker is in the FROM scope.
+#
+# filter = [self/court/home_court/vassals/sub_realm/realm/dynasty/all] ('self' MUST be set for decisions targetting only the taker, the other filter types can be set to lessen CPU load)
+# ai_target_filter = [self/court/home_court/vassals/sub_realm/realm/dynasty/all] (which characters for which the AI evaluates the decision.)
+#	court: all characters in the AI's host court, including prisoners, and characters currently away (wards, prisoners, etc)
+#	home_court: all characters in the AI's home court, including prisoners, and characters currently away (wards, prisoners, etc)
+#	vassals: direct vassal rulers of the AI's employer
+#	sub_realm: all characters below the AI's employer
+#	realm: all characters in the same top realm as the AI
+#	dynasty: all members of the same dynasty
+#	rivals: your rivals plus any character you have an opinion modifier with 'crime = yes' set (the same set of characters the 'is_foe' trigger evaluates)
+#	all: all living characters (Avoid if possible. VERY CPU-HEAVY!)
+#	
+
+targetted_decisions = {
+
+	cure_1st_disease_dynasty = {
+		filter = court
+		ai_target_filter = court
+		from_potential = {
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_1
+				}
+				family_palace = {
+					has_building = fp_medical_1
+				}
+			}
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+		}
+		potential = {
+			prisoner = no
+			NOT = { 
+				has_character_modifier = 1st_cure_failed
+				has_character_flag = attempting_to_cure_disease
+				has_minor_title = title_court_healer
+			}
+			trait = ill
+			is_liege_or_above = FROM
+			at_location = FROM
+		}
+		allow = {
+			FROM = { scaled_wealth = 0.1 }
+		}
+		effect = {
+			FROM = { scaled_wealth = -0.1 }
+			set_character_flag = attempting_to_cure_disease
+			custom_tooltip = { text = dynasty_cure_1st_tooltip }
+			hidden_tooltip = { character_event = { id = medper.1 } }
+		}
+	}
+	cure_2nd_disease_dynasty = {
+		filter = court
+		ai_target_filter = court
+		
+		from_potential = {
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_2
+				}
+				family_palace = {
+					has_building = fp_medical_2
+				}
+			}
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+		}
+		
+		potential = {
+			prisoner = no
+			NOT = { 
+				has_character_modifier = 2nd_cure_failed
+				has_character_flag = attempting_to_cure_disease
+				has_minor_title = title_court_healer
+			}
+			OR = {
+				trait = has_tuberculosis
+				trait = has_typhoid_fever
+				trait = has_typhus
+				trait = has_small_pox
+				trait = has_measles
+			}
+			is_liege_or_above = FROM
+			at_location = FROM
+		}
+		allow = {
+			FROM = { scaled_wealth = 0.25 }
+		}
+		effect = {
+			FROM = { scaled_wealth = -0.25 }
+			set_character_flag = attempting_to_cure_disease
+			custom_tooltip = { text = dynasty_cure_2nd_tooltip }
+			hidden_tooltip = { character_event = { id = medper.2 } }
+		}
+	}
+	cure_syphilitic_dynasty = {
+		filter = court
+		ai_target_filter = court
+		
+		from_potential = {
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+		}
+		
+		potential = {
+			prisoner = no
+			NOT = { 
+				has_character_modifier = syphilitic_cure_failed
+				has_character_flag = attempting_to_cure_disease
+				has_minor_title = title_court_healer
+			}
+			trait = syphilitic
+			is_liege_or_above = FROM
+			at_location = FROM
+		}
+		allow = {
+			FROM = { scaled_wealth = 0.4 }
+		}
+		effect = {
+			FROM = { scaled_wealth = -0.4 }
+			set_character_flag = attempting_to_cure_disease
+			custom_tooltip = { text = dynasty_cure_syphilitic_tooltip }
+			hidden_tooltip = { character_event = { id = medper.3 } }
+		}
+	}
+	cure_plague_dynasty = {
+		filter = court
+		ai_target_filter = court
+		
+		from_potential = {
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+		}
+		
+		potential = {
+			prisoner = no
+			NOT = { 
+				has_character_modifier = plague_cure_failed
+				has_character_flag = attempting_to_cure_disease
+				has_minor_title = title_court_healer
+			}
+			trait = has_bubonic_plague
+			is_liege_or_above = FROM
+			at_location = FROM
+		}
+		
+		allow = {
+			FROM = { scaled_wealth = 0.4 }
+		}
+		effect = {
+			FROM = { scaled_wealth = -0.4 }
+			set_character_flag = attempting_to_cure_disease
+			custom_tooltip = { text = dynasty_cure_plague_tooltip }
+			hidden_tooltip = { character_event = { id = medper.4 } }
+		}
+	}
+	cure_pneumonic_dynasty = {
+		filter = court
+		ai_target_filter = court
+		from_potential = {
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+		}
+		potential = {
+			prisoner = no
+			NOT = { 
+				has_character_modifier = pneumonic_cure_failed
+				has_character_flag = attempting_to_cure_disease
+				has_minor_title = title_court_healer
+			}
+			trait = pneumonic
+			is_liege_or_above = FROM
+			at_location = FROM
+		}
+		allow = {
+			FROM = { scaled_wealth = 0.4 }
+		}
+		effect = {
+			FROM = { scaled_wealth = -0.4 }
+			set_character_flag = attempting_to_cure_disease
+			custom_tooltip = { text = dynasty_cure_pneumonic_tooltip }
+			hidden_tooltip = { character_event = { id = medper.5 } }
+		}
+	}
+}

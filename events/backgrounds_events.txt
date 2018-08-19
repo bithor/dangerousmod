@@ -1,0 +1,162 @@
+namespace = sketchy
+
+character_event = {
+    id = sketchy.2
+    desc = EVTDESC_sketchy_2
+    picture = "GFX_evt_siege"
+
+    min_age = 50
+
+    trigger = {
+        martial = 5
+        NOT = {trait = missionary}
+        NOT = {trait = war_veteran}
+        NOT = {trait = thief}
+
+        OR = {
+            trait = light_foot_leader
+            trait = heavy_infantry_leader
+            trait = cavalry_leader
+            trait = inspiring_leader
+            trait = trickster
+            trait = organizer
+            trait = defensive_leader
+            trait = experimenter
+            trait = flanker
+            trait = aggressive_leader 
+            trait = siege_leader
+            trait = brilliant_strategist
+            trait = scarred
+            martial = 15 
+        }
+    }
+
+
+    mean_time_to_happen = {
+        months = 1
+        modifier = {
+            factor = 2 # Decreases chances by half
+            martial = 10
+        }
+    }
+
+    option = {
+       name = "EVTOPTA_sketchy_2"
+       add_trait = war_veteran
+    }
+
+}
+
+character_event = {
+    id = sketchy.3
+    desc = EVTDESC_sketchy_3
+    picture = "GFX_evt_church_council_cm"
+
+    min_age = 35
+
+    trigger = { 
+        learning = 10
+        is_priest = yes
+        NOT = {trait = missionary}
+        NOT = {trait = war_veteran}
+        NOT = {trait = thief}
+        NOT = {trait = cynical}
+
+        calc_true_if = {
+            amount = 3
+            trait = mastermind_theologian
+            trait = zealous
+            trait = theologian
+            trait = crusader
+            trait = chaste
+            learning = 15
+            piety = 100
+        }
+        calc_true_if = {
+            amount = 7
+            NOT = { trait = lustful }
+            NOT = { trait = slothful }
+            NOT = { trait = gluttonous }
+            NOT = { trait = proud }
+            NOT = { trait = greedy }
+            NOT = { trait = wroth }
+            NOT = { trait = envious }
+            NOR = { 
+            trait = deceitful
+            trait = cruel
+            trait = drunkard
+            trait = excommunicated
+            trait = sympathy_islam
+            trait = sympathy_judaism
+            }
+
+        }
+    }
+    
+
+
+    mean_time_to_happen = {
+        months = 1
+        modifier = {
+            factor = 2 # Decreases chances by half
+            learning = 15
+        }
+    }
+
+    option = {
+       name = "EVTOPTA_sketchy_3"
+       add_trait = missionary
+    }
+
+}
+
+character_event = {
+    id = sketchy.4
+    desc = EVTDESC_sketchy_4
+    picture = "GFX_evt_shadow"
+
+    min_age = 20
+    max_age = 40
+
+
+    trigger = { 
+
+        intrigue = 15
+        NOT = {trait = missionary}
+        NOT = {trait = war_veteran}
+        NOT = {trait = thief}
+
+        calc_true_if = {
+            amount = 2
+            trait = elusive_shadow
+            trait = schemer
+            trait = greedy
+            intrigue = 20
+            wealth = 50
+        }
+        calc_true_if = {
+            amount = 4
+            NOT = { trait = charitable }
+            NOT = { trait = slothful }
+            NOT = { trait = honest }
+            NOT = { trait = just }
+            NOT = { trait = trusting }
+        }
+    }
+    
+
+
+    mean_time_to_happen = {
+        months = 1
+        modifier = {
+            factor = 2 # Decreases chances by half
+            intrigue = 15
+        }
+    }
+
+    option = {
+       name = "EVTOPTA_sketchy_4"
+       add_trait = thief
+    }
+
+}

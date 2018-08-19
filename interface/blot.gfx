@@ -1,0 +1,70 @@
+spriteTypes = {
+
+     spriteType = {
+          name = "GFX_evt_midwinter_blot_oldgods"
+          texturefile = "gfx\\event_pictures\\blot.dds"
+     }
+
+     spriteType = {
+	  name = "GFX_evt_irminsul_burning_cm"
+	  texturefile = "gfx\\event_pictures\\chalice.dds"
+     }
+
+     spriteType = {
+	  name = "GFX_evt_Pope"
+	  texturefile = "gfx\\event_pictures\\holy.dds"
+     }
+
+     spriteType = {
+	  name = "GFX_evt_rome"
+	  texturefile = "gfx\\event_pictures\\burning.dds"
+     }
+
+     spriteType = {
+	  name = "GFX_evt_longships_at_sea_oldgods"
+	  texturefile = "gfx\\event_pictures\\sailing.dds"
+     }
+
+     spriteType = {
+	  name = "GFX_evt_viking_throneroom_oldgods"
+	  texturefile = "gfx\\event_pictures\\throne.dds"
+     }
+
+     spriteType = {
+          name = "GFX_evt_Bishop_preaching_from_pulpit_byzantine"
+          texturefile = "gfx\\event_pictures\\preacher.dds"
+     }
+
+     spriteType = {
+          name = "GFX_evt_Burning_House"
+          texturefile = "gfx\\event_pictures\\house.dds"
+     }
+
+     spriteType = {
+          name = "GFX_evt_Beheading"
+          texturefile = "gfx\\event_pictures\\offer.dds"
+     }
+
+     spriteType = {
+          name = "GFX_evt_Orthodox_icon"
+          texturefile = "gfx\\event_pictures\\icon.dds"
+     }
+
+     spriteType = {
+          name = "GFX_evt_tribal_shrine_cm"
+          texturefile = "gfx\\event_pictures\\shrine.dds"
+     }
+
+     spriteType = {
+          name = "GFX_evt_Hagia_sofia"
+          texturefile = "gfx\\event_pictures\\dark_day.dds"
+     }
+
+     spriteType = {
+          name = "GFX_evt_vikings_arriving_oldgods"
+          texturefile = "gfx\\event_pictures\\vikings.dds"
+     }
+
+
+
+}

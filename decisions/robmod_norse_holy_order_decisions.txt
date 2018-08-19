@@ -1,0 +1,141 @@
+###########################################
+#
+# Holy Order Decisions for Sons of Abraham
+#
+###########################################
+# Written by Henrik Fåhraeus
+###########################################
+
+# Holy Order Decisions are listed for each existing holy order of the right religion
+
+decisions = {
+
+	expel_the_thorshammers = {
+		only_independent = yes
+		potential = {
+			ai = no
+			religion = norse_pagan_reformed
+			higher_tier_than = DUKE
+			independent = yes
+			is_title_active = d_thorshammers
+			NOT = { has_character_modifier = expelled_d_thorshammers }
+			
+			any_realm_province = {
+				any_province_lord = {
+					d_thorshammers = {
+						holder_scope = {
+							OR = {
+								character = PREVPREV
+								is_vassal_or_below = PREVPREV
+							}
+						}
+					}
+				}
+			}
+			
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			piety = 1000
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip
+				hidden_tooltip = {
+					NOT = { has_character_flag = expel_the_thorshammers_check }
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = expel_the_thorshammers_check
+			custom_tooltip = {
+				text = expelling_holy_order_decision_tooltip_b
+				hidden_tooltip = {
+					character_event = { id = robmodnorse.10000 }
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	donate_money_to_thorshammers = {
+		only_playable = yes
+		potential = {
+			is_playable = yes
+			
+			OR = {
+				AND = {
+					wealth = 1000
+					NOR = {
+						trait = cynical
+						piety = 50
+					}
+				}
+				ai = no
+			}
+			
+			religion = norse_pagan_reformed
+						
+			is_title_active = d_thorshammers
+			
+			has_dlc = "Sons of Abraham"
+			
+			d_thorshammers = {
+				holder_scope = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			
+			NOT = { has_character_modifier = expelled_d_thorshammers }
+		}
+		
+		allow = {
+			wealth = 300
+		}
+		
+		effect = {
+			if = {
+				limit = { 
+					NOT = { has_character_modifier = donated_to_holy_order }
+				}
+				add_character_modifier = {
+					name = donated_to_holy_order
+					duration = -1
+				}
+			}
+			
+			hidden_tooltip = {
+				d_thorshammers = {
+					holder_scope = {
+						character_event = {
+							id = robmodnorse.10010
+						}
+					}
+				}
+			}
+			
+			wealth = -300
+			piety = 300
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.002 # Slow it down
+			}
+		}
+	}	
+}

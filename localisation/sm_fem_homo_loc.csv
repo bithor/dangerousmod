@@ -1,0 +1,81 @@
+#CODE;ENGLISH;;;;;;;;;;;;;x
+EVTTITLEsoulmatesFMarriage;Lover Proposes Marriage;;;;;;;;;;;;;x
+EVTDESCsoulmates.1000;It has been some time since you have fallen in love with your lover. You can think of nothing better than to be embraced by her, laying comfortably in her arms, breathing in her sweet scent. A thought crosses your mind: why not make her your wife, and therefore yours till death do you part?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1000;Yes. Who cares about what others think?;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1000;You propose to your lover. If she accepts, you will be married. However, such an act may be viewed as unnatural by others...;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1000;No. Now is not the time. We wouldn't be safe.;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1000;You remain only lovers.;;;;;;;;;;;;;x
+EVTDESCsoulmates.1001;You walk into your room in the evening to discover a perfumed letter sitting on your bed. As you open it, you can hardly believe your eyes. Your lover, [From.GetFullName], has suggested that the two of you be married! Your heart beats faster at the idea, but in your mind you know that accepting would put both of you in danger from the less open-minded...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1001;What do the others know of how we feel for each other? It is time we showed our love openly!;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1001;You accept the offer. This will potentially offend numerous people!;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1001;No, not yet. The risk is too great.;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1001;You remain only lovers. Your lover likely would be disappointed...;;;;;;;;;;;;;x
+EVTDESCsoulmates.1002;Your lover has accepted your offer! While you are unlikely to find a priest willing to officiate your marriage, do you really need their approval to be married?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1002;Together at last. Now, and forever, till death do us part.;;;;;;;;;;;;;x
+EVTDESCsoulmates.1003;Your lover has rejected your offer, perhaps out of caution. Your pride takes quite a blow, but perhaps she is right that this is not the time?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1003;Perhaps now is not the time...or does she truly love me still?;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1003;You accept her refusal.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesFChild;Wife wants Children;;;;;;;;;;;;;x
+EVTDESCsoulmates.1004;You and your wife have agreed to have another child. The question that remains now is, how should you approach this problem?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1004;Perhaps with the aid of alchemy...?;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1004;You use the aid of a potion in your treasury.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1004;[Root.Religion.GetHighGodName] won't help us, but I think of [Root.Religion.GetRandomEvilGodName]...;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1004;You have little fear of the unholy. A few sacrifices have to be made to get what you want, after all...;;;;;;;;;;;;;x
+EVTOPTCsoulmates.1004;Perhaps a trustworthy courtier could assist us?;;;;;;;;;;;;;x
+EVTOPTCTTsoulmates.1004;You look over your male courtiers for someone that could assist you...;;;;;;;;;;;;;x
+EVTOPTDsoulmates.1004;Perhaps now is not the time.;;;;;;;;;;;;;x
+EVTOPTDTTsoulmates.1004;You change your mind and decide against having a child.;;;;;;;;;;;;;x
+EVTDESCsoulmates.1005;You have a potion in your treasury that you believe should help. The bottle remains sealed in your hand, ready to be used, and your wife looks on expectantly.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1005;This potion looks like...tar and privy sludge, and smells little better. Should she really drink this...?;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1005;The potion seems unsafe to drink. Perhaps it is best to not do this...;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1005;The potion is thick and slimy, and smells of freshly cut grass. Will this really help?;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1005;The potion seems safe enough, though whether or not it is effective remains to be seen.;;;;;;;;;;;;;x
+EVTOPTCsoulmates.1005;The potion resembles thick, colourless liquid, and gives off faint, odourless fumes.;;;;;;;;;;;;;x
+EVTOPTCTTsoulmates.1005;The potion seems safe to drink. Perhaps this will be effective?;;;;;;;;;;;;;x
+EVTOPTDsoulmates.1005;The potion is the colour of a fine white wine, and smells of cloyingly-sweet fruit.;;;;;;;;;;;;;x
+EVTOPTDTTsoulmates.1005;The potion seems safe to drink, and appears to be well-made. It would likely be effective.;;;;;;;;;;;;;x
+EVTOPTEsoulmates.1005;The potion is the colour of rubies in firelight, and appears to have a life of its own.;;;;;;;;;;;;;x
+EVTOPTETTsoulmates.1005;The potion appears to have a life of its own already, with how it dances about inside its bottle!;;;;;;;;;;;;;x
+EVTOPTFsoulmates.1005;Perhaps it is better to wait...;;;;;;;;;;;;;x
+EVTOPTFTTsoulmates.1005;You decide against using the potion.;;;;;;;;;;;;;x
+EVTDESCsoulmates.1006;Invoking the name of [Root.GetRandomEvilGodName] under the cover of darkness, you determine that [Root.GetRandomEvilGodName] demands a life to create a life. There are many suitable sacrifices in your court...if you choose them, that is.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1006;Hail [Root.Religion.GetRandomEvilGodName], thy will be done!;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1006;You sacrifice a courtier to [Root.Religion.GetRandomEvilGodName], in exchange for an unholy impregnation of your spouse. There is a chance that someone sees you committing this act...;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1006;Hail [Root.Religion.GetRandomEvilGodName], thy will be done...in the shadows!;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1006;You sacrifice a courtier to [Root.Religion.GetRandomEvilGodName]. Thanks to your abilities in intrigue, you are certain that you will not be caught.;;;;;;;;;;;;;x
+EVTOPTCsoulmates.1006;Perhaps this is not the best idea...;;;;;;;;;;;;;x
+EVTOPTCTTsoulmates.1006;You have second thoughts about doing something like this. Your wife is unlikely to be pleased with your indecision...;;;;;;;;;;;;;x
+EVTDESCsoulmates.1007;You discover a healthy male courtier that is willing to assist your wife with having a child. Should you really go ahead with this?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1007;Well, she did want to have a child...;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1007;You allow the courtier to assist with your wife's wishes.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1007;Absolutely not!;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1007;You have second thoughts and forbid it. Your wife is unlikely to be pleased...;;;;;;;;;;;;;x
+EVTDESCsoulmates.1008;Every day, you find your thoughts drifting towards expanding your family. Your wife is still capable of bearing children. Perhaps you could ask her if she wants another little one?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1008;Perhaps she would be willing...;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1008;You ask your wife if she would be willing to bear a child.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1008;No, perhaps not.;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1008;You refrain from asking your wife about bearing a child.;;;;;;;;;;;;;x
+EVTDESCsoulmates.1009;Your wife approached you earlier today about her proposal to have more children. She proposes that you would be the mother of the child. How do you respond to her request?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1009;I suppose I could do it...;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.1009;You decide to accept her request. WARNING: THIS CHILD WILL BE OF YOUR WIFE'S DYNASTY!;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1009;No. Absolutely not!;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.1009;You refuse your wife's request.;;;;;;;;;;;;;x
+EVTDESCsoulmates.1010;Your wife has refused your request for more children. Though the refusal stings your heart, perhaps it is for the best?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1010;Hm. Perhaps.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesFResearch;Aphrodite's Grimoire;;;;;;;;;;;;;x
+EVTDESCsoulmates.1015;In your mind, you are well aware of the hidden truths of ages long gone. The legends of those born to no man fascinate you, and you seek to rediscover these secrets. With an army of librarians behind you, a heavy coinpurse and hundreds of inkpots and quills, you start your search for that forbidden knowledge.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1015;There can be no progress without sacrifice and ambition!;;;;;;;;;;;;;x
+EVTDESCsoulmates.1016;After countless hours of toil, you have finally completed your research on the subject. A thick grimoire now sits on your desk, containing the compiled arcane knowledge of eons past. Within it, the secrets to life are held - and it is yours to use.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1016;Veni, vidi, vici!;;;;;;;;;;;;;x
+EVTTITLEsoulmatesFPotion;The Spark of Life;;;;;;;;;;;;;x
+EVTDESCsoulmates.1017;Grimoire in hand, you decide to put to practice the creation of life where there once was not. However, the question remains: how much are you willing to sacrifice for it?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1017;A tiny amount shall suffice.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1017;Surely a few cut corners shall not hurt the potion?;;;;;;;;;;;;;x
+EVTOPTCsoulmates.1017;A fair amount shall secure reasonable results.;;;;;;;;;;;;;x
+EVTOPTDsoulmates.1017;Something else...;;;;;;;;;;;;;x
+EVTDESCsoulmates.1018;Grimoire in hand, you decide to put to practice the creation of life where there once was not. However, the question remains: how much are you willing to sacrifice for it?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.1018;My coffers have much to spare for this endeavour.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.1018;Spare no expenses! A king's ransom for a new life!;;;;;;;;;;;;;x
+EVTOPTCsoulmates.1018;Something else...;;;;;;;;;;;;;x
+EVTOPTDsoulmates.1018;I have changed my mind. Perhaps not at this time.;;;;;;;;;;;;;x
+sm_fpreg_potion_q;Pregnancy Elixir Quality;;;;;;;;;;;;;x

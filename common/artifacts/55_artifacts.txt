@@ -1,0 +1,42 @@
+# The limiting slots for equipped artifacts. Dynamic system (you can add new types of slots freely)
+#slots = {
+#	weapon = 1
+#	ceremonial_weapon = 1
+#	scepter = 1
+#	crown = 1
+#	wrist = 1
+#	neck = 1
+#	torso = 1
+#	ceremonial_torso = 1
+#}
+
+green_axe = {
+	martial = 5
+	combat_rating = 5
+	monthly_character_prestige = 0.5
+	#celtic_opinion = 5 # culture_group
+	#celtic_pagan_opinion = 5 # might add celtic religion
+	quality = 5
+	cached = yes
+	active = {
+		is_adult = yes
+		OR = {
+			combat_rating = 2
+			trait = strong
+			trait = robust
+			trait = duelist
+			trait = hunter
+		}
+	}
+	flags = { weapon axe unique }
+	stacking = no
+	picture = "GFX_green_axe"
+	slot = weapon
+	indestructible = yes
+	allowed_gift = {
+		OR = {
+			culture_group = celtic
+			culture_group = west_germanic
+		}
+	}
+}

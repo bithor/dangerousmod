@@ -1,0 +1,82 @@
+namespace = greatestblot
+character_event = {
+    id = greatestblot.0004
+    title = "Amongst the Rubble"
+    border = GFX_event_normal_frame_religion
+    picture = GFX_evt_rome
+    desc = EVTDESCgreatestblot.0004
+	mean_time_to_happen = {
+		days = 1
+ 	}
+	trigger = {
+		has_dlc = "The Old Gods"
+		is_ruler = yes
+		ai = no
+		NOT = { has_global_flag = rome_sieged }
+		siege = {
+			is_attacker = yes
+			location = {
+                		province_id = 333
+			}
+		}
+# Need to add Rome is full sieged clause
+	}
+    option = {
+       name = EVTOPTAgreatestblot.0004
+	hidden_tooltip = {
+        set_global_flag = rome_sieged
+	}	
+			random_list = {
+			20 = {
+				c_roma = {
+    					holder_scope = {
+						host = {
+							PREV = {
+								imprison = FROM
+							}
+						}
+    					}
+				}
+			character_event = { id = greatestblot.0006 days = 1}
+			}
+			80 = {
+				host = {
+				character_event = { id = greatestblot.0005 days = 1}
+				}
+			}
+		}
+  	 }  
+   }
+character_event = {
+    is_triggered_only = yes
+    id = greatestblot.0005
+    title = "Not Empty-Handed"
+    border = GFX_event_normal_frame_religion
+    picture = GFX_evt_irminsul_burning_cm
+    desc = EVTDESCgreatestblot.0005
+    option = {
+	name = EVTOPTAgreatestblot.0005
+	wealth = 100
+    }
+}
+character_event = {
+    is_triggered_only = yes
+    id = greatestblot.0006
+    title = "A Chance Encounter"
+    border = GFX_event_normal_frame_religion
+    picture = GFX_evt_Pope
+    desc = EVTDESCgreatestblot.0006
+    option = {
+	name = EVTOPTAgreatestblot.0006
+    }	
+}
+character_event = {
+    id = greatestblot.0007
+	trigger = {
+	had_global_flag = { flag = rome_sieged days = 800 }
+	}
+	option = {
+		name = EVTOPTAgreatestblot.0007
+		clr_global_flag = rome_sieged
+	}
+}

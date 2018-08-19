@@ -1,0 +1,25 @@
+# ---------------------------------
+# - Soulmates Mod : Main events   -
+# - Written by Fox With A Shotgun -
+# - Last Modified 11-09-17        -
+# ---------------------------------
+
+opinion_rejected_marriage = {
+	opinion = -10
+}
+
+opinion_unnatural_marriage = {
+	opinion = -25
+}
+
+opinion_requested_help = {
+	opinion = -15
+}
+
+opinion_removed_tax_privileges = {
+	opinion = -10
+}
+
+opinion_glorious_court = {
+	opinion = 15
+}

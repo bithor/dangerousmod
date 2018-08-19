@@ -1,0 +1,350 @@
+namespace = chaper
+character_event = {
+id = chaper.1
+hide_window = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_character_flag = possessed_subject_for_curing
+		liege = {
+			character_event = { id = chaper.2 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = chaper.2
+desc = "EVTDESCCHAPER2"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = possessed_use_fire
+		FROM = {
+			add_trait = wounded
+		}
+		random_list = {
+			70 = {
+				custom_tooltip = { text = fire_cures_possessed }
+				FROM = {
+					remove_trait = possessed
+					hidden_tooltip = {
+						remove_trait = lustful
+						remove_trait = gluttonous
+						remove_trait = greedy
+						remove_trait = slothful
+						remove_trait = envious
+						remove_trait = wroth
+						remove_trait = proud
+						character_event = { id = chaper.3 }
+					}
+				}
+			}
+			30 = {
+				custom_tooltip = { text = fire_doesnt_cure_possessed }
+				FROM = {
+					hidden_tooltip = {
+						character_event = { id = chaper.4 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = possessed_use_words
+		random_list = {
+			40 = {
+				custom_tooltip = { text = words_cure_possessed }
+				FROM = {
+					remove_trait = possessed
+					hidden_tooltip = {
+						remove_trait = lustful
+						remove_trait = gluttonous
+						remove_trait = greedy
+						remove_trait = slothful
+						remove_trait = envious
+						remove_trait = wroth
+						remove_trait = proud
+						character_event = { id = chaper.5 }
+					}
+				}
+			}
+			60 = {
+				custom_tooltip = { text = words_dont_cure_possessed }
+				FROM = {
+					hidden_tooltip = {
+						character_event = { id = chaper.6 }
+					}
+				}
+			}
+		}
+	}
+	
+}
+character_event = {
+id = chaper.3
+hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		liege = {
+			character_event = { id = chaper.7 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = chaper.4
+hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		liege = {
+			character_event = { id = chaper.8 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = chaper.5
+hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		liege = {
+			character_event = { id = chaper.9 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = chaper.6
+
+hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		liege = {
+			character_event = { id = chaper.10 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = chaper.7
+desc = "EVTDESCCHAPER7"
+picture = GFX_evt_recovery
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		clr_character_flag = chapel_curing_possessed_courtier
+		name = fire_worked_on_possessed
+		piety = 30
+	}	
+}
+character_event = {
+id = chaper.8
+desc = "EVTDESCCHAPER8"
+picture = GFX_evt_bad_news
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		clr_character_flag = chapel_curing_possessed_courtier
+		name = fire_didnt_work_on_possessed
+		piety = -30
+	}	
+}
+character_event = {
+id = chaper.9
+desc = "EVTDESCCHAPER9"
+picture = GFX_evt_recovery
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		clr_character_flag = chapel_curing_possessed_courtier
+		name = words_worked_on_possessed
+		piety = 50
+	}	
+}
+character_event = {
+id = chaper.10
+desc = "EVTDESCCHAPER10"
+picture = GFX_evt_bad_news
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		clr_character_flag = chapel_curing_possessed_courtier
+		name = words_didnt_work_on_possessed
+		piety = -25
+	}	
+}
+character_event = {
+	id = chaper.11
+	hide_window = yes
+	is_triggered_only = yes
+	option = {
+		set_character_flag = lord_spiritual_chapel_tutor
+		name = OK
+		liege = {
+			character_event = { id = chaper.12 }
+		}
+	}
+}
+#Theological Improve starts
+character_event = {
+id = chaper.12
+desc = "EVTDESCCHAPER12"
+picture = GFX_evt_monk
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = theological_improve_start_option
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = chaper.13 days = 350 random = 25 }
+			}
+		}
+	}
+}
+character_event = {
+id = chaper.13
+hide_window = yes
+
+	is_triggered_only = yes
+	
+		trigger = {
+			liege = {
+				has_character_flag = improving_theological_education
+			}
+		}
+	option = {
+		name = OK
+		liege = {
+			character_event = { id = chaper.14 }
+		}
+	}
+}
+#Theological Improve ends
+character_event = {
+id = chaper.14
+desc = "EVTDESCCHAPER14"
+picture = GFX_evt_monk
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		clr_character_flag = improving_theological_education
+		name = theological_improve_ends_option
+		remove_trait = detached_priest
+		add_trait = martial_cleric
+		FROM = {
+			clr_character_flag = lord_spiritual_chapel_tutor
+		}
+	}
+}
+#Theological Improve ends abruplty
+character_event = {
+id = chaper.15
+desc = "EVTDESCCHAPER15"
+picture = GFX_evt_monk
+border = GFX_event_normal_frame_religion
+
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	
+	trigger = {
+		any_courtier = {
+			has_job_title = job_spiritual
+			NOT = { has_character_flag = lord_spiritual_chapel_tutor }
+		}
+		has_character_flag = improving_theological_education
+	}
+	option = {
+		clr_character_flag = improving_theological_education
+		name = theological_improve_ends_abruptly_option
+	}
+}
+#Lord Spiritual gets +1 Learning from Chapel lvl 2
+character_event = {
+	id = chaper.16
+	hide_window = yes
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_title = job_spiritual
+		liege = {
+			capital_holding = {
+				has_building = ca_chapel_2
+			}
+		}
+		NOT = { has_character_modifier = ca_chapel_2_learning }
+	}
+	
+	immediate = {
+		add_character_modifier = {
+			name = ca_chapel_2_learning
+			duration = -1
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#Modifier removed from ex lord spirituals
+character_event = {
+	id = chaper.17
+	hide_window = yes
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		NOT = { has_job_title = job_spiritual }
+		liege = {
+			capital_holding = {
+				has_building = ca_chapel_2
+			}
+		}
+		has_character_modifier = ca_chapel_2_learning
+	}
+	
+	immediate = {
+		remove_character_modifier = ca_chapel_2_learning
+	}
+	option = {
+		name = OK
+	}
+}

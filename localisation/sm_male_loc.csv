@@ -1,0 +1,49 @@
+#CODE;ENGLISH;;;;;;;;;;;;;x
+EVTTITLEsoulmatesMSpouseStressGive;Giving a Helping Hand;;;;;;;;;;;;;x
+EVTDESCsoulmates.4000;As the days pass, you notice that your spouse has become more and more listless. Things that used to amuse [Root.Spouse.GetHerHim] no longer have the same effect, and seeing [Root.Spouse.GetHerHim] with a long face has become a daily occurrence. Some of your courtiers had been overheard discussing the unseemly state of your [Root.Spouse.GetHusbandWife], which has finally prompted you to act. How should you approach this problem?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4000;Perhaps a friendly spar with [Root.Spouse.GetFirstName] would do [Root.Spouse.GetHerHim] some good.;;;;;;;;;;;;;x
+EVTOPTAATTsoulmates.4000;You take your [Root.Spouse.GetHusbandWife] out to the training yard, and the physical exertion relieves [Root.Spouse.GetHerHis] problems.;;;;;;;;;;;;;x
+EVTOPTABTTsoulmates.4000;You take your [Root.Spouse.GetHusbandWife] out to the training yard, but do little more than get you both sweaty and exhausted...;;;;;;;;;;;;;x
+EVTOPTBsoulmates.4000;The solution to every problem is at the bottom of a wine-glass.;;;;;;;;;;;;;x
+EVTOPTBATTsoulmates.4000;You take your [Root.Spouse.GetHusbandWife] to a private party with ample amounts of alcohol, and drink your problems away.;;;;;;;;;;;;;x
+EVTOPTBBTTsoulmates.4000;You take your [Root.Spouse.GetHusbandWife] to a private party with ample amounts of alcohol, and only manage to get an even bigger headache.;;;;;;;;;;;;;x
+EVTOPTCsoulmates.4000;Perhaps the stars in the sky could show [Root.Spouse.GetHerHim] some guidance?;;;;;;;;;;;;;x
+EVTOPTCATTsoulmates.4000;You take your [Root.Spouse.GetHusbandWife] to a stargazing outing on a clear night, and the solitude helps to clear [Root.Spouse.GetHerHis] mind.;;;;;;;;;;;;;x
+EVTOPTCBTTsoulmates.4000;You take your [Root.Spouse.GetHusbandWife] to a stargazing outing on a clear night, but [Root.Spouse.GetSheHe] falls asleep rather quickly...;;;;;;;;;;;;;x
+EVTOPTDsoulmates.4000;Some encouraging words ought to do the trick!;;;;;;;;;;;;;x
+EVTOPTDATTsoulmates.4000;You try to inspire your [Root.Spouse.GetHusbandWife] with encouraging words, and it works.;;;;;;;;;;;;;x
+EVTOPTDBTTsoulmates.4000;You try to inspire your [Root.Spouse.GetHusbandWife] with encouraging words, but nothing happens.;;;;;;;;;;;;;x
+EVTOPTEsoulmates.4000;Perhaps it will simply pass with time.;;;;;;;;;;;;;x
+EVTOPTETTsoulmates.4000;You do nothing.;;;;;;;;;;;;;x
+EVTDESCsoulmates.4001;In the evening, you pick up a wooden practice sword and demand that your [Root.Spouse.GetHusbandWife] come to the practice yard for a friendly spar. Hours flew past until both of you are covered in grime and sweat, but the exercise seems to have done some good. There is a fire in [Root.Spouse.GetFirstName]'s eyes again, and the persistent frown on [Root.Spouse.GetHerHis] face seems to have disappeared.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4001;Though now I need a bruise salve from my physician...;;;;;;;;;;;;;x
+EVTDESCsoulmates.4002;In the evening, you pick up a wooden practice sword and demand that your [Root.Spouse.GetHusbandWife] come to the practice yard for a friendly spar. After a couple of hours, the only thing you have to show for it are numerous bruises, and your [Root.Spouse.GetHusbandWife] appears to be more frustrated than before...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4002;Curses.;;;;;;;;;;;;;x 
+EVTDESCsoulmates.4003;Ordering several barrels of fine wine to be delivered to your private quarters, you organise for several guests to come for a night of wild drinking and partying - including your [Root.Spouse.GetHusbandWife]. Laughing, jesting and merrymaking till the wee hours of the morning, there was a wide smile on every guest's face after the event. Including your [Root.Spouse.GetHusbandWife]'s.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4003;Now if I could have some help with this terrible hangover...;;;;;;;;;;;;;x
+EVTDESCsoulmates.4004;Ordering several barrels of fine wine to be delivered to your private quarters, you organise for several guests to come for a night of wild drinking and partying - including your [Root.Spouse.GetHusbandWife]. The wine was quickly drained - but the only thing that you have to show for it is a terrible hangover. Judging by your [Root.Spouse.GetHusbandWife]'s groans in the morning, you were not the only one with one...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4004;My head feels fit to burst!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4005;On what could be the clearest night of the year, you and your [Root.Spouse.GetHusbandWife] sat in an observatory and observed the skies. The peace and quiet helped your [Root.Spouse.GetHusbandWife] to collect [Root.Spouse.GetHerHis] thoughts. By morning, the frown that was always on [Root.Spouse.GetHerHis] face was little more than a distant memory.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4005;The stars are truly showing us the way.;;;;;;;;;;;;;x
+EVTDESCsoulmates.4006;On what could be the clearest night of the year, you and your [Root.Spouse.GetHusbandWife] sat in an observatory and observed the skies. Yet not long after you have arrived, your [Root.Spouse.GetHusbandWife] fell asleep! Needless to say, nothing has changed...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4006;What a wasted effort.;;;;;;;;;;;;;x
+EVTDESCsoulmates.4007;You ordered your [Root.Spouse.GetHusbandWife] to meet you in your private study in the evening. Hours upon hours you spent, speaking at length about the problems that plagued [Root.Spouse.GetHerHis] mind. Though it was difficult, you have managed to restore some semblance of calm into [Root.Spouse.GetHerHis] mind.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4007;Excellent.;;;;;;;;;;;;;x
+EVTDESCsoulmates.4008;You ordered your [Root.Spouse.GetHusbandWife] to meet you in your private study in the evening. Hours upon hours you spent, speaking at length about the problems that plagued [Root.Spouse.GetHerHis] mind. Alas, there were too many for you to listen to, and the only things that you seem to have gotten were sore ears.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4008;My ears are sore, but I achieved nothing!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4101;You arrive in your private apartments in the evening, only to find your [Root.Spouse.GetHusbandWife] tossing a wooden sword at your feet and demanding that you accompany them in a bout of sparring. Several hours later, you return from the training yard - bruised and exhausted, but at least your worries seem to have somehow disappeared.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4101;I can live with that!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4102;You arrive in your private apartments in the evening, only to find your [Root.Spouse.GetHusbandWife] tossing a wooden sword at your feet and demanding that you accompany them in a bout of sparring. Several hours later, you return from the training yard with many bruises, covered with sweat and grime, and with a bigger headache than before...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4102;Couldn't this wait at all?!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4103;One evening, your [Root.Spouse.GetHusbandWife] presents you with an invitation to a private party in [Root.Spouse.GetHerHis] quarters. Hours later, after what seemed like the tenth goblet of wine, you find yourself pleasantly inebriated. The cares of the world that had plagued you for so long are no more!;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4103;My head is pounding, but by [Root.Religion.GetHighGodName], what a party!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4104;One evening, your [Root.Spouse.GetHusbandWife] presents you with an invitation to a private party in [Root.Spouse.GetHerHis] quarters. Drink after drink went down your throat, until eventually you passed out...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4104;My head is pounding, and I still have all my woes to worry about!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4105;Your [Root.Spouse.GetHusbandWife] invites you to a session of stargazing. Spending hours observing the beauty of the night skies has given you a newfound appreciation of the wonders around you, and the world no longer appears as dull and dreary as you thought before.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4105;It was a wonderful experience!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4106;Your [Root.Spouse.GetHusbandWife] invites you to a session of stargazing. Too exhausted by the long hours you spent in court, you fell asleep nearly as soon as you arrived at the observatory...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4106;A wooden bench is not a very comfortable bed...;;;;;;;;;;;;;x
+EVTDESCsoulmates.4107;Your [Root.Spouse.GetHusbandWife], [Root.Spouse.GetFirstName], confronts you in the evening regarding the rather morose behaviour you have exhibited for some time. After a truly rousing and impassioned speech by your [Root.Spouse.GetHusbandWife], you feel as though the weight of the world has been lifted from your shoulders.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4107;Praise [Root.Religion.GetHighGodName] for my [Root.Spouse.GetHusbandWife]'s good counsel!;;;;;;;;;;;;;x
+EVTDESCsoulmates.4108;Your [Root.Spouse.GetHusbandWife], [Root.Spouse.GetFirstName], confronts you in the evening regarding the rather morose behaviour you have exhibited for some time. After [Root.Spouse.GetSheHe] delivers what was likely supposed to be a rousing speech, you could not help but feel the weight of kingly responsibilities more strongly than before...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.4108;Woe betide me!;;;;;;;;;;;;;x

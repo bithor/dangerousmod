@@ -1,0 +1,765 @@
+# -------------------------------------------
+# - Soulmates Mod : Male Events             -
+# - Written by Fox With A Shotgun           -
+# - Last Modified 21-09-17                  -
+# -------------------------------------------
+
+# ----------------------------------------------
+# Event chain : Character relieves spouse stress
+#               or depression
+# Reserved space: 4000 - 4099
+# ----------------------------------------------
+
+character_event = {
+	id = soulmates.4000
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	desc = EVTDESCsoulmates.4000
+	picture = GFX_evt_stressed_ruler
+	
+	min_age = 16
+	
+	only_playable = yes
+	only_men = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 18
+		
+		modifier = {
+			factor = 0.8
+			trait = kind
+		}
+		modifier = {
+			factor = 0.8
+			spouse = { is_lover = ROOT }
+		}
+		modifier = {
+			factor = 1.2
+			trait = cruel
+		}
+		modifier = {
+			factor = 1.2
+			trait = slothful
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			OR = {
+				trait = stressed
+				trait = depressed
+			}
+		}
+	}
+	
+	# Take your spouse out for a round of stress-relieving sparring.
+	option = {
+		name = EVTOPTAsoulmates.4000
+		ai_chance = {
+			factor = 10
+		}
+		
+		trigger = {
+			OR = {
+				trait = misguided_warrior
+				trait = tough_soldier
+				trait = skilled_tactician
+				trait = brilliant_strategist
+				trait = duelist
+			}
+			spouse = {
+				OR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+					trait = duelist
+				}
+			}
+		}
+		
+		random_list = {
+			40 = {
+				modifier = {
+					factor = 1.2
+					spouse = {
+						trait = duelist
+					}
+				}
+				modifier = {
+					factor = 1.2
+					trait = duelist
+				}
+				modifier = {
+					factor = 0.8
+					OR = {
+						trait = weak
+						spouse = { trait = weak }
+					}
+				}
+				character_event = { id = soulmates.4001 }
+				custom_tooltip = { text = EVTOPTAATTsoulmates.4000 }
+			}
+			60 = {
+				character_event = { id = soulmates.4002 }
+				custom_tooltip = { text = EVTOPTABTTsoulmates.4000 }
+			}
+		}
+	}
+	
+	# Take your spouse out for a night of wild partying - with lots and lots of wine
+	option = {
+		name = EVTOPTBsoulmates.4000
+		ai_chance = {
+			factor = 10
+		}
+		
+		trigger = {
+			OR = {
+				trait = hedonist
+				trait = gregarious
+				trait = gluttonous
+			}
+		}
+		
+		random_list = {
+			40 = {
+				modifier = {
+					factor = 0.25
+					spouse = {
+						trait = temperate
+						trait = shy
+					}
+				}
+				modifier = {
+					factor = 1.2
+					spouse = { trait = gluttonous }
+				}
+				modifier = {
+					factor = 1.2
+					spouse = { trait = gregarious }
+				}
+				modifier = {
+					factor = 1.5
+					spouse = { trait = hedonist }
+				}
+				character_event = { id = soulmates.4003 }
+				custom_tooltip = { text = EVTOPTBATTsoulmates.4000 }
+			}
+			60 = {
+				character_event = { id = soulmates.4004 }
+				custom_tooltip = { text = EVTOPTBBTTsoulmates.4000 }
+			}
+		}
+	}
+	
+	# Take your spouse out for some stargazing
+	option = {
+		name = EVTOPTCsoulmates.4000
+		ai_chance = {
+			factor = 10
+		}
+		
+		trigger = {
+			OR = {
+				trait = shy
+				trait = scholar
+			}
+			NOR = {
+				trait = blinded
+				spouse = { trait = blinded }
+			}
+		}
+		
+		random_list = {
+			40 = {
+				modifier = {
+					factor = 1.2
+					spouse = { trait = shy }
+				}
+				modifier = {
+					factor = 1.2
+					spouse = { trait = scholar }
+				}
+				modifier = { 
+					factor = 1.2
+					spouse = { learning = 14 }
+				}
+				modifier = {
+					factor = 0.6
+					spouse = { NOT = { learning = 8 } }
+				}
+				modifier = {
+					factor = 0.25 
+					spouse = { NOT = { learning = 4 } }
+				}
+				character_event = { id = soulmates.4005 }
+				custom_tooltip = { text = EVTOPTCATTsoulmates.4000 }
+			}
+			60 = {
+				character_event = { id = soulmates.4006 }
+				custom_tooltip = { text = EVTOPTCBTTsoulmates.4000 }
+			}
+		}
+	}
+	
+	# Give your spouse an encouraging talk.
+	option = {
+		name = EVTOPTDsoulmates.4000
+		ai_chance = {
+			factor = 10
+		}
+		
+		random_list = {
+			40 = {
+				modifier = {
+					factor = 1.2
+					trait = kind
+				}
+				modifier = {
+					factor = 1.2
+					trait = patient
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 12
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 14
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 16
+				}
+				modifier = {
+					factor = 0.8
+					NOT = { diplomacy = 10 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { diplomacy = 8 }
+				}
+				modifier = {
+					factor = 0.6
+					NOT = { diplomacy = 6 }
+				}
+				character_event = { id = soulmates.4007 }
+				custom_tooltip = { text = EVTOPTDATTsoulmates.4000 }
+			}
+			60 = {
+				character_event = { id = soulmates.4008 }
+				custom_tooltip = { text = EVTOPTDBTTsoulmates.4000 }
+			}
+		}
+	}
+	
+	# Do nothing.
+	option = {
+		name = EVTOPTEsoulmates.4000
+		ai_chance = {
+			factor = 10
+		}
+		
+		custom_tooltip = { text = EVTOPTETTsoulmates.4000 }
+	}
+}
+
+# Stress-relief sparring - success
+character_event = {
+	id = soulmates.4001
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_melee
+	desc = EVTDESCsoulmates.4001
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4001
+		
+		spouse = {
+			opinion = {
+				modifier = opinion_grateful
+				who = FROM
+				months = 60
+			}
+			remove_trait = stressed
+			remove_trait = depressed
+		}
+	}
+}
+
+# Stress-relief sparring - failure
+character_event = {
+	id = soulmates.4002
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_melee
+	desc = EVTDESCsoulmates.4002
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4002
+	}
+}
+
+# Stress-relief partying - success
+character_event = {
+	id = soulmates.4003
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_feast
+	desc = EVTDESCsoulmates.4003
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4003
+		
+		spouse = {
+			opinion = {
+				modifier = opinion_grateful
+				who = FROM
+				months = 60
+			}
+			remove_trait = stressed
+			remove_trait = depressed
+		}
+	}
+}
+
+# Stress-relief partying - failure
+character_event = { 
+	id = soulmates.4004
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_feast
+	desc = EVTDESCsoulmates.4004
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4004
+	}
+}
+
+# Stress-relief stargazing - success
+character_event = {
+	id = soulmates.4005
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_ritual_scroll
+	desc = EVTDESCsoulmates.4005
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4005
+		
+		spouse = {
+			opinion = {
+				modifier = opinion_grateful
+				who = FROM
+				months = 60
+			}
+			remove_trait = stressed
+			remove_trait = depressed
+		}
+	}
+}
+
+# Stress-relief stargazing - failure
+character_event = {
+	id = soulmates.4006
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_ritual_scroll
+	desc = EVTDESCsoulmates.4006
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4006
+	}
+}
+
+# Stress-relief talk - success
+character_event = {
+	id = soulmates.4007
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_lovers
+	desc = EVTDESCsoulmates.4007
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4007
+		
+		spouse = {
+			opinion = {
+				modifier = opinion_grateful
+				who = FROM
+				months = 60
+			}
+			remove_trait = stressed
+			remove_trait = depressed
+		}
+	}
+}
+
+# Stress-relief talk - failure
+character_event = {
+	id = soulmates.4008
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_lovers
+	desc = EVTDESCsoulmates.4008
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4008
+	}
+}
+
+# ----------------------------------------------
+# Event chain : Character relieves spouse stress
+#               or depression
+# Reserved space: 4100 - 4199
+# ----------------------------------------------
+
+character_event = {
+	id = soulmates.4100
+	min_age = 16
+	
+	only_playable = yes
+	only_men = yes
+	is_married = yes
+	
+	hide_window = yes
+	
+	mean_time_to_happen = {
+		months = 18
+		
+		modifier = {
+			factor = 0.8
+			spouse = { trait = kind }
+		}
+		modifier = {
+			factor = 0.8
+			spouse = { is_lover = ROOT }
+		}
+		modifier = {
+			factor = 1.2
+			spouse = { trait = cruel }
+		}
+		modifier = {
+			factor = 1.2
+			spouse = { trait = slothful }
+		}
+	}
+	
+	trigger = {
+		spouse = { opinion = { who = ROOT value = 30 } }
+		OR = {
+			trait = stressed
+			trait = depressed
+		}
+	}
+	
+	
+	option = {
+		random_list = {
+			# Taken for a round of stress-relieving sparring.
+			50 = {
+				trigger = {
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+						trait = duelist
+					}
+					spouse = {
+						OR = {
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+							trait = duelist
+						}
+					}
+				}
+		
+				random_list = {
+					40 = {
+						modifier = {
+							factor = 1.2
+							spouse = {
+								trait = duelist
+							}
+						}
+						modifier = {
+							factor = 1.2
+							trait = duelist
+						}
+						modifier = {
+							factor = 0.8
+							OR = {
+								trait = weak
+								spouse = { trait = weak }
+							}
+						}
+						character_event = { id = soulmates.4101 }
+					}
+					60 = {
+						character_event = { id = soulmates.4102 }
+					}
+				}
+			}
+			# Taken for a night of wild partying - with lots and lots of wine
+			50 = {
+				trigger = {
+					spouse = {
+						OR = {
+							trait = hedonist
+							trait = gregarious
+							trait = gluttonous
+						}
+					}
+				}
+		
+				random_list = {
+					40 = {
+						modifier = {
+							factor = 0.25
+							trait = temperate
+							trait = shy
+						}
+						modifier = {
+							factor = 1.2
+							trait = gluttonous
+						}
+						modifier = {
+							factor = 1.2
+							trait = gregarious
+						}
+						modifier = {
+							factor = 1.5
+							trait = hedonist
+						}
+						character_event = { id = soulmates.4103 }
+					}
+					60 = {
+						character_event = { id = soulmates.4104 }
+					}
+				}
+			}
+			# Taken for some stargazing
+			50 = {
+				trigger = {
+					spouse = {
+						OR = {
+							trait = shy
+							trait = scholar
+						}
+					}
+					NOR = {
+						trait = blinded
+						spouse = { trait = blinded }
+					}
+				}
+			
+				random_list = {
+					40 = {
+						modifier = {
+							factor = 1.2
+							trait = shy
+						}
+						modifier = {
+							factor = 1.2
+							trait = scholar
+						}
+						modifier = { 
+							factor = 1.2
+							learning = 14
+						}
+						modifier = {
+							factor = 0.6
+							NOT = { learning = 8 } 
+						}
+						modifier = {
+							factor = 0.25 
+							NOT = { learning = 4 }
+						}
+						character_event = { id = soulmates.4105 }
+					}
+					60 = {
+						character_event = { id = soulmates.4106 }
+					}
+				}				
+			}
+			# Given an encouraging talk.
+			50 = {
+				random_list = {
+					40 = {
+						modifier = {
+							factor = 1.2
+							spouse = { trait = kind }
+						}
+						modifier = {
+							factor = 1.2
+							spouse = { trait = patient }
+						}
+						modifier = {
+							factor = 1.2
+							spouse = { diplomacy = 12 }
+						}
+						modifier = {
+							factor = 1.2
+							spouse = { diplomacy = 14 }
+								
+						}
+						modifier = {
+							factor = 1.2
+							spouse = { diplomacy = 16 }
+						}
+						modifier = {
+							factor = 0.8
+							spouse = { NOT = { diplomacy = 10 } }
+						}
+						modifier = {
+							factor = 0.7
+							spouse = { NOT = { diplomacy = 8 } }
+						}
+						modifier = {
+							factor = 0.6
+							spouse = { NOT = { diplomacy = 6 } }
+						}
+						character_event = { id = soulmates.4107 }
+					}
+					60 = {
+						character_event = { id = soulmates.4108 }
+					}
+				}
+			}
+			# Do nothing.
+			50 = {}
+		}
+	}
+}
+
+# Stress-relief sparring - success
+character_event = {
+	id = soulmates.4101
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_melee
+	desc = EVTDESCsoulmates.4101
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4101
+		remove_trait = stressed
+		remove_trait = depressed
+	}
+}
+
+# Stress-relief sparring - failure
+character_event = {
+	id = soulmates.4102
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_melee
+	desc = EVTDESCsoulmates.4102
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4102
+	}
+}
+
+# Stress-relief partying - success
+character_event = {
+	id = soulmates.4103
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_feast
+	desc = EVTDESCsoulmates.4103
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4103
+		remove_trait = stressed
+		remove_trait = depressed
+	}
+}
+
+# Stress-relief partying - failure
+character_event = { 
+	id = soulmates.4104
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_feast
+	desc = EVTDESCsoulmates.4104
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4104
+	}
+}
+
+# Stress-relief stargazing - success
+character_event = {
+	id = soulmates.4105
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_ritual_scroll
+	desc = EVTDESCsoulmates.4105
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4105
+		remove_trait = stressed
+		remove_trait = depressed
+	}
+}
+
+# Stress-relief stargazing - failure
+character_event = {
+	id = soulmates.4106
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_ritual_scroll
+	desc = EVTDESCsoulmates.4106
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4106
+	}
+}
+
+# Stress-relief talk - success
+character_event = {
+	id = soulmates.4107
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_lovers
+	desc = EVTDESCsoulmates.4107
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4107
+		remove_trait = stressed
+		remove_trait = depressed
+	}
+}
+
+# Stress-relief talk - failure
+character_event = {
+	id = soulmates.4108
+	title = EVTTITLEsoulmatesMSpouseStressGive
+	picture = GFX_evt_lovers
+	desc = EVTDESCsoulmates.4108
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.4108
+	}
+}

@@ -1,0 +1,116 @@
+spriteTypes = {
+
+##############
+### Traits ###
+##############
+
+spriteType = {
+	name = "GFX_trait_vet_1"
+	texturefile = "gfx/traits/vet_1.tga"
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+}
+spriteType = {
+	name = "GFX_trait_vet_2"
+	texturefile = "gfx/traits/vet_2.tga"
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+}
+spriteType = {
+	name = "GFX_trait_vet_3"
+	texturefile = "gfx/traits/vet_3.tga"
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+}
+
+spriteType = {
+	name = "GFX_trait_twi_slave"
+	texturefile = "gfx/traits/slave.tga"
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+}
+
+spriteType = {
+	name = "GFX_trait_twi_slave_former"
+	texturefile = "gfx/traits/slave_former.tga"
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+}
+
+#spriteType = {
+#	name = "GFX_trait_twi_slave_thrall"
+#	texturefile = "gfx/traits/slave.tga"
+#	noOfFrames = 1
+#	norefcount = yes
+#	effectFile = "gfx/FX/buttonstate.lua"
+#}
+
+spriteType = {
+	name = "GFX_trait_twi_loyal"
+	texturefile = "gfx/traits/crown_loyalist.dds"
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+}
+
+spriteType = {
+	name = "GFX_trait_twi_chivalrous"
+	texturefile = "gfx/traits/chivalrous.tga"
+	noOfFrames = 1
+	norefcount = yes
+	effectFile = "gfx/FX/buttonstate.lua"
+}
+
+#################
+### Decisions ###
+#################
+
+spriteType = {
+	name = "GFX_raise_fleet"
+	texturefile = "gfx\\interface\\decision_icon_raise_fleet.dds"
+	#texturefile = "gfx\\interface\\decision_icon_conscript_merchant_ships.dds"
+}
+
+#spriteType = {
+#	name = "GFX_quest_round_table"
+#	texturefile = "gfx\\interface\\decision_icon_quest_round_table.tga"
+#}
+
+spriteType = {
+	name = "GFX_organize_fossado"
+	#texturefile = "gfx\\interface\\decision_icon_convert_to_parent_religion.dds"
+	texturefile = "gfx\\interface\\decision_icon_donate_to_holy_order.dds"
+}
+
+##############
+### Events ###
+##############
+
+spriteType = {
+	name = "GFX_evt_viking_fleet"
+	texturefile = "gfx\\event_pictures\\viking_fleet.dds"
+}
+spriteType = {
+	name = "GFX_evt_round_table"
+	texturefile = "gfx\\event_pictures\\round_table.tga"
+}
+
+#################
+### Artifacts ###
+#################
+
+	spriteType = {
+		name = "GFX_green_axe"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\green_axe.tga"
+	}
+	spriteType = {
+		name = "GFX_green_axe_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\green_axe_small.tga"
+	}
+
+}

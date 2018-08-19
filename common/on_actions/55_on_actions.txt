@@ -1,0 +1,18 @@
+on_combat_pulse = {
+	random_events = {
+		#20 = 0
+		20 = VETERANCY.1 # Improves martial veterancy
+	}
+}
+
+#on_yearly_pulse = {
+#	events = { # List of events that must always fire.
+#		GKNIGHT.2 # Green Knight Revisits
+#	}
+
+#on_startup = {
+#	events = { # List of events that must always fire.
+#		RCONQUEST.0 #Set Iberians into looters
+#	}
+#}
+

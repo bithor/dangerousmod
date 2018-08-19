@@ -1,0 +1,24 @@
+
+spriteTypes = {
+  spriteType = {
+   name = "GFX_trait_missionary"
+   texturefile = "gfx/traits/missionary.dds"
+   noOfFrames = 1
+   norefcount = yes
+   effectFile = "gfx/FX/buttonstate.lua"
+  }
+   spriteType = {
+   name = "GFX_trait_thief"
+   texturefile = "gfx/traits/thief.dds"
+   noOfFrames = 1
+   norefcount = yes
+   effectFile = "gfx/FX/buttonstate.lua"
+  }
+   spriteType = {
+   name = "GFX_trait_war_veteran"
+   texturefile = "gfx/traits/war_veteran.dds"
+   noOfFrames = 1
+   norefcount = yes
+   effectFile = "gfx/FX/buttonstate.lua"
+  }
+}

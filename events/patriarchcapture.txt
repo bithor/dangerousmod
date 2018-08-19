@@ -1,0 +1,81 @@
+namespace = greatestblot
+character_event = {
+    id = greatestblot.0013
+    title = "A Dark Day for Orthodox"
+    border = GFX_event_normal_frame_intrigue
+    picture = GFX_evt_Hagia_sofia
+    desc = EVTDESCgreatestblot.0013
+	mean_time_to_happen = {
+		days = 1
+ 	}
+	trigger = {
+		has_dlc = "The Old Gods"
+		is_ruler = yes
+		ai = no
+		NOT = { has_global_flag = constantinople_sieged }
+		siege = {
+			is_attacker = yes
+			location = {
+                		province_id = 496
+			}
+		}
+	}
+    option = {
+       name = EVTOPTAgreatestblot.0013
+	hidden_tooltip = {
+        set_global_flag = constantinople_sieged
+	}	
+			random_list = {
+			20 = {
+				k_orthodox = {
+    					holder_scope = {
+						host = {
+							PREV = {
+								imprison = FROM
+							}
+						}
+    					}
+				}
+			character_event = { id = greatestblot.0015 days = 1}
+			}
+			80 = {
+				host = {
+				character_event = { id = greatestblot.0014 days = 1}
+				}
+			}
+		}
+  	 }  
+   }
+character_event = {
+    is_triggered_only = yes
+    id = greatestblot.0014
+    title = "A Wake of Destruction"
+    border = GFX_event_normal_frame_intrigue
+    picture = GFX_evt_Burning_House
+    desc = EVTDESCgreatestblot.0014
+    option = {
+	name = EVTOPTAgreatestblot.0014
+	piety = 100
+    }
+}
+character_event = {
+    is_triggered_only = yes
+    id = greatestblot.0015
+    title = "A Final Mass"
+    border = GFX_event_normal_frame_intrigue
+    picture = GFX_evt_Bishop_preaching_from_pulpit_byzantine
+    desc = EVTDESCgreatestblot.0015
+    option = {
+	name = EVTOPTAgreatestblot.0015
+    }	
+}
+character_event = {
+    id = greatestblot.0016
+	trigger = {
+	had_global_flag = { flag = constantinople_sieged days = 800 }
+	}
+	option = {
+		name = EVTOPTAgreatestblot.0016
+		clr_global_flag = constantinople_sieged
+	}
+}

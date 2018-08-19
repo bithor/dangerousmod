@@ -1,0 +1,2331 @@
+# --------------------------------------
+# - Soulmates Mod : Female homo events -
+# - Written by Fox With A Shotgun      -
+# - Last Modified 01-03-18             -
+# --------------------------------------
+
+namespace = soulmates
+
+# ---------------------------------
+# Marriage event chains
+# ---------------------------------
+
+# Female character suggests marriage to another.
+character_event = {
+	id = soulmates.1000
+	title = EVTTITLEsoulmatesFMarriage
+	desc = EVTDESCsoulmates.1000
+	picture = GFX_evt_princess_byzantine
+	
+	min_age = 16
+	only_playable = yes
+	only_women = yes
+	only_capable = yes
+	
+	trigger = {		
+		has_game_rule = {
+			name = sm_homo_marriage
+			value = yes
+		}
+	
+		is_female = yes
+		is_married = no
+		trait = homosexual 
+		has_lover = yes
+		
+		NOT = { trait = zealous }
+		NOT = { trait = celibate }
+		NOT = { trait = nun }
+		NOT = { trait = incapable }
+		
+		any_lover = {
+			is_married = no
+			is_consort = no
+			is_adult = yes
+			is_female = yes
+			trait = homosexual
+			NOT = { trait = zealous }
+			NOT = { trait = celibate }
+			NOT = { trait = nun }
+			NOT = { trait = incapable }
+			NOT = { has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_rejected_marriage
+				}
+			}
+		}
+	}
+		
+	immediate = {
+		any_lover = {
+			limit = {
+				is_married = no
+				is_consort = no
+				is_adult = yes
+				is_female = yes
+				trait = homosexual
+				NOT = { trait = zealous }
+				NOT = { trait = celibate }
+				NOT = { trait = nun }
+				NOT = { trait = incapable }
+				NOT = { has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_rejected_marriage
+					}
+				}	
+			}
+			save_event_target_as = chosen_lover
+			log = "Chosen a lover: [chosen_lover.GetFullName]"
+		}
+	}
+		
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 2
+			trait = craven
+		}
+	}
+	
+	# Send proposal to the target.
+	option = {
+		name = EVTOPTAsoulmates.1000
+		ai_chance = {
+			factor = 10
+		}
+		custom_tooltip = { text = EVTOPTATTsoulmates.1000 }
+		event_target:chosen_lover = {
+			character_event = { id = soulmates.1001 days = 6 random = 2 }
+		}
+	}
+	# Having second thoughts. Cancel.
+	option = {
+		name = EVTOPTBsoulmates.1000
+		ai_chance = {
+			factor = 5
+		}
+		custom_tooltip = { text = EVTOPTBTTsoulmates.1000 }
+	}
+}
+
+# Female character receiving marriage proposal from lover
+character_event = {
+	id = soulmates.1001
+	title = EVTTITLEsoulmatesFMarriage
+	desc = EVTDESCsoulmates.1001
+	picture = GFX_evt_gift
+	is_triggered_only = yes
+	
+	# Accept
+	option = {
+		name = EVTOPTAsoulmates.1001
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					trait = fair
+				}
+			}
+		}
+		custom_tooltip = { text = EVTOPTATTsoulmates.1001 }
+		FROM = {
+			character_event = { id = soulmates.1002 }
+		}
+	}
+	# Decline
+	option = {
+		name = EVTOPTBsoulmates.1001
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_friend = FROM
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+		}
+		custom_tooltip = { text = EVTOPTBTTsoulmates.1001 }
+		FROM = {
+			character_event = { id = soulmates.1003 }
+		}
+	}
+}
+
+# Female character receives positive marriage proposal response from lover.
+character_event = {
+	id = soulmates.1002
+	title = EVTTITLEsoulmatesFMarriage
+	desc = EVTDESCsoulmates.1002
+	picture = GFX_evt_marriage
+	
+	is_triggered_only = yes
+	
+	# End of event.
+	option = {
+		name = EVTOPTAsoulmates.1002
+		add_spouse = FROM
+		piety = -100
+		
+		any_realm_lord = {
+			limit = {
+				OR = {
+					trait = zealous
+					trait = chaste
+					is_priest = true
+				}				
+			}
+			
+			opinion = {
+					modifier = opinion_unnatural_marriage
+					who = FROM
+					months = 120
+				}
+				
+			opinion = {
+				modifier = opinion_unnatural_marriage
+				who = FROMFROM
+				months = 120
+			}
+		}
+	}
+}
+
+# Female character receives negative marriage proposal response from lover.
+character_event = {
+	id = soulmates.1003
+	title = EVTTITLEsoulmatesFMarriage
+	desc = EVTDESCsoulmates.1003
+	picture = GFX_evt_princess_byzantine
+	
+	is_triggered_only = yes
+	
+	#End of event.
+	option = {
+		name = EVTOPTAsoulmates.1003
+		opinion = {
+			modifier = opinion_rejected_marriage
+			who = FROM
+			months = 12
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_rejected_marriage
+				who = FROMFROM
+				months = 12
+			}
+		}
+		custom_tooltip = { text = EVTOPTATTsoulmates.1003 }
+		prestige = -100
+	}
+}
+
+# ---------------------------------------------
+# Married Lesbians Child Event Chain
+# ---------------------------------------------
+
+# Married lesbians want to have children - Trigger
+character_event = {
+	id = soulmates.1008
+	title = EVTTITLEsoulmatesFChild
+	desc = EVTDESCsoulmates.1008
+	picture = GFX_evt_family
+	
+	min_age = 16
+	is_married = yes
+	only_women = yes
+	only_playable = yes
+	
+	trigger = {
+		has_game_rule = {
+			name = sm_homo_marriage
+			value = yes
+		}
+		is_female = yes
+		trait = homosexual
+		
+		spouse = {
+			is_female = yes
+			trait = homosexual
+			fertility = 0.2 # At least 20% fertility
+			OR = {
+				NOT = { age = 40 }
+				trait = immortal
+			}
+			is_pregnant = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			factor = 0.7
+			has_dlc = "Way of Life"
+			OR = {
+				spouse = {
+					has_focus = focus_family
+				}
+				has_focus = focus_family
+			}
+		}
+		modifier = {
+			factor = 0.7
+			spouse = {
+				fertility = 0.7 # At least 70% fertility
+			}
+		}
+		modifier = {
+			factor = 0.7
+			OR = {
+				spouse = {
+					has_living_children = no
+				}
+				has_living_children = no
+			}
+		}
+		modifier = {
+			factor = 1.5
+			num_of_children = 2
+		}
+		modifier = {
+			factor = 1.5
+			num_of_children = 4
+		}
+		modifier = {
+			factor = 2
+			num_of_children = 6
+		}
+	}
+	
+	# Ask about having children
+	option = {
+		name = EVTOPTAsoulmates.1008
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_lowborn = yes
+			}
+		}
+		custom_tooltip = { text = EVTOPTATTsoulmates.1008 }
+		spouse = { character_event = { id = soulmates.1009 } }
+	}
+	
+	# Don't ask about having children.
+	option = {
+		name = EVTOPTBsoulmates.1008
+		ai_chance = {
+			factor = 10
+		}
+		custom_tooltip = { text = EVTOPTBTTsoulmates.1008 }
+	}
+}
+
+# Married lesbians want to have children - Accept/decline
+character_event = {
+	id = soulmates.1009
+	title = EVTTITLEsoulmatesFChild
+	desc = EVTDESCsoulmates.1009
+	picture = GFX_evt_family
+	
+	is_triggered_only = yes
+	
+	# Accept
+	option = {
+		name = EVTOPTAsoulmates.1009
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.8
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.8
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				has_focus = focus_family
+			}
+			modifier = {
+				factor = 1.2
+				trait = kind 
+			}
+			modifier = {
+				factor = 1.2
+				trait = gregarious
+			}
+		}
+		custom_tooltip = { text = EVTOPTATTsoulmates.1009 }
+		spouse = { character_event = { id = soulmates.1004 } }
+	}
+	
+	# Decline
+	option = {
+		name = EVTOPTBsoulmates.1009
+		ai_chance = {
+			factor = 10
+		}
+		custom_tooltip = { text = EVTOPTBTTsoulmates.1009 }
+		spouse = { character_event = { id = soulmates.1010 } }
+	}
+}
+
+# Married lesbians want to have children - Spouse declined
+character_event = {
+	id = soulmates.1010
+	title = EVTTITLEsoulmatesFChild
+	desc = EVTDESCsoulmates.1010
+	picture = GFX_evt_family
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.1010		
+	}
+}
+
+# Married lesbians want to have children - Selector
+character_event = {
+	id = soulmates.1004
+	title = EVTTITLEsoulmatesFChild
+	desc = EVTDESCsoulmates.1004
+	picture = GFX_evt_family
+	
+	is_triggered_only = yes	
+	
+	option = {
+		name = EVTOPTAsoulmates.1004
+		
+		trigger = {
+			OR = {
+				has_artifact = sm_fpreg_potion_1
+				has_artifact = sm_fpreg_potion_2
+				has_artifact = sm_fpreg_potion_3
+				has_artifact = sm_fpreg_potion_4
+				has_artifact = sm_fpreg_potion_5
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		custom_tooltip = { text = EVTOPTATTsoulmates.1004 }
+		tooltip_info = learning
+		character_event = { id = soulmates.1005 }
+	}
+	option = {
+		name = EVTOPTBsoulmates.1004
+		trigger = {
+			has_dlc = "Mystics"
+			society_is_devil_worshiper = yes
+		}
+		
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_artifact = sm_fpreg_potion_1
+					has_artifact = sm_fpreg_potion_2
+					has_artifact = sm_fpreg_potion_3
+					has_artifact = sm_fpreg_potion_4
+					has_artifact = sm_fpreg_potion_5
+				}
+			}
+		}
+		
+		custom_tooltip = { text = EVTOPTBTTsoulmates.1004 }
+		character_event = { id = soulmates.1006 }
+	}
+	option = {
+		name = EVTOPTCsoulmates.1004
+		custom_tooltip = { text = EVTOPTCTTsoulmates.1004 }
+		trigger = {
+			any_courtier = {
+				is_female = no
+				age = 16
+				NOR = {
+					trait = chaste
+					trait = zealous
+					trait = celibate
+					trait = incapable
+					trait = eunuch
+					is_ill = yes
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_artifact = sm_fpreg_potion_1
+					has_artifact = sm_fpreg_potion_2
+					has_artifact = sm_fpreg_potion_3
+					has_artifact = sm_fpreg_potion_4
+					has_artifact = sm_fpreg_potion_5
+				}
+			}
+		}
+		
+		random_courtier = {
+			limit = {
+				is_female = no
+				age = 16
+				NOR = {
+					trait = chaste
+					trait = zealous
+					trait = celibate
+					trait = incapable
+					trait = eunuch
+					is_ill = yes
+				}		
+			}
+			save_event_target_as = surrogate_father
+		}
+		character_event = { id = soulmates.1007 }
+	}
+	option = {
+		name = EVTOPTDsoulmates.1004
+		custom_tooltip = { text = EVTOPTDTTsoulmates.1004 }
+		spouse = {
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				months = 12
+			}
+		}
+	}
+}
+
+# Married lesbians want to have children - Alchemy path
+character_event = {
+	id = soulmates.1005
+	title = EVTTITLEsoulmatesFChild
+	desc = EVTDESCsoulmates.1005
+	picture = GFX_evt_magic_ritual
+	is_triggered_only = yes
+	
+	# Very low quality potion - dangerous outcome.
+	option = {
+		name = EVTOPTAsoulmates.1005
+		custom_tooltip = { text = EVTOPTATTsoulmates.1005 }
+		
+		trigger = {
+			has_artifact = sm_fpreg_potion_1
+		}
+		
+		random_list = {
+			# Wife becomes seriously ill. Internal damage causes her to become barren, infected and wounded.
+			5 = {
+				spouse = {
+					add_trait = ill
+					add_trait = wounded
+					add_trait = infection
+					add_trait = infertile
+				}
+			}
+			# Wife becomes ill and infected
+			35 = {
+				spouse = {
+					add_trait = ill
+					add_trait = infection
+				}
+			}
+			# Nothing happens
+			40 = {
+				
+			}
+			# The potion works - but barely.
+			20 = {
+				spouse = {
+					impregnate = ROOT
+				}
+			}
+		}
+		
+		# Even if this works, all positive congenital traits will never be inherited.
+		destroy_artifact = sm_fpreg_potion_1
+		spouse = {
+			set_variable = { which = sm_fpreg_potion_q value = 1 }
+		}
+	}
+	
+	# Low quality potion - average outcome.
+	option = {
+		name = EVTOPTBsoulmates.1005
+		custom_tooltip = { text = EVTOPTBTTsoulmates.1005 }
+		
+		trigger = {
+			has_artifact = sm_fpreg_potion_2
+		}
+		
+		random_list = {
+			# Wife becomes ill
+			20 = {
+				spouse = {
+					add_trait = ill
+				}
+			}
+			# Nothing happens
+			30 = {
+			}
+			# The potion works.
+			50 = {
+				spouse = {
+					impregnate = ROOT
+				}
+			}
+		}
+		
+		# If this works, there is a chance that positive congenital traits will not be inherited.
+		destroy_artifact = sm_fpreg_potion_2
+		set_variable = { which = sm_fpreg_potion_q value = 3 }
+	}
+	
+	# Medium quality potion, good outcome
+	option = {
+		trigger = {
+			has_artifact = sm_fpreg_potion_3
+		}
+	
+		name = EVTOPTCsoulmates.1005
+		custom_tooltip = { text = EVTOPTCTTsoulmates.1005 }
+		
+		random_list = {
+			# Wife becomes ill
+			5 = {
+				spouse = {
+					add_trait = ill
+				}
+			}
+			# Nothing happens
+			20 = {
+			}
+			# The potion works.
+			75 = {
+				spouse = {
+					impregnate = ROOT
+				}
+			}
+		}
+		# Works like a normal pregnancy.
+		destroy_artifact = sm_fpreg_potion_3
+		spouse = {
+			set_variable = { which = sm_fpreg_potion_q value = 4 }
+		}
+	}
+	
+	# High quality potion, very good outcome
+	option = {
+		trigger = {
+			has_artifact = sm_fpreg_potion_4
+		}
+	
+		name = EVTOPTDsoulmates.1005
+		custom_tooltip = { text = EVTOPTDTTsoulmates.1005 }
+		
+		random_list = {
+			# Nothing happens
+			15 = {
+			}
+			# The potion works.
+			85 = {
+				spouse = {
+					impregnate = ROOT
+				}
+			}
+		}
+		
+		# Works like a normal pregnancy, with a much higher chance of inheriting positive traits.
+		destroy_artifact = sm_fpreg_potion_4
+		spouse = {
+			set_variable = { which = sm_fpreg_potion_q value = 5 }
+		}
+	}
+	
+	# Very high quality potion, divine outcome
+	option = {
+		name = EVTOPTEsoulmates.1005
+		custom_tooltip = { text = EVTOPTETTsoulmates.1005 }
+		
+		trigger = {
+			has_artifact = sm_fpreg_potion_5
+		}
+		
+		random_list = {
+			# Nothing happens
+			5 = {
+			}
+			# The potion works.
+			95 = {
+				spouse = {
+					impregnate = ROOT
+				}
+			}
+		}
+		
+		# Works like a normal pregnancy, with a much higher chance of inheriting positive traits.
+		destroy_artifact = sm_fpreg_potion_5
+		spouse = {
+			set_variable = { which = sm_fpreg_potion_q value = 6 }
+		}
+	}
+	
+	# Abort.
+	option = {
+		name = EVTOPTFsoulmates.1005
+		custom_tooltip = { text = EVTOPTFTTsoulmates.1005 }
+		spouse = {
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				months = 12
+			}
+		}
+	}
+}
+
+# Married lesbians want to have children - Demon path
+character_event = {
+	id = soulmates.1006
+	title = EVTTITLEsoulmatesFChild
+	is_triggered_only = yes
+	desc = EVTDESCsoulmates.1006
+	picture = GFX_evt_ritual_scroll
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				NOR = {
+					is_child_of = ROOT
+					is_lover = ROOT
+					is_friend = ROOT
+				}
+			}
+			save_event_target_as = sm_human_sacrifice
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.1006
+		custom_tooltip = { text = EVTOPTATTsoulmates.1006 }
+		
+		event_target:sm_human_sacrifice = {
+			random_list = {
+				50 = {
+					death = { death_reason = death_sacrificed killer = ROOT }
+				}
+				50 = {
+					death = { death_reason = death_sacrificed }
+				}
+			}
+		}
+		spouse = { impregnate = ROOT }
+	}
+	
+	option = {
+		name = EVTOPTBsoulmates.1006
+		custom_tooltip = { text = EVTOPTBTTsoulmates.1006 }
+		tooltip_info = intrigue
+		
+		trigger = {
+			intrigue = 15
+		}
+		
+		event_target:sm_human_sacrifice = {
+			death = { death_reason = death_sacrificed }
+		}
+		spouse = { impregnate = ROOT }
+	}
+	
+	option = {
+		name = EVTOPTCsoulmates.1006
+		custom_tooltip = { text = EVTOPTCTTsoulmates.1006 }
+		spouse = {
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				months = 12
+			}
+		}
+	}
+}
+
+# Married lesbians want to have children - Help from a male courtier
+# Note that this bastard is an actual bastard. It will not be a genetic child!
+character_event = {
+	id = soulmates.1007
+	title = EVTTITLEsoulmatesFChild
+	is_triggered_only = yes
+	desc = EVTDESCsoulmates.1007
+	picture = GFX_evt_courtly_love
+	
+	option = {
+		name = EVTOPTAsoulmates.1007
+		custom_tooltip = { text = EVTOPTAsoulmates.1007 }
+
+		# Placeholder until a good solution can be found - high-intrigue AI lesbians will discover the bastardry and put an 'Unfaithful Harlot' modifier on her wife, even when this is voluntary!
+		ROOT = {
+			spouse = {
+				impregnate = ROOT	
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBsoulmates.1007
+		custom_tooltip = { text = EVTOPTBsoulmates.1007 }
+		spouse = {
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				months = 12
+			}
+		}
+	}
+}
+
+# Children born of alchemical pregnancy needs to have traits adjusted.
+character_event = {
+	id = soulmates.1030
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		father_even_if_dead = {
+			is_female = yes
+		}
+		mother_even_if_dead = {
+			is_female = yes
+		}
+		mother = {
+			check_variable = { which = "sm_fpreg_potion_q" value = 1 }
+		}
+	}
+	
+	option = {
+		# Dwarf
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = dwarf }
+						father = { trait = dwarf }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = dwarf }
+						father = { trait = dwarf }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = dwarf
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = dwarf
+			}
+			50 = {
+			}
+		}
+		# Absentminded
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = absentminded }
+						father = { trait = absentminded }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = absentminded }
+						father = { trait = absentminded }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = absentminded
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = absentminded
+			}
+			50 = {
+			}
+		}
+		# Weak
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = weak }
+						father = { trait = weak }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = weak }
+						father = { trait = weak }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = strong
+				add_trait = weak
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = weak
+			}
+			50 = {
+			}
+		}
+		# Wrymouth
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = wrymouth }
+						father = { trait = wrymouth }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = wrymouth }
+						father = { trait = wrymouth }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = wrymouth
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = wrymouth
+			}
+			50 = {
+			}
+		}
+		# Clubfooted
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = clubfooted }
+						father = { trait = clubfooted }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = clubfooted }
+						father = { trait = clubfooted }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = clubfooted
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = clubfooted
+			}
+			50 = {
+			}
+		}
+		# Harelip
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = harelip }
+						father = { trait = harelip }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = harelip }
+						father = { trait = harelip }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = harelip
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = harelip
+			}
+			50 = {
+			}
+		}
+		# Hunchback
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = hunchback }
+						father = { trait = hunchback }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = hunchback }
+						father = { trait = hunchback }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = hunchback
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = hunchback
+			}
+			50 = {
+			}
+		}
+		# Lisp
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = lisp }
+						father = { trait = lisp }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = lisp }
+						father = { trait = lisp }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = lisp
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = lisp
+			}
+			50 = {
+			}
+		}
+		# Stutter
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = stutter }
+						father = { trait = stutter }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = stutter }
+						father = { trait = stutter }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = stutter
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = stutter
+			}
+			50 = {
+			}
+		}
+		# Ugly
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = ugly }
+						father = { trait = ugly }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = ugly }
+						father = { trait = ugly }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = ugly
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = ugly
+			}
+			50 = {
+			}
+		}
+		# Slow
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = slow }
+						father = { trait = slow }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = slow }
+						father = { trait = slow }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = genius
+				remove_trait = quick
+				remove_trait = imbecile
+				add_trait = slow
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = slow
+			}
+			50 = {
+			}
+		}
+		# Imbecile
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+					OR = {
+						mother = { trait = imbecile }
+						father = { trait = imbecile }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+					OR = {
+						mother = { trait = imbecile }
+						father = { trait = imbecile }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = genius
+				remove_trait = slow
+				remove_trait = quick
+				add_trait = imbecile
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 0.25
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 6
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+				}
+				remove_trait = imbecile
+			}
+			50 = {
+			}
+		}
+		# No cure for inbred here!
+	
+		# Quick
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = quick }
+						father = { trait = quick }
+					}
+				}
+				modifier = {
+					factor = 4
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = quick }
+						father = { trait = quick }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = slow
+				remove_trait = imbecile
+				add_trait = quick
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = quick
+			}
+			50 = {
+			}
+		}
+		# Genius
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = genius }
+						father = { trait = genius }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = genius }
+						father = { trait = genius }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = genius
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = genius
+			}
+			50 = {
+			}
+		}
+		# Strong
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = strong }
+						father = { trait = strong }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = strong }
+						father = { trait = strong }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = strong
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = strong
+			}
+			50 = {
+			}
+		}
+		# Attractive
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = fair }
+						father = { trait = fair }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = fair }
+						father = { trait = fair }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = ugly
+				remove_trait = wrymouth
+				remove_trait = harelip
+				remove_trait = hunchback
+				remove_trait = clubfooted
+				add_trait = fair
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = fair
+			}
+			50 = {
+			}
+		}
+			
+		# Agile
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = agile }
+						father = { trait = agile }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = agile }
+						father = { trait = agile }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = agile
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = agile
+			}
+			50 = {
+			}
+		}
+		# Ambidextrous
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = ambidextrous }
+						father = { trait = ambidextrous }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = ambidextrous }
+						father = { trait = ambidextrous }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = ambidextrous
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = ambidextrous
+			}
+			50 = {
+			}
+		}
+		
+		# Fertile
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = fertile }
+						father = { trait = fertile }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = fertile }
+						father = { trait = fertile }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = fertile
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = fertile
+			}
+			50 = {
+			}
+		}
+		# Imposing
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = imposing }
+						father = { trait = imposing }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = imposing }
+						father = { trait = imposing }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = imposing
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = imposing
+			}
+			50 = {
+			}
+		}
+		# Calm Voice
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = calm_voice }
+						father = { trait = calm_voice }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = calm_voice }
+						father = { trait = calm_voice }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = calm_voice
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = calm_voice
+			}
+			50 = {
+			}
+		}
+		# Powerful Voice
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = powerful_voice }
+						father = { trait = powerful_voice }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = powerful_voice }
+						father = { trait = powerful_voice }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = powerful_voice
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = powerful_voice
+			}
+			50 = {
+			}
+		}
+		# Melodious Voice
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = melodious_voice }
+						father = { trait = melodious_voice }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = melodious_voice }
+						father = { trait = melodious_voice }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = melodious_voice
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = melodious_voice
+			}
+			50 = {
+			}
+		}
+		# Perceptive
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = perceptive }
+						father = { trait = perceptive }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = perceptive }
+						father = { trait = perceptive }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = perceptive
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = perceptive
+			}
+			50 = {
+			}
+		}
+		# Tall
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1 } }
+				}
+				modifier = {
+					factor = 0.5
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 2 } }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 4} }
+					OR = {
+						mother = { trait = tall }
+						father = { trait = tall }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 5} }
+					OR = {
+						mother = { trait = tall }
+						father = { trait = tall }
+					}
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				add_trait = tall
+			}
+			50 = {
+				modifier = {
+					factor = 4
+					mother = { is_variable_equal = { which = "sm_fpreg_potion_q" value = 1} }
+				}
+				modifier = {
+					factor = 2
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 2} }
+				}
+				modifier = {
+					factor = 0
+					mother = { check_variable = { which = "sm_fpreg_potion_q" value = 6} }
+				}
+				remove_trait = tall
+			}
+			50 = {
+			}
+		}
+		
+		# Base stat adjustments
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0 
+					mother = { 
+						NOT = { 
+							check_variable = { which = "sm_fpreg_potion_q" value = 5 }
+						}
+					}
+				}
+			}
+			50 = {
+				modifier = {
+					factor = 2
+					mother = {
+						check_variable = { which = "sm_fpreg_potion_q" value = 5 }
+					}
+				}
+				change_diplomacy = 1
+				change_martial = 1
+				change_stewardship = 1
+				change_intrigue = 1
+				change_learning = 1
+			}
+			50 = {
+				modifier = {
+					factor = 2
+					mother = {
+						check_variable = { which = "sm_fpreg_potion_q" value = 6 }
+					}
+				}
+				change_diplomacy = 2
+				change_martial = 2
+				change_stewardship = 2
+				change_intrigue = 2
+				change_learning = 2
+			}
+		}
+	}
+}
+
+# Begin research.
+character_event = {
+	id = soulmates.1015
+	title = EVTTITLEsoulmatesFResearch
+	desc = EVTDESCsoulmates.1015
+	picture = GFX_evt_magic_ritual
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.1015
+		character_event = {
+			id = soulmates.1016
+			days = 1825
+			random = 730
+		}
+	}
+}
+
+# Complete research.
+character_event = {
+	id = soulmates.1016
+	title = EVTTITLEsoulmatesFResearch
+	desc = EVTDESCsoulmates.1016
+	picture = GFX_evt_magic_ritual
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.1016
+		add_artifact = sm_aphrodite_grimoire
+	}
+}
+
+# Create potion - Page 1
+character_event = {
+	id = soulmates.1017
+	title = EVTTITLEsoulmatesFPotion
+	desc = EVTDESCsoulmates.1017
+	picture = GFX_evt_magic_ritual
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.1017
+		trigger = {
+			wealth = 25
+		}
+		
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				wealth = 70
+			}
+		}
+		wealth = -25		
+		add_artifact = sm_fpreg_potion_1
+	}
+	option = {
+		name = EVTOPTBsoulmates.1017
+		trigger = {
+			wealth = 70
+		}
+		
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				wealth = 100
+			}
+		}
+		wealth = -70
+		add_artifact = sm_fpreg_potion_2
+	}
+	option = {
+		name = EVTOPTCsoulmates.1017
+		trigger = {
+			wealth = 100
+		}
+		
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0.5
+				wealth = 200
+			}
+			modifier = {
+				factor = 0.5
+				wealth = 350
+			}
+			modifier = {
+				factor = 0
+				wealth = 500
+			}
+		}
+		wealth = -100
+		add_artifact = sm_fpreg_potion_3
+	}
+	option = {
+		name = EVTOPTDsoulmates.1017
+		ai_chance = {
+			factor = 20
+		}
+		character_event = { id = soulmates.1018 }		
+	}
+}
+
+# Create potion - Page 2
+character_event = {
+	id = soulmates.1018
+	title = EVTTITLEsoulmatesFPotion
+	desc = EVTDESCsoulmates.1018
+	picture = GFX_evt_magic_ritual
+	
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTAsoulmates.1018
+		trigger = {
+			wealth = 200
+		}
+		
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.5
+				wealth = 350
+			}
+			modifier = {
+				factor = 0.5
+				wealth = 500
+			}
+		}
+		wealth = -200
+		add_artifact = sm_fpreg_potion_4
+	}
+	option = {
+		name = EVTOPTBsoulmates.1018
+		trigger = {
+			wealth = 350
+		}
+		
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 2
+				wealth = 500
+			}
+			modifier = {
+				factor = 2
+				wealth = 750
+			}
+		}
+		wealth = -350
+		add_artifact = sm_fpreg_potion_5
+	}
+	option = {
+		name = EVTOPTCsoulmates.1018
+		character_event = { id = soulmates.1017 }
+		
+		ai_chance = {
+			factor = 0 # AI should not loop back to first screen to evaluate.
+		}
+	}
+	option = {
+		name = EVTOPTDsoulmates.1018
+		
+		ai_chance = {
+			factor = 10
+		}
+	}
+}

@@ -1,0 +1,328 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+
+#Decision :: Abdicate/Resign
+
+# Round Table :: Laws
+round_table_law;The Round Table;;;;;;;;;x
+round_table_law_desc;Your ancestors would congregate around a legendary council with their subjects as equals.;;;;;;;;;x
+round_table_law_0;Round Table Council Abolition;;;;;;;;;x
+round_table_law_0_option;Extinct;;;;;;;;;x
+round_table_law_0_desc;Attempt to disband the Round Table.;;;;;;;;;x
+round_table_law_1;Round Table;;;;;;;;;x
+round_table_law_1_option;Restored;;;;;;;;;x
+round_table_law_1_desc;Attempt to emulate the Round Table.;;;;;;;;;x
+
+# Round Table :: Artifacts :: Minor Titles :: Modifiers :: Traits
+green_axe;§ZGreen Axe§!;;;;;;;;;x
+green_axe_desc;This splendid axe belonged to the Green Knight. It shines wondrous sheens of green and gold and has strange patterns engraved. This four feet long colossus strikes both dread and awe into the hearts of men.;;;;;;;;;x
+bestowed_green_axe_tooltip;is bestowed the §ZGreen Axe§!;;;;;;;;;x
+title_knight_round_table;Knight of the Round Table;;;;;;;;;x
+title_knight_round_table_desc;These noble knights embody the chivalric virtues and are the envy of mortals.;;;;;;;;;x
+#title_paramount_knight_desc;This paragon of chivalric virtue is the envy of the realm - every man wants to be like him and sees his friends as their friends;Ce modèle de vertu suscite l'envie de tous. Chaque homme rêve de lui ressembler et d'avoir les mêmes amis.;Dieses Vorbild ritterlicher Werte wird vom ganzen Reich beneidet - jeder Mann möchte so sein wie er und sieht seine Freunde als die eigenen an;;Modelo de virtud caballeresca envidia del reino. Todos los hombres quieren ser como él y sienten aprecio por sus amigos.;;;;;;;;;x
+twi_chivalrous;Chivalrous;;;;;;;;;;;;;x
+twi_chivalrous_desc;This character is a paragon of chivalric virtue, living and fighting for the sake of glory, honour, virtue, eloquence and courtly love. [Root.GetSheHeCap] despises wrongful quarrels and worldly gains.;;;;;;;;;;;;;x
+twi_loyal;Loyal;;;;;;;;;;;;;x
+twi_loyal_desc;This character is loyal and not fond of plotting and betrayal.;;;;;;;;;;;;;x
+
+# Round Table :: Events
+EVTNAME_RTABLE_1;The Round Table;;;;;;;;;x
+EVTDESC_RTABLE_1;After restoring the Round Table, you call upon the utmost virtuous knights from all the realms to pledge to you. You charge, both old and young, with an oath.\n\nNever to do outrageousity, nor murder and always to flee treason.\nTake no battle in a wrongful quarrel, for no law, ne for no worldly goods.\nAlways succor ladies, damosels and gentlewomen upon pain of death.\nBy no mean to be cruel, but to give mercy unto him that asketh mercy, upon pain of forfeiture of their worship and lordship for evermore.\n\nAnd so be it every year at the high feast of Pentecost.;;;;;;;;;x
+EVTDESC_RTABLE_200;A knight improves skill;;;;;;;;;x
+EVTDESC_RTABLE_300.1;A noble has heard about the Round Table and wishes to join your renowned court.;;;;;;;;;x
+EVTDESC_RTABLE_300.2;The prestigious Round Table has attracted a noble to your court.;;;;;;;;;x
+EVTDESC_RTABLE_300.3;The exploits of your knights reached beyond your realm and brought a débutante.;;;;;;;;;x
+EVTDESC_RTABLE_300.4;A well-versed noble has heard of your fair council and is offering his services to you.;;;;;;;;;x
+EVTOPTB_RTABLE_300.1;My court does not need any more members.;;;;;;;;;x
+EVTOPTB_RTABLE_300.2;I do not need your services.;;;;;;;;;x
+EVTNAME_RTABLE_400;A challenger appears...;;;;;;;;;x
+EVTDESC_RTABLE_400.1;[Root.GetTitledFirstName], [From.GetBestName]'s feats-of-arms are renowned far and wide. I am eager to challenge your bold knight to meet me in a duel, lest [From.GetLordLady] [From.GetFirstName] humble [From.GetHerselfHimself] before a better man!\nMay victory be the judge.;;;;;;;;;x
+EVTDESC_RTABLE_400.2;[Root.GetTitledFirstName], exploits of your brave knights have reached far a wide. I wish to put one of your bold knights into a fair trial of arms. I shall allow my opponent the choice of weapon and I challenge [From.GetLordLady] [From.GetFirstName] to meet me in a fortnight, under the great oak yonder.\nMay the best win.;;;;;;;;;x
+EVTDESC_RTABLE_400.3;[Root.GetTitledFirstName], I've heard about the foul misdeeds of your famous round manger of pigs and I challenge one of your dirty piglets into single-combat!\nIf any of your piglings dare show up I shall them squeal until they yield!;;;;;;;;;x
+EVTDESC_RTABLE_400.4;[Root.GetTitledFirstName], the endless boasting of your knights runs on every blabbermouth from every realm. I came here to put a stop to it.\nTherefore, I dare one of your boastful knights to submit [From.GetHerHis] to a test of arms within a fortnight. Be ready or forever be shamed and silent.;;;;;;;;;x
+EVTDESC_RTABLE_400.5;[Root.GetTitledFirstName], I came here to test your fabled pygmy knights of round table into a fight with a real man! I shall await a fortnight for one of your frail knights to muster the courage to fight me!\nFail and I shall announce the misery of your puny knights in every real court!;;;;;;;;;x
+EVTDESC_RTABLE_411;The challenger, having been defeated, humbly offers his services.;;;;;;;;;x
+EVTDESC_RTABLE_412.1;The challenger was defeated and departed in shame. The court rejoices the valour of your knights;;;;;;;;;x
+EVTDESC_RTABLE_412.2;The challenger was defeated and vanished in disgrace. Your knights celebrate this victory;;;;;;;;;x
+EVTDESC_RTABLE_420.1;Alas, your knight has been bested in combat.;;;;;;;;;x
+EVTDESC_RTABLE_420.2;The challenger, having bested your knight, now proclaims in every court, that your knights shall be henceforth known as the mountain trolls of the Round Table.;;;;;;;;;x
+EVTDESC_RTABLE_420.3;Your knight has lost the trial of arms.\n\nBards sing about the frailty of your knights.;;;;;;;;;x
+EVTDESC_RTABLE_430.1;Your faint-hearted knight did not show up for the duel. Woe and weal, for such is the blow of fear upon your realm of dastardly knights.;;;;;;;;;x
+EVTDESC_RTABLE_430.2;Your cravenly knight did not show up for the contest. This display of cowardice shames your entire court.;;;;;;;;;x
+EVTDESC_RTABLE_430.3;Your fearful knight did not show up for the match. Today your nobility has been disgraced by the stain of cowardice.;;;;;;;;;x
+EVTDESC_RTABLE_430.4;Your shameless knight did not turn up for the challenge. Your knights are henceforth mocked for lack bravery.;;;;;;;;;x
+EVTDESC_RTABLE_430.5;Because your knight fled from the challenge. Your knights are now being mocked as the cowardly raven starvers of the Round Table.;;;;;;;;;x
+
+#TABLE_INSULT.1;The challenger, having bested your knight, now proclaims mountain trolls of the Round Table.;;;;;;;;;x
+
+# Round Table :: Events :: Green Knight
+EVTNAME_GKNIGHT_1;The Green Knight;;;;;;;;;x
+EVTDESC_GKNIGHT_100;While your court is gathering, a towering man mounting a great steed rides unexpectedly into the hall.\n\nThe mighty knight has fair features. He is tall as the tallest man in the world.\nGreen as the grass is his horse and so is the colossal knight. All green is his attire, with flourishes of gold embossing.\nHis hair and his beard are also green, woven together with golden threads.\n\nWith broad chest and shoulders, the half-giant carries himself proudly, in an intimidating manner.\nHe holds a holly branch in one hand and, in the other, a wondrous great axe, also green and gold.;;;;;;;;;x
+EVTOPTA_GKNIGHT_100.1;Ask him what he wants.;;;;;;;;;x
+EVTOPTA_GKNIGHT_100.2;You ask him what he wants...;;;;;;;;;x
+EVTOPTA_GKNIGHT_100.3;What do you want?;;;;;;;;;x
+EVTDESC_GKNIGHT_110;I come in peace and seek no battle, I assure thee.\nFor these knights are but beardless children here.\nIf I was locked in my armor, high on a steed,\nNone could match me, their might be so weak.\nTherefore, a game, I beseech.;;;;;;;;;x
+EVTOPTA_GKNIGHT_110.1;Go on...;;;;;;;;;x
+EVTOPTA_GKNIGHT_110.2;Well, what is it you want, then?;;;;;;;;;x
+EVTDESC_GKNIGHT_120;Now, if thou be as bold as all men say.\nIf there be a man who dares strike me away,\nIn exchange that I return another blow, in a year and a day,\nI shall grant him this rich axe to sway\nAnd abide the first blow, as bare as I may.;;;;;;;;;x
+EVTOPTB_GKNIGHT_120.1;Order someone to come forth.;;;;;;;;;x
+EVTOPTB_GKNIGHT_120.2;Let someone else take him on;;;;;;;;;x
+EVTOPTB_GKNIGHT_120.3;Allow someone else to take the challenge.;;;;;;;;;x
+EVTOPTB_GKNIGHT_120.4;Let someone take care of him.;;;;;;;;;x
+EVTDESC_GKNIGHT_121;You promptly meet his demand and, raising the green axe, you take a swift swing at the green knight.\n\nThe sharp edge sinks through his neck until it bites the ground, decapitating his head in one clean cut.\n\nHis fair head falls, rolling on the floor in a bloody mess.;;;;;;;;;x
+EVTOPTA_GKNIGHT_121.1;The court cheers!;;;;;;;;;x
+EVTOPTA_GKNIGHT_121.2;The court is appalled!;;;;;;;;;x
+EVTDESC_GKNIGHT_122;Your subject promptly meets his demand and, raising the green axe, takes a swift swing at the green knight.\n\nThe sharp edge sinks through his neck and bites the ground, decapitating his head in one clean cut.\n\nThe fair head falls, rolling on the floor in a bloody mess.;;;;;;;;;x
+EVTDESC_GKNIGHT_130;Yet, to the dismay of your entire court, the knight still stands. As if nothing happened, he moves to retrieve his fallen head, before mounting his horse.\n\nVoices sink and all gaze fixedly on the man, for none could believe what marvel they just saw.\n\nThe fabulous green knight simply reminds he will return the following year, to deal such a blow as received. Without further ado, he rides off, as sudden as he appeared.;;;;;;;;;x
+EVTOPTA_GKNIGHT_130.1;What sort of trickery is this?!;;;;;;;;;x
+EVTOPTA_GKNIGHT_130.2;What foul sorcery is this?!;;;;;;;;;x
+#EVTDESC_GKNIGHT_200;After a year and a day, the Green Knight returns. He trusts the covenant will be upheld.;;;;;;;;;x
+EVTDESC_GKNIGHT_200.1;After a year and a day, the Green Knight returns. He trusts you will uphold your covenant. One strike for another?;;;;;;;;;x
+EVTDESC_GKNIGHT_200.2;After a year and a day, the Green Knight came back. He ask if you will uphold your covenant. A blow for a blow?;;;;;;;;;x
+EVTDESC_GKNIGHT_201;Holding the massive green axe the Green Knight prepares to chop your head off. ...;;;;;;;;;x
+EVTDESC_GKNIGHT_210;The Green knight has tested your court and found it worthy.\nHenceforth he shall revisit to test the mettle of your knights, every year and a day;;;;;;;;;x
+EVTDESC_GKNIGHT_211;GKNIGHT_211. Be patient. Patience is a virtue :O;;;;;;;;;x
+EVTDESC_GKNIGHT_300;After a year and a day, the Green Knight returned. He tested the mettle of your men;;;;;;;;;x
+
+# Round Table :: Events :: Holy Grail
+#twi_round_table;Quest for the Round Table;;;;;;;;;;;;;x
+#twi_round_table_desc;Your ancestors had a legendary council which would gather around a famed round table.\n\nYou can attempt to emulate it.;;;;;;;;;;;;;x
+#quest_round_table_desc;There are rumours across the realm about of a legendary artifact. You can venture throughout the land with a powerful vassal and see if there is any truth to it.;;;;;;;;;;;;;x
+#quest_round_table_tooltip;Quest for the Round Table;;;;;;;;;;;;;x
+#questing_round_table_mod;Questing for the Round Table;;;;;;;;;;;;;x
+#questing_round_table_mod_desc;[Root.GetTitledFirstName] is questing for the mythical Round Table;;;;;;;;;;;;;x
+#questing_round_table_mod_tooltip;Not questing for the Round Table;;;;;;;;;;;;;x
+
+#EVTDESC_RTABLE_1;To reestablish the fair council of old we will need to look for the table first and seat upon it virtuous knights. So, that we may claim its legacy.\n\nWhat say ye? Shall we attempt to do it, [Root.PrimaryTitle.GetFOA]?;;;;;;;;;;;;x
+#no unchivalric traits. Or sinful traits may be worked. craven = brave, arbitrary = just, cruel = kind, slothful = diligent, deceitful = honest. hedonist
+#trait knight of the round table could have them as opposites.
+#maby feeble = robust.
+#EVTOPTA_GRAIL_1;Aye!;;;;;;;;;x
+#EVTOPTB_GRAIL_1;Nay.;;;;;;;;;x
+#EVTDESC_GRAIL_2;Very well. Let's start looking for it's whereabouts and investigate if there is any truth to the stories, [Root.PrimaryTitle.GetFOA]?;;;;;;;;;;;;x
+
+# Round Table :: Events :: Morgan le Fay
+
+#Slavery :: Decision :: Enslave
+twi_free_slave;Free Slave;;;;;;;;;;;;;x
+twi_free_slave_desc;Free your slave.;;;;;;;;;;;;;x
+twi_enslave_norse;Enthrall;;;;;;;;;;;;;x
+twi_enslave_norse_desc;Enslave your prisoner.;;;;;;;;;;;;;x
+#twi_enslave_nomad;Enslave;;;;;;;;;;;;;x
+#twi_enslave_nomad_desc;Enslave your prisoner.;;;;;;;;;;;;;x
+#twi_enslave_christian;Enslave;;;;;;;;;;;;;x
+#twi_enslave_christian_desc;Enslave your prisoner.;;;;;;;;;;;;;x
+
+#Slavery :: Modifiers :: DELETE!!!
+#slave_mod;Slave;;;;;;;;;;;;;x
+#slave_mod_desc;[Root.GetTitledFirstName] has been enslaved and must obey [Root.GetHerHisCap] master.;;;;;;;;;;;;;x
+#slave_thrall_mod;Thrall;;;;;;;;;;;;;x
+#slave_thrall_mod_desc;[Root.GetTitledFirstName] has been enslaved by Vikings.;;;;;;;;;;;;;x
+#slave_muslim_mod;Slave;;;;;;;;;;;;;x
+#slave_muslim_mod_desc;[Root.GetTitledFirstName] has been enslaved by Muslims.;;;;;;;;;;;;;x
+#slave_christian_mod;Slave;;;;;;;;;;;;;x
+#slave_christian_mod_desc;[Root.GetTitledFirstName] has been enslaved by Christians.;;;;;;;;;;;;;x
+
+#Slavery :: Traits
+twi_slave;Slave;;;;;;;;;;;;;x
+twi_slave_desc;[Root.GetTitledFirstName] is a slave.;;;;;;;;;;;;;x
+twi_slave_former;Former Slave;;;;;;;;;;;;;x
+twi_slave_former_desc;[Root.GetTitledFirstName] used to be a slave.;;;;;;;;;;;;;x
+twi_slave_thrall;Thrall;;;;;;;;;;;;;x
+twi_slave_thrall_desc;[Root.GetTitledFirstName] has been enslaved by Vikings.;;;;;;;;;;;;;x
+
+#Decision :: Rape
+rape;Rape [Root.GetHerHimCap];;;;;;;;;;;;;x
+rape_desc;Force yourself upon [Root.GetTitledFirstName].\nThis sin might upset [Root.GetHerHis] relatives and tarnish your reputation.;;;;;;;;;;;;;x
+
+#Jus Primae Noctis :: Decision :: Modifier
+claim_primae_noctis;Claim First Night;;;;;;;;;;;;;x
+claim_primae_noctis_desc;Invoke your ancient rights to deflower [Root.GetTitledFirstName].\nThis might upset [Root.GetHerHis] relatives.;;;;;;;;;;;;;x
+deflowered_mod;Deflowered;;;;;;;;;;;;;x
+deflowered_mod_desc;[Root.GetHerHisCap] first night has been claimed.\n[Root.GetSheHeCap] might not be as appealing to others, as before, but has learned how cruel life can be.;;;;;;;;;;;;;x
+deflowered_claim;[Root.GetHerHisCap] first night was not claimed before.;;;;;;;;;;;;;x
+
+#Jus Primae Noctis :: Law
+primae_noctis_law;Jus Primae Noctis;Jus Primae Noctis;Jus Primae Noctis;;Jus Primae Noctis;;;;;;;;;x
+primae_noctis_law_desc;The ruler may claim the first night of a virgin bride and deflower her, before she is to be wed.;;;;;;;;;;;;;x
+primae_noctis_law_0;Primae Noctis Abolition;;;;;;;;;;;;;x
+primae_noctis_law_0_option;Outlawed;;;;;;;;;;;;x
+primae_noctis_law_0_desc;Rulers may not claim the first night of their subjects.;;;;;;;;;;;;;x
+primae_noctis_law_1;Primae Noctis;;;;;;;;;;;;;x
+primae_noctis_law_1_option;Allowed;;;;;;;;;;;;x
+primae_noctis_law_1_desc;Rulers may claim the first night of their subjects.;;;;;;;;;;;;;x
+
+#Objective/Decision :: Kidnap
+plot_kidnap_character_short;Plot to Kidnap;;;;;;;;;;;;;x
+plot_kidnap_character_title;Plot to Kidnap;;;;;;;;;;;;;x
+plot_kidnap_character_desc;Plot to Kidnap [Root.GetTitledFirstName];;;;;;;;;;;;;x
+
+#Buildings
+ca_road_1;Road;;;;;;;;;;;;;x
+ca_road_1_desc;Roads improve communication between settlements, boosting the economy.;;;;;;;;;;;;;x
+fo_road_1;Road;;;;;;;;;;;;;x
+ct_road_1;Road;;;;;;;;;;;;;x
+tb_road_1;Road;;;;;;;;;;;;;x
+tp_road_1;Road;;;;;;;;;;;;;x
+tr_road_1;Road;;;;;;;;;;;;;x
+tb_culture_group_north_germanic_1;Housecarl Training Ground;Camp de huscarls;Huscarl-Übungsgelände;;Campo de entrenamiento de huscarles;;;;;;;;;x
+tb_culture_group_north_germanic_2;Housecarl Training Ground;Camp de huscarls;Huscarl-Übungsgelände;;Campo de entrenamiento de huscarles;;;;;;;;;x
+tb_culture_group_north_germanic_3;Housecarl Training Ground;Camp de huscarls;Huscarl-Übungsgelände;;Campo de entrenamiento de huscarles;;;;;;;;;x
+tb_culture_group_north_germanic_4;Housecarl Training Ground;Camp de huscarls;Huscarl-Übungsgelände;;Campo de entrenamiento de huscarles;;;;;;;;;x
+ca_library_1;Library;;;;;;;;;;;;;x
+ca_library_1_desc;A place to collect knowledge and to study it.;;;;;;;;;;;;;x
+ct_library_1;Library;;;;;;;;;;;;;x
+tp_library_1;Library;;;;;;;;;;;;;x
+tr_library_1;Library;;;;;;;;;;;;;x
+tb_library_1;Library;;;;;;;;;;;;;x
+fo_ditch_1;Ditch;;;;Vala;;;;;;;;;x
+fo_ditch_1_desc;An excavation designed as an obstacle to hinder attackers. Particularly effective against rams and siege towers.;;;;;;;;;;;;;x
+fo_moat_1;Moat;Fossé;Graben;;Fosa;;;;;;;;;x
+fo_moat_1_desc;A deep broad ditch filled with water, designed to hinder attackers. Particularly effective against rams and siege towers.;;;;;;;;;;;;;x
+fo_stakes_1;Stakes;;;;;;;;;;;;;x
+fo_stakes_1_desc;Sharpened wooden poles driven into the ground and pointed towards the enemy. Particularly deadly against cavalry.;;;;;;;;;;;;;x
+fo_wooden_walls;Wooden Walls;Murs en Bois;Hölzern Wände;;Las Paredes de Madera;;;;;;;;;x
+fo_wooden_walls_desc;A wooden wall to keep out attackers.;;;;;;;;;;;;;x
+fo_stone_walls;Stone Walls;Mur de Pierre;Steinmaueren;;Muros de Piedra;;;;;;;;;x
+fo_stone_walls_desc;A sturdy stone wall. It is impervious to fire.;Un mur de pierre.;;;Una muralla de piedra. Es impermeable a la quema.;;;;;;;;;x
+fo_slits_1;Arrowslits;Meurtriêres;Schiessscharten;;Saeteras;;;;;;;;;x
+fo_slits_1_desc;Arrowslits allow projectiles to be fired from within the walls.;;;;;;;;;;;;;x
+fo_keep_1;Keep;Donjon;Donjon;;Torreón;;;;;;;;;x
+fo_keep_1_desc;A fortified tower built inside the fort, used for surveillance and as a last resort should the rest of the fort fall.;;;;;;;;;;;;;x
+fo_battlements_1;Battlements;Créneau;Zinne;;Crestería;;;;;;;;;x
+fo_battlements_1_desc;Battlements are gaps at the top of defences which allow projectiles to be fired from a parapet or a walkway.;;;;;;;;;;;;;x
+fo_cornertower_1;Corner Tower;Cornière;Eckturm;;Baluarte;;;;;;;;;x
+fo_cornertower_1_desc;A defensive fortification built at the corners of the fort.;;;;;;;;;;;;;x
+fo_cornertower_2;Corner Tower;Cornière;Eckturm;;Baluarte;;;;;;;;;x
+fo_cornertower_3;Corner Tower;Cornière;Eckturm;;Baluarte;;;;;;;;;x
+fo_cornertower_4;Corner Tower;Cornière;Eckturm;;Baluarte;;;;;;;;;x
+fo_cornertower_5;Corner Tower;Cornière;Eckturm;;Baluarte;;;;;;;;;x
+fo_cornertower_5_desc;A star-shaped fort greatly improves your defences with no dead zones.;;;;;;;;;;;;;x
+fo_watchtower_1;Watchtower;Mirador;Wachturm;;Atalaya;;;;;;;;;x
+fo_watchtower_1_desc;An elevated fortification providing safety and surveillance against bandits and armies.;Une tour d'observation destinée à surveiller une zone.;Ein Bauwerk, das der Überwachung eines bestimmten Areals dient.;;Fortificación utilizada en un lugar alto y seguro para realizar vigilancia.;;;;;;;;;x
+fo_watchtower_2;Watchtower;Mirador;Wachturm;;Atalaya;;;;;;;;;x
+fo_watchtower_3;Watchtower;Mirador;Wachturm;;Atalaya;;;;;;;;;x
+fo_watchtower_4;Watchtower;Mirador;Wachturm;;Atalaya;;;;;;;;;x
+fo_camp_1;Hunter Camp;Camp des Chasseurs;Jägerlager;;Campamento de Cazadores;;;;;;;;;x
+fo_camp_1_desc;A hunter camp providing scouts and provisions.;;;;;;;;;;;;;x
+fo_town_1;Fortified Hamlet;;;;;;;;;;;;;x
+fo_town_1_desc;A tiny fortified settlement.;;;;;;;;;;;;;x
+fo_town_2;Fortified Village;;;;;;;;;;;;;x
+fo_town_2_desc;A small fortified settlement.;;;;;;;;;;;;;x
+fo_town_3;Fortified Town;;;;;;;;;;;;;x
+fo_town_3_desc;A fortified settlement.;;;;;;;;;;;;;x
+fo_harbor_1;Harbour;Havre;Haffen;;Puerto;;;;;;;;;x
+fo_harbor_1_desc;Harbour;;;;;;;;;;;;;x
+fo_harbor_2;Harbour;Havre;Haffen;;Puerto;;;;;;;;;x
+fo_harbor_3;Harbour;Havre;Haffen;;Puerto;;;;;;;;;x
+fo_depot_1;Supply Depot;Dépôt;Depot;;Depósito;;;;;;;;;x
+fo_depot_1_desc;A military structure for storing supplies, such as weapons, food and medicine.;;;;;;;;;;;;;x
+fo_shrine_1;Shrine;Sanctuaire;Schrein;;Templo;;;;;;;;;x
+fo_shrine_1_desc;A sacred shrine.;;;;;;;;;;;;;x
+
+#Buildings :: Trade Post
+tr_caravanserai_1;Caravanserai;Caravansérail;Karawanserei;;Caravasar;;;;;;;;;x
+tr_caravanserai_1_desc;A roadside inn where caravaners can rest and resupply from the journey.;;;;;;;;;;;;;x
+tr_caravanserai_2;Caravanserai;Caravansérail;Karawanserei;;Caravasar;;;;;;;;;x
+tr_caravanserai_3;Caravanserai;Caravansérail;Karawanserei;;Caravasar;;;;;;;;;x
+
+RELIGION_BONUS;Religion Bonus;;;;;;;;;;;;;x
+
+#Traits
+vet_1;Veteran Commander;;;;;;;;;;;;;x
+vet_1_desc;This character is an experienced leader in warfare and commands respect.;;;;;;;;;;;;;x
+vet_2;Elite Commander;;;;;;;;;;;;;x
+vet_2_desc;This character is an experienced leader in warfare and commands respect.;;;;;;;;;;;;;x
+vet_3;Legendary Commander;;;;;;;;;;;;;x
+vet_3_desc;This character is an experienced leader in warfare and commands respect.;;;;;;;;;;;;;x
+
+#Viking Fleet
+#EVTDESC62900;There are great opportunities for plunder and glory in England, with the sons of Lodbrok exacting their vengeance on the Saxon kings. My Carls are growing restless, anxious to join the great adventure...;Les opportunités de pillage et de gloire sont nombreuses en Angleterre, avec les fils de Lodbrok qui assouvissent leur vengeance sur les rois saxons. Mes carls sont de plus en plus agités, impatients de se joindre à la grande aventure...;Es gibt in England günstige Gelegenheiten für Ruhm und Plünderungen, während die Söhne Lodbroks ihre Rache an den sächsischen Königen ausüben. Meine Huscarls werden unruhig, das große Abenteuer ruft nach ihnen...;;Hay grandes oportunidades para el saqueo y la gloria en Inglaterra, con los hijos de Lodbrok exigiendo su venganza a los Reyes Sajones. Mis Carls están cada vez más inquietos, ansiosos de unirse a la gran aventura...;;;;;;;;;x
+raise_fleet;Raise Capital Fleet;;;;;;;;;x
+raise_fleet_desc;It is fitting for a capable Viking ruler to have a strong capital fleet.\nYou can have your boatbuilders build it.;;;;;;;;;x
+raise_fleet_tooltip;Proceed to raise the fleet.;;;;;;;;;x
+raising_fleet_mod;Raising Viking Fleet;;;;;;;;;x
+raising_fleet_mod_desc;This ruler is raising a fearsome Viking fleet.;;;;;;;;;x
+EVTNAME_VFLEET_1;Viking Fleet;;;;;;;;;;;;;x
+EVTDESC_VFLEET_1;While making preparations for the next expeditions, you send summons to all skilled shipbuilders across your domains to help you raise a magnificent Viking fleet.;;;;;;;;;x
+EVTDESC_VFLEET_2;After assembling your craftsmen, you instruct them to build a great fleet, led by a magnificent longship.\n\nBefore the artisans begin their work, they inquire about your plans for this flagship.;;;;;;;;;x
+EVTOPTA_VFLEET_2;I want a Snekkja, a small, capable longship, fit for raiding.;;;;;;;;;x
+EVTOPTB_VFLEET_2;I want a Skeid, a large, elegant longship, worthy of a great ruler.;;;;;;;;;x
+EVTOPTC_VFLEET_2.1;I want a Drekar, a big, ornate dragonship, worthy of the Gods!;;;;;;;;;x
+EVTOPTC_VFLEET_2.2;I want a Drekar, a big, ornate dragonship, worthy of the Sagas!;;;;;;;;;x
+EVTOPTD_VFLEET_2;Nevermind...;;;;;;;;;x
+EVTDESC_VFLEET_3;At last, the fleet you commissioned is ready!\n\nOnce you arrive on the windy dock, you lay your eyes upon the swift fleet across the sea. You marvel at this impressive sight. One longship stands out. It is the flagship. Your gaze lingers longingly at your beautiful new flagship, a true masterpiece. Soon enough, your mind starts to wander about the possibilities...\n\nWhile you are lost in thought, a dazed crowd gathers in awe. They cheer, anticipating many adventures to come. You join them in their festive mood, before everyone starts making preparations to go Viking.\n\nMay the Sagas sing about the feats to come!;;;;;;;;;x
+viking_fleet_ARMY;Viking Fleet;;;;;;;;;;;;;x
+flagship_1;Snekkja;;;;;;;;;;;;;x
+flagship_1_desc;You have an impressive fleet led by a swift, capable longship, fit for raiding.;;;;;;;;;;;;;x
+flagship_2;Skeid;;;;;;;;;;;;;x
+flagship_2_desc;You have an impressive fleet led by a large, elegant longship, worthy of a great ruler..;;;;;;;;;;;;;x
+flagship_3;Drekar;;;;;;;;;;;;;x
+flagship_3_desc;You have a mighty fleet led by an epic, ornate dragonship, worthy of the Sagas!;;;;;;;;;;;;;x
+
+#Reconquista :: Fossado
+on_fossado_mod;On Fossado;;;;;;;;;;;;;x
+on_fossado_mod_desc;Engaged in a military incursion.;;;;;;;;;;;;;x
+held_fossado_mod;Held Fossado;;;;;;;;;;;;;x
+held_fossado_mod_desc;Lead a fossado, recently.;;;;;;;;;;;;;x
+organize_fossado;Organize Fossado;;;;;;;;;x
+organize_fossado_desc;You can summon your nobles into service and lead them in a raid against the Saracens.;;;;;;;;;x
+organize_fossado_tooltip;Organize the fossado.;;;;;;;;;x
+recent_fossado_tooltip;Not gone recently in a fossado.;;;;;;;;;x
+fossado_army_ARMY;Fossado Nobles;;;;;;;;;;;;;x
+
+EVTNAME_FOSSADO_1;Fossado;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_100.1;You start preparing for the fossado, calling upon nobles across the realm to meet you at camp or organize their own raids against our enemies.\n\nThey are expected to fulfill their duties and participate. Those who don't attend must pay the fossadeira fine or face the consequences!.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_100.2;Preparations for the fossado have begun. You send summons to all your noble subjects, instructing them to follow your lead for the coming raid.\n\nThey are expected to perform military service or pay a heavy fine.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_100.3;You proceed to organize the raid upon the Saracens. Drafting your vassals into this pious service.\n\nEveryone is expected to participate in the fossado, lest they incur in heavy fines or even risk facing imprisonment;;;;;;;;;;;;;x
+
+EVTTOOLTIP_FOSSADO_110;Summoned to fossado.;Convocation au fossado;Zur Teilnahme am fossado gerufen.;;Convocado a fossado.;;;;;;;;;x
+EVTTOOLTIP_FOSSADO_120;Exempted from fossado.;Exemption de fossado;Vom fossado ausgeschlossen.;;Exentos de fossado.;;;;;;;;;x
+
+EVTDESC_FOSSADO_110.1;Your liege is preparing an incursion into Saracens lands. [Root.GetSheHeCap] has drafted you among other nobles to report for military service in the coming fossado.\n\nWill you Take part in it?;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_110.2;Your liege is leading an incursion into Moorish territory. [Root.GetSheHeCap] has summoned you and, now, you are expected to take part in the coming fossado.\n\nWill you follow [Root.GetHerHis] lead?;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_110.3;Your liege is organizing a raid against the infidel Muslims. [Root.GetSheHeCap] has calls upon you to participate in the fossado or pay a heavy fine.\n\nWill you participate?;;;;;;;;;;;;;x
+
+EVTDESC_FOSSADO_111.1;Your vassal, [From.GetTitledFirstName], has arrived at your camp and reports for duty. You can tell [From.GetSheHe] is anxious, but you command him in a calm and authoritative manner to wait and [From.GetSheHe] calms down.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.2;Your loyal vassal has presented for military service!\n\nYou order [From.GetTitledFirstName] to stand by and await your instructions.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.3;Your faithful vassal has honoured your call.\n\nYou order [From.GetHerHim] to stand by and await your orders. [Root.GetSheHeCap] dutifully obeys.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.4;Your vassal, [From.GetTitledFirstName], presented [From.GetHerselfHimself] at camp, swearing before [From.Religion.GetRandomGodName] that our righteous actions are as pure and sweet as the holy words in [Root.Religion.GetScriptureName].\nAmen!;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.5;[GetFromComplimentCap] [Root.GetTitledFirstName], your noble vassal has arrived at camp and yearns for your command.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.6;[From.GetTitledFirstName] has arrived. [From.GetSheHeCap] pledged [From.GetHerHis] host into your service and humbly submits under your leadership for the coming fossado.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.7;[Root.PrimaryTitle.GetFOA], I will gladly follow your lead in the fossado! I shall slay these beast-worshipers until my arms ache from overuse!;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.8;[Root.GetTitledFirstName], the despicable Moors shall know the true meaning of fear! We shall strip them of everything they stole from our lands and leave them bare to reveal their true decrepit forms! Then, we shall flay them all! Mark my words, they will know true fear!;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.9;My liege, with [From.Religion.GetRandomGodName] on our side, victory is certain. Those smelly goatlovers shall perish in our wake! Deus Vult!;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_111.10;My liege, may [From.Religion.GetRandomGodName] be with us and give us strength. May the accursed spawn of [From.Religion.GetRandomEvilGodName] crumble before our might!;;;;;;;;;;;;;x
+
+EVTDESC_FOSSADO_120;Failure to attend mandatory service is a grave offense, bordering treason.\n\nHowever, it may be atoned for by paying a heavy fine.\n\nWill you pay the fossadeira fine?;;;;;;;;;;;;;x
+
+EVTDESC_FOSSADO_121.1;Word has reached you that [From.GetTitledFirstName] wont be reporting for duty, this time.\n\nHis apologies, enclosed with the fossadeira, have reached you.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_121.2;[From.GetTitledFirstName] sends word that [From.GetSheHe] will be failing to perform military service, due to domestic issues.\n\n[Root.GetSheHeCap] also sends his sincere apologies, along with the fossadeira.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_121.3;[Root.GetTitledFirstName], regretfully, I will not be attending the fossado, this year.\n\nI humbly beg your forgiveness. Please accept due payment for the fossadeira penalty.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_121.4;[Root.GetTitledFirstName], I have pressing matters to attend. So, unfortunately, I will not be able to join your raiding host.\n\nPlease accept my apologies. The fossadeira money should arrive shortly.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_121.5;[Root.GetTitledFirstName], tragic news about bandits roaming the lands have reached me. So, I can't afford to spare my men for the fossado until this is dealt with.\n\nMy utmost apologies. Please accept this fossadeira.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_121.6;[Root.GetTitledFirstName], I won't be able to send my men, as they are needed to control the famine, over here.\n\nHowever, we have managed to raise enough money for penalty. I hope that paying the fossadeira is enough.;;;;;;;;;;;;;x
+
+EVTDESC_FOSSADO_122.1;[From.GetTitledFirstName] hasn't shown up for military service and hasn't payed the fossadeira, either!\n\nWhat will you do about this?;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_122.2;A noble as failed to report for duty and refuses to pay the fossadeira fine!\n\nWhat shall you do about this slight?;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_122.3;One of your vassals failed to join you mighty host and has not payed the fossadeira as compensation!\n\nWhat shall you do about this?;;;;;;;;;;;;;x
+
+EVTDESC_FOSSADO_200.1;Local nobles arrive at your camp and report for duty.\n\nYou order them to stand by and await your command.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_200.2;Local nobles have presented themselves for military service at your camp.\n\nYou instruct them to await your orders.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_200.3;Local nobles rally to your cause and join you at camp.\n\nThey eagerly to await your guidance.;;;;;;;;;;;;;x
+
+EVTDESC_FOSSADO_300.1;Your forces are finally ready for the fossado!\n\nYou rally your men with a galvanizing speech, before heading out into hostile lands.\n\nYou remind them how bravely our ancestors fought for this land against the invaders. We are the rightful rulers of these lands and every thing in it. Today we march to retake what is ours and restore our former glory!\n\nYour warriors are deeply impressed by your words and cheer vividly, in high spirits, as they are ordered to ride into Moorish territory.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_300.2;The raiding host is finally assembled and ready to wreak havoc upon the Moors!\n\nOn departure, you tell your troops how weak and decadent our enemies are. You promise them riches and glory just beyond the border.\n\nUpon hearing this, your men cut your speech short with loud cheers, echoing far and wide. Soon, the troops fall into place and submit under your leadership for the coming incursion.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_300.3;At last, the holy expedition is ready to begin.\n\nBefore setting off, you caution your knights to take heed. Fighting the infidel scourge is no easy task. They are renowned riders and possess some of the most noble hotblooded steeds.\n\nYet you remind them not to lose heart, for our cause is just, our men have valor beyond measure and, as long as [Root.Religion.GetRandomGodName] is with us, we shall be unstoppable. Upon hearing this, your noble knights strengthen their resolve and are filled with religious fervour against the infidel scourge.;;;;;;;;;;;;;x
+EVTDESC_FOSSADO_300.4;At long last, the blessed men of God have gathered under your banner! Your vassals are prepared and eagerly await your leadership!\n\nYou tell them they have a great endeavor ahead, but not to falter. For the day is coming, where these lands shall be free of the Saracen yoke. No longer shall our rightful subjects suffer under their immoral, sinful and usurious tax. Starting now, we will retake what's ours. With [Root.Religion.GetRandomGodName]'s blessing we shall restore these lands to God and their rightful servants. Deus Vult!\n\nYour men follow suit and let out a great warcry, which shakes the earth.\n§BDeus Vult! Deus Vult! Deus Vult!§!;;;;;;;;;;;;;x
+
+EVTDESC_FOSSADO_400;The fossado is finally over. It is time to return home with the spoils and prepare for next year.;;;;;;;;;;;;;x
+
+#Consolidation :: Prisoners
+#EXECUTE_IMPRISONED_INTERACTION_TITLE;Execute Prisoner;Exécuter le prisonnier;Gefangenen hinrichten;;Ejecutar [Root.GetTitledFirstName];;;;;;;;;x
+#RELEASE_FROM_PRISON_INTERACTION_TITLE;Release Prisoner;Libérer le prisonnier;Aus dem Kerker entlassen;;Liberar [Root.GetTitledFirstName];;;;;;;;;x
+#prisoner_torture;Torture;Torturer le prisonnier;Eingekerkerten foltern;;Torturar [Root.GetTitledFirstName];;;;;;;;;x
+#prisoner_humiliation;Humiliate;Humilier le prisonnier;Gefangenen demütigen;;Humillar [Root.GetTitledFirstName];;;;;;;;;x
+#recruit_prisoner_named;Recruit;Recruter [Root.GetTitledFirstName];[Root.GetTitledFirstName] rekrutieren;;Reclutar a [Root.GetTitledFirstName];;;;;;;;;x
+
+#Consolidation :: Pets
+#pet_best_friends_desc;§YPet Hunting Dog§!\nHealth: §G+1§!\nDiplomacy: §G+1§!\n--------------\n§YPet Cat§!\nHealth: §G+1§!\nIntrigue: §G+1§!\n--------------\nThis character has pets which are the best of friends.;Ce personnage a des animaux qui s'entendent très bien.;Dieser Charakter hat Haustiere, die sich wunderbar vertragen.;;Este personaje tiene mascotas que son las mejores amigas.;;;;;x

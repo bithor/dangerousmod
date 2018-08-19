@@ -1,0 +1,13 @@
+#CODE;ENGLISH;;;;;;;;;;;;;x
+sm_marry_lover_f;Marry your Lover;;;;;;;;;;;;;x
+sm_marry_lover_f_desc;You have fallen in love with another, but the objections of others prevent you from taking this a step further. Is it time to bring your love out into the open, no matter the consequences?;;;;;;;;;;;;;x
+sm_marry_lover_f_tt;Your love can be hidden no longer. Perhaps it is time to make it known to everyone...;;;;;;;;;;;;;x
+sm_ruler_assist;Ask Spouse for Assistance;;;;;;;;;;;;;x
+sm_ruler_assist_desc;You are blessed to have a talented spouse. Perhaps your realm could benefit from [Root.Spouse.GetHerHis] expertise...;;;;;;;;;;;;;x
+sm_ruler_assist_tt;Perhaps your spouse would be willing to assist you to improve your realm.;;;;;;;;;;;;;x
+sm_marry_lover_f_targeted;Lesbian Marriage;;;;;;;;;;;;;x
+sm_marry_lover_f_targeted_desc;You have found another like-minded woman that seems agreeable to you. Perhaps [Root.GetTitledFirstName] would be willing to enter a marriage?;;;;;;;;;;;;;x
+sm_create_potion;Create Lifespark potion;;;;;;;;;;;;;x
+sm_create_potion_desc;You have the knowledge to create a life-giving elixir. Perhaps it is time to make use of it?;;;;;;;;;;;;;x
+sm_research_aphrodite_grimoire;Research the secrets of life;;;;;;;;;;;;;x
+sm_research_aphrodite_grimoire_desc;Beyond the orthodox knowledge held by the priests, you know that there is more out there. Perhaps it is time for you to seek it out, given your ample means...;;;;;;;;;;;;;x

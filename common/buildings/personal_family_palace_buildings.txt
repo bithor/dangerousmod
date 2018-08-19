@@ -1,0 +1,109 @@
+family_palace = {
+	fp_study = {
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						tier = DUKE
+						tier = KING
+						tier = EMPEROR
+					}
+				}
+				FROMFROM = {
+					has_building = ca_study
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_study_desc
+		gold_cost = 50
+		build_time = 85
+		ai_creation_factor = 0
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	fp_chapel = {
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = fp_chapel_desc
+		gold_cost = 150
+		build_time = 300
+		monthly_character_piety = 0.5
+		ai_creation_factor = 65
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	fp_observatory = {
+		desc = fp_observatory_desc
+		trigger = { TECH_CONSTRUCTION = 2 }
+		prerequisites = { fp_shrine_3 }
+		gold_cost = 100
+		build_time = 670
+		ai_creation_factor = 50
+		extra_tech_building_start = 100
+		add_number_to_name = no
+		monthly_character_piety = -0.1
+		culture_techpoints = 0.04
+		tech_growth_modifier_culture = 0.1
+	}
+	fp_medical_1 = {
+		desc = ca_medical_1_desc
+		potential = {
+			NOT = { has_dlc = "Reapers" }
+			OR = {
+				FROM = {
+					ai = no
+				}
+				FROMFROM = {
+					has_building = fp_medical_1
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		gold_cost = 75
+		build_time = 215
+		ai_creation_factor = 0
+		extra_tech_building_start = 100
+	}
+	fp_medical_2 = {
+		desc = fp_medical_2_desc
+		potential = {
+			NOT = { has_dlc = "Reapers" }
+			OR = {
+				FROM = {
+					ai = no
+				}
+				FROMFROM = {
+					has_building = fp_medical_2
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		prerequisites = { fp_shrine_3 }
+		gold_cost = 275
+		build_time = 425
+		upgrades_from = fp_medical_1
+		ai_creation_factor = 0
+		extra_tech_building_start = 100
+	}
+	fp_medical_3 = {
+		desc = fp_medical_3_desc
+		potential = {
+			NOT = { has_dlc = "Reapers" }
+			OR = {
+				FROM = {
+					ai = no
+				}
+				FROMFROM = {
+					has_building = fp_medical_3
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		prerequisites = { fp_shrine_3 }
+		gold_cost = 300
+		build_time = 450
+		upgrades_from = fp_medical_2
+		ai_creation_factor = 0
+		extra_tech_building_start = 100
+	}
+}

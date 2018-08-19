@@ -1,0 +1,583 @@
+namespace = selper
+
+############ SELF CURE EVENTS #################
+
+# 1st tier bounce event
+character_event = {
+id = selper.1
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.6 } }
+	}
+}
+# 2nd tier bounce event
+character_event = {
+id = selper.2
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.11 } }
+	}
+}
+# syphilitic bounce event
+character_event = {
+id = selper.3
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.12 } }
+	}
+}
+# plague bounce event
+character_event = {
+id = selper.4
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.15 } }
+	}
+}
+# pneumonic bounce event
+character_event = {
+id = selper.5
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.16 } }
+	}
+}
+# 1st tier cure attempt self
+character_event = {
+id = selper.6
+desc = "EVTDESCselper6"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = 1st_tier_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			50 = {
+				remove_trait = ill
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			50 = {
+				add_character_modifier = { name = 1st_cure_failed days = 100 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = 1st_tier_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			65 = {
+				remove_trait = ill
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			35 = {
+				add_character_modifier = { name = 1st_cure_failed days = 100 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		clr_character_flag = attempting_to_cure_disease
+	}
+}
+# Normal cure success bounce
+character_event = {
+id = selper.7
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.9 } }
+	}
+}
+# Normal cure failure bounce
+character_event = {
+id = selper.8
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.10 } }
+	}
+}
+# Normal cure success self
+character_event = {
+id = selper.9
+desc = "EVTDESCselper9"
+picture = GFX_evt_recovery
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = cure_self_success_option
+		clr_character_flag = attempting_to_cure_disease
+	}
+}
+# Normal cure failure self
+character_event = {
+id = selper.10
+desc = "EVTDESCselper10"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = cure_self_failure_option
+		clr_character_flag = attempting_to_cure_disease
+	}
+}
+# 2nd tier cure attempt self
+character_event = {
+id = selper.11
+desc = "EVTDESCselper11"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = 2nd_tier_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			40 = {
+				custom_tooltip = { text = 2nd_cure_works_chance }
+				hidden_tooltip = {
+					remove_trait = ill
+					remove_trait = has_tuberculosis
+					remove_trait = has_typhoid_fever
+					remove_trait = has_typhus
+					remove_trait = has_small_pox
+					remove_trait = has_measles
+					FROM = {
+						character_event = { id = selper.7 }
+					}
+				}
+			}
+			60 = {
+				add_character_modifier = { name = 2nd_cure_failed days = 150 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = 2nd_tier_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			55 = {
+				custom_tooltip = { text = 2nd_cure_works_chance }
+				hidden_tooltip = {
+					remove_trait = ill
+					remove_trait = has_tuberculosis
+					remove_trait = has_typhoid_fever
+					remove_trait = has_typhus
+					remove_trait = has_small_pox
+					remove_trait = has_measles
+					FROM = {
+						character_event = { id = selper.7 }
+					}
+				}
+			}
+			45 = {
+				add_character_modifier = { name = 2nd_cure_failed days = 150 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		clr_character_flag = attempting_to_cure_disease
+	}
+}
+# Syphilitic cure attempt self
+character_event = {
+id = selper.12
+desc = "EVTDESCselper12"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = syphilitic_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			20 = {
+				remove_trait = ill
+				remove_trait = syphilitic
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			70 = {
+				add_character_modifier = { name = syphilitic_cure_failed days = 200 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+			10 = {
+				custom_tooltip = { text = cure_results_in_death_chance_self }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = selper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = syphilitic_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			35 = {
+				remove_trait = ill
+				remove_trait = syphilitic
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			60 = {
+				add_character_modifier = { name = syphilitic_cure_failed days = 200 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+			5 = {
+				custom_tooltip = { text = cure_results_in_death_chance_self }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = selper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Rare cure death bounce
+character_event = {
+id = selper.13
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = selper.14 } }
+	}
+}
+# Rare cure death event self
+character_event = {
+id = selper.14
+desc = "EVTDESCselper14"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = cure_self_death_option
+		clr_character_flag = attempting_to_cure_disease
+		death = {
+			death_reason = death_trait
+		}
+	}
+}
+# Plague cure attempt self
+character_event = {
+id = selper.15
+desc = "EVTDESCselper15"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = plague_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			10 = {
+				remove_trait = ill
+				remove_trait = has_bubonic_plague
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			80 = {
+				add_character_modifier = { name = plague_cure_failed days = 200 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+			10 = {
+				custom_tooltip = { text = cure_results_in_death_chance_self }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = selper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = plague_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			25 = {
+				remove_trait = ill
+				remove_trait = has_bubonic_plague
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			70 = {
+				add_character_modifier = { name = plague_cure_failed days = 200 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+			5 = {
+				custom_tooltip = { text = cure_results_in_death_chance_self }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = selper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Pneumonic cure attempt self
+character_event = {
+id = selper.16
+desc = "EVTDESCselper16"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = pneumonic_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			10 = {
+				remove_trait = ill
+				remove_trait = pneumonic
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			80 = {
+				add_character_modifier = { name = pneumonic_cure_failed days = 200 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+			10 = {
+				custom_tooltip = { text = cure_results_in_death_chance_self }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = selper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = pneumonic_cure_option_self
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			25 = {
+				remove_trait = ill
+				remove_trait = pneumonic
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.7 } }
+				}
+			}
+			70 = {
+				add_character_modifier = { name = pneumonic_cure_failed days = 200 }
+				FROM = {
+					hidden_tooltip = { character_event = { id = selper.8 } }
+				}
+			}
+			5 = {
+				custom_tooltip = { text = cure_results_in_death_chance_self }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = selper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Disease resistance lvl 1
+character_event = {
+id = selper.17
+hide_window = yes
+
+	ai = no
+	
+	trigger = {
+		capital_holding = {
+			has_building = ca_medical_2
+		}
+		capital_scope = {
+			NOT = {
+				has_province_modifier = resistance_disease_lvl_1
+				has_province_modifier = resistance_disease_lvl_2
+			}
+		}
+	}
+	immediate = {
+		capital_scope = {
+			add_province_modifier = {
+				name = resistance_disease_lvl_1
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+# Disease resistance lvl 2
+character_event = {
+id = selper.18
+hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		capital_holding = {
+				has_building = ca_medical_3
+			}
+		capital_scope = {
+			NOT = {
+				has_province_modifier = resistance_disease_lvl_2
+			}
+		}
+	}
+	immediate = {
+		capital_scope = {
+			add_province_modifier = {
+				name = resistance_disease_lvl_2
+				duration = -1
+			}
+			remove_province_modifier = resistance_disease_lvl_1
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+# remove lvl 1 resistance
+character_event = {
+id = selper.19
+hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		capital_holding = {
+				has_building = ca_medical_3
+			}
+		capital_scope = {
+				has_province_modifier = resistance_disease_lvl_1
+		}
+	}
+	immediate = {
+			remove_province_modifier = resistance_disease_lvl_1
+	}
+	option = {
+		name = OK
+	}
+}

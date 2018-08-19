@@ -1,0 +1,165 @@
+namespace = VFLEET
+
+#Assemble shipbuilders
+character_event = {
+	id = VFLEET.1
+	title = EVTNAME_VFLEET_1
+	desc = EVTDESC_VFLEET_1
+	picture = GFX_evt_viking_fleet
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_TOG_600 # I can hardly wait!
+		hidden_tooltip = { narrative_event = { id = VFLEET.2 days = 30 random = 10 } }
+	}
+}
+
+# Select Flagship
+narrative_event = {
+	id = VFLEET.2
+	title = EVTNAME_VFLEET_1
+	desc = EVTDESC_VFLEET_2
+	picture = GFX_evt_runestone_raising_oldgods
+	border = GFX_event_narrative_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_VFLEET_2 # Snekkja
+		wealth = -10
+		prestige = 20
+		set_character_flag = building_flagship_1
+		hidden_tooltip = { narrative_event = { id = VFLEET.3 days = 30 random = 10 } }
+	}
+	option = {
+		name = EVTOPTB_VFLEET_2 # Skeid
+		wealth = -20
+		prestige = 40
+		set_character_flag = building_flagship_2
+		hidden_tooltip = { narrative_event = { id = VFLEET.3 days = 60 random = 20 } }
+	}
+	option = {
+		name = EVTOPTC_VFLEET_2.1 # Drekar
+		name = EVTOPTC_VFLEET_2.2 # Drekar
+		wealth = -30
+		prestige = 60
+		set_character_flag = building_flagship_3
+		hidden_tooltip = { narrative_event = { id = VFLEET.3 days = 90 random = 30 } }
+	}
+	option = {
+		name = EVTOPTD_VFLEET_2 # Nevermind
+		remove_character_modifier = raising_fleet_mod
+	}
+}
+
+#Fleet/Flagship ready!
+narrative_event = {
+	id = VFLEET.3
+	title = EVTNAME_VFLEET_1
+	desc = EVTDESC_VFLEET_3
+	picture = GFX_evt_longships_at_sea_oldgods
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA_TOG_550 # It's perfect!
+		name = EVTOPTA3556 # It's truly beautiful!
+		remove_character_modifier = raising_fleet_mod
+
+		# Assign a flagship
+		if = {
+			limit = { has_character_flag = building_flagship_3 }
+			clr_character_flag = building_flagship_3
+			add_character_modifier = { name = flagship_3 duration = -1 }
+		}
+		else_if = {
+			limit = { has_character_flag = building_flagship_2 }
+			clr_character_flag = building_flagship_2
+			add_character_modifier = { name = flagship_2 duration = -1 }
+		}
+		else = {
+			clr_character_flag = building_flagship_1
+			add_character_modifier = { name = flagship_1 duration = -1 }
+		}
+
+		# Assign a fleet fit for rank
+		if = {
+			limit = {
+				primary_title = { higher_tier_than = KING }
+			}
+			spawn_fleet = {
+				province = closest_to_capital
+				owner = ROOT
+				earmark = viking_fleet
+				#cannot_inherit = yes
+				maintenance_multiplier = 0.10
+				troops = { galleys = { 25 25 } }
+			}
+			spawn_fleet = {
+				province = closest_to_capital
+				owner = ROOT
+				earmark = viking_fleet
+				#cannot_inherit = yes
+				maintenance_multiplier = 0.10
+				troops = { galleys = { 25 25 } }
+			}
+		}
+		else_if = {
+			limit = {
+				primary_title = { higher_tier_than = DUKE }
+			}
+			spawn_fleet = {
+				province = closest_to_capital
+				owner = ROOT
+				earmark = viking_fleet
+				#cannot_inherit = yes
+				maintenance_multiplier = 0.10
+				troops = { galleys = { 15 15 } }
+			}
+			spawn_fleet = {
+				province = closest_to_capital
+				owner = ROOT
+				earmark = viking_fleet
+				#cannot_inherit = yes
+				maintenance_multiplier = 0.10
+				troops = { galleys = { 15 15 } }
+			}
+		}
+		else_if = {
+			limit = {
+				primary_title = { higher_tier_than = COUNT }
+			}
+			spawn_fleet = {
+				province = closest_to_capital
+				owner = ROOT
+				earmark = viking_fleet
+				#cannot_inherit = yes
+				maintenance_multiplier = 0.10
+				troops = { galleys = { 10 10 } }
+			}
+			spawn_fleet = {
+				province = closest_to_capital
+				owner = ROOT
+				earmark = viking_fleet
+				#cannot_inherit = yes
+				maintenance_multiplier = 0.10
+				troops = { galleys = { 10 10 } }
+			}
+		}
+		else = {
+			spawn_fleet = {
+				province = closest_to_capital
+				owner = ROOT
+				earmark = viking_fleet
+				#cannot_inherit = yes
+				maintenance_multiplier = 0.10
+				troops = { galleys = { 10 10 } }
+			}
+		}
+	}
+}

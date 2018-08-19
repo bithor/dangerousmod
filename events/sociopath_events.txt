@@ -1,0 +1,96 @@
+namespace = sketchy
+character_event = {
+    id = sketchy.1
+    desc = EVTDESC_sketchy_1
+    picture = "GFX_evt_shadow"
+
+    min_age = 14
+    max_age = 25
+
+    trigger = {
+        NOT = { trait = kind }
+        NOT = { trait = sociopath }
+        NOT = { trait = psychopath }
+        OR = {
+            father = {
+                NOT = { trait = kind }
+                NOT = { trait = temperate }
+                NOT = { trait = patient }
+                NOT = { trait = just }
+                NOT = { trait = humble }
+
+                calc_true_if = {
+                    amount = 2
+                    trait = cruel
+                    trait = wroth
+                    trait = sociopath
+                    trait = psychopath
+                    trait = envious
+                    trait = impaler
+                    trait = lunatic
+                    trait = possessed
+                    trait = drunkard
+                    trait = stressed
+                    trait = depressed
+                    trait = greedy
+                    trait = deceitful
+                    trait = kinslayer
+                    trait = gluttonous
+                }
+            }
+            mother = {
+                NOT = { trait = kind }
+                NOT = { trait = temperate }
+                NOT = { trait = patient }
+                NOT = { trait = just }
+                NOT = { trait = humble }
+
+                calc_true_if = {
+                    amount = 3
+                    trait = cruel
+                    trait = wroth
+                    trait = sociopath
+                    trait = psychopath
+                    trait = envious
+                    trait = impaler
+                    trait = lunatic
+                    trait = possessed
+                    trait = drunkard
+                    trait = stressed
+                    trait = depressed
+                    trait = greedy
+                    trait = deceitful
+                    trait = kinslayer
+                    trait = gluttonous
+                    trait = lustful
+                }
+            }
+        }  
+
+        calc_true_if = {
+            amount = 6
+            NOT = { trait = honest }
+            NOT = { trait = just }
+            NOT = { trait = gregarious }
+            NOT = { trait = charitable }
+            NOT = { trait = humble }
+            NOT = { trait = patient }
+            NOT = { trait = diligent }
+        }
+    }
+
+
+    mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 2 # Decreases chances by half
+			trait = cruel
+		}
+	}
+
+    option = {
+       name = "EVTOPTA_sketchy_1"
+       add_trait = sociopath
+    }
+
+}

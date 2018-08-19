@@ -1,0 +1,98 @@
+namespace = bibler
+character_event = {
+id = bibler.1
+desc = "EVTDESCPERCAS116"
+picture = GFX_evt_library
+border = GFX_event_normal_frame_religion
+	
+	ai = no
+	only_rulers = yes
+	
+	trigger = {
+		has_character_flag = bible_writing
+	}
+	immediate = {
+		clr_character_flag = bible_writing
+	}
+	option = {
+		trigger = { 
+			is_heretic = no
+			has_heresies = yes
+		}
+		name = stay_stronk
+		become_heretic = yes
+		add_trait = honest
+	}
+	option = {
+		trigger = { 
+			is_heretic = yes
+		}
+		name = stay_stronk
+		add_trait = mystic
+	}
+	option = {
+		trigger = { 
+			is_heretic = no
+			has_heresies = no
+		}
+		name = stay_stronk
+		add_trait = mystic
+	}
+	option = {
+		name = bible_bad_idea
+		custom_tooltip = { text = bible_bad_reg }
+	}
+	option = {
+		trigger = { 
+			any_courtier = {
+				has_job_title = job_spiritual 
+			}
+		}
+		name = discuss_bible_chaplain
+		custom_tooltip = { text = discuss_bible_reg }
+		random_courtier = {
+			limit = { has_job_title = job_spiritual }
+			hidden_tooltip = { character_event = { id = bibler.2 } }
+		}
+	}
+}
+character_event = {
+id = bibler.2
+desc = "evtdescbibler2"
+picture = GFX_evt_quarrel
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = discuss_bible
+		liege = {
+			character_event = { id = bibler.3 }
+		}
+	}
+}
+character_event = {
+id = bibler.3
+desc = "evtdescbibler3"
+picture = GFX_evt_quarrel
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = accept_bible_discuss
+		piety = 50
+	}
+	option = {
+		name = decline_bible_discuss
+		piety = -10
+		random_courtier = {
+			limit = { has_job_title = job_spiritual }
+			opinion = {
+				modifier = discuss_bible_neg
+				who = ROOT
+				years = 1
+			}
+		}
+	}
+}

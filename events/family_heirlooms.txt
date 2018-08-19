@@ -1,0 +1,2037 @@
+namespace = familyheirlooms
+
+### Sword ###
+character_event = {
+	id = familyheirlooms.1
+	desc = EVTDESC_familyheirlooms.1
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = sword_tier_1
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = sword_tier_1
+				}
+			}
+			Root = { destroy_artifact = sword_tier_1 }
+			add_artifact = dynamic_sword_1
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Arming Sword"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.2
+	desc = EVTDESC_familyheirlooms.2
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = sword_tier_2
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = sword_tier_2
+				}
+			}
+			Root = { destroy_artifact = sword_tier_2 }
+			add_artifact = dynamic_sword_2
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Longsword"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.3
+	desc = EVTDESC_familyheirlooms.3
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_artifact = sword_tier_3_heartseeker
+			has_artifact = sword_tier_3_vengeance
+			has_artifact = sword_tier_3_fury
+		}
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = sword_tier_3_heartseeker
+				}
+			}
+			Root = { destroy_artifact = sword_tier_3_heartseeker }
+			add_artifact = dynamic_sword_3_heartseeker
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Heartseeker"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = sword_tier_3_vengeance
+				}
+			}
+			Root = { destroy_artifact = sword_tier_3_vengeance }
+			add_artifact = dynamic_sword_3_vengeance
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Vengeance"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = sword_tier_3_fury
+				}
+			}
+			Root = { destroy_artifact = sword_tier_3_fury }
+			add_artifact = dynamic_sword_3_fury
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Fury"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+### Scimitar ###
+character_event = {
+	id = familyheirlooms.4
+	desc = EVTDESC_familyheirlooms.4
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = scimitar_tier_1
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = scimitar_tier_1
+				}
+			}
+			Root = { destroy_artifact = scimitar_tier_1 }
+			add_artifact = dynamic_scimitar_1
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Scimitar"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.5
+	desc = EVTDESC_familyheirlooms.5
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = scimitar_tier_2
+	}
+	
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = scimitar_tier_2
+				}
+			}
+			Root = { destroy_artifact = scimitar_tier_2 }
+			add_artifact = dynamic_scimitar_2
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Fine Scimitar"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.6
+	desc = EVTDESC_familyheirlooms.6
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_artifact = scimitar_tier_3_golden
+			has_artifact = scimitar_tier_3_fortune
+			has_artifact = scimitar_tier_3_conquest
+		}
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = scimitar_tier_3_golden
+				}
+			}
+			Root = { destroy_artifact = scimitar_tier_3_golden }
+			add_artifact = dynamic_scimitar_3_golden
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Golden Scimitar"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = scimitar_tier_3_fortune
+				}
+			}
+			Root = { destroy_artifact = scimitar_tier_3_fortune }
+			add_artifact = dynamic_scimitar_3_fortune
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Fortune"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = scimitar_tier_3_conquest
+				}
+			}
+			Root = { destroy_artifact = scimitar_tier_3_conquest }
+			add_artifact = dynamic_scimitar_3_conquest
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Conquest"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+### Lance ###
+character_event = {
+	id = familyheirlooms.7
+	desc = EVTDESC_familyheirlooms.7
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = lance_tier_1
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = lance_tier_1
+				}
+			}
+			Root = { destroy_artifact = lance_tier_1 }
+			add_artifact = dynamic_lance_1
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Lance"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.8
+	desc = EVTDESC_familyheirlooms.8
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = lance_tier_2
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = lance_tier_2
+				}
+			}
+			Root = { destroy_artifact = lance_tier_2 }
+			add_artifact = dynamic_lance_2
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Two-handed Lance"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.9
+	desc = EVTDESC_familyheirlooms.9
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_artifact = lance_tier_3_impaler
+			has_artifact = lance_tier_3_piercer
+			has_artifact = lance_tier_3_trident
+		}
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = lance_tier_3_impaler
+				}
+			}
+			Root = { destroy_artifact = lance_tier_3_impaler }
+			add_artifact = dynamic_lance_3_impaler
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Impaler"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = lance_tier_3_trident
+				}
+			}
+			Root = { destroy_artifact = lance_tier_3_trident }
+			add_artifact = dynamic_lance_3_trident
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Trident"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = lance_tier_3_piercer
+				}
+			}
+			Root = { destroy_artifact = lance_tier_3_piercer }
+			add_artifact = dynamic_lance_3_piercer
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Piercer"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+### Axe ###
+character_event = {
+	id = familyheirlooms.10
+	desc = EVTDESC_familyheirlooms.10
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = axe_tier_1
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = axe_tier_1
+				}
+			}
+			Root = { destroy_artifact = axe_tier_1 }
+			add_artifact = dynamic_axe_1
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Throwing Axe"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.11
+	desc = EVTDESC_familyheirlooms.11
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = axe_tier_2
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = axe_tier_2
+				}
+			}
+			Root = { destroy_artifact = axe_tier_2 }
+			add_artifact = dynamic_axe_2
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Battle Axe"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.12
+	desc = EVTDESC_familyheirlooms.12
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_artifact = axe_tier_3_cleaver
+			has_artifact = axe_tier_3_marauder
+			has_artifact = axe_tier_3_ravager
+		}
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = axe_tier_3_cleaver
+				}
+			}
+			Root = { destroy_artifact = axe_tier_3_cleaver }
+			add_artifact = dynamic_axe_3_cleaver
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Cleaver"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = axe_tier_3_ravager
+				}
+			}
+			Root = { destroy_artifact = axe_tier_3_ravager }
+			add_artifact = dynamic_axe_3_ravager
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Ravager"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = axe_tier_3_marauder
+				}
+			}
+			Root = { destroy_artifact = axe_tier_3_marauder }
+			add_artifact = dynamic_axe_3_marauder
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Marauder"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+### Mace ###
+character_event = {
+	id = familyheirlooms.13
+	desc = EVTDESC_familyheirlooms.13
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = mace_tier_1
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = mace_tier_1
+				}
+			}
+			Root = { destroy_artifact = mace_tier_1 }
+			add_artifact = dynamic_mace_1
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Mace"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.14
+	desc = EVTDESC_familyheirlooms.14
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = mace_tier_2
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = mace_tier_2
+				}
+			}
+			Root = { destroy_artifact = mace_tier_2 }
+			add_artifact = dynamic_mace_2
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Iron Mace"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.15
+	desc = EVTDESC_familyheirlooms.15
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_artifact = mace_tier_3_foe_hammer
+			has_artifact = mace_tier_3_bone_breaker
+			has_artifact = mace_tier_3_shatterer
+		}
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = mace_tier_3_foe_hammer
+				}
+			}
+			Root = { destroy_artifact = mace_tier_3_foe_hammer }
+			add_artifact = dynamic_mace_3_foe_hammer
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Foe Hammer"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = mace_tier_3_bone_breaker
+				}
+			}
+			Root = { destroy_artifact = mace_tier_3_bone_breaker }
+			add_artifact = dynamic_mace_3_bone_breaker
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Bone Breaker"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = mace_tier_3_shatterer
+				}
+			}
+			Root = { destroy_artifact = mace_tier_3_shatterer }
+			add_artifact = dynamic_mace_3_shatterer
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Shatterer"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+### Bow - Nomads ###
+character_event = {
+	id = familyheirlooms.16
+	desc = EVTDESC_familyheirlooms.16
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = bow_tier_1
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = bow_tier_1
+				}
+			}
+			Root = { destroy_artifact = bow_tier_1 }
+			add_artifact = dynamic_bow_1
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Self Bow"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.17
+	desc = EVTDESC_familyheirlooms.17
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = bow_tier_2
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = bow_tier_2
+				}
+			}
+			Root = { destroy_artifact = bow_tier_2 }
+			add_artifact = dynamic_bow_2
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Composite Bow"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.18
+	desc = EVTDESC_familyheirlooms.18
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger= {
+		OR = {
+			has_artifact = bow_tier_3_silent_wind
+			has_artifact = bow_tier_3_lightning
+			has_artifact = bow_tier_3_eagle
+		}
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = bow_tier_3_silent_wind
+				}
+			}
+			Root = { destroy_artifact = bow_tier_3_silent_wind }
+			add_artifact = dynamic_bow_3_silent_wind
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Silent Wind"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = bow_tier_3_lightning
+				}
+			}
+			Root = { destroy_artifact = bow_tier_3_lightning }
+			add_artifact = dynamic_bow_3_lightning
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Lightning"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = bow_tier_3_eagle
+				}
+			}
+			Root = { destroy_artifact = bow_tier_3_eagle }
+			add_artifact = dynamic_bow_3_eagle
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Eagle"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+### Armor ### 
+character_event = {
+	id = familyheirlooms.19
+	desc = EVTDESC_familyheirlooms.19
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = armor_tier_1
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = armor_tier_1
+				}
+			}
+			Root = { destroy_artifact = armor_tier_1 }
+			add_artifact = dynamic_armor_1
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Chain Mail"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.20
+	desc = EVTDESC_familyheirlooms.20
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = armor_tier_2
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = armor_tier_2
+				}
+			}
+			Root = { destroy_artifact = armor_tier_2 }
+			add_artifact = dynamic_armor_2
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Splint Mail"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+character_event = {
+	id = familyheirlooms.21
+	desc = EVTDESC_familyheirlooms.21
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_artifact = armor_tier_3_guardian
+			has_artifact = armor_tier_3_champion
+			has_artifact = armor_tier_3_warden
+		}
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = armor_tier_3_guardian
+				}
+			}
+			Root = { destroy_artifact = armor_tier_3_guardian }
+			add_artifact = dynamic_armor_3_guardian
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Guardian"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = armor_tier_3_champion
+				}
+			}
+			Root = { destroy_artifact = armor_tier_3_champion }
+			add_artifact = dynamic_armor_3_champion
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Champion"
+			}
+		}
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = armor_tier_3_warden
+				}
+			}
+			Root = { destroy_artifact = armor_tier_3_warden }
+			add_artifact = dynamic_armor_3_warden
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Warden"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+### Nothing Happens ###
+character_event = {
+	id = familyheirlooms.99
+	desc = EVTDESC_familyheirlooms.99
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	hide_window = yes
+	
+	option = {
+		name = "ok"
+	}	
+}
+
+### Ceremonial ###
+### Christian ###
+character_event = {
+	id = familyheirlooms.22
+	desc = EVTDESC_familyheirlooms.22
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_crown_of_majesty
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_crown_of_majesty
+				}
+			}
+			Root = { destroy_artifact = dynamic_crown_of_majesty }
+			add_artifact = dynamic_crown_of_majesty
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Crown of Majesty"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.23
+	desc = EVTDESC_familyheirlooms.23
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_emerald_scepter
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_emerald_scepter
+				}
+			}
+			Root = { destroy_artifact = dynamic_emerald_scepter }
+			add_artifact = dynamic_emerald_scepter
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Emerald Scepter"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.24
+	desc = EVTDESC_familyheirlooms.24
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_sword_of_heroes
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_sword_of_heroes
+				}
+			}
+			Root = { destroy_artifact = dynamic_sword_of_heroes }
+			add_artifact = dynamic_sword_of_heroes
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Sword of Heroes"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.25
+	desc = EVTDESC_familyheirlooms.25
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_crown_of_pearls
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_crown_of_pearls
+				}
+			}
+			Root = { destroy_artifact = dynamic_crown_of_pearls }
+			add_artifact = dynamic_crown_of_pearls
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Crown of Pearls"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.26
+	desc = EVTDESC_familyheirlooms.26
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_ruby_scepter
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_ruby_scepter
+				}
+			}
+			Root = { destroy_artifact = dynamic_ruby_scepter }
+			add_artifact = dynamic_ruby_scepter
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Ruby Scepter"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.27
+	desc = EVTDESC_familyheirlooms.27
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_golden_sword
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_golden_sword
+				}
+			}
+			Root = { destroy_artifact = dynamic_golden_sword }
+			add_artifact = dynamic_golden_sword
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Golden Sword"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.28
+	desc = EVTDESC_familyheirlooms.28
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_the_lily_crown
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_the_lily_crown
+				}
+			}
+			Root = { destroy_artifact = dynamic_the_lily_crown }
+			add_artifact = dynamic_the_lily_crown
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Lily Crown"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.29
+	desc = EVTDESC_familyheirlooms.29
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_noble_scepter
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_noble_scepter
+				}
+			}
+			Root = { destroy_artifact = dynamic_noble_scepter }
+			add_artifact = dynamic_noble_scepter
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Noble Scepter"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.30
+	desc = EVTDESC_familyheirlooms.30
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_engraved_sword
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_engraved_sword
+				}
+			}
+			Root = { destroy_artifact = dynamic_engraved_sword }
+			add_artifact = dynamic_engraved_sword
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Engraved Sword"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+### Muslim sets & west african sets (daggers also indian) ###
+character_event = {
+	id = familyheirlooms.31
+	desc = EVTDESC_familyheirlooms.31
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_dagger_of_glory
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_dagger_of_glory
+				}
+			}
+			Root = { destroy_artifact = dynamic_dagger_of_glory }
+			add_artifact = dynamic_dagger_of_glory
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Dagger of Glory"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.32
+	desc = EVTDESC_familyheirlooms.32
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_ruby_bracelets
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_ruby_bracelets
+				}
+			}
+			Root = { destroy_artifact = dynamic_ruby_bracelets }
+			add_artifact = dynamic_ruby_bracelets
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Ruby Braclets"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.33
+	desc = EVTDESC_familyheirlooms.33
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_bejeweled_dagger
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_bejeweled_dagger
+				}
+			}
+			Root = { destroy_artifact = dynamic_bejeweled_dagger }
+			add_artifact = dynamic_bejeweled_dagger
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Bejeweled Dagger"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.34
+	desc = EVTDESC_familyheirlooms.34
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_golden_bracelets
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_golden_bracelets
+				}
+			}
+			Root = { destroy_artifact = dynamic_golden_bracelets }
+			add_artifact = dynamic_golden_bracelets
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Golden Braclets"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.35
+	desc = EVTDESC_familyheirlooms.35
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_engraved_dagger
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_engraved_dagger
+				}
+			}
+			Root = { destroy_artifact = dynamic_engraved_dagger }
+			add_artifact = dynamic_engraved_dagger
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Engraved Dagger"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.36
+	desc = EVTDESC_familyheirlooms.36
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_silver_bracelets
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_silver_bracelets
+				}
+			}
+			Root = { destroy_artifact = dynamic_silver_bracelets }
+			add_artifact = dynamic_silver_bracelets
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Silver Braclets"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+### Indian Sets ###
+character_event = {
+	id = familyheirlooms.37
+	desc = EVTDESC_familyheirlooms.37
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_celestial_necklace
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_celestial_necklace
+				}
+			}
+			Root = { destroy_artifact = dynamic_celestial_necklace }
+			add_artifact = dynamic_celestial_necklace
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Celestial Necklace"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.38
+	desc = EVTDESC_familyheirlooms.38
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_necklace_of_radiance
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_necklace_of_radiance
+				}
+			}
+			Root = { destroy_artifact = dynamic_necklace_of_radiance }
+			add_artifact = dynamic_necklace_of_radiance
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Necklace of Radiance"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.39
+	desc = EVTDESC_familyheirlooms.39
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_collar_of_pearls
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_collar_of_pearls
+				}
+			}
+			Root = { destroy_artifact = dynamic_collar_of_pearls }
+			add_artifact = dynamic_collar_of_pearls
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Collar of Pearls"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+### Zoroastrian & zun sets ###
+character_event = {
+	id = familyheirlooms.40
+	desc = EVTDESC_familyheirlooms.40
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_circlet_of_the_heavens
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_circlet_of_the_heavens
+				}
+			}
+			Root = { destroy_artifact = dynamic_circlet_of_the_heavens }
+			add_artifact = dynamic_circlet_of_the_heavens
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Circlet of the Heavens"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.41
+	desc = EVTDESC_familyheirlooms.41
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_staff_of_majesty
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_staff_of_majesty
+				}
+			}
+			Root = { destroy_artifact = dynamic_staff_of_majesty }
+			add_artifact = dynamic_staff_of_majesty
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Staff of Majesty"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.42
+	desc = EVTDESC_familyheirlooms.42
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_circlet_of_the_sun
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_circlet_of_the_sun
+				}
+			}
+			Root = { destroy_artifact = dynamic_circlet_of_the_sun }
+			add_artifact = dynamic_circlet_of_the_sun
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Circlet of the Sun"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.43
+	desc = EVTDESC_familyheirlooms.43
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_golden_staff
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_golden_staff
+				}
+			}
+			Root = { destroy_artifact = dynamic_golden_staff }
+			add_artifact = dynamic_golden_staff
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Golden Staff"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.44
+	desc = EVTDESC_familyheirlooms.44
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_circlet_of_twilight
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_circlet_of_twilight
+				}
+			}
+			Root = { destroy_artifact = dynamic_circlet_of_twilight }
+			add_artifact = dynamic_circlet_of_twilight
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Circlet of Twilight"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.45
+	desc = EVTDESC_familyheirlooms.45
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_silver_staff
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_silver_staff
+				}
+			}
+			Root = { destroy_artifact = dynamic_silver_staff }
+			add_artifact = dynamic_silver_staff
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Silver Staff"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.46
+	desc = EVTDESC_familyheirlooms.46
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_crown_of_crows
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_crown_of_crows
+				}
+			}
+			Root = { destroy_artifact = dynamic_crown_of_crows }
+			add_artifact = dynamic_crown_of_crows
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Crown of Crows"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.47
+	desc = EVTDESC_familyheirlooms.47
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_crown_of_the_sea
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_crown_of_the_sea
+				}
+			}
+			Root = { destroy_artifact = dynamic_crown_of_the_sea }
+			add_artifact = dynamic_crown_of_the_sea
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Crown of the Sea"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.48
+	desc = EVTDESC_familyheirlooms.48
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_iron_crown
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_iron_crown
+				}
+			}
+			Root = { destroy_artifact = dynamic_iron_crown }
+			add_artifact = dynamic_iron_crown
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Iron Crown"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.49
+	desc = EVTDESC_familyheirlooms.49
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_heros_crown
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_heros_crown
+				}
+			}
+			Root = { destroy_artifact = dynamic_heros_crown }
+			add_artifact = dynamic_heros_crown
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Hero's Crown"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.50
+	desc = EVTDESC_familyheirlooms.50
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_axe_of_the_ancestors
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_axe_of_the_ancestors
+				}
+			}
+			Root = { destroy_artifact = dynamic_axe_of_the_ancestors }
+			add_artifact = dynamic_axe_of_the_ancestors
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Axe of the Ancestors"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.51
+	desc = EVTDESC_familyheirlooms.51
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_amber_crown
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_amber_crown
+				}
+			}
+			Root = { destroy_artifact = dynamic_amber_crown }
+			add_artifact = dynamic_amber_crown
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Axe of the Ancestors"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.52
+	desc = EVTDESC_familyheirlooms.52
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_obsidian_axe
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_obsidian_axe
+				}
+			}
+			Root = { destroy_artifact = dynamic_obsidian_axe }
+			add_artifact = dynamic_obsidian_axe
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Obsidian Axe"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.53
+	desc = EVTDESC_familyheirlooms.53
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_engraved_crown
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_engraved_crown
+				}
+			}
+			Root = { destroy_artifact = dynamic_engraved_crown }
+			add_artifact = dynamic_engraved_crown
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Engraved Crown"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+character_event = {
+	id = familyheirlooms.54
+	desc = EVTDESC_familyheirlooms.54
+	title = "A Parting Gift"
+	picture = "GFX_evt_Bier_with_a_dead_character"
+	is_triggered_only = yes
+	
+	trigger = {
+		has_artifact = dynamic_ceremonial_axe
+	}
+
+	immediate = {
+		if = { 
+			limit = { 
+				Root = { 
+				has_artifact = dynamic_ceremonial_axe
+				}
+			}
+			Root = { destroy_artifact = dynamic_ceremonial_axe }
+			add_artifact = dynamic_ceremonial_axe
+			new_artifact = {
+				set_creation_date = 1.1.1
+				set_original_owner = FromFrom
+				set_name =  "[FromFrom.GetBestName]'s Ceremonial Axe"
+			}
+		}
+	}
+	option = {
+		name = "We honor [FromFrom.GetHersHis] memory!"
+		prestige = 25
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+
+spriteTypes = {
+  spriteType = {
+   name = "GFX_trait_psychopath"
+   texturefile = "gfx/traits/psychopath.dds"
+   noOfFrames = 1
+   norefcount = yes
+   effectFile = "gfx/FX/buttonstate.lua"
+  }
+  spriteType = {
+   name = "GFX_trait_sociopath"
+   texturefile = "gfx/traits/sociopath.dds"
+   noOfFrames = 1
+   norefcount = yes
+   effectFile = "gfx/FX/buttonstate.lua"
+  }
+}

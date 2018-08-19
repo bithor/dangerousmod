@@ -1,0 +1,123 @@
+on_artifact_inheritance = {
+	random_events = {
+		10 = familyheirlooms.1
+		10 = familyheirlooms.2
+		10 = familyheirlooms.3
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.4
+		10 = familyheirlooms.5
+		10 = familyheirlooms.6
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.7
+		10 = familyheirlooms.8
+		10 = familyheirlooms.9
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.10
+		10 = familyheirlooms.11
+		10 = familyheirlooms.12
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.13
+		10 = familyheirlooms.14
+		10 = familyheirlooms.15
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.16
+		10 = familyheirlooms.17
+		10 = familyheirlooms.18
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.19
+		10 = familyheirlooms.20
+		10 = familyheirlooms.21
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.22
+		10 = familyheirlooms.25
+		10 = familyheirlooms.28
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.23
+		10 = familyheirlooms.26
+		10 = familyheirlooms.29
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.24
+		10 = familyheirlooms.27
+		10 = familyheirlooms.30
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.31
+		10 = familyheirlooms.33
+		10 = familyheirlooms.35
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.32
+		10 = familyheirlooms.34
+		10 = familyheirlooms.36
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.37
+		10 = familyheirlooms.38
+		10 = familyheirlooms.39
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.40
+		10 = familyheirlooms.42
+		10 = familyheirlooms.44
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.41
+		10 = familyheirlooms.43
+		10 = familyheirlooms.45
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.46
+		10 = familyheirlooms.47
+		10 = familyheirlooms.48
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.49
+		10 = familyheirlooms.51
+		10 = familyheirlooms.53
+		70 = familyheirlooms.99
+	}
+	random_events = {
+		10 = familyheirlooms.50
+		10 = familyheirlooms.52
+		10 = familyheirlooms.54
+		70 = familyheirlooms.99
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

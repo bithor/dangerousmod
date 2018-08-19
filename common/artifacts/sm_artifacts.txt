@@ -1,0 +1,81 @@
+# --------------------------------------
+# - Soulmates Mod : Artifacts          -
+# - Written by Fox With A Shotgun      -
+# - Last Modified 01-03-18             -
+# --------------------------------------
+
+# Aphrodite's Grimoire - An alchemy manual on female pregnancies.
+sm_aphrodite_grimoire = {
+	quality = 5
+	
+	learning = 5
+	health = 2.50
+	
+	muslim_opinion = -20
+	christian_opinion = -20
+	pagan_opinion = 10
+	stacking = no
+	picture = "GFX_book_red"
+	
+	active = {
+		is_female = yes
+		
+		OR = {
+			AND = {
+				learning = 17
+				society_member_of = hermetics
+			}
+			learning = 20
+		}
+	}
+}
+
+# Very Poor quality pregnancy potion.
+sm_fpreg_potion_1 = {
+	quality = 1
+	allowed_gift = {
+		trait = homosexual
+		is_female = yes
+	}
+	picture = "GFX_cup_fancy"
+}
+
+# Poor quality pregnancy potion.
+sm_fpreg_potion_2 = {
+	quality = 2
+	allowed_gift = {
+		trait = homosexual
+		is_female = yes
+	}
+	picture = "GFX_cup_fancy"
+}
+
+# Average quality pregnancy potion.
+sm_fpreg_potion_3 = {
+	quality = 3
+	allowed_gift = {
+		trait = homosexual
+		is_female = yes
+	}
+	picture = "GFX_cup_fancy"
+}
+
+# Good quality pregnancy potion.
+sm_fpreg_potion_4 = {
+	quality = 4
+	allowed_gift = {
+		trait = homosexual
+		is_female = yes
+	}
+	picture = "GFX_cup_holy_grail"
+}
+
+# Excellent quality pregnancy potion.
+sm_fpreg_potion_5 = {
+	quality = 5
+	allowed_gift = {
+		trait = homosexual
+		is_female = yes
+	}
+	picture = "GFX_cup_holy_grail"
+}

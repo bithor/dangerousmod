@@ -1,0 +1,437 @@
+###############
+# Reconquista #
+###############
+
+fn_twi_fossado_knights_x = {
+	if = {
+		limit = { primary_title = { higher_tier_than = KING } }
+		fn_twi_fossado_knights_1 = yes
+		fn_twi_fossado_knights_1 = yes
+		fn_twi_fossado_knights_1 = yes
+	}
+	else_if = {
+		limit = { primary_title = { higher_tier_than = DUKE } }
+		fn_twi_fossado_knights_2 = yes
+		fn_twi_fossado_knights_2 = yes
+		fn_twi_fossado_knights_2 = yes
+	}
+	else_if = {
+		limit = { primary_title = { higher_tier_than = COUNT } }
+		fn_twi_fossado_knights_3 = yes
+		fn_twi_fossado_knights_3 = yes
+		fn_twi_fossado_knights_3 = yes
+	}
+	else = {
+		fn_twi_fossado_knights_4 = yes
+		fn_twi_fossado_knights_4 = yes
+		fn_twi_fossado_knights_4 = yes
+	}
+}
+
+fn_twi_fossado_knights_1 = {
+	spawn_unit = {
+		owner = THIS
+		province = capital
+		earmark = fossado_army
+		attrition = 0.0
+		is_looter = yes
+		can_toggle_looting = no
+		merge = yes
+		troops = {
+			light_cavalry = { 450 450 }
+			knights = { 50 50 }
+		}
+	}
+}
+fn_twi_fossado_knights_2 = {
+	spawn_unit = {
+		owner = THIS
+		province = capital
+		earmark = fossado_army
+		attrition = 0.0
+		is_looter = yes
+		can_toggle_looting = no
+		merge = yes
+		troops = {
+			light_cavalry = { 300 300 }
+			knights = { 30 30 }
+		}
+	}
+}
+fn_twi_fossado_knights_3 = {
+	spawn_unit = {
+		owner = THIS
+		province = capital
+		earmark = fossado_army
+		attrition = 0.0
+		is_looter = yes
+		can_toggle_looting = no
+		merge = yes
+		troops = {
+			light_cavalry = { 90 90 }
+			knights = { 10 10 }
+		}
+	}
+}
+fn_twi_fossado_knights_4 = {
+	spawn_unit = {
+		owner = THIS
+		province = capital
+		earmark = fossado_army
+		attrition = 0.0
+		is_looter = yes
+		can_toggle_looting = no
+		merge = yes
+		troops = {
+			light_cavalry = { 45 45 }
+			knights = { 5 5 }
+		}
+	}
+}
+
+#############
+# Britannia #
+#############
+
+# Challenger appears
+fn_twi_generate_challenger_for_round_table = {
+
+	create_character = {
+		#random_traits = no
+		#random_traits = yes
+		#dynasty = random
+		#female = no
+		attributes = {
+			diplomacy = 6
+			martial = 8
+			stewardship = 4
+			intrigue = 4
+			learning = 6
+		}
+	}
+
+	new_character = {
+		random_list = { # Random Culture
+			10 = { culture = welsh }
+			10 = { culture = breton }
+			5 = { culture = saxon }
+			5 = { culture = frankish }
+			1 = { culture = irish }
+			1 = { culture = scottish }
+			1 = { culture = pictish }
+		}
+		# General Traits
+		random_list = { 10 = { add_trait = genius } 10 = { add_trait = quick } 80 = { } }
+		random = { chance = 20 add_trait = fair }
+		random = { chance = 20 add_trait = shrewd }
+		random = { chance = 10 add_trait = chaste }
+		random = { chance = 10 add_trait = temperate }
+		random = { chance = 10 add_trait = charitable }
+		random = { chance = 30 add_trait = diligent }
+		random_list = { 10 = { add_trait = kind } 5 = { add_trait = cruel } 200 = { } }
+		random_list = { 30 = { add_trait = humble } 5 = { add_trait = proud } 5 = { add_trait = ambitious } 300 = { } }
+		random_list = { 20 = { add_trait = patient } 5 = { add_trait = wroth } 200 = { } }
+
+		random = { chance = 10 add_trait = falconer }
+		random = { chance = 10 add_trait = poet }
+
+		random = { chance = 50 change_diplomacy = 1 }
+		random = { chance = 40 change_diplomacy = 1 }
+		random = { chance = 30 change_diplomacy = 1 }
+		random = { chance = 20 change_diplomacy = 1 }
+		random = { chance = 10 change_diplomacy = 1 }
+		random = { chance = 50 change_martial = 1 }
+		random = { chance = 40 change_martial = 1 }
+		random = { chance = 30 change_martial = 1 }
+		random = { chance = 20 change_martial = 1 }
+		random = { chance = 10 change_martial = 1 }
+		random = { chance = 50 change_stewardship = 1 }
+		random = { chance = 40 change_stewardship = 1 }
+		random = { chance = 30 change_stewardship = 1 }
+		random = { chance = 20 change_stewardship = 1 }
+		random = { chance = 10 change_stewardship = 1 }
+		random = { chance = 50 change_intrigue = 1 }
+		random = { chance = 40 change_intrigue = 1 }
+		random = { chance = 30 change_intrigue = 1 }
+		random = { chance = 20 change_intrigue = 1 }
+		random = { chance = 10 change_intrigue = 1 }
+		random = { chance = 50 change_learning = 1 }
+		random = { chance = 40 change_learning = 1 }
+		random = { chance = 30 change_learning = 1 }
+		random = { chance = 20 change_learning = 1 }
+		random = { chance = 10 change_learning = 1 }
+
+		random_list = { 1 = { add_trait = skilled_tactician } 2 = { add_trait = brilliant_strategist } }
+		random = { chance = 50 change_martial = 3 }
+		random = { chance = 50 change_martial = 3 }
+		random = { chance = 50 change_martial = 3 }
+		random = { chance = 50 change_martial = 3 }
+		random = { chance = 50 change_martial = 3 }
+		random = { chance = 30 add_trait = strong }
+		random = { chance = 30 add_trait = robust }
+		random = { chance = 30 add_trait = scarred }
+		random = { chance = 30 add_trait = brave }
+		random = { chance = 30 add_trait = just }
+		random = { chance = 10 add_trait = adventurer }
+		random_list = { # Lifestyle
+			1 = { add_trait = administrator }
+			1 = { add_trait = duelist }
+			1 = { add_trait = hunter  }
+			1 = { add_trait = strategist  }
+			1 = { add_trait = gamer }
+			1 = { add_trait = architect }
+			1 = { }
+		}
+		random_list = { # Command
+			1 = { add_trait = inspiring_leader }
+			1 = { add_trait = organizer }
+			1 = { add_trait = siege_leader }
+			1 = { add_trait = unyielding_leader }
+			1 = { add_trait = rough_terrain_leader }
+			1 = { add_trait = narrow_flank_leader }
+			1 = { add_trait = flanker }
+			1 = { }
+		}
+		save_event_target_as = round_table_challenger
+	}
+}
+
+
+
+
+# Noble join court
+fn_twi_generate_noble_for_round_table = {
+
+	create_character = {
+		#random_traits = no
+		#random_traits = yes
+		#dynasty = random
+		#female = no
+		attributes = {
+			diplomacy = 6
+			martial = 8
+			stewardship = 4
+			intrigue = 4
+			learning = 6
+		}
+	}
+
+	new_character = {
+		random_list = { # Random Culture
+			10 = { culture = welsh }
+			10 = { culture = breton }
+			5 = { culture = saxon }
+			5 = { culture = frankish }
+			1 = { culture = irish }
+			1 = { culture = scottish }
+			1 = { culture = pictish }
+		}
+		# General Traits
+		random_list = { 10 = { add_trait = genius } 10 = { add_trait = quick } 80 = { } }
+		random = { chance = 20 add_trait = fair }
+		random = { chance = 20 add_trait = shrewd }
+		random = { chance = 10 add_trait = chaste }
+		random = { chance = 10 add_trait = temperate }
+		random = { chance = 10 add_trait = charitable }
+		random = { chance = 30 add_trait = diligent }
+		random_list = { 10 = { add_trait = kind } 5 = { add_trait = cruel } 200 = { } }
+		random_list = { 30 = { add_trait = humble } 5 = { add_trait = proud } 5 = { add_trait = ambitious } 300 = { } }
+		random_list = { 20 = { add_trait = patient } 5 = { add_trait = wroth } 200 = { } }
+
+		random = { chance = 10 add_trait = falconer }
+		random = { chance = 10 add_trait = poet }
+
+		random = { chance = 50 change_diplomacy = 1 }
+		random = { chance = 40 change_diplomacy = 1 }
+		random = { chance = 30 change_diplomacy = 1 }
+		random = { chance = 20 change_diplomacy = 1 }
+		random = { chance = 10 change_diplomacy = 1 }
+		random = { chance = 50 change_martial = 1 }
+		random = { chance = 40 change_martial = 1 }
+		random = { chance = 30 change_martial = 1 }
+		random = { chance = 20 change_martial = 1 }
+		random = { chance = 10 change_martial = 1 }
+		random = { chance = 50 change_stewardship = 1 }
+		random = { chance = 40 change_stewardship = 1 }
+		random = { chance = 30 change_stewardship = 1 }
+		random = { chance = 20 change_stewardship = 1 }
+		random = { chance = 10 change_stewardship = 1 }
+		random = { chance = 50 change_intrigue = 1 }
+		random = { chance = 40 change_intrigue = 1 }
+		random = { chance = 30 change_intrigue = 1 }
+		random = { chance = 20 change_intrigue = 1 }
+		random = { chance = 10 change_intrigue = 1 }
+		random = { chance = 50 change_learning = 1 }
+		random = { chance = 40 change_learning = 1 }
+		random = { chance = 30 change_learning = 1 }
+		random = { chance = 20 change_learning = 1 }
+		random = { chance = 10 change_learning = 1 }
+
+		random_list = {
+			1 = { # Diplomacy
+				random_list = { 1 = { add_trait = charismatic_negotiator } 2 = { add_trait = grey_eminence } }
+				random = { chance = 50 change_diplomacy = 3 }
+				random = { chance = 50 change_diplomacy = 3 }
+				random = { chance = 50 change_diplomacy = 3 }
+				random = { chance = 50 change_diplomacy = 3 }
+				random = { chance = 50 change_diplomacy = 3 }
+				random = { chance = 20 add_trait = erudite }
+				random = { chance = 30 add_trait = gregarious }
+				random = { chance = 30 add_trait = honest }
+				random = { chance = 30 add_trait = just }
+				random = { chance = 30 add_trait = trusting }
+				random = { chance = 30 add_trait = temperate }
+
+				random = { chance = 30 add_trait = poet }
+				random = { chance = 20 add_trait = falconer }
+				random_list = { # Lifestyle
+					1 = { add_trait = gamer }
+					5 = { }
+				}
+			}
+			2 = { # Martial
+				random_list = { 1 = { add_trait = skilled_tactician } 2 = { add_trait = brilliant_strategist } }
+				random = { chance = 50 change_martial = 3 }
+				random = { chance = 50 change_martial = 3 }
+				random = { chance = 50 change_martial = 3 }
+				random = { chance = 50 change_martial = 3 }
+				random = { chance = 50 change_martial = 3 }
+				random = { chance = 30 add_trait = strong }
+				random = { chance = 30 add_trait = robust }
+				random = { chance = 30 add_trait = scarred }
+				random = { chance = 30 add_trait = brave }
+				random = { chance = 30 add_trait = just }
+				random = { chance = 10 add_trait = adventurer }
+				random_list = { # Lifestyle
+					1 = { add_trait = administrator }
+					1 = { add_trait = duelist }
+					1 = { add_trait = hunter  }
+					1 = { add_trait = strategist  }
+					1 = { add_trait = gamer }
+					1 = { add_trait = architect }
+					1 = { }
+				}
+				random_list = { # Command
+					1 = { add_trait = inspiring_leader }
+					1 = { add_trait = organizer }
+					1 = { add_trait = siege_leader }
+					1 = { add_trait = unyielding_leader }
+					1 = { add_trait = rough_terrain_leader }
+					1 = { add_trait = narrow_flank_leader }
+					1 = { add_trait = flanker }
+					1 = { }
+				}
+			}
+			1 = { # Stewardship
+				random_list = { 1 = { add_trait = fortune_builder } 2 = { add_trait = midas_touched } }
+				random = { chance = 50 change_stewardship = 3 }
+				random = { chance = 50 change_stewardship = 3 }
+				random = { chance = 50 change_stewardship = 3 }
+				random = { chance = 50 change_stewardship = 3 }
+				random = { chance = 50 change_stewardship = 3 }
+				random = { chance = 20 add_trait = erudite }
+				random = { chance = 30 add_trait = just }
+				random = { chance = 20 add_trait = diligent }
+				random = { chance = 20 add_trait = patient }
+				random = { chance = 10 add_trait = honest }
+				random_list = { 20 = { add_trait = temperate } 10 = { add_trait = greedy } 180 = { } }
+				random_list = { # Lifestyle
+					2 = { add_trait = administrator }
+					2 = { add_trait = architect }
+					2 = { add_trait = gardener }
+					1 = { add_trait = strategist }
+					1 = { add_trait = organizer }
+					10 = { }
+				}
+			}
+			1 = { # Learning
+				random_list = { 1 = { add_trait = scholarly_theologian } 2 = { add_trait = mastermind_theologian } }
+				random = { chance = 50 change_learning = 3 }
+				random = { chance = 50 change_learning = 3 }
+				random = { chance = 50 change_learning = 3 }
+				random = { chance = 50 change_learning = 3 }
+				random = { chance = 50 change_learning = 3 }
+				random = { chance = 30 add_trait = erudite }
+				random = { chance = 30 add_trait = physician }
+				random = { chance = 20 add_trait = just }
+				random = { chance = 10 add_trait = chaste }
+				random = { chance = 10 add_trait = temperate }
+				random = { chance = 10 add_trait = charitable }
+				random = { chance = 10 add_trait = diligent }
+				random = { chance = 10 add_trait = patient }
+				random = { chance = 10 add_trait = kind }
+				random = { chance = 10 add_trait = humble }
+				random = { chance = 10 add_trait = content }
+				random = { chance = 10 add_trait = honest }
+				random = { chance = 10 add_trait = shy }
+				random_list = { # Lifestyle
+					2 = { add_trait = scholar }
+					1 = { add_trait = theologian }
+					1 = { add_trait = gardener }
+					5 = { }
+				}
+			}
+		}
+	}
+}
+
+########
+# Misc #
+########
+
+#Pardon
+fn_twi_pardon = {
+	hidden_tooltip = {
+		reverse_remove_opinion = { who = FROM modifier = declared_war }
+		reverse_remove_opinion = { who = FROM modifier = opinion_dishonorable }
+		reverse_remove_opinion = { who = FROM modifier = opinion_traitor }
+		reverse_remove_opinion = { who = FROM modifier = opinion_rebel_traitor }
+		reverse_remove_opinion = { who = FROM modifier = opinion_regicide_traitor }
+		reverse_remove_opinion = { who = FROM modifier = attempted_murder_of_spouse }
+		reverse_remove_opinion = { who = FROM modifier = attempted_murder_of_child }
+		reverse_remove_opinion = { who = FROM modifier = attempted_murder_of_parent }
+		reverse_remove_opinion = { who = FROM modifier = attempted_murder_of_sibling }
+		reverse_remove_opinion = { who = FROM modifier = attempted_murder_of_vassal }
+		reverse_remove_opinion = { who = FROM modifier = attempted_murder_of_spouse_vassal }
+		reverse_remove_opinion = { who = FROM modifier = attempted_murder }
+		reverse_remove_opinion = { who = FROM modifier = opinion_spouse_slayer }
+		reverse_remove_opinion = { who = FROM modifier = opinion_murder_attempt }
+		reverse_remove_opinion = { who = FROM modifier = opinion_killed_close_kin }
+		reverse_remove_opinion = { who = FROM modifier = opinion_killed_father }
+		reverse_remove_opinion = { who = FROM modifier = opinion_hajj_attempt_murder }
+		reverse_remove_opinion = { who = FROM modifier = opinion_fatwa_target }
+		reverse_remove_opinion = { who = FROM modifier = opinion_refused_order }
+		reverse_remove_opinion = { who = FROM modifier = opinion_castrated_me }
+		reverse_remove_opinion = { who = FROM modifier = opinion_blinded_me }
+		reverse_remove_opinion = { who = FROM modifier = opinion_castrated_family }
+		reverse_remove_opinion = { who = FROM modifier = opinion_castrated_close_kin }
+		reverse_remove_opinion = { who = FROM modifier = opinion_blinded_family }
+		reverse_remove_opinion = { who = FROM modifier = opinion_blinded_close_kin }
+		reverse_remove_opinion = { who = FROM modifier = opinion_witch }
+		reverse_remove_opinion = { who = FROM modifier = opinion_takfir }
+		reverse_remove_opinion = { who = FROM modifier = opinion_attempted_abduction }
+		reverse_remove_opinion = { who = FROM modifier = opinion_unfaithful_wife }
+		reverse_remove_opinion = { who = FROM modifier = opinion_unfaithful_husband_crime }
+		reverse_remove_opinion = { who = FROM modifier = opinion_cuckolded }
+		reverse_remove_opinion = { who = FROM modifier = opinion_killed_lover }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_heresiarch }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_infidel }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_deviant }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_illegitimate }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_cultist }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_dw }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_traitor }
+		reverse_remove_opinion = { who = FROM modifier = opinion_charge_slanderer }
+		reverse_remove_opinion = { who = FROM modifier = abuse_of_office }
+		reverse_remove_opinion = { who = FROM modifier = opinion_tortured_me }
+		reverse_remove_opinion = { who = FROM modifier = opinion_tortured_family }
+		reverse_remove_opinion = { who = FROM modifier = opinion_tortured_close_kin }
+		reverse_remove_opinion = { who = FROM modifier = opinion_mutilated_me }
+		reverse_remove_opinion = { who = FROM modifier = opinion_mutilated_family }
+		reverse_remove_opinion = { who = FROM modifier = opinion_mutilated_close_kin }
+		reverse_remove_opinion = { who = FROM modifier = opinion_thief }
+		reverse_remove_opinion = { who = FROM modifier = opinion_outlawed_society }
+		reverse_remove_opinion = { who = FROM modifier = opinion_accused_apostate }
+	}
+}
+

@@ -1,0 +1,4 @@
+
+death_devenu_ermite = {
+	long_desc = "DEATH_DEVENU_ERMITE"
+}

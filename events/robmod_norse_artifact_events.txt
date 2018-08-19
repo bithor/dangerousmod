@@ -1,0 +1,1388 @@
+#####---------====<[ROBMOD]>====----------#####
+#---------------------------------------------#
+####----=<NORSE ARTIFACT EVENTS>=----####
+# IDs
+# 20001-20005: Andvaranaut - event chain 1
+# 20101-20106: A conversation with Odin
+# 20201-20206: The wandering skald
+# 20301-20305: An ancient battlesite
+
+namespace = robmodnorse
+
+### --=Andvaranaut=-- ###
+
+##-- Event chain 1 - the Golden Lady --##
+
+#-Event 1: Introduction-#
+
+narrative_event = {
+	id = robmodnorse.20001
+	title = EVTTITLE_ROBMODNORSE_20001
+	desc = EVTDESC_ROBMODNORSE_20001
+	picture = GFX_evt_golden_lady
+	border = GFX_event_narrative_frame_economy
+
+	religion = norse_pagan_reformed
+	min_age = 16
+	capable_only = yes
+	has_dlc = "Mystics"
+	prisoner = no
+	ai = no
+	war = no
+	
+	trigger = {
+		NOR = { 
+			has_global_flag = robmodnorse_found_andvaranaut
+			has_global_flag = robmodnorse_gold_lady_happened
+		}
+		controls_religion = yes
+		OR = {
+			AND = {
+				has_dlc = "Way of Life"
+				OR = {
+					has_focus = focus_business
+					has_focus = focus_rulership
+				}
+			}
+			NOT = { has_dlc = "Way of Life" }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 200
+		modifier = {
+			factor = 0.9
+			piety = 1500
+		}
+		modifier = {
+			factor = 0.9
+			OR = {
+				stewardship = 20
+				trait = midas_touched
+				trait = administrator
+				trait = gardener
+				trait = architect
+				trait = manipulator
+				trait = detached
+			}
+		}
+		modifier = {
+			factor = 1.1
+			OR = {
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 2
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 3
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 4
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+	}
+	
+	immediate = { set_global_flag = robmodnorse_gold_lady_happened }
+	
+	option = { #I must find her and learn her secret!
+		name = EVTOPTA_ROBMODNORSE_20001
+		character_event = {
+			id = robmodnorse.20002
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20001
+			days = 20
+		}
+	}
+}
+
+#-Event 2 - A number of leads emerge-#
+
+long_character_event = {
+	id = robmodnorse.20002
+	desc = {
+		trigger = {
+			NOR = {
+				has_character_flag = robmodnorse_gold_lady_army
+				has_character_flag = robmodnorse_gold_lady_fleet
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_20002_1ST
+	}
+	desc = {
+		trigger = {
+			OR = {
+				has_character_flag = robmodnorse_gold_lady_army
+				has_character_flag = robmodnorse_gold_lady_fleet
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_20002_2ND
+	}
+	picture = GFX_evt_council
+	border = GFX_event_long_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = { # Army
+		name = EVTOPTA_ROBMODNORSE_20002
+		trigger = {
+			NOT = { has_character_flag = robmodnorse_gold_lady_army }
+		}
+		character_event = {
+			id = robmodnorse.20003
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20002
+			days = 365
+		}
+		add_character_modifier = {
+			modifier = robmodnorse_gold_lady_army
+			years = 1
+		}
+		set_character_flag = robmodnorse_gold_lady_army
+	}
+	
+	option = { # Fleet
+		name = EVTOPTB_ROBMODNORSE_20002
+		trigger = {
+			NOT = { has_character_flag = robmodnorse_gold_lady_fleet }
+		}
+		character_event = {
+			id = robmodnorse.20003
+			tooltip = EVTTOOLTIPB_ROBMODNORSE_20002
+			days = 365
+		}
+		add_character_modifier = {
+			modifier = robmodnorse_gold_lady_fleet
+			years = 1
+		}
+		set_character_flag = robmodnorse_gold_lady_fleet
+	}
+	
+	option = { # Seer
+		name = EVTOPTC_ROBMODNORSE_20002
+		character_event = {
+			id = robmodnorse.20004
+			tooltip = EVTTOOLTIPC_ROBMODNORSE_20002
+			days = 180
+		}
+		add_character_modifier = {
+			modifier = robmodnorse_gold_lady_seer
+			years = 1
+		}
+		clr_character_flag = robmodnorse_gold_lady_army
+		clr_character_flag = robmodnorse_gold_lady_fleet
+	}
+}
+
+#-Event 3: Search failed-#
+character_event = {
+	id = robmodnorse.20003
+	desc = {
+		trigger = { has_character_flag = robmodnorse_gold_lady_army }
+		text = EVTDESC_ROBMODNORSE_20003_ARMY
+		picture = GFX_evt_vikings_arriving_oldgods
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_gold_lady_fleet }
+		text = EVTDESC_ROBMODNORSE_20003_FLEET
+		picture = GFX_evt_longships_at_sea_oldgods
+	}
+	desc = {
+		trigger = { 
+			has_character_flag = robmodnorse_gold_lady_fleet
+			has_character_flag = robmodnorse_gold_lady_army
+		}
+		text = EVTDESC_ROBMODNORSE_20003_BOTH
+	}
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = { # DAMN IT!
+		name = EVTOPTA_ROBMODNORSE_20003
+		wealth = 10
+		character_event = {
+			id = robmodnorse.20002
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20003
+			days = 10
+		}
+	}
+}
+
+#-Event 4: Stories heard-#
+character_event = {
+	id = robmodnorse.20004
+	desc = EVTDESC_ROBMODNORSE_20004
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { culture = norse }
+			save_event_target_as = robmodnorse_gold_lady_loc
+		}
+	}
+	
+	option = { # Mount an expedition
+		name = EVTOPTA_ROBMODNORSE_20004
+		character_event = {
+			id = robmodnorse.20005
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20004
+			days = 30
+		}
+		remove_character_modifier = robmodnorse_gold_lady_seer
+	}
+}
+
+#-Event 5: Found tracks in the forest-#
+character_event = {
+	id = robmodnorse.20005
+	desc = EVTDESC_ROBMODNORSE_20005
+	picture = GFX_evt_rider_adventure
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = { # Head deeper
+		name = EVTOPTA_ROBMODNORSE_20005
+		character_event = {
+			id = robmodnorse.20006
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20005
+			days = 5
+		}
+	}
+}
+
+#-Event 6: Massacre-#
+long_character_event = {
+	id = robmodnorse.20006
+	desc = EVTDESC_ROBMODNORSE_20006
+	picture = GFX_evt_pale_rider
+	border = GFX_event_long_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = { # The trail's gone cold!
+		name = EVTOPTA_ROBMODNORSE_20006
+		custom_tooltip = { text = EVTTOOLTIPA_ROBMODNORSE_20006 }
+	}
+}
+
+### --=Mimirs head=-- ###
+
+##-- Event chain 1 - conversation with Odin --##
+
+#-Event 1: Fall asleep in contemplation-#
+
+long_character_event = {
+	id = robmodnorse.20101
+	title = EVTTITLE_ROBMODNORSE_20101
+	desc = EVTDESC_ROBMODNORSE_20101
+	picture = GFX_evt_odin_beggar
+	border = GFX_event_long_frame_religion
+
+	religion = norse_pagan_reformed
+	min_age = 16
+	capable_only = yes
+	has_dlc = "Mystics"
+	prisoner = no
+	ai = no
+	war = no
+	
+	trigger = {
+		NOR = { 
+			has_global_flag = robmodnorse_found_mimirshead
+			has_character_flag = robmodnorse_odin_happened
+			trait = one_eyed
+		}
+		controls_religion = yes
+		OR = {
+			AND = {
+				has_dlc = "Way of Life"
+				OR = {
+					has_focus = focus_scholarship
+					has_focus = focus_theology
+				}
+			}
+			NOT = { has_dlc = "Way of Life" }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 200
+		modifier = {
+			factor = 0.9
+			piety = 1500
+		}
+		modifier = {
+			factor = 0.9
+			OR = {
+				learning = 20
+				trait = mastermind_theologian
+				trait = theologian
+				trait = scholar
+				trait = rationalist
+				trait = doctrinaire
+			}
+		}
+		modifier = {
+			factor = 1.1
+			OR = {
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 2
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 3
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 4
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_odrerir
+			}
+		}
+	}
+	
+	immediate = { set_character_flag = robmodnorse_odin_happened }
+	
+	option = { #I must interpret this dream
+		name = EVTOPTA_ROBMODNORSE_20101
+		character_event = {
+			id = robmodnorse.20102
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20101
+			days = 7
+		}
+	}
+}
+
+#-Event 2 - Council of Godis-#
+
+long_character_event = {
+	id = robmodnorse.20102
+	desc = EVTDESC_ROBMODNORSE_20102
+	picture = GFX_evt_council
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # Sacrifice a thousand livestock
+		name = EVTOPTA_ROBMODNORSE_20102
+		hidden_tooltip = {
+			character_event = {
+				id = robmodnorse.20103
+				days = 30
+			}
+		}
+		add_character_modifier = {
+			modifier = robmodnorse_odin_livestock
+			years = 5
+		}
+		set_character_flag = robmodnorse_odin_goats
+	}
+	
+	option = { # Sacrifice a hundred thralls
+		name = EVTOPTB_ROBMODNORSE_20102
+		hidden_tooltip = {
+			character_event = {
+				id = robmodnorse.20103
+				days = 30
+			}
+		}
+		capital_scope = {
+			add_province_modifier = {
+				modifier = robmodnorse_odin_thralls
+				years = 5
+			}
+		}
+		set_character_flag = robmodnorse_odin_thralls
+	}
+	
+	option = { # Give gold
+		name = EVTOPTC_ROBMODNORSE_20102
+		hidden_tooltip = {
+			character_event = {
+				id = robmodnorse.20103
+				days = 30
+			}
+		}
+		wealth = -200
+		set_character_flag = robmodnorse_odin_gold
+	}
+	
+	option = { # Nothing
+		name = EVTOPTD_ROBMODNORSE_20102
+		hidden_tooltip = {
+			character_event = {
+				id = robmodnorse.20103
+				days = 30
+			}
+		}
+		piety = -100
+		job_spiritual = {
+			opinion = {
+				modifier = opinion_contempt
+				who = ROOT
+				years = 5
+			}
+		}
+		set_character_flag = robmodnorse_odin_nothing
+	}
+}
+
+#-Event 3 - Odin speaks to your hall-#
+
+long_character_event = {
+	id = robmodnorse.20103
+	desc = {
+		trigger = { has_character_flag = robmodnorse_odin_goats }
+		text = EVTDESC_ROBMODNORSE_20103_GOATS
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_odin_thralls }
+		text = EVTDESC_ROBMODNORSE_20103_THRALLS
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_odin_gold }
+		text = EVTDESC_ROBMODNORSE_20103_GOLD
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_odin_nothing }
+		text = EVTDESC_ROBMODNORSE_20103_NOTHING
+	}
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # Visit the well
+		name = EVTOPTA_ROBMODNORSE_20103
+		character_event = {
+			id = robmodnorse.20104
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20103
+			days = 28
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_odin_nothing }
+			job_spiritual = {
+				remove_opinion = {
+					modifier = opinion_contempt
+					who = ROOT
+				}
+			}
+			piety = 100
+		}
+		clr_character_flag = robmodnorse_odin_goats
+		clr_character_flag = robmodnorse_odin_thralls
+		clr_character_flag = robmodnorse_odin_gold
+		clr_character_flag = robmodnorse_odin_nothing
+	}
+}
+
+#-Event 4 - Odin speaks to you, asks you to give your eye!-#
+
+long_character_event = {
+	id = robmodnorse.20104
+	desc = EVTDESC_ROBMODNORSE_20104
+	picture = GFX_evt_pagan
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTA_ROBMODNORSE_20104
+		trigger = {
+			NOT = { trait = craven }
+		}
+		character_event = {
+			id = robmodnorse.20105
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20104
+			days = 1
+		}
+		add_trait = severely_injured
+		add_trait = one_eyed
+		if = {
+			limit = {
+				NOT = { trait = brave }
+			}
+			add_trait = brave
+			hidden_tooltip = {
+				character_event = { id = 38270 }
+			}
+		}
+		piety = 100
+	}
+	
+	option = { # Too scared
+		name = EVTOPTB_ROBMODNORSE_20104
+		tooltip_info = craven
+		trigger = { trait = craven }
+		character_event = {
+			id = robmodnorse.20106
+			tooltip = EVTTOOLTIPB_ROBMODNORSE_20104
+		}
+		piety = -50
+	}
+	
+	option = { # Do I even know who this is?
+		name = EVTOPTC_ROBMODNORSE_20104
+		trigger = {
+			NOT = { trait = craven }
+		}
+		character_event = {
+			id = robmodnorse.20106
+			tooltip = EVTTOOLTIPB_ROBMODNORSE_20104
+			days = 1
+		}
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+			}
+			random = {
+				chance = 10
+				add_trait = cynical
+				hidden_tooltip = {
+					character_event = { id = 38258 }
+				}
+			}
+		}
+		if = {
+			limit = { trait = zealous }
+			random = {
+				chance = 50
+				remove_trait = zealous
+				hidden_tooltip = {
+					character_event = { id = 38310 }
+				}
+			}
+		}
+		piety = -50
+	}
+}
+
+#-Event 5 - Odin blesses you-#
+
+long_character_event = {
+	id = robmodnorse.20105
+	desc = EVTDESC_ROBMODNORSE_20105
+	picture = GFX_evt_odin_king
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTA_ROBMODNORSE_20105
+		add_artifact = strange_skull
+		set_global_flag = robmodnorse_odin_completed
+	}
+}
+
+#-Event 6 - Odin curses you-#
+
+character_event = {
+	id = robmodnorse.20106
+	desc = EVTDESC_ROBMODNORSE_20106
+	picture = GFX_evt_pagan
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # OK
+		name = EVTOPTA_ROBMODNORSE_20106
+		add_character_modifier = {
+			modifier = robmodnorse_odin_curse
+			duration = -1
+		}
+	}
+}
+
+### --=Odrerir=-- ###
+
+##-- Event chain 1 - the wandering skald --##
+
+#-Event 1: Introduction-#
+narrative_event = {
+	id = robmodnorse.20201
+	title = EVTTITLE_ROBMODNORSE_20201
+	desc = EVTDESC_ROBMODNORSE_20201
+	picture = GFX_evt_skald
+	border = GFX_event_narrative_frame_diplomacy
+
+	religion = norse_pagan_reformed
+	min_age = 16
+	capable_only = yes
+	has_dlc = "Mystics"
+	prisoner = no
+	ai = no
+	war = no
+	
+	trigger = {
+		NOR = { 
+			has_global_flag = robmodnorse_found_odrerir
+			has_global_flag = robmodnorse_poet_happened
+		}
+		controls_religion = yes
+		OR = {
+			AND = {
+				has_dlc = "Way of Life"
+				OR = {
+					has_focus = focus_carousing
+					has_focus = focus_family
+				}
+			}
+			NOT = { has_dlc = "Way of Life" }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 200
+		modifier = {
+			factor = 0.9
+			piety = 1500
+		}
+		modifier = {
+			factor = 0.9
+			OR = {
+				diplomacy = 20
+				trait = grey_eminence
+				trait = socializer
+				trait = gamer
+				trait = hedonist
+				trait = sprezzatura
+				trait = peacemaker
+				trait = poet
+			}
+		}
+		modifier = {
+			factor = 1.1
+			OR = {
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 2
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 3
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 4
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			save_event_target_as = robmodnorse_poet_prov
+		}
+	}
+	
+	option = { # Let him wander
+		name = EVTOPTA_ROBMODNORSE_20201
+		event_target:robmodnorse_poet_prov = {
+			add_province_modifier = {
+				modifier = robmodnorse_poet_wander
+				years = 5
+			}
+		}
+	}
+	
+	option = { # Invite him to court
+		name = EVTOPTB_ROBMODNORSE_20201
+		custom_tooltip = { text = EVTTOOLTIPB_ROBMODNORSE_20201 }
+		wealth = -10
+		create_character = {
+			random_traits = no
+			female = no
+			dynasty = NONE
+			religion = ROOT
+			culture = norse
+			age = 31
+			trait = poet
+			trait = charismatic_negotiator
+			trait = gluttonous
+			trait = gregarious
+			health = 10
+		}
+		hidden_tooltip = {
+			new_character = {
+				give_nickname = nick_skald
+				opinion = {
+					modifier = opinion_grateful
+					who = ROOT
+					years = 10
+				}		
+				random_list = {
+					15 = { add_trait = genius }
+					35 = { add_trait = quick }
+					50 = { add_trait = fair	}
+				}
+				wealth = 10
+				prestige = 10
+				piety = 50
+				save_event_target_as = robmodnorse_poet_poet
+				character_event = { id = robmodnorse.20206 }
+			}
+		}
+	}
+}
+
+#Ping from skald
+character_event = {
+	id = robmodnorse.20206
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		liege = {
+			character_event = {
+				id = robmodnorse.20202
+				days = 10
+			}
+		}
+	}
+}
+
+#-Event 2 - What should I write of?-#
+long_character_event = {
+	id = robmodnorse.20202
+	picture = GFX_evt_viking_throneroom_oldgods
+	desc = EVTDESC_ROBMODNORSE_20202
+	border = GFX_event_long_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_20202 # general
+		trigger = { 
+			NOR = {
+				diplomacy = 10
+				martial = 10
+				stewardship = 10
+				intrigue = 10
+				learning = 10
+			}
+		}
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_gen
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_20202 # diplomacy
+		tooltip_info = diplomacy
+		trigger = { diplomacy = 10 }
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPB_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_diplo
+	}
+	
+	option = {
+		name = EVTOPTC_ROBMODNORSE_20202 # martial
+		tooltip_info = martial
+		trigger = { martial = 10 }
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPC_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_martial
+	}
+	
+	option = {
+		name = EVTOPTD_ROBMODNORSE_20202 # stewardship
+		tooltip_info = stewardship
+		trigger = { stewardship = 10 }
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPD_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_stew
+	}
+	
+	option = {
+		name = EVTOPTF_ROBMODNORSE_20202 # intrigue
+		tooltip_info = intrigue
+		trigger = { 
+			intrigue = 10
+			NOR = {
+				diplomacy = 10
+				martial = 10
+				stewardship = 10
+			}
+		}
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPF_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_int
+	}
+	
+	option = {
+		name = EVTOPTG_ROBMODNORSE_20202 # learning
+		tooltip_info = learning
+		trigger = {
+			learning = 10
+			NOR = {
+				diplomacy = 10
+				martial = 10
+				stewardship = 10
+			}
+		}
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPG_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_learn
+	}
+	
+	option = {
+		name = EVTOPTE_ROBMODNORSE_20202 # MORE OPTIONS
+		trigger = {
+			OR = {
+				intrigue = 10
+				learning = 10
+			}
+			OR = {
+				diplomacy = 10
+				martial = 10
+				stewardship = 10
+			}
+		}
+		character_event = {
+			id = robmodnorse.20205
+			tooltip = EVTTOOLTIPE_ROBMODNORSE_20202
+		}
+	}
+}
+
+# What should I write of - 2nd
+long_character_event = {
+	id = robmodnorse.20205
+	picture = GFX_evt_viking_throneroom_oldgods
+	desc = EVTDESC_ROBMODNORSE_20202
+	border = GFX_event_long_frame_diplomacy
+	
+	is_triggered_only = yes	
+	
+	option = {
+		name = EVTOPTF_ROBMODNORSE_20202 # intrigue
+		tooltip_info = intrigue
+		trigger = { intrigue = 10 }
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPF_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_int
+	}
+	
+	option = {
+		name = EVTOPTG_ROBMODNORSE_20202 # learning
+		tooltip_info = learning
+		trigger = { learning = 10 }
+		character_event = {
+			id = robmodnorse.20203
+			tooltip = EVTTOOLTIPG_ROBMODNORSE_20202
+			days = 30
+		}
+		set_character_flag = robmodnorse_poet_learn
+	}
+	
+	option = {
+		name = EVTOPTH_ROBMODNORSE_20202 #BACK
+		hidden_tooltip = {
+			character_event = { id = robmodnorse.20202 }
+		}
+	}
+}
+
+#-Event 3: Poem done!-#
+narrative_event = {
+	id = robmodnorse.20203
+	title = EVTTITLE_ROBMODNORSE_20203
+	desc = {
+		trigger = { has_character_flag = robmodnorse_poet_gen }
+		text = EVTDESC_ROBMODNORSE_20203_GEN
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_poet_diplo }
+		text = EVTDESC_ROBMODNORSE_20203_DIPLO
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_poet_martial }
+		text = EVTDESC_ROBMODNORSE_20203_MARTIAL
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_poet_stew }
+		text = EVTDESC_ROBMODNORSE_20203_STEW
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_poet_int }
+		text = EVTDESC_ROBMODNORSE_20203_INT
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_poet_learn }
+		text = EVTDESC_ROBMODNORSE_20203_LEARN
+	}
+	picture = GFX_evt_skald
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_20203 #publish it far and wide
+		character_event = {
+			id = robmodnorse.20204
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20203
+			days = 30
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_poet_gen }
+			add_character_modifier = {
+				modifier = robmodnorse_poet_gen
+				years = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_poet_diplo }
+			add_character_modifier = {
+				modifier = robmodnorse_poet_diplo
+				years = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_poet_martial }
+			add_character_modifier = {
+				modifier = robmodnorse_poet_martial
+				years = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_poet_stew }
+			add_character_modifier = {
+				modifier = robmodnorse_poet_stew
+				years = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_poet_int }
+			add_character_modifier = {
+				modifier = robmodnorse_poet_int
+				years = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_poet_learn }
+			add_character_modifier = {
+				modifier = robmodnorse_poet_learn
+				years = 10
+			}
+		}
+		wealth = -100
+		prestige = 200
+		if = {
+			limit = {
+				NOR = {
+					trait = proud
+					trait = humble
+				}
+			}
+			random = {
+				chance = 25
+				add_trait = proud
+				hidden_tooltip = {
+					character_event = { id = 38261 }
+				}
+			}
+		}
+		if = {
+			limit = { trait = humble }
+			remove_trait = humble
+			hidden_tooltip = {
+				character_event = { id = 38312 }
+			}
+		}
+		clr_character_flag = robmodnorse_poet_diplo
+		clr_character_flag = robmodnorse_poet_martial
+		clr_character_flag = robmodnorse_poet_stew
+		clr_character_flag = robmodnorse_poet_int
+		clr_character_flag = robmodnorse_poet_learn
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_20203 #I will keep it
+		character_event = {
+			id = robmodnorse.20204
+			tooltip = EVTTOOLTIPB_ROBMODNORSE_20203
+			days = 30
+		}
+		if = {
+			limit = {
+				NOR = {
+					trait = proud
+					trait = humble
+				}
+			}
+			random = {
+				chance = 25
+				add_trait = humble
+				hidden_tooltip = {
+					character_event = { id = 38260 }
+				}
+			}
+		}
+		if = {
+			limit = { trait = proud }
+			remove_trait = proud
+			hidden_tooltip = {
+				character_event = { id = 38300 }
+			}
+		}
+		clr_character_flag = robmodnorse_poet_diplo
+		clr_character_flag = robmodnorse_poet_martial
+		clr_character_flag = robmodnorse_poet_stew
+		clr_character_flag = robmodnorse_poet_int
+		clr_character_flag = robmodnorse_poet_learn
+	}
+}
+
+#-Event 4: Poet disappears-#
+character_event = {
+	id = robmodnorse.20204
+	picture = GFX_evt_courier
+	desc = EVTDESC_ROBMODNORSE_20204
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_tooltip = {
+			event_target:robmodnorse_poet_poet = {
+				death = { death_reason = death_missing }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_20204
+		add_character_modifier = {
+			modifier = robmodnorse_poet_complete
+			years = 5
+		}
+		set_global_flag = robmodnorse_poet_happened
+	}
+}
+
+### --=Mjolnir=-- ###
+
+##-- Event chain 1 - An ancient battlesite --##
+
+#-Event 1: Introduction-#
+narrative_event = {
+	id = robmodnorse.20301
+	title = EVTTITLE_ROBMODNORSE_20301
+	desc = EVTDESC_ROBMODNORSE_20301
+	picture = GFX_evt_norse_shepherd
+	border = GFX_event_narrative_frame_war
+
+	religion = norse_pagan_reformed
+	min_age = 16
+	capable_only = yes
+	has_dlc = "Mystics"
+	prisoner = no
+	ai = no
+	war = no
+	
+	trigger = {
+		NOT = { has_global_flag = robmodnorse_mjo1_happened }
+		controls_religion = yes
+		is_title_active = d_thorshammers
+		OR = {
+			AND = {
+				has_dlc = "Way of Life"
+				OR = {
+					has_focus = focus_hunting
+					has_focus = focus_war
+				}
+			}
+			NOT = { has_dlc = "Way of Life" }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 200
+		modifier = {
+			factor = 0.9
+			piety = 1500
+		}
+		modifier = {
+			factor = 0.9
+			OR = {
+				martial = 20
+				trait = brilliant_strategist
+				trait = duelist
+				trait = strategist
+				trait = hunter
+				trait = leader_of_men
+				trait = uncouth
+			}
+		}
+		modifier = {
+			factor = 1.1
+			OR = {
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 2
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 3
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+		modifier = {
+			factor = 1.1
+			calc_true_if = {
+				amount = 4
+				has_global_flag = robmodnorse_found_mimirshead
+				has_global_flag = robmodnorse_found_mjolnir
+				has_global_flag = robmodnorse_found_brisingamen
+				has_global_flag = robmodnorse_found_andvaranaut
+			}
+		}
+	}
+	
+	immediate = { set_global_flag = robmodnorse_mjo1_happened }
+	
+	option = { # Convene my council
+		name = EVTOPTA_ROBMODNORSE_20301
+		character_event = {
+			id = robmodnorse.20302
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20301
+			days = 20
+		}
+	}
+}
+
+#-Event 2 - Council convenes-#
+long_character_event = {
+	id = robmodnorse.20302
+	desc = EVTDESC_ROBMODNORSE_20302
+	picture = GFX_evt_council
+	border = GFX_event_long_frame_war
+	
+	is_triggered_only = yes
+	
+	option = { # Send in the military
+		name = EVTOPTA_ROBMODNORSE_20302
+		character_event = {
+			id = robmodnorse.20303
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_20302
+			days = 180
+		}
+		piety = -50
+		add_character_modifier = {
+			modifier = robmodnorse_mjo1_des
+			years = 5
+		}
+		set_character_flag = robmodnorse_mjo1_mil
+	}
+	
+	option = { # Wisemen
+		name = EVTOPTB_ROBMODNORSE_20302
+		character_event = {
+			id = robmodnorse.20303
+			tooltip = EVTTOOLTIPB_ROBMODNORSE_20302
+			days = 180
+		}
+		job_marshal = {
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				years = 3
+			}
+		}
+		set_character_flag = robmodnorse_mjo1_god
+	}
+}
+
+#-Event 3 - Search complete-#
+narrative_event = {
+	id = robmodnorse.20303
+	title = EVTTITLE_ROBMODNORSE_20303
+	desc = {
+		trigger = { has_character_flag = robmodnorse_mjo1_mil }
+		text = EVTDESC_ROBMODNORSE_20303_MIL
+	}
+	desc = {
+		trigger = { has_character_flag = robmodnorse_mjo1_god }
+		text = EVTDESC_ROBMODNORSE_20303_GOD
+	}
+	picture = GFX_evt_gods_war
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_character = {
+			limit = { has_landed_title = d_thorshammers }
+			save_event_target_as = robmodnorse_mjo1_thorinn
+		}
+	}
+	
+	option = { # Send it to the thors hammers for study
+		name = EVTOPTA_ROBMODNORSE_20303
+		event_target:robmodnorse_mjo1_thorinn = {
+			character_event = {
+				id = robmodnorse.20304
+				tooltip = EVTTOOLTIPA_ROBMODNORSE_20303
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_mjo1_mil }
+			add_artifact = ancient_axe
+			military_techpoints = 100
+			clr_character_flag = robmodnorse_mjo1_mil
+		}
+		if = {
+			limit = { has_character_flag = robmodnorse_mjo1_god }
+			add_artifact = ancient_banner_norse
+			culture_techpoints = 20
+			clr_character_flag = robmodnorse_mjo1_god
+		}
+	}
+}
+
+#Ping from Thorinn
+character_event = {
+	id = robmodnorse.20304
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = {
+				id = robmodnorse.20305
+				days = 20
+			}
+		}
+	}
+}
+
+#Thanks from the Thorinn
+letter_event = {
+	id = robmodnorse.20305
+	desc = EVTDESC_ROBMODNORSE_20305
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+	
+	option = { # OK
+		name = EVTOPTA_ROBMODNORSE_20305
+		FROM = {
+			opinion = {
+				modifier = opinion_delighted
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}

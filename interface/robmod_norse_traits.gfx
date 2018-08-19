@@ -1,0 +1,73 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_trait_robmodnorse_oathseeker"
+		texturefile = "gfx/traits/oathseeker.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_friggseeker"
+		texturefile = "gfx/traits/friggseeker.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_unworthy"
+		texturefile = "gfx/traits/unworthy.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_oathsman"
+		texturefile = "gfx/traits/oathsman.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_friggsister"
+		texturefile = "gfx/traits/friggsister.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_firstraven"
+		texturefile = "gfx/traits/firstraven.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_ravenschild"
+		texturefile = "gfx/traits/ravenschild.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_aesir"
+		texturefile = "gfx/traits/aesir.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_vanir"
+		texturefile = "gfx/traits/vanir.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_robmodnorse_ex_grand_champion"
+		texturefile = "gfx/traits/grand_champion.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

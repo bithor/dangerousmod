@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_sm_marry_lover_f"
+		texturefile = "gfx\\interface\\decision_icon_present_debutante.dds"
+	}
+	spriteType = {
+		name = "GFX_sm_ruler_assist"
+		texturefile = "gfx\\interface\\decision_icon_employ_steward.dds"
+	}
+}

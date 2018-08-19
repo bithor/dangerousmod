@@ -1,0 +1,1371 @@
+# ---------------------------------
+# - Soulmates Mod : Main events   -
+# - Written by Fox With A Shotgun -
+# - Last Modified 11-09-17        -
+# ---------------------------------
+
+namespace = soulmates
+
+# Event table of contents:
+# 1000 - 1999 : Homosexual Female
+# 2000 - 2999 : Homosexual Male
+# 3000 - 3999 : Female neutral
+# 4000 - 4999 : Male neutral
+# 5000 - 5999 : Miscellaneous
+# 6000 - 6999 : Spouse Assist Decision Events
+
+# -----------------------------
+# Child property setting events
+# -----------------------------
+
+# Setting children's bastardry if born of homosexual couple
+character_event = {
+	id = soulmates.5000
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				father_even_if_dead = {
+					is_female = yes
+				}
+				mother_even_if_dead = {
+					is_female = yes
+				}
+			}
+			AND = {
+				father_even_if_dead = {
+					is_female = no
+				}
+				mother_even_if_dead = {
+					is_female = no
+				}
+			}
+		}
+	}
+	
+	option = {
+		add_trait = legit_bastard
+	}
+}
+
+# ------------------------------
+# Spouse Rule Assistance Events
+# ------------------------------
+
+# -----------------------------------------------------
+# Event chain : Character assists with work (Diplomacy)
+# -----------------------------------------------------
+
+# Spouse assistance selector. Success rate based on overall diplomacy skill
+# and diplomacy education level.
+character_event = {
+	id = soulmates.5200
+	hide_window = yes
+	
+	only_playable = yes
+	
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.9
+			spouse = { trait = kind }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { trait = diligent }
+		}
+		modifier = {
+			factor = 1.5
+			spouse = { trait = slothful }
+		}
+		modifier = {
+			factor = 1.2
+			spouse = { trait = cruel }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				OR = {
+					trait = charismatic_negotiator
+					trait = grey_eminence
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				trait = socializer
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { is_lover = ROOT }
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			OR = {
+				trait = naive_appeaser
+				trait = underhanded_rogue
+				trait = charismatic_negotiator
+				trait = grey_eminence
+			}
+			opinion = { who = ROOT value = 50 }
+		}
+		
+	}
+	
+	option = {
+		random_list = {
+			25 = {
+				modifier = { 
+					factor = 0 
+					spouse = {
+						OR = {
+							trait = grey_eminence
+							trait = charismatic_negotiator
+							diplomacy = 16
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { diplomacy = 10 }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { diplomacy = 8 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = naive_appeaser }
+				}
+				
+				character_event = { id = soulmates.5201 }
+			}
+			25 = {
+				modifier = {
+					factor = 0 
+					spouse = {
+						diplomacy = 20
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { diplomacy = 14 }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { diplomacy = 16 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { diplomacy = 12 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = underhanded_rogue }
+				}
+				
+				character_event = { id = soulmates.5202 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { diplomacy = 14 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { diplomacy = 16 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { diplomacy = 20 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							trait = grey_eminence
+							trait = charismatic_negotiator
+						}
+					}
+				}
+				
+				character_event = { id = soulmates.5203 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { diplomacy = 18 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { diplomacy = 20} }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { diplomacy = 22 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { diplomacy = 24 }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							diplomacy = 26
+							trait = grey_eminence
+						}
+					}
+				}
+				character_event = { id = soulmates.5204 }
+			}
+		}
+	}
+}
+
+# Spouse failure
+character_event = {
+	id = soulmates.5201
+	desc = EVTDESCsoulmates.5201
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_accused
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5201
+		prestige = -100
+	}
+}
+
+# Spouse success, minimal
+character_event = {
+	id = soulmates.5202
+	desc = EVTDESCsoulmates.5202
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_throne_room
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5202
+		prestige = 25
+	}
+}
+
+# Spouse success, normal
+character_event = {
+	id = soulmates.5203
+	desc = EVTDESCsoulmates.5203
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_throne_room
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5203
+		prestige = 100
+	}
+}
+
+# Spouse success, amazing
+character_event = {
+	id = soulmates.5204
+	desc = EVTDESCsoulmates.5204
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_throne_room
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5204
+		prestige = 100
+		culture_techpoints = 100
+	}
+}
+
+# -----------------------------------------------------
+# Event chain : Character assists with work (Martial)
+# -----------------------------------------------------
+
+# Spouse assistance selector. Success rate based on overall martial skill,
+# martial education level, and personal combat skill
+character_event = {
+	id = soulmates.5210
+	hide_window = yes
+	
+	only_playable = yes
+	
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.9
+			spouse = { trait = kind }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { trait = diligent }
+		}
+		modifier = {
+			factor = 1.5
+			spouse = { trait = slothful }
+		}
+		modifier = {
+			factor = 1.2
+			spouse = { trait = cruel }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				OR = {
+					trait = skilled_tactician
+					trait = brilliant_strategist
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				trait = strategist
+				trait = duelist
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { is_lover = ROOT }
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			OR = {
+				trait = misguided_warrior
+				trait = tough_soldier
+				trait = skilled_tactician
+				trait = brilliant_strategist
+			}
+			opinion = { who = ROOT value = 50 }
+		}
+	}
+	
+	option = {
+		random_list = {
+			25 = {
+				modifier = { 
+					factor = 0 
+					spouse = {
+						OR = {
+							trait = skilled_tactician
+							trait = brilliant_strategist
+							martial = 16
+							combat_rating = 6
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { martial = 10 }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { martial = 12 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { martial = 8 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = misguided_warrior }
+				}
+				
+				character_event = { id = soulmates.5211 }
+			}
+			25 = {
+				modifier = {
+					factor = 0 
+					spouse = {
+						martial = 20
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { 
+						OR = {
+							martial = 14 
+							combat_rating = 8
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { martial = 16 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { martial = 12 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = tough_soldier }
+				}
+				
+				character_event = { id = soulmates.5212 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { martial = 14 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { martial = 16 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { martial = 20 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							trait = skilled_tactician
+							trait = brilliant_strategist
+						}
+					}
+				}
+				
+				character_event = { id = soulmates.5213 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { martial = 18 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { martial = 20 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { martial = 22 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { martial = 24 }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							martial = 26
+							trait = strategist
+						}
+					}
+				}
+				modifier = {
+					factor = 2 
+					spouse = {
+						OR = {
+							combat_rating = 14
+							trait = duelist
+						}
+					}
+				}
+				character_event = { id = soulmates.5214 }
+			}
+		}
+	}
+}
+
+# Spouse failure
+character_event = {
+	id = soulmates.5211
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5211
+	picture = GFX_evt_drunk
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5211
+		
+		spouse = {
+			add_trait = wounded
+			prestige = -100
+		}
+	}
+}
+
+# Spouse success, minimal
+character_event = {
+	id = soulmates.5212
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5212
+	picture = GFX_evt_war_planning
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5212
+		
+		military_techpoints = 10
+	}
+}
+
+# Spouse success, normal
+character_event = {
+	id = soulmates.5213
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5213
+	picture = GFX_evt_war_planning
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5213
+		
+		military_techpoints = 25
+		any_courtier = {
+			limit = {
+				has_minor_title = title_commander 
+			}
+			random_list = {
+				35 = {}
+				55 = { change_martial = 1 }
+				10 = { change_martial = 2 }
+			}
+		}
+	}
+}
+
+# Spouse success, amazing
+character_event = {
+	id = soulmates.5214
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5214
+	picture = GFX_evt_war_planning
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5214
+		
+		military_techpoints = 100
+		spouse = {
+			change_martial = 1
+		}
+		any_courtier = {
+			limit = {
+				has_minor_title = title_commander 
+			}
+			random_list = {
+				10 = {}
+				60 = { change_martial = 1 }
+				30 = { change_martial = 2 }
+			}
+		}
+	}
+}
+
+# -------------------------------------------------------
+# Event chain : Character assists with work (Stewardship)
+# -------------------------------------------------------
+
+# Spouse assistance selector. Success rate based on overall stewardship,
+# stewardship education level, and traits.
+character_event = {
+	id = soulmates.5220
+	hide_window = yes
+	
+	only_playable = yes
+	
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.9
+			spouse = { trait = kind }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { trait = diligent }
+		}
+		modifier = {
+			factor = 1.5
+			spouse = { trait = slothful }
+		}
+		modifier = {
+			factor = 1.2
+			spouse = { trait = cruel }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				OR = {
+					trait = fortune_builder
+					trait = midas_touched
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				trait = administrator
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { is_lover = ROOT }
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			OR = {
+				trait = indulgent_wastrel
+				trait = thrifty_clerk
+				trait = fortune_builder
+				trait = midas_touched
+			}
+		}
+		opinion = { who = ROOT value = 50 }
+	}
+	
+	option = {
+		random_list = {
+			25 = {
+				modifier = { 
+					factor = 0 
+					spouse = {
+						OR = {
+							trait = fortune_builder
+							trait = midas_touched
+							stewardship = 16
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { stewardship = 10 }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { stewardship = 8 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = indulgent_wastrel }
+				}
+				
+				character_event = { id = soulmates.5221 }
+			}
+			25 = {
+				modifier = {
+					factor = 0 
+					spouse = {
+						stewardship = 20
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { 
+						stewardship = 14 
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { stewardship = 16 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { stewardship = 12 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = thrifty_clerk }
+				}
+				
+				character_event = { id = soulmates.5222 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { stewardship = 14 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { stewardship = 16 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { stewardship = 20 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							trait = fortune_builder
+							trait = midas_touched
+						}
+					}
+				}
+				
+				character_event = { id = soulmates.5223 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { stewardship = 18 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { stewardship = 20 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { stewardship = 22 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { martial = 24 }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							martial = 26
+							trait = administrator
+						}
+					}
+				}
+				character_event = { id = soulmates.5224 }
+			}
+		}
+	}
+}
+
+# Spouse failure
+character_event = {
+	id = soulmates.5221
+	desc = EVTDESCsoulmates.5221
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_bribe_declined
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5221
+		
+		scaled_wealth = -0.25
+	}
+}
+
+# Spouse success, minimal
+character_event = {
+	id = soulmates.5222
+	desc = EVTDESCsoulmates.5222
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_bribe_accepted
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5222
+		
+		scaled_wealth = 0.25
+	}
+}
+
+# Spouse success, normal
+character_event = {
+	id = soulmates.5223
+	desc = EVTDESCsoulmates.5223
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_bribe_accepted
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5223
+		
+		scaled_wealth = 0.5
+	}
+}
+
+# Spouse success, amazing
+character_event = {
+	id = soulmates.5224
+	desc = EVTDESCsoulmates.5224
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_bribe_accepted
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5224
+		
+		scaled_wealth = 0.75
+		economy_techpoints = 100
+	}
+}
+
+# -------------------------------------------------------
+# Event chain : Character assists with work (Intrigue)
+# -------------------------------------------------------
+
+# Spouse assistance selector. Success rate based on overall intrigue,
+# intrigue education level.
+character_event = {
+	id = soulmates.5230
+	hide_window = yes
+	
+	only_playable = yes
+	
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.9
+			spouse = { trait = kind }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { trait = diligent }
+		}
+		modifier = {
+			factor = 1.5
+			spouse = { trait = slothful }
+		}
+		modifier = {
+			factor = 1.2
+			spouse = { trait = cruel }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				OR = {
+					trait = intricate_webweaver
+					trait = elusive_shadow
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				trait = schemer
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { is_lover = ROOT }
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			OR = {
+				trait = amateurish_plotter
+				trait = flamboyant_schemer
+				trait = intricate_webweaver
+				trait = elusive_shadow
+			}
+		}
+		opinion = { who = ROOT value = 50 }
+	}
+	
+	option = {
+		random_list = {
+			25 = {
+				modifier = { 
+					factor = 0 
+					spouse = {
+						OR = {
+							trait = intricate_webweaver
+							trait = elusive_shadow
+							intrigue = 16
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { intrigue = 10 }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { intrigue = 8 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = amateurish_plotter }
+				}
+				
+				character_event = { id = soulmates.5231 }
+			}
+			25 = {
+				modifier = {
+					factor = 0 
+					spouse = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { 
+						intrigue = 14 
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { intrigue = 16 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { intrigue = 12 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = flamboyant_schemer }
+				}
+				
+				character_event = { id = soulmates.5232 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { intrigue = 14 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { intrigue = 16 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { intrigue = 20 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							trait = intricate_webweaver
+							trait = elusive_shadow
+						}
+					}
+				}
+				
+				character_event = { id = soulmates.5233 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { intrigue = 18 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { intrigue = 20 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { intrigue = 22 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { intrigue = 24 }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							intrigue = 26
+							trait = schemer
+						}
+					}
+				}
+				character_event = { id = soulmates.5234 }
+			}
+		}
+	}
+}
+
+# Spouse failure
+character_event = {
+	id = soulmates.5231
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5231
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5231
+		
+		spouse = {
+			add_trait = wounded
+		}
+	}
+}
+
+# Spouse success, minimal
+character_event = {
+	id = soulmates.5232
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5232
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5232
+		
+		random_list = {
+			50 = {
+				scaled_wealth = 0.15
+			}
+			10 = {
+				economy_techpoints = 10
+			}
+			10 = {
+				military_techpoints = 10
+			}
+			10 = {
+				culture_techpoints = 10
+			}
+		}
+	}
+}
+
+# Spouse success, normal 
+character_event = {
+	id = soulmates.5233
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5233
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5233
+		
+		random_list = {
+			50 = {
+				scaled_wealth = 0.30
+			}
+			10 = {
+				economy_techpoints = 25
+			}
+			10 = {
+				military_techpoints = 25
+			}
+			10 = {
+				culture_techpoints = 25
+			}
+		}
+	}
+}
+
+# Spouse success, amazing
+character_event = {
+	id = soulmates.5234
+	desc = EVTDESCsoulmates.5234
+	title = EVTTITLEsoulmatesSpouseAssists
+	picture = GFX_evt_shadow
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5234
+		
+		random_list = {
+			50 = {
+				scaled_wealth = 0.60
+			}
+			30 = {
+				economy_techpoints = 25
+				military_techpoints = 25
+				culture_techpoints = 25
+			}
+		}
+	}
+}
+
+# -------------------------------------------------------
+# Event chain : Character assists with work (Learning)
+# -------------------------------------------------------
+
+# Spouse assistance selector. Success rate based on overall learning,
+# learning education level.
+character_event = {
+	id = soulmates.5240
+	hide_window = yes
+	
+	only_playable = yes
+	
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.9
+			spouse = { trait = kind }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { trait = diligent }
+		}
+		modifier = {
+			factor = 1.5
+			spouse = { trait = slothful }
+		}
+		modifier = {
+			factor = 1.2
+			spouse = { trait = cruel }
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				OR = {
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = {
+				trait = scholar
+			}
+		}
+		modifier = {
+			factor = 0.9
+			spouse = { is_lover = ROOT }
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		opinion = { who = ROOT value = 50 }
+	}
+	
+	option = {
+		random_list = {
+			25 = {
+				modifier = { 
+					factor = 0 
+					spouse = {
+						OR = {
+							trait = scholarly_theologian
+							trait = mastermind_theologian
+							learning = 16
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { learning = 10 }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { learning = 12 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { learning = 8 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = detached_priest }
+				}
+				
+				character_event = { id = soulmates.5241 }
+			}
+			25 = {
+				modifier = {
+					factor = 0 
+					spouse = {
+						learning = 20
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { 
+						learning = 14 
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { learning = 16 }
+				}
+				modifier = {
+					factor = 2
+					spouse = { NOT = { learning = 12 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { trait = martial_cleric }
+				}
+				
+				character_event = { id = soulmates.5242 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { learning = 14 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { learning = 16 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { learning = 20 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							trait = scholarly_theologian
+							trait = mastermind_theologian
+						}
+					}
+				}
+				
+				character_event = { id = soulmates.5243 }
+			}
+			25 = {
+				modifier = {
+					factor = 0
+					spouse = {
+						NOT = { learning = 18 }
+					}
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { learning = 20 } }
+				}
+				modifier = {
+					factor = 0.5
+					spouse = { NOT = { learning = 22 } }
+				}
+				modifier = {
+					factor = 2
+					spouse = { learning = 24 }
+				}
+				modifier = {
+					factor = 2
+					spouse = {
+						OR = {
+							learning = 26
+							trait = scholar
+						}
+					}
+				}
+				character_event = { id = soulmates.5244 }
+			}
+		}
+	}
+}
+
+# Spouse failure
+character_event = {
+	id = soulmates.5241
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5241
+	picture = GFX_evt_accused
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5241
+		
+		piety = -100
+	}
+}
+
+# Spouse success, minimal
+character_event = {
+	id = soulmates.5242
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5242
+	picture = GFX_evt_religious_exultation
+	
+	is_triggered_only = yes
+	
+	option = {	
+		name = EVTOPTAsoulmates.5242
+		
+		piety = 25
+	}
+}
+
+# Spouse success, normal
+character_event = {
+	id = soulmates.5243
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5243
+	picture = GFX_evt_religious_exultation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5243
+		
+		piety = 50
+		culture_techpoints = 50
+	}
+}
+
+# Spouse success, amazing
+character_event = {
+	id = soulmates.5244
+	title = EVTTITLEsoulmatesSpouseAssists
+	desc = EVTDESCsoulmates.5244
+	picture = GFX_evt_religious_exultation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.5244
+		
+		piety = 100
+		culture_techpoints = 100
+	}
+}

@@ -1,0 +1,14 @@
+#Province
+
+genocide = {
+	local_revolt_risk = -1.0
+	city_tax_modifier = -0.40
+	castle_tax_modifier = -0.40
+	temple_tax_modifier = -0.40
+	tribal_tax_modifier = -0.40
+	levy_size = -0.4
+	garrison_size = -0.4
+	supply_limit = -4
+	disease_defence = 0.25
+	icon = 24
+}

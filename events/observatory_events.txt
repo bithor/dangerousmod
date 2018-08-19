@@ -1,0 +1,281 @@
+namespace = perobs
+character_event = {
+id = perobs.1
+desc = "EVTDESCPEROBS1"
+picture = GFX_evt_comet
+border = GFX_event_normal_frame_intrigue
+
+ai = no
+only_rulers = yes
+min_age = 16
+prisoner = no
+only_capable = yes
+
+	mean_time_to_happen = {
+		years = 150
+	}
+	trigger = {
+		OR = {
+			capital_holding = { has_building = ca_observatory }
+			family_palace = { has_building = fp_observatory }
+		}
+		NOT = { has_character_flag = saw_weird_anomaly_in_sky }
+	}
+	immediate = { set_character_flag = saw_weird_anomaly_in_sky }
+	option = {
+		tooltip_info = cynical
+		name = weird_anomaly_cynical_option
+		trigger = {
+			trait = cynical
+		}
+		piety = -25
+		culture_techpoints = 5
+	}
+	option = {
+		name = weird_anomaly_cynical_become
+		trigger = {
+			NOT = { trait = cynical }
+		}
+		piety = -25
+		add_trait = cynical
+	}
+	option = {
+		trigger = {
+			NOT = {
+				trait = brave
+			}
+		}
+		name = weird_anomaly_fear_god
+		piety = 50
+		random = {
+			chance = 25
+			add_trait = craven
+		}
+	}
+	option = {
+		trigger = {
+			trait = brave
+		}
+		tooltip_info = brave
+		name = weird_anomaly_fear_god
+		piety = 50
+		random = {
+			chance = 25
+			remove_trait = brave
+		}
+	}
+	option = {
+		trigger = {
+			trait = zealous
+			NOT = {
+				trait = ambitious
+			}
+		}
+		tooltip_info = zealous
+		name = weird_anomaly_sign_of_god
+		piety = 50
+		random_list = {
+			20 = {
+				custom_tooltip = { text = you_understand_sign_of_god }
+				add_trait = ambitious
+			}
+			40 = {
+				custom_tooltip = { text = you_went_nuts }
+				add_trait = lunatic
+			}
+			40 = {
+				custom_tooltip = { text = it_was_the_opposite_of_god }
+				add_trait = possessed
+			}
+		}
+	}
+	option = {
+		tooltip_info = ambitious
+		trigger = {
+			trait = ambitious
+		}
+		name = weird_anomaly_sign_of_god
+		piety = 75
+	}
+}
+#Show stars to a ward
+character_event = {
+id = perobs.2
+hide_window = yes
+
+ai = no
+only_rulers = yes
+min_age = 16
+prisoner = no
+only_capable = yes
+
+	mean_time_to_happen = {
+		years = 150
+	}
+	trigger = {
+		OR = {
+			capital_holding = { has_building = ca_observatory }
+			family_palace = { has_building = fp_observatory }
+		}
+		any_ward = {
+			is_alive = yes
+		}
+		NOT = { has_character_flag = ward_visited_ca_observatory }
+	}
+	immediate = {
+		set_character_flag = ward_visited_ca_observatory
+		random_ward = { character_event = { id = perobs.3 } }
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = perobs.3
+hide_window = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = perobs.4 } }
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = perobs.4
+desc = "EVTDESCPEROBS4"
+picture = GFX_evt_comet
+border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	option = {
+		name = perobs4opt1
+		random = {
+			chance = 60
+			add_trait = cruel
+		}
+		FROM = { add_trait = craven }
+	}
+	option = {
+		name = perobs4opt2
+		trigger = {
+			trait = cynical
+		}
+		tooltip_info = cynical
+		random = {
+			chance = 50
+			FROM = { add_trait = cynical }
+			hidden_tooltip = { character_event = { id = perobs.5 } }
+		}
+	}
+	option = {
+		name = perobs4opt3
+		trigger = {
+			learning = 8
+		}
+		tooltip_info = learning
+		FROM = { change_learning = 1 }
+	}
+	option = {
+		name = perobs4opt4
+		trigger = {
+			trait = zealous
+			OR = {
+				capital_holding = { has_building = ca_chapel }
+				family_palace = { has_building = fp_chapel }
+			}
+		}
+		custom_tooltip = { text = perobs4opt4tooltip }
+	}
+	option = {
+		name = perobs4opt5
+		random = {
+			chance = 15
+			FROM = { add_trait = trusting }
+			hidden_tooltip = { character_event = { id = perobs.6 } }
+		}
+	}
+}
+#ward becomes cynical
+character_event = {
+id = perobs.5
+desc = "EVTDESCPEROBS5"
+picture = GFX_evt_child_play
+border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	option = {
+		name = perobs5opt
+	}
+}
+#ward becomes trusting
+character_event = {
+id = perobs.6
+desc = "EVTDESCPEROBS6"
+picture = GFX_evt_child_play
+border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+	
+	option = {
+		name = perobs6opt
+	}
+}
+#negative piety from Observatory
+character_event = {
+	id = perobs.7
+	hide_window = yes
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	only_rulers = yes
+	
+	trigger = {
+		NOT = { religion_group = muslim }
+		capital_holding = {
+			has_building = ca_observatory
+		}
+		NOT = { has_character_modifier = ca_observatory_piety }
+	}
+	
+	immediate = {
+		add_character_modifier = {
+			name = ca_observatory_piety
+			duration = -1
+			hidden = yes
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#Modifier removed from muslims
+character_event = {
+	id = perobs.8
+	hide_window = yes
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	only_rulers = yes
+	
+	trigger = {
+		religion_group = muslim
+		capital_holding = {
+			has_building = ca_observatory
+		}
+		has_character_modifier = ca_observatory_piety
+	}
+	
+	immediate = {
+		remove_character_modifier = ca_observatory_piety
+	}
+	option = {
+		name = OK
+	}
+}

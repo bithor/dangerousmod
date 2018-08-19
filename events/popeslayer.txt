@@ -1,0 +1,86 @@
+namespace = greatestblot
+character_event = {
+    id = greatestblot.0001
+    title = "A Heathen Captured"
+    picture = GFX_evt_longships_at_sea_oldgods
+    border = GFX_event_normal_frame_religion
+    desc = EVTDESCgreatestblot.0001
+	mean_time_to_happen = {
+	months = 3
+ 	}
+    trigger = {
+		has_dlc = "The Old Gods"
+		is_ruler = yes
+		ai = no
+		NOT = { has_global_flag = pope_delayed }
+		any_courtier = {
+			prisoner = yes
+			religion = catholic
+			controls_religion = yes
+ 		}
+    }
+    option = {
+       name = EVTOPTAgreatestblot.0001
+       character_event = { id = greatestblot.0002 days = 10 }
+    }
+}
+character_event = {
+    id = greatestblot.0002 
+    title = "Calling the Holy Men"
+    picture = GFX_evt_viking_throneroom_oldgods
+    border = GFX_event_normal_frame_religion
+    desc = EVTDESCgreatestblot.0002
+    is_triggered_only = yes
+        mean_time_to_happen = {
+	days = 1
+ 	}
+    option = {
+        name = EVTOPTAgreatestblot.0002
+        character_event = { id = greatestblot.0003 days = 10 }
+    }
+    option = {
+	name = EVTOPTBgreatestblot.0002
+		hidden_tooltip = {
+        		set_global_flag = pope_delayed
+		}	
+    }
+}
+character_event = {
+    id = greatestblot.0003 
+    title = "Sacrificing the Pope"
+    picture = GFX_evt_midwinter_blot_oldgods
+    border = GFX_event_normal_frame_religion
+    desc = EVTDESCgreatestblot.0003
+    is_triggered_only = yes
+        mean_time_to_happen = {
+	days = 1
+ 	}
+    option = {
+       name = EVTOPTAgreatestblot.0003
+	add_trait = Pope_Slayer
+	prestige = 150
+	piety = 250
+	religion_authority = {
+			modifier = sacrificed_head_good
+			years = 20
+	}
+	c_roma = {
+	holder_scope = {
+	       		death = {
+			death_reason = death_sacrificed_norse
+			killer = FROM
+			}
+        }
+	}
+    }
+}
+character_event = {
+    id = greatestblot.0008
+	trigger = {
+	had_global_flag = { flag = pope_delayed days = 800 }
+	}
+	option = {
+		name = EVTOPTAgreatestblot.0008
+		clr_global_flag = pope_delayed
+	}
+}

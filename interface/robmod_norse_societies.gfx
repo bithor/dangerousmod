@@ -1,0 +1,88 @@
+spriteTypes = {
+	
+	##### ORDER OF THE VANIR #####
+	
+	spriteType = {
+		name = "GFX_society_main_background_monastic_order_norse"
+		texturefile = "gfx\\interface\\societies\\society_bg_monastic_order_norse.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_expansion_background_monastic_order_norse"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_the_trollcrafters.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_icon_small_monastic_order_norse"
+		texturefile = "gfx\\interface\\societies\\symbol_small_monastic_order_norse.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_society_influence_monastic_order_norse"
+		texturefile = "gfx\\interface\\societies\\society_influence_monastic_order_norse.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_portrait_ring_monastic_order_norse"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_monastic_order_norse.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_portrait_ring_small_monastic_order_norse"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_the_trollcrafters.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_currency_monastic_order_norse"
+		texturefile = "gfx\\interface\\societies\\society_currency_the_trollcrafters.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_event_window_society_quest_background_monastic_order_norse"
+		textureFile = "gfx/interface/society_quest/mission_bg_monastic_order_norse.dds"
+	}
+	
+	##### CHAMPIONS OF ÆSIR #####
+	
+	spriteType = {
+		name = "GFX_society_main_background_norse_champions"
+		texturefile = "gfx\\interface\\societies\\society_bg_norse_champions.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_expansion_background_norse_champions"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_assassins.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_icon_small_norse_champions"
+		texturefile = "gfx\\interface\\societies\\symbol_small_norse_champions.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_society_influence_norse_champions"
+		texturefile = "gfx\\interface\\societies\\society_influence_the_assassins.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_portrait_ring_norse_champions"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_the_assassins.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_portrait_ring_small_norse_champions"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_the_assassins.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_society_currency_norse_champions"
+		texturefile = "gfx\\interface\\societies\\society_currency_the_assassins.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_event_window_society_quest_background_norse_champions"
+		textureFile = "gfx/interface/society_quest/mission_bg_norse_champions.dds"
+	}
+}

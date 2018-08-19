@@ -1,0 +1,89 @@
+####################
+#### QUALITY 3  ####
+####################
+strange_skull = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			religion = norse_pagan_reformed
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		strange_skull = {
+			value = 1
+		}
+	}
+}
+
+####################
+#### QUALITY 2  ####
+####################
+ancient_axe = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			religion = norse_pagan_reformed
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		ancient_axe = {
+			value = 1
+		}
+	}
+}
+
+ancient_banner_norse = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			religion = norse_pagan_reformed
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		ancient_banner_norse = {
+			value = 1
+		}
+	}
+}

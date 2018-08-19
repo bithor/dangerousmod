@@ -1,0 +1,386 @@
+# Targetted decisions are possible vs _all_ other characters and shown are in the Diplomacy View, not the Intrigue View. The taker is in the FROM scope.
+#
+# filter = [self/court/home_court/vassals/sub_realm/realm/dynasty/all] ('self' MUST be set for decisions targetting only the taker, the other filter types can be set to lessen CPU load)
+# ai_target_filter = [self/court/home_court/vassals/sub_realm/realm/dynasty/all] (which characters for which the AI evaluates the decision.)
+#	court: all characters in the AI's host court, including prisoners, and characters currently away (wards, prisoners, etc)
+#	home_court: all characters in the AI's home court, including prisoners, and characters currently away (wards, prisoners, etc)
+#	vassals: direct vassal rulers of the AI's employer
+#	sub_realm: all characters below the AI's employer
+#	realm: all characters in the same top realm as the AI
+#	dynasty: all members of the same dynasty
+#	rivals: your rivals plus any character you have an opinion modifier with 'crime = yes' set (the same set of characters the 'is_foe' trigger evaluates)
+#	all: all living characters (Avoid if possible. VERY CPU-HEAVY!)
+
+decisions = {
+
+	# Raise Fleet+Flagship (Viking)
+	raise_fleet = {
+		only_playable = yes
+		ai_check_interval = 12
+		potential = {
+			is_playable = yes
+			is_tribal = yes
+			has_global_flag = viking_age_started
+			OR = {
+				culture_group = north_germanic
+				religion = norse_pagan
+			}
+			NOR = {
+				has_character_modifier = raising_fleet_mod
+				has_earmarked_regiments = viking_fleet
+			}
+		}
+		allow = {
+			is_adult = yes
+			prisoner = no
+			custom_tooltip = {
+				text = is_not_busy_trigger_tooltip
+				hidden_tooltip = { NOT = { has_character_flag = do_not_disturb } }
+			}
+			wealth >= 10
+		}
+		effect = {
+			add_character_modifier = { name = raising_fleet_mod duration = -1 }
+			custom_tooltip = { text = raise_fleet_tooltip
+				character_event = { id = VFLEET.1 days = 14 random = 7 } # Assemble shipbuilders
+			}
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0.5 }
+	}
+
+	#Organize Fossado (Iberian Christians)
+	organize_fossado = {
+		only_playable = yes
+		ai_check_interval = 5
+		potential = {
+			culture_group = iberian
+			religion_group = christian
+			is_feudal = yes
+		}
+		allow = {
+			month == 3
+			is_adult = yes
+			custom_tooltip = { text = recent_fossado_tooltip
+				NOR = {
+					has_character_flag = preparing_fossado_flag
+					has_character_modifier = on_fossado_mod
+					has_character_modifier = held_fossado_mod
+				}
+			}
+			prisoner = no
+			custom_tooltip = {
+				text = is_not_busy_trigger_tooltip
+				hidden_tooltip = { NOT = { has_character_flag = do_not_disturb } }
+			}
+			any_neighbor_independent_ruler = { religion_group = muslim } # must have neighbouring Muslims
+			NOT = { top_liege = { religion_group = muslim } }
+		}
+		effect = {
+			set_character_flag = preparing_fossado_flag
+			custom_tooltip = { text = organize_fossado_tooltip }
+			hidden_tooltip = { character_event = { id = FOSSADO.100 days = 5 random = 2 } } # Summon Nobles for Military Service
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0.5 }
+	}
+
+
+}
+
+targetted_decisions = {
+
+	#Enthrall / Enslave
+	twi_enslave_norse = {
+		only_rulers = yes
+		filter = court
+		ai_target_filter = self
+		from_potential = {
+			ai = no
+			prisoner = no
+			OR = {
+				culture_group = north_germanic
+				culture = saxon
+				culture = old_saxon
+				culture = frisian
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+		potential = {
+			prisoner = yes
+			host = { character = FROM } 		
+		}
+		allow = {
+				#NOT = { diplomatic_immunity = yes }
+				prisoner = yes
+		}
+		effect = {
+			hidden_tooltip = { remove_trait = twi_slave_former }
+			add_trait = twi_slave
+
+			hidden_tooltip = { liege = { character_event = { id = RIP.29700 } } }
+			#hidden_tooltip = { FROM = { character_event = { id = RIP.29700 } } } # test
+			#hidden_tooltip = { ROOT = { character_event = { id = RIP.29700 } } } # test
+			if = {
+				limit = {
+					is_consort = yes
+					is_female = yes
+				}
+				consort = { remove_consort = ROOT }
+			}
+			if = {
+				limit = { has_character_flag = originated_from_chinese_court }
+				set_character_flag = ignore_refund
+			}
+			move_character = FROM
+			hidden_tooltip = { liege = { character_event = { id = RIP.29700 } } } # test
+			prisoner = no
+			random_list = {
+				50 = { add_trait = depressed }
+				25 = { add_trait = stressed }
+				25 = { opinion = { modifier = opinion_furious who = FROM } }
+			}
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+	}
+
+	#Free Slave
+	twi_free_slave = {
+		only_rulers = yes
+		filter = court
+		ai_target_filter = self
+		from_potential = {
+			ai = no
+			prisoner = no
+		}
+		potential = {
+			host = { character = FROM } 		
+			trait = twi_slave
+		}
+		allow = {
+			trait = twi_slave
+		}
+		effect = {
+			remove_trait = twi_slave
+			hidden_tooltip = { add_trait = twi_slave_former }
+			prisoner = no
+			opinion = { modifier = opinion_grateful who = FROM months = 36500 }
+			random = { chance = 75 remove_trait = depressed }
+			random = { chance = 75 remove_trait = stressed }
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+	}
+
+	rape = {
+		only_rulers = yes
+		filter = court
+		ai_target_filter = self
+		from_potential = {
+			ai = no
+			is_adult = yes
+			prisoner = no
+		}
+		potential = {
+			age >= 12 # is adolescent
+			OR = {
+				# has_character_modifier = slave_mod
+				trait = twi_slave
+				prisoner = yes
+			}	
+			host = { character = FROM }
+		}
+		allow = {
+			FROM = {
+				NOR = {
+					trait = eunuch
+					trait = incapable
+					trait = infirm
+					trait = celibate
+				}
+			}
+			NOT = { has_character_modifier = tortured }
+		}
+		effect = {
+			hidden_tooltip = {
+				if = {
+					limit = { is_female = yes NOT = { race = horse } }
+					FROM = { sound_effect = devil_worshippers_impregnation_courtier_female }
+					sound_effect = devil_worshippers_impregnation_courtier_female
+				}
+				if = { # Don't just use else, as there are animals in this game...
+					limit = { is_female = no NOT = { race = horse } }
+					FROM = { sound_effect = devil_worshippers_impregnation_courtier_male }
+					sound_effect = devil_worshippers_impregnation_courtier_male
+				}
+				if = {
+					limit = {
+						OR = {
+							age <= 45
+							immortal = yes
+						}
+						is_pregnant = no
+						is_female = yes
+						NOT = { race = horse }
+					}
+					random = { chance = 75 impregnate = FROM }
+				}
+				random_list = { 50 = { add_trait = depressed }
+					25 = { add_trait = stressed }
+					25 = { opinion = { modifier = opinion_cruel who = FROM } }
+				}
+				add_character_modifier = { name = tortured duration = 90 }
+				mother = { opinion = { modifier = opinion_dishonorable_scum who = FROM } }
+				father = { opinion = { modifier = opinion_dishonorable_scum who = FROM } }
+				spouse = {
+					opinion = { modifier = opinion_dishonorable_scum who = FROM }
+#					random = { chance = 100 # TEST not working
+#						add_rival = FROM # (not working)
+#						add_rival = PREV # (not working)
+#						add_rival = ROOT # (this variant is not working, as well, of course)
+#					}
+				}
+				any_child = {
+					opinion = { modifier = opinion_dishonorable_scum who = FROM }
+				}
+				random_list = {
+					20 = { FROM = {
+						remove_trait = kind
+						#character_event = { id = 38303 } #Notify -Chaste (not working)
+					} }
+					20 = { FROM = {
+						remove_trait = chaste
+						#character_event = { id = 38307 } #Notify -Kind (not working)
+					} }
+					20 = { FROM = { add_character_modifier = { name = the_cruel duration = 365 } } }
+					10 = { FROM = { add_character_modifier = { name = merciless duration = 365 } } }
+					#10 = { add_character_modifier = { name = adulterer duration = 365 } }
+					20 = {
+						#nothing
+					}
+				}
+			}
+		}
+		revoke_allowed = { always = yes }
+		ai_will_do = { factor = 0 }
+	}
+
+	claim_primae_noctis = {
+		only_rulers = yes
+		filter = sub_realm
+		ai_target_filter = self
+		from_potential = {
+			ai = no
+			is_female = no
+			is_adult = yes
+			has_law = primae_noctis_law_1
+		}
+		potential = {
+			is_female = yes
+			is_adult = no
+			age >= 12 # is adolescent
+			is_liege_or_above = FROM
+			#lower_tier_than = FROM
+		}
+		allow = {
+			is_betrothed = yes
+			custom_tooltip = { # It must be the target's first night
+				text = deflowered_claim
+				NOT = { has_character_modifier = deflowered_mod }
+				is_pregnant = no
+			}
+			FROM = {
+				NOR = {
+					trait = eunuch
+					trait = incapable
+					trait = infirm
+					trait = celibate
+				}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				random = {
+					chance = 75
+					impregnate = FROM
+				}
+				random_list = {
+					40 = {
+						add_trait = stressed
+						#character_event = { id = 38282 } #Notify +Stressed (not working)
+					}
+					30 = {
+						add_trait = depressed
+						#character_event = { id = 38288 } #Notify +Depressed (not working)
+					}
+					10 = {
+						opinion = {
+							modifier = opinion_furious
+							who = FROM
+						}
+						random = {	chance = 50
+							FROM = {
+								add_trait = wounded
+								#character_event = { id = 38280 } #Notify +Wounded (not working)
+							}
+						}
+					}
+					10 = {
+						modifier = { factor = 2 trait = lustful }
+						modifier = { factor = 2 from = { trait = fair } }
+						modifier = { factor = 2 from = { trait = robust } }
+						modifier = { factor = 2 from = { trait = strong } }
+						modifier = { factor = 2 from = { trait = gregarious } }
+						modifier = { factor = 2 from = { trait = socializer } }
+						modifier = { factor = 2 from = { trait = seducer } }
+						add_lover = FROM
+					}
+					10 = { } # Nothing
+				}
+				random = {	chance = 50
+					mother = {
+						opinion = {
+							modifier = opinion_furious
+							who = FROM
+						}
+					}
+					father = {
+						opinion = {
+							modifier = opinion_furious
+							who = FROM
+						}
+					}
+				}
+				random = { chance = 75
+					spouse = {
+						opinion = {
+							modifier = opinion_cuckolded
+							who = FROM
+						}
+						random = { chance = 50
+							add_rival = FROM # Test
+							#add_rival = ROOT
+						}
+					}
+				}
+				add_character_modifier = { name = deflowered_mod duration = -1 }
+				random_list = {
+					50 = { FROM = {
+						remove_trait = chaste
+						#character_event = { id = 38303 } #Notify -Chaste (not working)
+					} }
+					40 = { FROM = {
+						remove_trait = kind
+						#character_event = { id = 38307 } #Notify -Kind (not working)
+					} }
+					10 = { } #nothing
+				}
+			}
+		}
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+	}
+#Fin
+}

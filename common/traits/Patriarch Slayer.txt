@@ -1,0 +1,12 @@
+Patriarch_Slayer = {
+	trait_name = "Patriarch Slayer"
+	ruler_designer_cost = 20
+	random = no
+	monthly_character_prestige = 0.5
+	monthly_character_piety = 0.5
+	diplomacy = 1
+	christian_opinion = -25
+	same_religion_opinion = 25
+	same_opinion = 100
+	inherit_chance = 0
+}

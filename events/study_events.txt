@@ -1,0 +1,350 @@
+namespace = casper
+character_event = {
+id = casper.6
+desc = "EVTDESCPERCAS106"
+picture = GFX_evt_emissary
+border = GFX_event_normal_frame_diplomacy
+
+	ai = no
+	only_rulers = yes
+
+	trigger = {
+		has_character_flag = writing_biography
+	}
+	mean_time_to_happen = {
+		years = 7
+		modifier = {
+			factor = 0.5
+			learning = 7
+		}
+		modifier = {
+			factor = 0.6
+			age = 50
+		}
+		modifier = {
+			factor = 0.5
+			prestige = 400
+		}
+	}
+	option = {
+		name = accept_success
+		prestige = 150
+		wealth = 75
+		any_dynasty_member = {
+			opinion = {
+				modifier = bio_pos
+				who = ROOT
+				years = 5
+			}
+		}
+		clr_character_flag = writing_biography
+	}
+}
+character_event = {
+id = casper.7
+desc = "EVTDESCPERCAS107"
+picture = GFX_evt_bad_news
+border = GFX_event_normal_frame_diplomacy
+	
+	ai = no
+	only_rulers = yes
+	
+	trigger = {
+		NOT = {
+			prestige = 1000
+		}
+		has_character_flag = writing_biography
+	}
+	mean_time_to_happen = {
+		years = 7
+		modifier = {
+			factor = 5
+			trait = humble
+		}
+		modifier = {
+			factor = 0.5
+			trait = proud
+		}
+		modifier = {
+			factor = 5
+			trait = content
+		}
+		modifier = {
+			factor = 0.5
+			trait = slow
+		}
+		modifier = {
+			factor = 0.5
+			trait = imbecile
+		}
+		modifier = {
+			factor = 0.5
+			trait = inbred
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+	}
+	option = {
+		name = accept_failure
+		prestige = -50
+		add_trait = depressed
+		any_dynasty_member = {
+			opinion = {
+				modifier = bio_neg
+				who = ROOT
+				years = 5
+			}
+		}
+		clr_character_flag = writing_biography
+	}
+}
+character_event = {
+id = casper.8
+desc = "EVTDESCPERCAS108"
+picture = GFX_event_write
+border = GFX_event_normal_frame_diplomacy
+	
+	ai = no
+	only_rulers = yes
+	
+	trigger = {
+		has_character_flag = writing_biography
+	}
+	mean_time_to_happen = {
+		years = 7
+	}
+	option = {
+		name = accept_meh
+		change_learning = 1
+		clr_character_flag = writing_biography
+	}
+}
+character_event = {
+id = casper.9
+desc = "EVTDESCPERCAS109"
+picture = GFX_event_poem
+border = GFX_event_normal_frame_religion
+	
+	ai = no
+	only_rulers = yes
+
+	trigger = {
+		has_character_flag = writing_poem
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	immediate = {
+		set_character_flag = wrote_poem
+		clr_character_flag = writing_poem
+		clr_character_flag = do_not_disturb
+	}
+	option = {
+		name = poem_no
+		custom_tooltip = { text = poem_no_reg }
+	}
+	option = {
+		name = poem_yes
+		custom_tooltip = {
+			text = poem_yes_reg
+			hidden_tooltip = {
+				spouse = { character_event = { id = casper.15 } }
+			}
+		}
+	}
+}
+character_event = {
+id = casper.15
+hide_window = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		spouse = {
+			character_event = { id = casper.10 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}		
+character_event = {
+id = casper.10
+desc = "EVTDESCPERCAS110"
+picture = GFX_event_poem
+border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	option = {
+		custom_tooltip = { text = good_poem_reg }
+		trigger = {
+			OR = { 
+				trait = poet
+				trait = lustful
+				trait = charismatic_negotiator
+				trait = grey_eminence						
+			}
+		}
+		name = read_good_poem
+		random_list = {
+			90 = {
+				custom_tooltip = { text = poem_success }
+				hidden_tooltip = {
+					spouse = {
+						character_event = { id = casper.13 }
+					}
+				}
+			}
+			10 = {
+				custom_tooltip = { text = poem_failure }
+				hidden_tooltip = {
+					spouse = {
+						character_event = { id = casper.14 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		custom_tooltip = { text = meh_poem_reg }
+		trigger = {
+			NOT = { 
+				trait = poet
+				trait = lustful
+				trait = charismatic_negotiator
+				trait = grey_eminence
+				trait = slow
+				trait = lunatic
+				trait = imbecile
+				trait = inbred						
+			}
+		}
+		name = read_meh_poem
+		random_list = {
+			50 = {	
+				custom_tooltip = { text = poem_success }
+				hidden_tooltip = {
+					spouse = {
+						character_event = { id = casper.13 }
+					}
+				}
+			}
+			50 = {
+				custom_tooltip = { text = poem_failure }
+				hidden_tooltip = {
+					spouse = {
+						character_event = { id = casper.14 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		custom_tooltip = { text = bad_poem_reg }
+		trigger = {
+			OR = {
+				trait = slow
+				trait = lunatic
+				trait = imbecile
+				trait = inbred
+			}
+			NOT = { 
+				trait = poet
+				trait = lustful
+				trait = charismatic_negotiator
+				trait = grey_eminence						
+			}
+		}
+		name = read_bad_poem
+		random_list = {
+			10 = {	
+				custom_tooltip = { text = poem_success }
+				hidden_tooltip = {
+					spouse = {
+						character_event = { id = casper.13 }
+					}
+				}
+			}
+			90 = {
+				custom_tooltip = { text = poem_failure }
+				hidden_tooltip = {
+					spouse = {
+						character_event = { id = casper.14 }
+					}
+				}
+			}
+		}
+	}
+}
+character_event = {
+id = casper.13
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		spouse = {
+			character_event = { id = casper.11 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = casper.14
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		spouse = {
+			character_event = { id = casper.12 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+character_event = {
+id = casper.11
+desc = "EVTDESCPERCAS111"
+picture = GFX_evt_lovers
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = poem_read_success
+		add_trait = poet
+		spouse = {
+			opinion = {
+				modifier = poem_pos
+				who = ROOT
+				years = 4
+			}
+		}
+	}
+}
+character_event = {
+id = casper.12
+desc = "EVTDESCPERCAS112"
+picture = GFX_evt_quarrel
+border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = poem_read_failure
+		spouse = {
+			opinion = {
+				modifier = poem_neg
+				who = ROOT
+				years = 2
+			}
+		}
+	}
+}

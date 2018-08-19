@@ -1,0 +1,86 @@
+decisions = {
+	form_new_duchy = {
+
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			tier = COUNT
+			NOT = { tier = DUKE }
+			
+			has_dlc = "Charlemagne"
+			
+			holy_order = no
+			
+			NOT = {
+				has_game_rule = {
+					name = dynamic_realms
+					value = off
+				}
+			}
+			
+			OR = {
+				ai = no
+				AND = {
+					trait = proud
+					prestige = 5000
+				}
+				AND = {
+					trait = ambitious
+					prestige = 5000
+				}
+
+				prestige = 15000
+			}
+		}
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			prestige = 500
+			OR = {
+				realm_size = 3
+				custom_tooltip = {
+					text = form_new_duchy_requirement_tooltip
+				}
+			}
+			wealth = 300
+		}
+		effect = {
+			primary_title = {
+				create_title = {
+					tier = DUKE
+					landless = no
+					temporary = no
+					custom_created = yes
+					culture = ROOT
+					holder = ROOT
+					base_title = THIS
+					copy_title_laws = yes
+				}
+
+				hidden_tooltip = {
+					empire = {
+						ROOT = {
+							primary_title = {
+								de_jure_liege = PREVPREV
+							}
+						}
+					}
+
+			}
+			wealth = -300
+			custom_tooltip = { text = form_new_duchy_tooltip }
+			chronicle = {
+				entry = CHRONICLE_FOUNDED_NEW_KINGDOM_OR_EMPIRE
+				portrait = [Root.GetID]
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

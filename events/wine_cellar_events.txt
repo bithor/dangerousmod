@@ -1,0 +1,676 @@
+namespace = wincel
+character_event = {
+id = wincel.1
+desc = "EVTDESCWINCEL1"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_economy
+	
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	
+	mean_time_to_happen = { months = 3 }
+	
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+		}
+		capital_holding = { has_building = ca_wine_cellar }
+		NOT = { has_character_flag = wine_cellar_obtained }
+	}
+	
+	immediate = { set_character_flag = wine_cellar_obtained }
+	
+	option = {
+		trigger = {
+			NOT = { 
+				trait = drunkard
+			}
+		}
+		name = wine_cellar_yes
+		change_stewardship = 1
+		fertility = 0.05
+	}	
+	option = {
+		custom_tooltip = { text = likes_to_drink }
+		trigger = {
+			OR = {
+				trait = drunkard
+				trait = hedonist
+			}
+		}
+		name = wine_cellar_drunk
+		health = -1
+		fertility = 0.2
+	}
+}
+character_event = {
+id = wincel.2
+desc = "EVTDESCWINCEL2"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+
+	mean_time_to_happen = { years = 50 }
+	
+	immediate = { set_character_flag = drunk_courtier_caught }
+	
+	trigger = {
+		OR = {
+			capital_holding = { has_building = ca_wine_cellar }
+			family_palace = { has_building = fp_cellar_1 }
+		}
+		any_courtier = {
+			OR = {
+				trait = drunkard
+				trait = hedonist
+			}
+			prisoner = no
+		}
+		NOT = { has_character_flag = drunk_courtier_caught }
+		NOT = { has_character_flag = NO_BOOZE_FOR_THIS_ONE }
+	}
+	option = {
+		name = wine_cellar_imprisonment
+		random_courtier = {
+			limit = {
+				OR = {
+					trait = drunkard
+					trait = hedonist
+				}
+				prisoner = no
+			}
+			imprison = yes
+		}
+	}
+	option = {
+		name = wine_cellar_no_evidence
+		add_trait = arbitrary
+	}	
+	option = {
+		custom_tooltip = { text = likes_to_drink }
+		trigger = {
+			OR = {
+				trait = drunkard
+				trait = hedonist
+			}
+		}
+		name = have_a_drink
+		random_courtier = {
+			limit = { 
+				OR = {
+					trait = drunkard
+					trait = hedonist
+				}
+				prisoner = no
+			}
+			opinion = {
+				modifier = drinking_buddy
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}
+character_event = {
+id = wincel.3
+desc = "EVTDESCWINCEL3"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_economy
+	
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	
+	mean_time_to_happen = {
+		months = 4 
+	}
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+		}
+		capital_holding = { has_building = ca_wine_cellar_2 }
+		NOT = { has_character_flag = wine_cellar_2_obtained }
+	}
+	immediate = { set_character_flag = wine_cellar_2_obtained }
+	option = {
+		name = wine_cellar_2_yes
+		change_diplomacy = 1
+	}	
+	option = {
+		custom_tooltip = { text = likes_to_drink }
+		trigger = {
+			OR = {
+				trait = drunkard
+				trait = hedonist
+			}
+		}
+		name = wine_cellar_2_drunk
+		health = -0.5
+		fertility = 0.1
+	}
+}
+#Qur'an forbids we drink wine
+character_event = {
+id = wincel.4
+desc = "EVTDESCWINCEL4"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_economy
+	
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	
+	mean_time_to_happen = {
+		years = 1
+	}
+	trigger = {
+		in_command = no
+		OR = {
+			capital_holding = { has_building = ca_wine_cellar }
+			family_palace = { has_building = fp_cellar_1 }
+		}
+		trait = zealous
+		NOT = { trait = gluttonous }
+		religion_group = muslim
+		NOT = { has_character_flag = NO_BOOZE_FOR_THIS_ONE }
+	}
+	option = {
+		name = wincel4opt1
+		piety = 50
+		decadence = -5
+		set_character_flag = NO_BOOZE_FOR_THIS_ONE
+	}
+	option = {
+		name = wincel4opt2
+		piety = -50
+		decadence = 5
+		remove_trait = zealous
+	}
+}
+#Broke but Full Wine Cellar
+character_event = {
+id = wincel.5
+desc = "EVTDESCWINCEL5"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_economy
+	
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	
+	mean_time_to_happen = {
+		years = 1
+	}
+	trigger = {
+		OR = {
+			capital_holding = { has_building = ca_wine_cellar }
+			family_palace = { has_building = fp_cellar_1 }
+		}
+		NOT = { wealth = -100 }
+		NOT = { has_character_flag = NO_BOOZE_FOR_THIS_ONE }
+		NOT = { has_character_flag = wincel5opt1 }
+	}
+	option = {
+		name = wincel5opt1
+		prestige = 25
+		set_character_flag = wincel5opt1
+	}
+	option = {
+		name = wincel5opt2
+		prestige = -25
+		wealth = 75
+		set_character_flag = NO_BOOZE_FOR_THIS_ONE
+	}
+}
+#Typical feast event (Banquet Hall)
+character_event = {
+id = wincel.6
+desc = "EVTDESCWINCEL6"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_economy
+	
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	
+	mean_time_to_happen = {
+		years = 150
+	}
+	trigger = {
+		in_command = no
+		OR = {
+			capital_holding = { has_building = ca_wine_cellar_2 }
+			family_palace = { has_building = fp_cellar_1 }
+		}
+		NOT = { has_character_flag = NO_BOOZE_FOR_THIS_ONE }
+		NOT = { has_character_flag = wincel6happened }
+		
+	}
+	immediate = { set_character_flag = wincel6happened }
+	option = {
+		name = wincel6opt1
+		prestige = 10
+		hidden_tooltip = {
+			random_list = {
+				50 = { character_event = { id = wincel.7 } }
+				50 = { character_event = { id = wincel.8 } }
+			}
+		}
+	}
+	option = {
+		name = wincel6opt2
+		prestige = -5
+	}
+}
+#Ruler gets drunk
+character_event = {
+id = wincel.7
+desc = "EVTDESCWINCEL7"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel7opt1
+		any_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = random_imprisonment_ypc
+				years = 1
+			}
+		}
+	}
+	option = {
+		trigger = {
+			is_female = no
+		}
+		name = wincel7opt2
+		random_list = {
+			60 = { add_trait = wounded }
+			5 = { add_trait = maimed }
+			1 = { death = { death_reason = death_accident } }
+			34 = { }
+		}
+	}
+	option = {
+		name = wincel7opt3
+		prestige = -5
+	}
+}
+#Two minor nobles drunk
+character_event = {
+id = wincel.8
+desc = "EVTDESCWINCEL8"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel8opt1
+		trigger = {
+			diplomacy = 10
+		}
+		tooltip_info = diplomacy
+		prestige = 5
+		hidden_tooltip = { character_event = { id = wincel.9 } }
+	}
+	option = {
+		name = wincel8opt2
+		hidden_tooltip = {
+			random_list = {
+				50 = { character_event = { id = wincel.9 } }
+				50 = { character_event = { id = wincel.10 } }
+			}
+		}
+	}
+}
+#Order is Restored
+character_event = {
+id = wincel.9
+desc = "EVTDESCWINCEL9"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel9opt
+		prestige = 5
+	}
+}
+#Noble falls
+character_event = {
+id = wincel.10
+desc = "EVTDESCWINCEL10"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel10opt
+		prestige = -5
+	}
+}
+#Knight appears 1
+character_event = {
+id = wincel.11
+desc = "EVTDESCWINCEL11"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	only_men = yes
+	
+	mean_time_to_happen = {
+		years = 150
+	}
+	trigger = {
+		spouse = {
+			learning = 12
+		}
+		in_command = no
+		OR = {
+			capital_holding = { has_building = ca_wine_cellar_2 }
+			family_palace = { has_building = fp_cellar_1 }
+		}
+		NOT = { has_character_flag = NO_BOOZE_FOR_THIS_ONE }
+		NOT = { has_character_flag = JOHN_G_MURDERED_AND_RAPED_MY_WIFE }
+	}
+	immediate = {
+		set_character_flag = JOHN_G_MURDERED_AND_RAPED_MY_WIFE
+	}
+	option = {
+		name = wincel11opt1
+		prestige = 5
+		create_character = {
+			random_traits = no
+			dynasty = NONE
+			female = no
+			age = 35
+			religion = ROOT
+			culture = ROOT
+			trait = lustful
+			trait = tough_soldier
+			trait = proud
+			trait = kind
+			trait = brave
+			attributes = {
+				learning = 13
+				martial = 10
+				diplomacy = 8
+				intrigue = 5
+				stewardship = 4
+			}
+		}
+		new_character = {
+			character_event = { id = wincel.12 days = 40 }
+		}
+	}
+	option = {
+		name = wincel11opt2
+		piety = -5
+	}
+}
+#Knight ping
+character_event = {
+id = wincel.12
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			spouse = {
+				character_event = { id = wincel.13 }
+			}
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#Wife ping
+character_event = {
+id = wincel.13
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		spouse = {
+			character_event = { id = wincel.14 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#Knight joins dinner 2
+character_event = {
+id = wincel.14
+desc = "EVTDESCWINCEL14"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel14opt1
+		prestige = 10
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = uneasy_dinner_convo_wife_negative
+				months = 7
+			}
+		}
+		hidden_tooltip = { FROMFROM = { character_event = { id = wincel.15 } } }
+	}
+	option = {
+		name = wincel14opt2
+		prestige = -10
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = uneasy_dinner_convo_wife_positive
+				months = 7
+			}
+		}
+		FROMFROM = {
+			opinion = {
+				who = ROOT
+				modifier = uneasy_dinner_convo_knight_positive
+				months = 7
+			}
+			hidden_tooltip = { character_event = { id = wincel.21 } }
+		}
+	}
+}
+#Knight 2nd ping
+character_event = {
+id = wincel.15
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = wincel.16 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#Knight Comes to Wife's defence 3
+character_event = {
+id = wincel.16
+desc = "EVTDESCWINCEL16"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel16opt1
+		prestige = -20
+		spouse = {
+			opinion = {
+				who = ROOT
+				modifier = uneasy_dinner_convo_wife_negative
+				months = 12
+			}
+		}
+		FROM = { banish = yes }
+	}
+	option = {
+		name = wincel16opt2
+		prestige = -5
+		hidden_tooltip = { spouse = { character_event = { id = wincel.17 } } }
+	}
+}
+#Wife 2nd ping
+character_event = {
+id = wincel.17
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = wincel.18 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#feast ends, angry wife 4
+character_event = {
+id = wincel.18
+desc = "EVTDESCWINCEL18"
+picture = GFX_evt_quarrel
+border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel18opt
+		hidden_tooltip = {
+			spouse = {
+				add_lover = FROMFROMFROM
+			}
+			FROMFROMFROM = { character_event = { id = wincel.23 days = 60 } }
+		}
+	}
+}
+#Wife 3rd ping
+character_event = {
+id = wincel.19
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		spouse = {
+			character_event = { id = wincel.20 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#Wife and knight have been seeing each other 5
+character_event = {
+id = wincel.20
+desc = "EVTDESCWINCEL20"
+picture = GFX_evt_quarrel
+border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel20opt
+		prestige = -20
+		FROM = {
+			impregnate = FROM
+			add_trait = pregnant
+		}
+	}
+}
+#Knight 3rd ping
+character_event = {
+id = wincel.21
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = wincel.22 }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+#Feast continues
+character_event = {
+id = wincel.22
+desc = "EVTDESCWINCEL22"
+picture = GFX_evt_feast
+border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = wincel22opt
+		piety = 10
+		FROM = {
+			add_friend = ROOT
+		}
+	}
+}
+#Knight another ping
+character_event = {
+id = wincel.23
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			spouse = {
+				character_event = { id = wincel.19 }
+			}
+		}
+	}
+	option = {
+		name = OK
+	}
+}

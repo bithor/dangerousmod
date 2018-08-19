@@ -1,0 +1,22 @@
+germanic = {
+	german = {
+		primary = GER
+		dynasty_names = $german$
+	}
+	frankish = {
+		primary = FRA
+		dynasty_names = $frankish$
+	}
+	suebi = {
+		primary = POR
+		dynasty_names = $suebi$
+	}
+	frisian = {
+		primary = NED
+		dynasty_names = $frisian$
+	}
+	old_lombard = {
+		primary = ITA
+		dynast_names = §old_lombard§
+	}
+}

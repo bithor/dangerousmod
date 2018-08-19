@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_form_new_duchy"
+		texturefile = "gfx\\interface\\decision_icon_form_new_duchy.dds"
+		}
+{

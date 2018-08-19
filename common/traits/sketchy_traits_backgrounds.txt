@@ -1,0 +1,46 @@
+war_veteran = {
+
+    monthly_character_prestige = 1
+    combat_rating = 3
+
+    same_opinion = 30
+    liege_opinion = 10
+    vassal_opinion = 10
+
+    ruler_designer_cost = 20
+
+    ai_honor = 20
+    opposites = {thief missionary}
+}
+
+missionary = {
+
+    monthly_character_piety = 1
+
+    same_opinion = 20
+    same_religion_opinion = 20
+    church_opinion = 10
+    infidel_opinion = -20
+
+    ruler_designer_cost = 20
+
+    ai_zeal = 20
+    opposites = {thief war_veteran}
+
+}
+
+thief = {
+
+	monthly_character_wealth = 5
+	arrest_chance_modifier = 0.2
+
+    same_opinion = -10
+    general_opinion = -10
+
+    ruler_designer_cost = 15
+
+    ai_greed = 20
+    opposites = {missionary war_veteran}
+}  
+
+

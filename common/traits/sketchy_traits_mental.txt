@@ -1,0 +1,48 @@
+psychopath = {
+
+birth = 100
+inherit_chance = 1
+
+intrigue = 4
+diplomacy = -2
+
+plot_power_modifier = 0.10
+combat_rating = 2
+
+same_opinion = -10
+opposite_opinion = -10
+
+
+
+
+opposites = { sociopath }
+
+ai_ambition = 10
+ai_rationality = 30
+ai_greed = -10
+ai_zeal = -50
+ai_honor = -50
+
+}
+
+sociopath = {
+
+martial = 4
+diplomacy = -2
+
+plot_power_modifier = 0.20
+combat_rating = 1
+
+same_opinion = 20
+opposite_opinion = -20
+
+
+opposites = { psychopath }
+
+ai_ambition = 10
+ai_greed = 10
+ai_rationality = -50
+ai_zeal = -50
+ai_honor = -50
+
+}

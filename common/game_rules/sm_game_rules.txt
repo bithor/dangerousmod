@@ -1,0 +1,20 @@
+# ---------------------------------
+# - Soulmates Mod : Game Rules    -
+# - Written by Fox With A Shotgun -
+# - Last Modified 11-09-17        -
+# ---------------------------------
+
+sm_homo_marriage = {
+	name = SM_HOMO_MARRIAGE
+	group = RULE_GROUP_SM
+	option = {
+		name = no
+		text = SM_NO
+		desc = SM_NO_HOMO_DESC
+	}
+	option = {
+		name = yes
+		text = SM_YES
+		desc = SM_YES_HOMO_DESC
+	}
+}

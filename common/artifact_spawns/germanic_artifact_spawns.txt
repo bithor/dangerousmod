@@ -1,0 +1,524 @@
+Angurvadal = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Angurvadal = {
+			value = 1
+		}
+	}
+}
+
+Skofnung = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Skofnung = {
+			value = 1
+		}
+	}
+}
+
+Hrunting = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				culture = saxon
+				culture = old_saxon
+				culture_group = west_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Hrunting = {
+			value = 1
+		}
+	}
+}
+
+Nagling = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				culture = saxon
+				culture = old_saxon
+				culture_group = west_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Nagling = {
+			value = 1
+		}
+	}
+}
+
+Gungnir = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Gungnir = {
+			value = 1
+		}
+	}
+}
+
+Brisingamen = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Brisingamen = {
+			value = 1
+		}
+	}
+}
+
+Gleipnir = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Gleipnir = {
+			value = 1
+		}
+	}
+}
+
+Draupnir = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Draupnir = {
+			value = 1
+		}
+	}
+}
+
+Gambanteinn = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Gambanteinn = {
+			value = 1
+		}
+	}
+}
+
+Singasteinn = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Singasteinn = {
+			value = 1
+		}
+	}
+}
+
+Aegishjalmr = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Aegishjalmr = {
+			value = 1
+		}
+	}
+}
+
+Bragis_harp = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Bragis_harp = {
+			value = 1
+		}
+	}
+}
+
+Eitur = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Eitur = {
+			value = 1
+		}
+	}
+}
+
+Galdrabok = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Galdrabok = {
+			value = 1
+		}
+	}
+}
+
+Mimirs_head = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				culture_group = north_germanic
+			}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		Mimirs_head = {
+			value = 1
+		}
+	}
+}
+
+Gram = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+    weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = c_charolais
+			}
+			NOT = { year = 867 }
+		}
+		additive_modifier = {
+			value = 100
+			primary_title = {
+				title = c_charolais
+			}
+			year = 867
+		}
+		additive_modifier = {
+			value = 100
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+			year = 1066
+		}
+	}
+
+	artifacts = {
+		Gram = {
+			value = 1
+		}
+	}
+}

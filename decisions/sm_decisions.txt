@@ -1,0 +1,298 @@
+# ---------------------------------
+# - Soulmates Mod : Decisions     -
+# - Written by Fox With A Shotgun -
+# - Last Modified 11-09-17        -
+# ---------------------------------
+
+decisions = {
+	# Decision to research Aphrodite's Grimoire
+	sm_research_aphrodite_grimoire = {
+		is_high_prio = yes
+		potential = {
+			has_game_rule = {
+				name = sm_homo_marriage
+				value = yes
+			}
+			is_female = yes
+			trait = homosexual
+			NOT = { trait = zealous }
+			NOT = { has_character_flag = sm_researching_grimoire }
+			NOT = { has_artifact = sm_aphrodite_grimoire }
+		}
+		
+		allow = {
+			OR = {
+				AND = {
+					stewardship = 20
+					learning = 20
+				}
+				learning = 25
+				AND = {
+					learning = 20
+					trait = erudite
+				}
+			}
+			scaled_wealth = {
+				value = 3.5
+				min = 100
+				max = 1000
+			}
+		}
+		
+		# Start researching the grimoire.
+		effect = {
+			scaled_wealth = {
+				value = -3.5
+				min = -100
+				max = -1000
+			}
+			set_character_flag = sm_researching_grimoire
+			character_event = { id = soulmates.1015 }
+		}
+		
+		ai_will_do = {
+			factor = 0.02
+		}
+	}
+	
+	# Decision to create a Lifespark potion
+	sm_create_potion = {
+		is_high_prio = yes
+		potential = {
+			has_game_rule = {
+				name = sm_homo_marriage
+				value = yes
+			}
+			is_female = yes
+			trait = homosexual
+			has_artifact = sm_aphrodite_grimoire
+			NOR = {
+				has_artifact = sm_fpreg_potion_1
+				has_artifact = sm_fpreg_potion_2
+				has_artifact = sm_fpreg_potion_3
+				has_artifact = sm_fpreg_potion_4
+				has_artifact = sm_fpreg_potion_5				
+			}
+		}
+		
+		allow = {
+			wealth = 25
+		}
+		
+		# Bring up the menu for what potion to create.
+		effect = {
+			character_event = { id = soulmates.1017 }
+		}
+		
+		ai_will_do ={
+			factor = 0.05
+		}
+	}
+
+	# Decision to prompt a marriage with a homosexual (female) lover.
+	sm_marry_lover_f = {
+		is_high_prio = yes
+		potential = {
+			has_game_rule = {
+				name = sm_homo_marriage
+				value = yes
+			}
+			is_female = yes
+			is_married = no
+			trait = homosexual
+			has_lover = yes
+			
+			NOR = {
+				trait = zealous
+				trait = celibate
+				trait = nun
+				trait = incapable
+			}
+			
+			any_lover = {
+				is_married = no
+				is_consort = no
+				is_adult = yes
+				is_female = yes
+				trait = homosexual
+				NOR = { 
+					trait = zealous
+					trait = celibate
+					trait = nun
+					trait = incapable
+				}
+				at_location = ROOT
+			}
+		}
+		
+		allow = {
+			any_lover = {
+				NOT = {
+					AND = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_rejected_marriage
+						}
+						ROOT = {
+							has_opinion_modifier = {
+								who = PREV
+								modifier = opinion_rejected_marriage
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			# Ping the target character with a marriage offer.
+			character_event = { 
+				id = soulmates.1000
+				tooltip = sm_marry_lover_f_tt
+			}
+		}
+	}
+	
+	# Decision to prompt for wife or husband to assist with ruling of realm
+	sm_ruler_assist = {
+		is_high_prio = yes
+		potential = {
+			is_married = yes
+		}
+		allow = {
+			spouse = {
+				is_ruler = no
+				is_adult = yes
+				NOT = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_requested_help
+					}
+				}
+				OR = {
+					# Administrative reform
+					AND = {
+						OR = {
+							trait = midas_touched
+							trait = fortune_builder
+						}
+						stewardship = 15
+					}
+					stewardship = 25
+					# Diplomatic reform
+					AND = {
+						OR = {
+							trait = grey_eminence
+							trait = charismatic_negotiator
+						}
+						diplomacy = 15
+					}
+					diplomacy = 25
+					# Military reform
+					AND = {
+						OR = {	
+							trait = brilliant_strategist
+							trait = skilled_tactician
+						}
+						martial = 15
+					}
+					martial = 25
+				}
+				opinion = { who = ROOT value = 50 }
+			}
+			war = no
+		}
+		effect = {
+			character_event = {
+				id = soulmates.6000
+				tooltip = sm_ruler_assist_tt
+			}
+		}
+	}
+}
+
+# Targeted decision to marry female.
+targeted_decisions = {
+	sm_marry_lover_f_targeted = {
+		is_high_prio = no
+		filter = realm
+		ai_target_filter = sub_realm
+		from_potential = {
+			is_married = no
+			is_betrothed = no
+			is_consort = no
+			trait = homosexual
+			is_female = yes
+			is_marriage_adult = yes
+			NOR = {
+				trait = zealous
+				trait = celibate
+				trait = nun
+				trait = incapable
+			}
+		}
+		potential = {
+			has_game_rule = {
+				name = sm_homo_marriage
+				value = yes
+			}
+			is_married = no
+			is_betrothed = no
+			is_consort = no
+			trait = homosexual
+			is_female = yes
+			is_marriage_adult = yes
+			NOR = {
+				trait = zealous
+				trait = celibate
+				trait = nun
+				trait = incapable
+			}
+		}
+		allow = {
+			OR = {
+				FROM = {
+					NOT = { is_close_relative = ROOT }
+				}
+				FROM = {
+					is_lover = ROOT
+				}
+			}
+			opinion = {
+				who = FROM
+				value = 50
+			}
+		}
+		effect = {
+			FROM = {
+				add_spouse = ROOT
+			}
+			
+			piety = -100		
+			any_realm_lord = {
+				limit = {
+					OR = {
+						trait = zealous
+						trait = chaste
+						is_priest = true
+					}				
+				}
+				
+				opinion = {
+						modifier = opinion_unnatural_marriage
+						who = FROM
+						months = 120
+					}
+					
+				opinion = {
+					modifier = opinion_unnatural_marriage
+					who = ROOT
+					months = 120
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

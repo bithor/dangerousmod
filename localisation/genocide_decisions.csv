@@ -1,0 +1,2 @@
+make_genocide;Make a genocide;Commettre un génocide;;;;;;;;;;;;x
+make_genocide_desc;Send soldiers kill everybody but the [From.Culture.GetName] [From.Religion.GetName];Envoyer des soldats massacrer tout le monde execepté les [From.Culture.GetName] [From.Religion.GetName].;;;;;;;;;;;;x

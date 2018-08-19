@@ -1,0 +1,72 @@
+EVTDESCgenocide.0001;There is no more population in [From.GetName]. Those who are still alive are [Root.Culture.GetName] and [Root.Religion.GetName];Il n'y a plus vraiment de population en [From.GetName]. Ceux qui restent sont [Root.Culture.GetName] et [Root.Religion.GetName].;;;;;;;;;;;;x
+EVTDESCgenocide.0002;A courier is brought before me with a message, telling me that [FromFrom.GetTitledFirstName] has sent soldiers to [From.GetName] who have killed the populace. Those left are [Root.Culture.GetName] et [Root.Religion.GetName].;Un messager est présenté devant moi avec un message, me disant que [FromFrom.GetTitledFirstName] a envoyé des soldats en [From.GetName] qui ont tué toute la population. Ceux qui restent sont [Root.Culture.GetName] et [Root.Religion.GetName].;;;;;;;;;;;;x
+EVTOPTAgenocide.0004;Will I have to burn all the villagers myself ?!;Est-ce que je vais devoir brûler moi même tout les villageois?!;;;;;;;;;;;;x
+EVTDESCgenocide.0004;Obviously, the local populations does not appreciate the fact of being massacred, even if our action of standardization is completely legitimate! It will therefore be necessary to deal with the rebels who defend their families...;Visiblement, la population locale n'apprécie pas la fait de se faire massacrer, même si notre action d'uniformisation est complètement légitime! Il va donc falloir s'occuper des rebelles qui défendent leurs familles...;;;;;;;;;;;;x
+EVTDESCgenocide.0005;Your co-religionist did not appreciate your conduct. They say that slaying people remains a sin, even if they are different. It was therefore decided to exclude you from your religion.;Vos coreligionnaire n'ont pas apprécié votre conduite. Ils disent que massacrer des gens reste un pécher, même si ils sont différents. Il a donc été décidé de vous exclure de votre religion.;;;;;;;;;;;;x
+
+EVTTITLEgenocide.0006;Consequences of the genocide;Conséquence du génocide;;;;;;;;;;;;x
+EVTDESCgenocide.0006;Once again, you wake up thinking of all the people you've killed. At the time, the decision seemed good and logical, but the more time passes and the more you doubt. Suddenly a shadow catches your attention. You are not alone in your chamber! A man faces you, he's a nobody for you. Nevertheless, you quickly see that he is a stranger. As he draws his sword, he whispers: "I will finally be able to avenge my family ...".;Encore une fois, vous vous réveillez en pensant à tout les gens que vous avez tué. Sur le moment, la décision avait paru bonne et logique, mais plus le temps passe et plus vous doutez. Soudain, une ombre attire votre attention. Vous n'êtes pas seul dans votre chambre! Un homme vous fait face, il vous est inconnu. Néanmoins, vous voyez rapidement que c'est un étranger. Alors qu'il dégaine son épée, il murmure: "Je vais enfin pouvoir venger ma famille...".;;;;;;;;;;;;x
+EVTOPTAgenocide.0006;Implore forgiveness;Implorer pardon;;;;;;;;;;;;x
+EVTOPTA_Genocide_0006_TOOLTIPA;You manage to lower his sword...;Vous arrivez à lui faire baisser son épée...;;;;;;;;;;;;x
+EVTOPTA_Genocide_0006_TOOLTIPB;He does not pay attention to your pleas...;Il ne fait pas attention à vos supplications...;;;;;;;;;;;;x
+EVTOPTBgenocide.0006;Go out of your bed and run towards your sword;Sortir de votre lit et vous précipiter vers votre épée;;;;;;;;;;;;x
+EVTOPTB_Genocide_0006_TOOLTIPA;You succeed to take your sword and face him;Vous arrivez à prendre votre épée et à lui faire face;;;;;;;;;;;;x
+EVTOPTB_Genocide_0006_TOOLTIPB;He hit you in the back with his sword...;Il vous plante son épée dans le dos sans vous laisser la moindre chance...;;;;;;;;;;;;x
+
+EVTDESCgenocide.0007;You understand suddenly that the one who faces you is a survivor of a genocide whom you committed. It will be difficult to save your life. You decide to:;Vous comprenez soudainement que celui qui vous fait face est un rescapé d'un génocide que vous avez perpétré. Il sera difficile d'avoir la vie sauve. Vous décidez de:;;;;;;;;;;;;x
+EVTOPTAgenocide.0007;Say that you were forced;Dire que vous avez été forcé;;;;;;;;;;;;x
+EVTOPTA_Genocide_0007_TOOLTIPA;He believe in you;Il vous crois;;;;;;;;;;;;x
+EVTOPTA_Genocide_0007_TOOLTIPB;It irritates him even more...;Cela l'énerve encore plus...;;;;;;;;;;;;x
+EVTOPTBgenocide.0007;Say that you regret;Dire que vous regrettez;;;;;;;;;;;;x
+EVTOPTB_Genocide_0007_TOOLTIPA;He seems to hesitate more and more...;Il semble hésiter de plus en plus...;;;;;;;;;;;;x
+EVTOPTB_Genocide_0007_TOOLTIPB;He answers you that this is too late for the regrets...;Il vous répond qu'il est trop tard pour les regrets...;;;;;;;;;;;;x
+
+EVTDESCgenocide.0008;You hold well your sword now. The man in front of you has no very talented air, but at the same time you have just woken up. You fell that he is going to attack you, you:;Vous tenez à présent bien votre épée. L'homme en face de vous n'a pas l'air très doué, mais en même temps vous venez de vous réveiller. Vous sentez qu'il va vous attaquer, vous:;;;;;;;;;;;;x
+EVTOPTAgenocide.0008;Parry the blow;Parez le coup;;;;;;;;;;;;x
+EVTOPTA_Genocide_0008_TOOLTIPA;You magnificently parry the blow;Vous parez magnifiquement le coup;;;;;;;;;;;;x
+EVTOPTA_Genocide_0008_TOOLTIPB;You do not manage to stopthe sword, it sinks into your pulpit...;Vous n'arrivez pas à arrêter l'épée, celle-ci s'enfonce dans votre chaire...;;;;;;;;;;;;x
+EVTOPTBgenocide.0008;Dodge the blow;Esquiver le coup;;;;;;;;;;;;x
+EVTOPTB_Genocide_0008_TOOLTIPA;The sword cuts in the wind...;L'épée coupe dans le vent...;;;;;;;;;;;;x
+EVTOPTB_Genocide_0008_TOOLTIPB;The sword sinks into your skull...;L'épée s'enfonce dans votre crane...;;;;;;;;;;;;x
+
+EVTDESCgenocide.0009;He do not apparently hold you in very high respect, to think that you were manipulated! But if it works, you are ready to lose any honor. The man asks you then who influenced you...;Il ne vous tiens visiblement pas en très haute estime, pour penser que vous avez été manipulé! Mais si cela fonctionne, vous êtes prêt à perdre tout honneur. L'homme vous demande alors qui vous a influencé...;;;;;;;;;;;;x
+EVTOPTAgenocide.0009;You accuse your wife!;Vous accusez votre femme!;;;;;;;;;;;;x
+EVTOPT_Genocide_0009_TOOLTIP;He does not forgive you for that, he wants you to never forget what you did ...;Il ne vous pardonne pas pour autant, il tient à ce que vous n'oubliez jamais ce que vous avez fait...;;;;;;;;;;;;x
+EVTOPT_Genocide_0009_TOOLTIPB;You don't have any councillors, he know it well!;Vous n'avez aucun conseillé, il le sait bien!;;;;;;;;;;;;x
+EVTOPTBgenocide.0009;You accuse your councillors!;Vous accusez vos conseillers!;;;;;;;;;;;;x
+
+EVTDESCgenocide.0010;You kneel down, cry, pray... Inside, you enrage, but he has to believe that you regret! To convince him definitively, you promise to:;Vous vous mettez à genoux, pleurez, priez... Intérieurement, vous bouillonnez, mais il doit croire que vous regrettez! Pour définitivement le convaincre, vous promettez de:;;;;;;;;;;;;x
+EVTOPTAgenocide.0010;Disappear and live in hermit;Disparaître et vivre en ermite;;;;;;;;;;;;x
+EVTOPTBgenocide.0010;No more genocide on your land;Ne plus faire de génocide;;;;;;;;;;;;x
+
+EVTDESCgenocide.0011;You hold well your sword now. The man in front of you has no very talented air, but at the same time you have just woken up. You fell that he is going to attack you, you...;Vous avez réussi à arrêter sa lame sans trop de difficultés. Il est désormais en mauvaise posture. Vous...;;;;;;;;;;;;x
+EVTOPTAgenocide.0011;Kill him;Le tuez;;;;;;;;;;;;x
+EVTOPTA_Genocide_0011_TOOLTIPB;He succeeds in retaliate and cuts your head...;Il parvient à riposter et vous tranche la tête...;;;;;;;;;;;;x
+EVTOPTBgenocide.0011;Push him away and call the guarding;Le repoussez et appelez la garde;;;;;;;;;;;;x
+EVTOPTB_Genocide_0011_TOOLTIPA;The guarding arrives and imprisons him;La garde arrive et l'emprisonne;;;;;;;;;;;;x
+EVTOPTB_Genocide_0011_TOOLTIPB;The guarding arrives and finds your corpse;La garde arrive et trouve votre cadavre;;;;;;;;;;;;x
+
+EVTDESCgenocide.0012;You managed to dodge his blow. He lost the balance, and his nape of the neck is uncovered. You...;Vous avez réussi à esquiver son coup. Il a perdu l'équilibre, et sa nuque est à découvert. Vous...;;;;;;;;;;;;x
+EVTOPTAgenocide.0012;Kill him;Le tuez;;;;;;;;;;;;x
+EVTOPTA_Genocide_0012_TOOLTIPB;It dodges too. You are completely taken by surprise...;Il esquive lui aussi. Vous êtes complètement pris au dépourvu...;;;;;;;;;;;;x
+EVTOPTBgenocide.0012;You run away and call the guarding;Vous vous enfuyez et appelez la garde;;;;;;;;;;;;x
+EVTOPTB_Genocide_0012_TOOLTIPA;The guarding arrives and imprisons him;La garde arrive et l'emprisonne;;;;;;;;;;;;x
+EVTOPTB_Genocide_0012_TOOLTIPB;The guarding arrives and finds you dying;La garde arrive et vous retrouve agonisant;;;;;;;;;;;;x
+
+EVTDESCgenocide.0013;You walk in the corridors of the castle, when you notice magnificent one person. This person notices you, and smiles by making a sign you to approach. She whispers you: "we want two the same thing, no?";Vous vous promenez dans les couloirs du château, lorsque vous remarquez une superbe personne. Elle vous remarque, et sourit en vous faisant signe d'approcher. Elle vous chuchote: "Nous voulons tout deux la même chose, non?";;;;;;;;;;;;x
+EVTOPTAgenocide.0013;"My chamber is open!";L'inviter dans votre chambre;;;;;;;;;;;;x
+EVTOPTBgenocide.0013;You return to your activities, you don't have time for theses things;Vous l'ignorez et retournez à vos occupations;;;;;;;;;;;;x
+
+EVTDESCgenocide.0014;While you turn the back, the person takes out a knife and run to you. Another survivor of the genocide! Got to react quickly!;Alors que vous tournez le dos, la personne sort un couteau et vous fonce dessus. Encore un survivant du génocide! Allez devoir réagir vite!;;;;;;;;;;;;x
+EVTOPTAgenocide.0014;"I am going to repaint walls with your blood!";Ce sera elle ou moi!;;;;;;;;;;;;x
+
+EVTDESCgenocide.0015;Here you are in your chamber. The tension is for its height, you go to explode. You decide to:";Vous voilà dans votre chambre. La tension est à son comble, vous allez exploser. Vous décidez de:;;;;;;;;;;;;x
+EVTOPTAgenocide.0015;Take the initiative and remove your clothes;Prendre les devants et retirer vos vêtements;;;;;;;;;;;;x
+EVTOPTBgenocide.0015;Remove the person's clothes;Lui enlever les vêtements;;;;;;;;;;;;x
+
+EVTDESCgenocide.0016;As you undress and proudly display your naked body, the other person laughs. "You're really stupid!" You see the reflection of a blade ...;Alors que vous vous déshabillez, et que vous exhibez fièrement votre corps nu, l'autre personne se met à rire. "Vous êtes vraiment stupide!". Vous voyez le reflet d'une lame...;;;;;;;;;;;;x
+EVTOPTAgenocide.0016;You feel a cold wind passing between your legs...;Vous sentez un vent froid passer entre vos jambes...;;;;;;;;;;;;x
+
+EVTDESCgenocide.0017;While you put hands in the cloth, you feel a blade, which you remove. The other person becomes pallid. He speaks in an unknown language... Certainly a survivor of the genocide who wants to take revenge. You look at the blade and decide of:;Alors que vous mettez les mains dans le tissu, vous sentez une lame, que vous retirez. L'autre personne devient blême. Elle parle dans une langue inconnue... Surement une survivante du génocide qui veut se venger. Vous regardez la lame et...;;;;;;;;;;;;x
+EVTOPTAgenocide.0017;Choose to end the work and finalize the genocide;Décidez de terminer le travail et finaliser le génocide.;;;;;;;;;;;;x
+EVTOPTBgenocide.0017;"Ha! That will make for me an illegitimate child furthermore! ";"Ha! Ça me fera un batard de plus!";;;;;;;;;;;;x

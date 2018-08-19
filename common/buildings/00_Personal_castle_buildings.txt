@@ -1,0 +1,506 @@
+castle = {
+	ca_library = {
+		desc = ca_library_desc
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_library
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		gold_cost = 350
+		build_time = 1100
+		ai_creation_factor = 90
+		extra_tech_building_start = 100
+		add_number_to_name = no
+		liege_piety = 0.25
+		economy_techpoints = 0.02
+		military_techpoints = 0.01
+		culture_techpoints = 0.05
+	}
+	ca_library_2 = {
+		desc = ca_library_2_desc
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						#ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_library_2
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 2 }
+		gold_cost = 450
+		build_time = 1100
+		ai_creation_factor = 88
+		extra_tech_building_start = 100
+		add_number_to_name = no
+		liege_prestige = 0.5
+		economy_techpoints = 0.01
+		culture_techpoints = 0.01
+		upgrades_from = ca_library
+	}
+	ca_study = {
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_study
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_study_desc
+		gold_cost = 50
+		build_time = 85
+		ai_creation_factor = 89
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_garden_1 = {
+		potential = {
+			OR = {
+				FROM = { 
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_garden_1
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_garden_desc
+		gold_cost = 125
+		build_time = 730
+		ai_creation_factor = 85
+		liege_prestige = 0.10
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_garden_2 = {
+		potential = {
+			OR = {
+				FROM = { 
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_garden_2
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_garden_2_desc
+		
+		gold_cost = 250
+		build_time = 450
+		ai_creation_factor = 70
+
+		upgrades_from = ca_garden_1
+		liege_prestige = 0.20
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_garden_3 = {
+		potential = {
+			OR = {
+				FROM = { 
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_garden_3
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_garden_3_desc
+		gold_cost = 350
+		build_time = 1260
+		ai_creation_factor = 70
+
+		upgrades_from = ca_garden_2
+		liege_prestige = 0.20
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_garden_4 = {
+		potential = {
+			OR = {
+				FROM = { 
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						#ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_garden_4
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 2 }
+		desc = ca_garden_4_desc
+		gold_cost = 500
+		build_time = 1670
+		ai_creation_factor = 68
+
+		upgrades_from = ca_garden_3
+		liege_prestige = 0.5
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_wine_cellar = {
+		potential = {
+			OR = {
+				FROM = {
+					NOT = { culture = norse }
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_wine_cellar
+				}
+			}
+			FROMFROM = {
+				NOT = { has_building = ca_mead_cellar }
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_wine_cellar_desc
+		gold_cost = 200
+		build_time = 320
+		ai_creation_factor = 70
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_mead_cellar = {
+		potential = {
+			OR = {
+				FROM = {
+					culture = norse
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_mead_cellar
+				}
+			}
+			FROMFROM = {
+				NOT = { has_building = ca_wine_cellar }
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_mead_cellar_desc
+		gold_cost = 200
+		build_time = 320
+		ai_creation_factor = 70
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_wine_cellar_2 = {
+		potential = {
+			OR = {
+				AND = {
+					FROM = {
+						OR = {
+							tier = KING
+							tier = EMPEROR
+							ai = no
+						}
+						capital_holding = {
+							title = FROMFROM
+						}
+					}
+					FROMFROM = {
+						OR = {
+							has_building = ca_wine_cellar
+							has_building = ca_mead_cellar
+						}
+					}
+				}
+				FROMFROM = {
+					has_building = ca_wine_cellar_2
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_wine_cellar_2_desc
+		gold_cost = 125
+		build_time = 360
+		ai_creation_factor = 70
+		#upgrades_from = ca_wine_cellar
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_secret_passages = {
+		potential = {
+			OR = {
+				FROM = { 
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_secret_passages
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_secret_passages_desc
+		gold_cost = 250
+		build_time = 650
+		ai_creation_factor = 70
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_training_yard = {
+		potential = {
+			OR = {
+				FROM = { 
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_training_yard
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_training_yard_desc
+		gold_cost = 200
+		build_time = 230
+		ai_creation_factor = 70
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_chapel = {
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_chapel
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		desc = ca_chapel_desc
+		gold_cost = 150
+		build_time = 300
+		liege_piety = 0.25
+		ai_creation_factor = 65
+		extra_tech_building_start = 100
+		add_number_to_name = no
+	}
+	ca_chapel_2 = {
+		potential = {
+			OR = {
+				FROM = { 
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						#ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_chapel_2
+				}
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		desc = ca_chapel_2_desc
+		gold_cost = 350
+		build_time = 500
+		liege_piety = 0.75
+		ai_creation_factor = 60
+		extra_tech_building_start = 100
+		add_number_to_name = no
+		upgrades_from = ca_chapel
+	}
+	ca_observatory = {
+		desc = ca_observatory_desc
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						tier = KING
+						tier = EMPEROR
+						ai = no
+					}
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_observatory
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 2 }
+		prerequisites = { ca_library }
+		gold_cost = 100
+		build_time = 670
+		ai_creation_factor = 50
+		extra_tech_building_start = 100
+		add_number_to_name = no
+		#liege_piety = -0.1
+		culture_techpoints = 0.04
+		tech_growth_modifier_culture = 0.1
+	}
+	ca_medical_1 = {
+		desc = ca_medical_1_desc
+		potential = {
+			NOT = { has_dlc = "Reapers" }
+			OR = {
+				FROM = {
+					ai = no
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_medical_1
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		gold_cost = 75
+		build_time = 215
+		ai_creation_factor = 0
+		extra_tech_building_start = 100
+	}
+	ca_medical_2 = {
+		desc = ca_medical_2_desc
+		potential = {
+			NOT = { has_dlc = "Reapers" }
+			OR = {
+				FROM = {
+					ai = no
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_medical_2
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		prerequisites = { ca_library }
+		gold_cost = 275
+		build_time = 425
+		upgrades_from = ca_medical_1
+		ai_creation_factor = 0
+		extra_tech_building_start = 100
+	}
+	ca_medical_3 = {
+		desc = ca_medical_3_desc
+		potential = {
+			NOT = { has_dlc = "Reapers" }
+			OR = {
+				FROM = {
+					ai = no
+					capital_holding = {
+						title = FROMFROM
+					}
+				}
+				FROMFROM = {
+					has_building = ca_medical_3
+				}
+			}
+		}
+		trigger = { TECH_CONSTRUCTION = 0 }
+		prerequisites = { ca_library }
+		gold_cost = 300
+		build_time = 450
+		upgrades_from = ca_medical_2
+		ai_creation_factor = 0
+		extra_tech_building_start = 100
+	}
+}
+	

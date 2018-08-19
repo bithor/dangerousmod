@@ -1,0 +1,6 @@
+lost_genocide_revolt;Genocide failed;Génocide échoué;;;;;;;;;;;;x
+won_genocide_revolt;Successful Genocide;Génocide réussi;;;;;;;;;;;;x
+WAR_NAME_GENOCIDE;Peasant Revolt to survive;Révolte paysanne pour survivre;;;;;;;;;;;;x
+CB_NAME_GENOCIDE;Peasant Revolt to survive;Révolte paysanne pour survivre;;;;;;;;;;;;x
+peasant_revolt_desc;Peasant leaders rise up and try to liberate their county from oppression when you try to kill there peoples.;Lors d'un meurtre de masse, les chefs paysans se lÃ¨vent et tentent de libérer leur comté de l'oppression.;;;;;;;;;;;;x
+GENOCIDE_REVOLT;[Root.County.GetAdjective] Peasant Revolt;Révolte [Root.County.GetAdjective] de paysans;;;;;;;;;;;;x

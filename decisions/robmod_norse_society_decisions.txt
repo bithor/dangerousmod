@@ -1,0 +1,1279 @@
+###########################################
+#
+# Society decisions
+#
+###########################################
+
+society_decisions = {
+	# ORDER OF THE VANIR
+	norse_monastic_order_invite_sorcerer = {
+		only_playable = yes
+		
+		potential = {
+			has_dlc = "Mystics"
+			society_rank >= 2
+			society_member_of = monastic_order_norse
+			NOT = { has_character_flag = sorcerer_arriving }
+		}
+
+		allow = {
+			has_society_currency_medium_trigger = yes
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			set_character_flag = sorcerer_arriving
+			detract_society_currency_medium_effect = yes
+			
+			custom_tooltip = {
+				text = monastic_order_norse_invite_sorcerer_tt
+				character_event = { id = robmodnorse.00201 days = 7 }
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 0.001
+			modifier = {
+				factor = 0.1
+				any_courtier = { society_member_of = monastic_order_norse } #Less likely to invite if there is already someone else at court
+			}
+			modifier = {
+				any_courtier = { has_job_title = job_spiritual learning = 16 }
+				factor = 0.01
+			}
+		}
+	}
+	
+	norse_monastic_order_learn_seidr = {		
+		potential = {
+			has_dlc = "Mystics"
+			society_rank >= 2
+			society_member_of = monastic_order_norse
+			NOT = { has_character_flag = learning_seidr }
+			NOR = { 
+				has_character_modifier = robmodnorse_seidrmadr
+				has_character_modifier = robmodnorse_seidrkona
+			}
+		}
+
+		allow = {
+			has_society_currency_medium_trigger = yes
+			is_inaccessible_trigger = no
+			prisoner = no
+		}
+
+		effect = {
+			set_character_flag = learning_seidr
+			detract_society_currency_medium_effect = yes
+			custom_tooltip = {
+				text = monastic_order_norse_learn_seidr_tt
+				character_event = { id = robmodnorse.00210 }
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 5
+				is_female = yes
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					trait = detached_priest
+					trait = martial_cleric
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+					trait = mystic
+					learning = 12
+				}
+			}
+		}
+	}
+	
+	# CHAMPIONS OF AESIR
+	norse_champions_learn_to_swordfight = {		
+		only_playable = yes
+		
+		potential = {
+			has_dlc = "Mystics"
+			society_rank >= 1
+			society_member_of = norse_champions
+			NOT = { has_character_flag = learning_swordfighting }
+			NOT = { has_character_modifier = robmodnorse_learnt_swordfighting }
+		}
+
+		allow = {
+			has_society_currency_medium_trigger = yes
+			is_inaccessible_trigger = no
+			prisoner = no
+			NOT = { trait = duelist }
+		}
+
+		effect = {
+			set_character_flag = learning_swordfighting
+			detract_society_currency_medium_effect = yes
+			custom_tooltip = {
+				text = norse_champions_learn_swordfighting_tt
+				character_event = { id = robmodnorse.00261 }
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 10
+				NOT = { combat_rating = 2 }
+			}
+		}
+	}
+	
+	norse_champions_acquire_weapon = {		
+		potential = {
+			has_dlc = "Mystics"
+			society_rank >= 2
+			society_member_of = norse_champions
+			NOT = { has_character_flag = robmod_acquiring_weapon }
+			NOT = { has_character_flag = robmod_acquired_weapon }
+		}
+
+		allow = {
+			has_society_currency_medium_trigger = yes
+			is_inaccessible_trigger = no
+			in_command = no
+			is_incapable = no
+			prisoner = no
+		}
+
+		effect = {
+			set_character_flag = robmod_acquiring_weapon
+			detract_society_currency_medium_effect = yes
+			custom_tooltip = {
+				text = norse_champions_acquire_weapon_tt
+				character_event = { id = robmodnorse.00290 }
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0
+				any_artifact = { has_artifact_flag = weapon }
+			}
+			modifier = {
+				factor = 10
+				has_quest = quest_robmod_acquire_weapon
+			}
+		}
+	}
+	
+	#Power: Inspire troops
+	norse_champions_inspire_troops = {		
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Mystics"
+			society_rank >= 3
+			society_member_of = norse_champions
+			NOT = { has_character_flag = robmodnorse_inspiring_troops }
+		}
+
+		allow = {
+			war = yes
+			has_society_currency_major_trigger = yes
+			prisoner = no
+			is_inaccessible_trigger = no
+			in_command = yes
+			is_incapable = no
+			custom_tooltip = {
+				text = norse_champions_inspire_troops_cooldown_tt
+				NOT = { has_character_modifier = robmodnorse_champion_inspired_troops }
+			}
+		}
+
+		effect = {
+			set_character_flag = robmodnorse_inspiring_troops
+			detract_society_currency_major_effect = yes
+			custom_tooltip = {
+				text = norse_champions_inspire_troops_tt
+				character_event = { id = robmodnorse.00320 }
+			}
+			tooltip = {
+				add_character_modifier = {
+					modifier = robmodnorse_champion_inspired_troops
+					years = 5
+				}
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Power: Raise a Champion's Army
+	norse_champions_raise_army = {		
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Mystics"
+			society_rank >= 4
+			society_member_of = norse_champions
+			is_ruler = yes
+		}
+
+		allow = {
+			war = yes
+			society_currency >= 1000
+			prisoner = no
+			is_inaccessible_trigger = no
+			is_incapable = no
+			custom_tooltip = {
+				text = norse_champions_raise_army_cooldown_tt
+				NOT = { has_character_modifier = robmodnorse_champion_raised_army }
+			}
+		}
+
+		effect = {
+			change_society_currency = -1000
+			custom_tooltip = {
+				text = norse_champions_raise_army_tt
+				character_event = { id = robmodnorse.00330 }
+			}
+			hidden_effect = {
+				add_character_modifier = {
+					modifier = robmodnorse_champion_raised_army
+					years = 5
+				}
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Power: Host a Champion's Tournament
+	norse_champions_tournament = {		
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Mystics"
+			society_rank >= 4
+			society_member_of = norse_champions
+			any_society_member = {
+				society_member_of = norse_champions
+				society_rank <= 3
+				is_inaccessible_trigger = no
+				is_incapable = no
+				NOR = { 
+					is_ill = yes
+					trait = wounded
+					trait = severely_injured
+				}
+			}
+			NOT = { has_character_flag = robmodnorse_hosting_champion_tournament }
+		}
+
+		allow = {
+			has_society_currency_major_trigger = yes
+			war = no			
+			prisoner = no
+			is_inaccessible_trigger = no
+			is_incapable = no
+			NOR = { 
+				is_ill = yes
+				trait = wounded
+				trait = severely_injured
+			}
+			custom_tooltip = {
+				text = norse_champions_tournament_cooldown_tt
+				NOT = { has_character_modifier = robmodnorse_champion_tournament }
+			}
+		}
+
+		effect = {
+			detract_society_currency_major_effect = yes
+			scaled_wealth = -0.2
+			custom_tooltip = {
+				text = norse_champions_tournament_tt
+				character_event = { id = robmodnorse.00339 }
+			}
+			clr_character_flag = robmodnorse_champion_dem_tour
+			set_character_flag = robmodnorse_hosting_champion_tournament
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0.1
+				NOT = { combat_rating = 2 }
+			}
+			modifier = {
+				factor = 0.1
+				trait = craven
+			}
+			modifier = {
+				factor = 100
+				has_character_flag = robmodnorse_champion_dem_tour
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { scaled_wealth = 0.3 }
+			}
+		}
+	}
+}
+
+targetted_decisions = {
+	#ORDER OF THE VANIR
+	norse_monastic_order_heal = {  ### Order of the Vanir Rank 3 power : targeted decision to heal illness
+		potential = {
+			OR = {
+				same_realm = FROM
+				same_society_as = FROM
+				is_friend = FROM
+				character = FROM
+			}
+			is_within_diplo_range = FROM
+			is_ill = yes
+		}
+		
+		from_potential = {
+			has_DLC = "Mystics"
+			society_rank >= 3
+			society_member_of = monastic_order_norse
+			is_adult = yes
+			is_incapable = no
+			religion = norse_pagan_reformed
+		}
+		
+		allow = {
+			FROM = {
+				has_society_currency_major_trigger = yes	###requires 500SocCur
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+			}
+			custom_tooltip = {
+				text = has_learnt_seidr_tt
+				FROM = { 
+					OR = { 
+						has_character_modifier = robmodnorse_seidrmadr
+						has_character_modifier = robmodnorse_seidrkona
+						has_character_flag = robmodnorse_learnt_seidr						
+					}
+				}
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+			in_command = no
+			OR = {
+				character = FROM
+				is_friend = FROM
+				is_close_relative = FROM
+				is_landed = yes
+				is_patrician = yes
+				same_society_as = FROM
+			}
+			OR = {
+				religion = norse_pagan_reformed
+				religion = norse_pagan
+			}
+			NOT = {
+				has_opinion_modifier = {	###opinion modifier 10yrs cooldown
+					who =  FROM
+					modifier = opinion_robmodnorse_attempted_heal
+				}
+			}
+		}
+		
+		effect = {
+			FROM = {
+				detract_society_currency_major_effect = yes	###lose 500SocCur
+			}
+			custom_tooltip = { # success depends on abilities
+				text = norse_monastic_order_heal_tooltip
+				if = { 
+					limit = {
+						FROM = {
+							NOR = {
+								learning = 15
+								trait = mystic
+								trait = theologian
+								piety = 500
+							}
+						}
+					}
+					random_list = {
+						20 = {# successful healing
+							FROM = {
+								character_event = { id = robmodnorse.00204 }
+							}
+							character_event = { 
+								id = robmodnorse.00205
+								tooltip = "norse_monastic_order_heal_success_tt"
+								days = 2
+							}
+						} 
+						80 = {# unsuccessful healing 
+							FROM = {
+								character_event = { id = robmodnorse.00206 }
+							}
+							character_event = {
+								id = robmodnorse.00207
+								tooltip = "norse_monastic_order_heal_failure_tt"
+								days = 2
+							}
+						} 
+					}
+				}
+				if = { 
+					limit = {
+						FROM = {
+							OR = {
+								learning = 15
+								trait = mystic
+								trait = theologian
+								piety = 500
+							}
+						}
+					}
+					random_list = {
+						50 = {# successful healing
+							FROM = {
+								character_event = { id = robmodnorse.00204 }
+							}
+							character_event = { 
+								id = robmodnorse.00205
+								tooltip = "norse_monastic_order_heal_success_tt"
+								days = 2
+							}
+						} 
+						50 = {# unsuccessful healing 
+							FROM = {
+								character_event = { id = robmodnorse.00206 }
+							}
+							character_event = {
+								id = robmodnorse.00207
+								tooltip = "norse_monastic_order_heal_failure_tt"
+								days = 2
+							}
+						} 
+					}
+				}
+			}
+			opinion = {										###opinion mostly serves as a 10 years cooldown ; +5 Opinion
+				who = FROM
+				modifier = opinion_robmodnorse_attempted_heal
+				months = 120
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 5
+				FROM = {
+					OR = {
+						learning = 15
+						trait = mystic
+						trait = theologian
+						piety = 500
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOR = { 
+					is_close_relative = FROM
+					FROM = { is_liege_or_above = ROOT }
+				}
+			}
+		}
+	}
+	
+	norse_monastic_order_curse = {  ### Order of the Vanir Rank 4 power : targeted decision to curse a character
+		potential = {
+			is_within_diplo_range = FROM
+			FROM = {
+				NOT = { has_character_flag = robmodnorse_attempting_curse }
+			}
+		}
+		
+		from_potential = {
+			has_DLC = "Mystics"
+			society_rank >= 4
+			society_member_of = monastic_order_norse
+			is_adult = yes
+			is_incapable = no
+			religion = norse_pagan_reformed
+		}
+		
+		allow = {
+			FROM = {
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+				society_currency >= 1000
+			}
+			custom_tooltip = {
+				text = has_learnt_seidr_tt
+				FROM = { 
+					OR = { 
+						has_character_modifier = robmodnorse_seidrmadr
+						has_character_modifier = robmodnorse_seidrkona
+						has_character_flag = robmodnorse_learnt_seidr
+					}
+				}
+			}
+			OR = {
+				custom_tooltip = {
+					text = curse_foe_tt
+					OR = {
+						FROM = { war_with = ROOT }
+						FROM = { is_foe = ROOT }
+						AND = {
+							FROM = { is_plot_target_of = ROOT }
+							plot_is_known_by = FROM
+						}
+					}
+				}
+				custom_tooltip = {
+					text = curse_vassal_tt
+					OR = { 
+						AND = {
+							vassal_of = FROM
+							is_powerful_vassal = yes
+							NOT = {
+								opinion = {
+									who = FROM
+									value = 0
+								}
+							}
+						}
+						AND = {
+							vassal_of = FROM
+							is_powerful_vassal = yes
+							in_faction = yes
+						}
+					}
+				}
+				custom_tooltip = {
+					text = curse_liege_tt
+					hidden_tooltip = {
+						is_liege_of = FROM
+						OR = {
+							FROM = { trait = ambitious }
+							FROM = { 
+								NOT = {
+									opinion = {
+										who = ROOT
+										value = 0
+									}
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = curse_claimant_tt
+					OR = {
+						FROM = {
+							primary_title = { 
+								ROOT = { is_pretender = yes }
+							}
+						}
+						FROM = {
+							ROOT = { is_heir = yes }
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = is_cursed_tt
+				NOR = { # mainly used as a 10 year cooldown, no real effect
+					has_character_modifier = robmodnorse_cursed
+				} 
+			}
+		}
+		
+		effect = {
+			FROM = {
+				change_society_currency = -1000
+			}
+			custom_tooltip = {
+				text = curse_effect_tooltip
+				hidden_tooltip = { 
+					FROM = {
+						character_event = { id = robmodnorse.00227 }
+						set_character_flag = robmodnorse_attempting_curse
+					}
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 5
+				OR = {
+					learning = 15
+					trait = mystic
+				}
+			}
+			modifier = {
+				factor = 20
+				FROM = { 
+					OR = {
+						is_foe = ROOT
+						NOT = {
+							opinion = {
+								who = ROOT
+								value = -30
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0 
+				OR = {	
+					is_close_relative = FROM
+					FROM = {
+						opinion = {
+							who = ROOT
+							value = 50
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#CHAMPIONS OF AESIR
+	#Power: Challenge fellow Champion
+	norse_champions_issue_challenge = {  ### Champions of Aesir rank 1 power : targeted decision to challenge to a duel
+		potential = {
+			is_within_diplo_range = FROM
+			society_member_of = norse_champions
+			is_society_grandmaster = no
+			NOT = { character = FROM }
+		}
+		
+		from_potential = {
+			has_DLC = "Mystics"
+			society_rank >= 1
+			society_member_of = norse_champions
+			is_adult = yes
+			is_incapable = no
+		}
+		
+		allow = {
+			FROM = {
+				NOR = { 
+					trait = wounded
+					trait = severely_injured
+					trait = mangled
+				}
+				is_inaccessible_trigger = no
+				prisoner = no
+			}
+			custom_tooltip = {
+				text = has_fought_duel_tt
+				FROM = {
+					NOR = { 
+						has_character_modifier = robmodnorse_won_duel
+						has_character_modifier = robmodnorse_lost_duel
+						has_character_modifier = recent_duel_timer
+					}
+				}
+			}
+			is_ill = no
+			NOR = { 
+				trait = wounded
+				trait = severely_injured
+				trait = mangled
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+			NAND = {
+				OR = {
+					FROM = { is_liege_of = ROOT }
+					is_liege_of = FROM
+				}
+				OR = {
+					FROM = { has_minor_title = title_champions_squire }
+					has_minor_title = title_champions_squire
+				}
+			}
+		}
+		
+		effect = {
+			hidden_tooltip = { 
+				FROM = {
+					character_event = { id = robmodnorse.00268 }
+					hidden_tooltip = { 
+						add_character_modifier = {
+							modifier = recent_duel_timer
+							hidden = yes
+							days = 365
+						}
+					}
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0.01
+				FROM = { trait = craven }
+			}
+			modifier = {
+				factor = 5
+				FROM = { trait = brave }
+			}
+			modifier = {
+				factor = 100
+				FROM = { has_quest = quest_robmod_win_duel }
+			}
+			modifier = {
+				factor = 50
+				trait = craven
+			}
+			modifier = {
+				factor = 0.5
+				is_female = yes
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 5
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 4
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 3
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 2
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 1
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 2
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 3
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 4
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 5
+					}
+				}
+			}
+		}
+	}
+	
+	#Power: Challenge Kappi-Mestr
+	norse_champions_challenge_grand_champion = {  ### Champions of Aesir rank 3 power : targeted decision to challenge the Kappi-Mestr to a duel for the title of Champion
+		potential = {
+			is_within_diplo_range = FROM
+			FROM = {
+				NOT = { has_character_modifier = recent_duel_timer }
+			}
+			society_member_of = norse_champions
+			is_society_grandmaster = yes
+			NOT = { character = FROM }
+		}
+		
+		from_potential = {
+			has_DLC = "Mystics"
+			society_rank >= 3
+			society_member_of = norse_champions
+			is_adult = yes
+			is_incapable = no
+		}
+		
+		allow = {
+			FROM = {
+				NOR = { 
+					trait = wounded
+					trait = severely_injured
+					trait = mangled
+				}
+				is_inaccessible_trigger = no
+				prisoner = no
+				has_society_currency_major_trigger = yes	###requires 500SocCur
+			}
+			custom_tooltip = {
+				text = has_fought_grand_champion_tt
+				FROM = {
+					NOR = { 
+						has_character_modifier = robmodnorse_won_champion
+						has_character_modifier = robmodnorse_lost_champion
+						has_character_modifier = robmodnorse_won_duel
+						has_character_modifier = robmodnorse_lost_duel
+					}
+				}
+			}
+			is_ill = no
+			NOR = { 
+				trait = wounded
+				trait = severely_injured
+				trait = mangled
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+			NAND = {
+				OR = {
+					FROM = { is_liege_of = ROOT }
+					is_liege_of = FROM
+				}
+				OR = {
+					FROM = { has_minor_title = title_champions_squire }
+					has_minor_title = title_champions_squire
+				}
+			}
+		}
+		
+		effect = {
+			FROM = {
+				detract_society_currency_major_effect = yes	###lose 500SocCur
+			}
+			hidden_tooltip = { 
+				FROM = {
+					character_event = { id = robmodnorse.00309 } 
+					add_character_modifier = {
+						modifier = recent_duel_timer
+						hidden = yes
+						days = 365
+					}
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 3
+				FROM = { trait = brave }
+			}
+			modifier = {
+				factor = 0.01
+				FROM = { trait = craven }
+			}
+			modifier = {
+				factor = 5
+				trait = craven
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 5
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 4
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 3
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 2
+				}
+			}
+			modifier = {
+				factor = 0.8
+				combat_rating_diff = {
+					character = FROM
+					value = 1
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 2
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 3
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 4
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					combat_rating_diff = {
+						character = ROOT
+						value = 5
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				age = 50
+			}
+			modifier = {
+				factor = 1.5
+				age = 60
+			}
+			modifier = {
+				factor = 1.5
+				age = 70
+			}
+		}
+	}
+	
+	#Power: intimidate
+	norse_champions_intimidate = {
+		
+		ai_target_filter = realm
+
+		from_potential = {
+			has_dlc = "Conclave"
+			is_playable = yes
+			is_adult = yes
+			NOT = { trait = incapable }
+			society_rank = {
+				society = norse_champions
+				rank >= 2
+			}
+			prisoner = no
+		}
+
+		potential = {
+			NOT = { character = FROM }
+			age = 10
+			OR = {
+				FROM = { ai = yes } # Only checks realm, so by definition in range
+				is_within_diplo_range = FROM
+			}
+		}
+
+		allow = {
+			ROOT = {
+				NOT = { society_member_of = norse_champions }
+				prisoner = no
+				is_inaccessible_trigger = no
+				NOT = { owes_favor_to = FROM }
+				NOT = { trait = brave }
+			}
+			OR = {
+				FROM = { society_rank == 4 }
+				ROOT = { same_realm = FROM }
+			}
+			FROM = { 
+				has_society_currency_medium_trigger = yes
+				is_inaccessible_trigger = no 
+			}
+			NOT = {
+				has_opinion_modifier = {
+					modifier = opinion_threatened_me
+					who = FROM
+				}
+			}
+		}
+
+		effect = {
+			FROM = { detract_society_currency_medium_effect = yes }
+
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 9
+						FROM = { society_rank == 4 }
+					}
+					modifier = {
+						factor = 3
+						FROM = { society_rank == 3 }
+					}
+					modifier = { #Makes craven characters always give in
+						factor = 10000
+						trait = craven
+					}
+					modifier = { #Weak characters more likely
+						factor = 1.2
+						NOT = { combat_rating = 2 }
+					}
+					hidden_effect = { character_event = { id = robmodnorse.00302 days = 1 } }
+					FROM = { add_favor = ROOT }
+				}
+				40 = {
+					modifier = { #Makes it even harder to threaten someone 2 steps above you
+						factor = 3
+						OR = {
+							AND = {
+								tier = EMPEROR
+								FROM = { lower_tier_than = KING }
+							}
+							AND = {
+								tier = KING
+								FROM = { tier = BARON }
+							}
+						}
+					}
+					modifier = { #Makes it harder to threaten someone above you
+						factor = 3
+						higher_tier_than = FROM
+					}
+					modifier = { #Weak characters more likely
+						factor = 1.2
+						combat_rating = 4
+					}
+					custom_tooltip = { text = norse_champions_intimidate_fail_tt }
+					hidden_effect = { FROM = { character_event = { id = robmodnorse.00304 days = 1 } } }
+				}
+			}
+			
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.01 # slow down
+			}
+			modifier = {
+				FROM = { is_benevolent_trigger = yes }
+				factor = 0.1
+			}
+			modifier = {
+				FROM = { is_evil_trigger = yes }
+				factor = 2
+			}
+			modifier = {
+				OR = {
+					is_friend = FROM
+					is_lover = FROM
+					NOR = {
+						liege = { character = FROM }
+						is_liege_of = FROM
+					}
+				}
+				factor = 0
+			}
+		}
+	}
+	
+	#Power: Demand a Champions Tournament
+	norse_champions_dem_tour = {  ### Champions of Aesir rank 3 power : targeted decision to demand the Kappi-Mestr holds a Champions Tournament. Used to ensure the Kappi-Mestr doesn't just sit on his title.
+		potential = {
+			NOT = { character = FROM }
+			society_member_of = norse_champions
+			is_society_grandmaster = yes
+			NOT = { has_character_flag = robmodnorse_hosting_champion_tournament }
+		}
+		
+		from_potential = {
+			has_DLC = "Mystics"
+			society_rank >= 1
+			society_member_of = norse_champions
+			is_adult = yes
+			is_incapable = no
+		}
+		
+		allow = {
+			has_society_currency_major_trigger = yes
+			war = no			
+			prisoner = no
+			is_inaccessible_trigger = no
+			is_incapable = no
+			NOR = { 
+				is_ill = yes
+				trait = wounded
+				trait = severely_injured
+			}
+			scaled_wealth = 0.2
+			custom_tooltip = {
+				text = norse_champions_tournament_cooldown_tt
+				NOT = { has_character_modifier = robmodnorse_champion_tournament }
+			}
+			FROM = {
+				NOR = {
+					is_ill = yes
+					trait = wounded
+					trait = severely_injured
+					trait = mangled
+					trait = infirm
+					prisoner = yes
+					is_inaccessible_trigger = yes
+				}
+				custom_toolip = {
+					text = norse_champions_dem_tour_cooldown_tt
+					hidden_tooltip = {
+						NOT = { has_character_modifier = robmodnorse_champion_dem_tour }
+					}
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = { 
+				text = norse_champions_dem_tour_tt
+				FROM = {
+					character_event = { id = robmodnorse.00331 }
+					hidden_tooltip = { 
+						add_character_modifier = {
+							modifier = robmodnorse_champion_dem_tour
+							hidden = yes
+							years = 5
+						}
+					}
+				}
+			}
+			opinion = {
+				modifier = opinion_irritated
+				who = FROM
+				years = 2
+			}
+			hidden_tooltip = {
+				character_event = { id = robmodnorse.00332 }
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+		}
+	}
+}

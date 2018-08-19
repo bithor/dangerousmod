@@ -1,0 +1,175 @@
+#############################################
+# CHARACTER NICKNAMES
+# Independent dukes, kings and emperors only
+#
+# 'factor' is the percentage per year of 
+# gaining the nickname
+#
+#############################################
+
+# TRIGGERED ONLY
+################
+
+# nick_the_[example] = {}
+nick_firstraven = {}
+nick_skald = {}
+nick_kappi_mestr = {}
+nick_oathswriter = {}
+nick_firstsister = {}
+nick_blessed_tyr = {}
+
+# GIVEN BY TRAITS
+#################
+
+nick_berserker = {
+	allow = {
+		age = 16
+		trait = berserker
+	}
+	chance = {
+		factor = 5
+		modifier = {
+			factor = 1.5
+			martial = 15
+			NOT = { martial = 20 }
+		}
+		modifier = {
+			factor = 2
+			martial = 20
+			NOT = { martial = 25 }
+		}
+		modifier = {
+			factor = 2.5
+			martial = 25
+		}
+	}
+}
+
+nick_handarvanr = {
+	allow = {
+		age = 10
+		trait = one_handed
+		culture = norse
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 0.1
+			OR = {
+				trait = one_eyed
+				trait = one_legged
+				trait = disfigured
+				trait = mangled
+			}
+		}
+	}
+}
+
+nick_oathsman = {
+	allow = {
+		trait = robmodnorse_oathsman
+		piety = 200
+		prestige = 500
+	}
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 10
+			OR = {
+				has_minor_title = title_commander
+				has_job_title = job_marshal
+			} 
+		}
+		modifier = {
+			factor = 5
+			prestige = 700
+		}
+		modifier = {
+			factor = 2
+			prestige = 1200
+		}
+		modifier = {
+			factor = 5
+			piety = 500
+		}
+		modifier = {
+			factor = 2
+			piety = 700
+		}
+	}
+}
+
+nick_volur = {
+	allow = {
+		is_female = yes
+		trait = mystic
+		culture = norse
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+	}
+	chance = {
+		factor = 5
+		modifier = {
+			factor = 2
+			trait = robmodnorse_friggsister
+		}
+		modifier = {
+			factor = 5
+			has_character_modifier = robmodnorse_seidrkona
+		}
+		modifier = {
+			factor = 10
+			has_minor_title = title_volva
+		}
+	}
+}
+
+nick_seidkonur = {
+	allow = {
+		is_female = yes
+		culture = norse
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+	}
+	chance = {
+		factor = 5
+		modifier = {
+			factor = 2
+			trait = robmodnorse_friggsister
+		}
+		modifier = {
+			factor = 10
+			has_character_modifier = robmodnorse_seidrkona
+		}
+	}
+}
+
+nick_seidmadr = {
+	allow = {
+		is_female = no
+		culture = norse
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		trait = mystic
+	}
+	chance = {
+		factor = 5
+		modifier = {
+			factor = 10
+			has_character_modifier = robmodnorse_seidrkona
+		}
+	}
+}
+
+# GIVEN BY PIETY
+#################
+
+# GIVEN BY RULE
+################
+

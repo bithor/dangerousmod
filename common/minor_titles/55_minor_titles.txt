@@ -1,0 +1,68 @@
+########################################################
+# MINOR TITLES
+# Characters can have any number of these
+########################################################
+#	grant_limit: Max number of holders.
+#	realm_in_name: Append the name of the country after the title (Queen [of Sweden])
+#	allowed_to_hold: conditions for the character to hold the title
+#	allowed_to_grant: conditions for a ruler to grant the title
+#	regent: This is the title for regents (not really "minor")
+#	gain_effect: fires when the title is granted
+#	lose_effect: fires when a title is lost through most causes
+#	retire_effect: fires when a title is lost due to the character stepping down
+#	death_effect: fires when a title is lost due to the character dying
+#	message: should fire a message to the its owner when set
+#	The other fields are all character modifiers.
+
+title_knight_round_table = {
+
+	dignity = 0.85
+	attribute = martial
+	show_as_title = no
+	realm_in_name = no
+	grant_limit = 24
+	revoke_allowed = no
+	#is_voter = yes # Enabling this will disable the title for those without Conclave or council :(
+
+	monthly_salary = 0.01
+	monthly_prestige = 1.5
+	#liege_prestige = 0.01 # Kaputt
+	opinion_effect = 10
+
+	allowed_to_grant = { has_law = round_table_law_1 } #Trigger for the giver of the minor title, if it's not met, it doesn't appear in the minor title screen.
+	allowed_to_hold = { #Trigger for the holder of the minor title, if it's not met by a character, they don't appear in the candidate list.
+		is_adult = yes
+		prisoner = no
+		OR = {
+			trait = diligent
+			trait = patient
+			trait = kind
+			trait = charitable
+			trait = brave
+			trait = honest
+			trait = just
+		} 
+		NOR = {
+			trait = blinded
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+			trait = slow
+		} 
+	}
+
+#	gain_effect = {
+#		character_event = { id = RTABLE.3 days = 365 random = 100 } # Knight Improves
+#	}
+#	lose_effect = {
+#		clear_delayed_event = { id = RTABLE.3 } # Knight Improves
+#	}
+#	retire_effect = {
+#		clear_delayed_event = { id = RTABLE.3 } # Knight Improves
+#	}
+#	death_effect = {
+#		clear_delayed_event = { id = RTABLE.3 } # Knight Improves
+#	}
+
+	message = yes
+}

@@ -1,0 +1,128 @@
+# Province adopts Norse-Gael culture
+province_event = {
+	id = 5431
+	desc = EVTDESC_NGL_2003
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		OR = {
+			culture = irish
+			culture = scottish
+			culture = welsh
+		}
+		owner = {
+			OR = {
+				culture = norse
+				culture = norse-gael
+			}
+		}
+		NOT = { year = 1150 }
+	}
+	
+	mean_time_to_happen = {
+		months = 900
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTA_NGL_2003
+		trigger = {
+			NOT = {
+				owner = { culture = norse-gael }
+			}
+		}
+		culture = norse-gael
+	}
+	option = {
+		name = EVTOPTB_NGL_2003
+		trigger = {
+			owner = { culture = norse-gael }
+		}
+		culture = norse-gael
+	}
+}
+
+# The Norse-Gael Melting Pot
+character_event = {
+	id = NGL.55002
+	desc = "EVTDESC_NGL_55002"
+	picture = GFX_evt_stone_church
+	
+	trigger = {
+		year = 800
+		culture = norse
+		any_demesne_province = {
+			kingdom = {
+				title = k_scotland
+				title = k_ireland
+			}
+			culture = norse
+			culture = irish
+			culture = scottish
+			culture = welsh
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.80
+			learning = 5
+		}
+		modifier = {
+			factor = 0.75
+			learning = 7
+		}
+		modifier = {
+			factor = 0.75
+			learning = 11
+		}
+		modifier = {
+			factor = 0.75
+			learning = 13
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 1 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_NGL_55002"
+		culture = norse-gael
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_scotland
+					title = k_ireland
+				}
+				culture = norse
+				culture = irish
+				culture = scottish
+				culture = welsh
+			}
+			culture = norse-gael
+		}
+	}
+}

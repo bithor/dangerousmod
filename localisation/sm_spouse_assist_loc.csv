@@ -1,0 +1,70 @@
+#CODE;ENGLISH;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAssistReq;Requesting Assistance from your [Root.Spouse.GetHusbandWife];;;;;;;;;;;;;x
+EVTDESCsoulmates.6000;Your [Root.Spouse.GetHusbandWife], [Root.Spouse.GetFirstName], is truly talented in [Root.Spouse.GetHerHis] own way. Without a realm of [Root.Spouse.GetHerHis] own, however, these talents are wasted. Perhaps you could make good use of them...?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6000;I do need help with keeping my records...;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.6000;You ask your [Root.Spouse.GetHusbandWife] to assist you with bookkeeping and administration.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.6000;[Root.Spouse.GetSheHeCap] must help improve my reputation!;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.6000;You ask your [Root.Spouse.GetHusbandWife] to assist you with diplomatic overtures.;;;;;;;;;;;;;x
+EVTOPTCsoulmates.6000;My soldiers could learn a thing or two from my [Root.Spouse.GetHusbandWife].;;;;;;;;;;;;;x
+EVTOPTCTTsoulmates.6000;You ask your [Root.Spouse.GetHusbandWife] to assist you with preparing the realm for war.;;;;;;;;;;;;;x
+EVTOPTDsoulmates.6000;I shouldn't put more pressure on my [Root.Spouse.GetHusbandWife]...;;;;;;;;;;;;;x
+EVTOPTDTTsoulmates.6000;You decide to not ask your spouse to do anything.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAdmReform;Administrative Reforms;;;;;;;;;;;;;x
+EVTDESCsoulmates.6100;Your [Root.Spouse.GetHusbandWife], [Root.Spouse.GetFirstName], has accepted your order to help improve the realm's economic affairs. [Root.Spouse.GetSheHeCap] appears to be somewhat displeased by this order, however - it is not a small task you have placed on [Root.Spouse.GetHerHim], after all.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6100;My orders still stand, whether or not [Root.Spouse.GetSheHe] likes it!;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAdmNobleTax;Administrative Reform: Taxation;;;;;;;;;;;;;x
+EVTDESCsoulmates.6101;The lords of your realm have long enjoyed tax privileges that leech valuable gold from your treasury. By eliminating these privileges, your [Root.Spouse.GetHusbandWife] suggests that more gold would flow into your coffers. Your noble vassals, however, are unlikely to be pleased...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6101;Make it so! The realm's treasury shall flow with gold!;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.6101;You decide to revoke some tax privileges from the nobility.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.6101;I dare not anger them. Perhaps we should look someplace else.;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.6101;You decide to not revoke any tax privileges from the nobility.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAdmTradePromotion;Administrative Reform: Promoting Trade;;;;;;;;;;;;;x
+EVTDESCsoulmates.6102;Your [Root.Spouse.GetHusbandWife] has brought to you several letters from prominent merchants in your realm. They propose the establishment of a major trade route passing through one of your provinces, which would bring much wealth. All they require is your blessing - and some gold to pave the route.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6102;Make it so.;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.6102;You pay for the road and have the trade route established.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.6102;It's too expensive.;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.6102;You don't pay for the road. The trade route remains only a plan, and nothing more.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAdmPurge;Administrative Reform: Corruption;;;;;;;;;;;;;x
+EVTDESCsoulmates.6103;One of your mayors is famously arbitrary, and as a result, taxation flowing into your coffers has suffered. Recently, however, your spouse has uncovered evidence that quite a significant amount of money being embezzled by him. More than enough evidence to warrant an arrest.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6103;Into the dungeons with him!;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.6103;The corrupt mayor is thrown into your dungeons.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAdmCensus;Administrative Reform: Census;;;;;;;;;;;;;x
+EVTDESCsoulmates.6104;Your [Root.Spouse.GetHusbandWife] has come to you with an ambitious - and costly - proposal. By taking a survey of your subjects' wealth, health, and other bits of information deemed relevant, [Root.Spouse.GetSheHe] is adamant that your administration could be made far more efficient. After all, if it had once worked for the Romans, surely it should work now.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6104;No stone shall be unturned.;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.6104;You pay for the census. The resulting information would be invaluable to future development.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.6104;It's too expensive.;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.6104;You don't pay for the census.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseAdmStressed;Spouse Stressed by Workload;;;;;;;;;;;;;x
+EVTDESCsoulmates.6105;Your [Root.Spouse.GetHusbandWife] was found by [Root.Spouse.GetHerHis] chambermaids in [Root.Spouse.GetHerHis] study again last night, sleeping using a thick book as a pillow, and a burned-out candle on [Root.Spouse.GetHerHis] desk. [Root.Spouse.GetHerHisCap] haggard appearance tells a story of many a sleepless night poring over records and letters. Perhaps [Root.Spouse.GetSheHe] is struggling to keep up with the work you have placed upon [Root.Spouse.GetHerHim]?;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6105;I'm confident that [Root.Spouse.GetFirstName] can handle [Root.Spouse.GetHerHis] work.;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.6105;Your spouse struggles on despite [Root.Spouse.GetHerHis] stress.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseDipReform;Diplomatic Reforms;;;;;;;;;;;;;x
+EVTDESCsoulmates.6200;Your [Root.Spouse.GetHusbandWife], [Root.Spouse.GetFirstName], has accepted your order to help improve your diplomatic standing with others within and without your realm. [Root.Spouse.GetSheHeCap] appears to be somewhat daunted by this order, however - it is nnot a small task your have placed on [Root.Spouse.GetHerHim], after all.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6200;I have every confidence that [Root.Spouse.GetFirstName] will succeed with this task.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseDipReformCourtLife;Diplomatic Reform: Ceremonies;;;;;;;;;;;;;x
+EVTDESCsoulmates.6201;Your spouse approaches you with an odd suggestion. [Root.Spouse.GetSheHeCap] says that with extravagant courtly rituals, it would be possible to impress your vassals with your wealth and prestige. This in turn would make them easier to control, [Root.Spouse.GetSheHe] says.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6201;Purchasing stability at any cost is imperative.;;;;;;;;;;;;;x
+EVTOPTATTsoulmates.6201;You order your spouse to make it so.;;;;;;;;;;;;;x
+EVTOPTBsoulmates.6201;Is this just an excuse to have more feasts?;;;;;;;;;;;;;x
+EVTOPTBTTsoulmates.6201;You turn down the suggestion.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseDipReformCulturalObs;Diplomatic Reform: Culture;;;;;;;;;;;;;x
+EVTDESCsoulmates.6202;Your spouse approaches you with an interesting compilation of customs from foreign cultures. Some of them look rather grandiose and could be introduced into your own courtly rituals.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6202;Excellent.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseDipReformPropaganda;Diplomatic Reform: Propaganda;;;;;;;;;;;;;x
+EVTDESCsoulmates.6203;Your spouse has been hard at work, writing numerous tracts extolling the virtues of your rule. After [Root.Spouse.GetSheHe] ordered scribes to make many copies of them, [Root.Spouse.GetSheHe] sent them away to every village and town in your realm, with orders that town criers were to read them loudly every day for an entire month. Your population has since grown to be far more docile and supportive of you than before.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6203;Excellent.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseDipReformFauxPas;Diplomatic Faux Pas;;;;;;;;;;;;;x
+EVTDESCsoulmates.6204;Your [Root.Spouse.GetHusbandWife] has been meeting with foreign rulers and dignitaries in an effort to establish better relationships with them. Unfortunately, however, [Root.Spouse.GetSheHe] has let slip an unsavoury tidbit which has led to vicious rumours circulating about your misrule...;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6204;Where is my incompetent [Root.Spouse.GetHusbandWife]!?;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseMilReform;Military Reforms;;;;;;;;;;;;;x
+EVTDESCsoulmates.6300;Your [Root.Spouse.GetHusbandWife], [Root.Spouse.GetFirstName], has accepted your order to help improve the realm's military readiness. It is a daunting task, even for your most experienced generals, but you have every confidence that [Root.Spouse.GetSheHe] will be able to succeed.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6300;I have every confidence in [Root.Spouse.GetHerHis] abilities.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseMilReformLevyTraining;Military Reform: Levies;;;;;;;;;;;;;x
+EVTDESCsoulmates.6301;Your [Root.Spouse.GetHusbandWife] has taken it upon [Root.Spouse.GetHerselfHimself] to ensure that the levies of your realm are drilled and trained regularly. As a result, you have more able-bodied men ready to serve under your command than ever before.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6301;Quantity has a quality all its own.;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseMilReformLevyEquipment;Military Reform: Equipment;;;;;;;;;;;;;x
+EVTDESCsoulmates.6302;Pikes, bows, arrows, swords, spears - the variety of weapons in the field were staggering. Your levies brought what they could, of whatever size they thought best. With a standardised arsenal, your [Root.Spouse.GetHusbandWife] assures you that they would be better able to fight as one.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6302;Just don't make me wear the same rags as the lowest footman!;;;;;;;;;;;;;x
+EVTTITLEsoulmatesSpouseMilReformSiegeDef;Military Reform: Defenses;;;;;;;;;;;;;x
+EVTDESCsoulmates.6303;As you inspect one of your castles, you notice an oddly large crossbow mounted on its highest tower. After asking one of the guards, you find out that your [Root.Spouse.GetHusbandWife] ordered it installed, in order to provide the castle with improved defenses against any attacker.;;;;;;;;;;;;;x
+EVTOPTAsoulmates.6303;How thoughtful.;;;;;;;;;;;;;x

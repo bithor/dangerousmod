@@ -1,0 +1,50 @@
+genocideur_1 = {
+	potential = {
+		ai = no
+	}
+	random = no
+	diplomacy = -2
+	general_opinion = -30
+	culture_flex = 1.0
+	religion_flex = 1.0
+	customizer = no
+	
+	opposites = {
+		genocideur_2
+		genocideur_3
+	}
+}
+
+genocideur_2 = {
+	potential = {
+		ai = no
+	}
+	random = no
+	diplomacy = -4
+	general_opinion = -40
+	culture_flex = 1.0
+	religion_flex = 1.0
+	customizer = no
+	
+	opposites = {
+		genocideur_1
+		genocideur_3
+	}
+}
+
+genocideur_3 = {
+	potential = {
+		ai = no
+	}
+	random = no
+	diplomacy = -6
+	general_opinion = -50
+	culture_flex = 1.0
+	religion_flex = 1.0
+	customizer = no
+	
+	opposites = {
+		genocideur_1
+		genocideur_2
+	}
+}

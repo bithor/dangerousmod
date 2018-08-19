@@ -1,0 +1,519 @@
+namespace = FOSSADO
+namespace = RCONQUEST
+
+#Summon Cavaleiros-vilaos
+character_event = {
+	id = FOSSADO.100
+	title = EVTNAME_FOSSADO_1
+	desc = EVTDESC_FOSSADO_100.1
+	desc = EVTDESC_FOSSADO_100.2
+	desc = EVTDESC_FOSSADO_100.3
+	picture = GFX_evt_war_planning
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+		name = GLORY
+		name = EVTOPTA324 # For [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA6201 # The Lord wills it
+		name = EVTOPTA8300 # Deus Vult!
+		name = EVTOPTA20443 # Splendid!
+		name = EVTOPTA_TOG_600 # I can hardly wait!
+		name = EVTOPTA_WoL_4163 # Hail to the [Root.GetTitle]!
+
+		piety = 20
+		prestige = 20
+		any_vassal = { # scope all vassals
+			limit = {
+				religion_group = christian
+				age = 16
+				prisoner = no
+				war = no
+				NOR = {
+					has_character_flag = preparing_fossado_flag
+					has_character_modifier = on_fossado_mod
+					trait = incapable
+					is_inaccessible_trigger = yes
+				}
+			}
+			character_event = { id = FOSSADO.110 tooltip = EVTTOOLTIP_FOSSADO_110 }
+		}
+		any_vassal = {
+			limit = {
+				age = 16
+				prisoner = no
+				war = no
+				NOR = {
+					has_character_flag = preparing_fossado_flag
+					has_character_modifier = on_fossado_mod
+					trait = incapable
+					is_inaccessible_trigger = yes
+					religion_group = christian
+				}
+			}
+			character_event = { id = FOSSADO.120 tooltip = EVTTOOLTIP_FOSSADO_120 }
+		}
+		hidden_tooltip = { FROM = { character_event = { id = FOSSADO.200 days = 5 random = 2 } } }
+	}
+}
+
+#Christian vassal summoned to Fossado!
+character_event = {
+	id = FOSSADO.110
+	desc = EVTDESC_FOSSADO_110.1
+	desc = EVTDESC_FOSSADO_110.2
+	desc = EVTDESC_FOSSADO_110.3
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = { # Participate
+		name = EVTOPTD200 # To Arms!
+		name = EVTOPTA324 # For [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA8300 # Deus Vult!
+		name = EVTOPTA31001 # I am deeply honored...
+		name = EVTOPTA63020 # Thank [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA86011 # I will prepare myself immediately!
+		name = EVTOPTB86110 # We must stop these infidels!
+		name = EVTOPTA_TOG_641 # About time!
+		name = EVTOPTA_TOG_701 # I will be there.
+
+		ai_chance = {
+			factor = 100
+			#modifier = { factor = 5.0 is_lover = liege } #test
+			#modifier = { factor = 3.0 is_friend = ROOT } #test
+			modifier = { factor = 3.0 is_friend = liege }
+			modifier = { factor = 1.5 personal_opinion = { who = liege value >= 10} }
+			modifier = { factor = 2.0 personal_opinion = { who = liege value >= 50} }
+			modifier = { factor = 1.5 trait = honest }
+			modifier = { factor = 2.0 trait = zealous }
+			modifier = { factor = 2.0 trait = holy_warrior }
+			modifier = { factor = 2.0 trait = crusader }
+			modifier = { factor = 1.5 liege = { trait = just } }
+			modifier = { factor = 1.5 liege = { trait = inspiring_leader } }
+		}
+		#set_character_flag = preparing_fossado_flag
+		piety = 25
+		prestige = 25
+		#fn_twi_fossado_knights_x = yes
+		add_character_modifier = { name = on_fossado_mod duration = -1 }
+		hidden_tooltip = { character_event = { id = FOSSADO.400 days = 180 random = 10 } }
+		FROM = { character_event = { id = FOSSADO.111 days = 6 random = 4 } }
+		#character_event = { id = FOSSADO.1 tooltip = EVTTOOLTIP_TOG_5002 } # For Self (Test)
+		#liege = { character_event = { id = FOSSADO.111 tooltip = EVTTOOLTIP_TOG_5002 } } # For Liege (Test)
+	}
+
+	option = { # Don't participate
+		name = EVTOPTB86011 # I'm too busy!
+		name = EVTOPTA86110 # It's too great of a risk...
+		name = EVTOPTB1986 # I... cannot risk it
+		name = EVTOPTBLoR.901 # Sadly, I have no time
+
+		ai_chance = {
+			factor = 100
+			#modifier = { factor = 3.0 is_rival = ROOT } #test
+			#modifier = { factor = 3.0 is_rival = liege } #test
+			modifier = { factor = 1.5 personal_opinion = { who = liege value <= -10} }
+			modifier = { factor = 2.0 personal_opinion = { who = liege value <= -50} }
+			modifier = { factor = 1.1 trait = deceitful }
+			modifier = { factor = 1.5 trait = craven }
+			modifier = { factor = 1.5 trait = bad_priest_christian }
+			modifier = { factor = 1.5 liege = { trait = craven } }
+			modifier = { factor = 1.5 liege = { trait = arbitrary } }
+			modifier = { factor = 1.5 liege = { trait = imbecile } }
+		}
+		piety = -25
+		prestige = -25
+		random_list = {
+			1 = { add_character_modifier = { name = suspected_coward duration = 600 } }
+			1 = { add_character_modifier = { name = the_fainthearted duration = 600 } }
+			1 = { add_character_modifier = { name = annoyed_religious duration = 600 } }
+			1 = { add_character_modifier = { name = alliance_breaker duration = 600 } } # oath breaker
+			5 = { } # nothing
+		}
+		random = { chance = 5 add_trait = craven }
+		character_event = { id = FOSSADO.120 days = 3 tooltip = EVTTOOLTIP_TOG_5003 }
+	}
+	option = { # High Diplo
+		name = EVTOPTD_RIP_30000 # Respectfully refuse
+		trigger = { diplomacy = 10 }
+		tooltip_info = diplomacy
+	}
+}
+
+#Vassal reporting
+character_event = {
+	id = FOSSADO.111
+	title = EVTNAME_FOSSADO_1
+	desc = EVTDESC_FOSSADO_111.1
+	desc = EVTDESC_FOSSADO_111.2
+	desc = EVTDESC_FOSSADO_111.3
+	desc = EVTDESC_FOSSADO_111.4
+	desc = EVTDESC_FOSSADO_111.5
+	desc = EVTDESC_FOSSADO_111.6
+	desc = EVTDESC_FOSSADO_111.7
+	desc = EVTDESC_FOSSADO_111.8
+	desc = EVTDESC_FOSSADO_111.9
+	desc = EVTDESC_FOSSADO_111.10
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	has_character_flag = preparing_fossado_flag
+
+	option = {
+		name = EXCELLENT
+		name = EVTOPTD200 # To Arms!
+		name = EVTOPTA6209 # Praise to God
+		name = EVTOPTA8300 # Deus Vult!
+		name = EVTOPTA39026 # [Root.Religion.GetRandomGodNameCap] be praised!
+		name = EVTOPTA39224 # Praise the Lord!
+		name = EVTOPTA39652 # Praised be [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA50007 # Praise [Root.Religion.GetRandomGodName]!
+		name = EVTOPTB71002 # Lavish him with praise!
+		name = EVTOPTALoR.200 # God be praised!
+		name = EVTOPTA_WoL_4163 # Hail to the [Root.GetTitle]!
+
+		spawn_unit = {
+			owner = THIS
+			province = capital
+			leader = FROM
+			earmark = fossado_army
+			attrition = 0.0
+			is_looter = yes
+			can_toggle_looting = no
+			match_character = FROM
+			match_mult = 0.33
+			troops = {
+				light_cavalry = { 50 50 }
+				knights = { 10 10 }
+			}
+		}
+		liege = {
+				custom_tooltip = { text = EVTTOOLTIP3207 # is delighted
+				random_list = {
+					1 = { opinion = { who = FROM modifier = honored_alliance months = 24 } }
+					1 = { opinion = { who = FROM modifier = campaign_friend months = 24 } }
+					1 = { opinion = { who = FROM modifier = opinion_respects_liege months = 24 } }
+					1 = { opinion = { who = FROM modifier = strengthened_loyalty months = 24 } }
+					1 = { opinion = { who = FROM modifier = opinion_honorable months = 24 } }
+					1 = { opinion = { who = FROM modifier = opinion_grateful months = 24 } }
+				}
+			}
+		}
+	}
+}
+
+# Non-participants and Non-Christians may pay a fine to atone
+character_event = {
+	id = FOSSADO.120
+	desc = EVTDESC_FOSSADO_120
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = { # Pay
+		name = EVTOPTA1661 # Fine!
+		name = EVTOPTB1985 # Fine...
+		name = EVTOPTA30036 # But... Fine
+		trigger = { wealth = 5 } # Fossadeira: Cinco Soldos
+		#FROM = { character_event = { id = FOSSADO.121 tooltip = EVTTOOLTIP_TOG_603 } } # For Liege
+		liege = { character_event = { id = FOSSADO.121 tooltip = EVTTOOLTIP_TOG_603 } } # For Liege
+		wealth = -5 # Fossadeira: Cinco Soldos; Five salaries!
+	}
+	option = { # Don't pay
+		name = EVTOPTB_RIP_30003 # I cannot afford that...
+		name = EVTOPTB86001 # It is too costly...
+		name = EVTOPTA1985 # No!
+		name = EVTOPTB30036 # Just empty threats!
+		prestige = -10
+		#FROM = { character_event = { id = FOSSADO.122 days = 60 tooltip = EVTTOOLTIP_TOG_636 } } # For Liege
+		liege = { character_event = { id = FOSSADO.122 days = 60 tooltip = EVTTOOLTIP_TOG_636 } } # For Liege
+	}
+	option = { # High Diplo
+		name = EVTOPTD_RIP_30000 # Respectfully refuse
+		trigger = { diplomacy = 20 }
+		tooltip_info = diplomacy
+	}
+}
+
+#Noble fails to report, but pays fine
+character_event = {
+	id = FOSSADO.121
+	title = EVTNAME_FOSSADO_1
+	desc = EVTDESC_FOSSADO_121.1
+	desc = EVTDESC_FOSSADO_121.2
+	desc = EVTDESC_FOSSADO_121.3
+	desc = EVTDESC_FOSSADO_121.4
+	desc = EVTDESC_FOSSADO_121.5
+	desc = EVTDESC_FOSSADO_121.6
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA1661 # Fine!
+		name = EVTOPTB1985 # Fine...
+		wealth = 5 # Fossadeira: Cinco Soldos
+	}
+}
+
+#Noble fails to report and refuses to pays fine.
+character_event = {
+	id = FOSSADO.122
+	title = EVTNAME_FOSSADO_1
+	desc = EVTDESC_FOSSADO_122.1
+	desc = EVTDESC_FOSSADO_122.2
+	desc = EVTDESC_FOSSADO_122.3
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTD21003 # This is High Treason!
+		name = EVTOPTA37012 # The traitorous git!
+		name = EVTOPTA61003 # The Traitor!
+		name = EVTOPTB_CM_1409 # Such treachery!
+		name = EVTOPTA_MNM_9026 # I never should have trusted that light-fingered traitor!
+		name = EVTOPTA_RIP_30006_TRAITOR # The law says this is treason!
+		opinion = { who = FROMFROM modifier = opinion_charge_traitor months = 24 }
+		#opinion = { who = FROMFROM modifier = opinion_dishonorable months = 24 }
+		#opinion = { who = FROMFROM modifier = opinion_traitor months = 24 }
+	}
+	option = {
+		name = EVTOPTA_ZE_22802 # Excellent! Now I have leverage on [From.GetHerHim]...
+		tooltip = { ROOT = { add_favor = FROM } }
+		trigger = {
+			has_dlc = "Zeus"
+			#FROM = { is_voter = yes }
+		}
+	}
+	option = {
+		name = EVTOPTA3203 # I will forgive my vassal.
+		name = EVTOPTD3681 # Forgive [From.GetTitledFirstName]
+		name = EVTOPTB67010 # Let it slide
+		name = EVTOPTC75098 # You are forgiven, [From.GetTitledFirstName]
+		name = EVTOPTBLoR.414 # Show mercy
+		name = EVTOPTA_ZE_8120 # Forgive and forget.
+		prestige = -5
+		reverse_opinion = { who = FROMFROM modifier = opinion_merciful months = 24 }
+	}
+}
+
+#Local nobles reporting
+character_event = {
+	id = FOSSADO.200
+	title = EVTNAME_FOSSADO_1
+	desc = EVTDESC_FOSSADO_200.1
+	desc = EVTDESC_FOSSADO_200.2
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	has_character_flag = preparing_fossado_flag
+
+	option = {
+		name = EXCELLENT
+		name = EVTOPTD200 # To Arms!
+		name = EVTOPTA6209 # Praise to God
+		name = EVTOPTA8300 # Deus Vult!
+		name = EVTOPTA20443 # Splendid!
+		name = EVTOPTA39026 # [Root.Religion.GetRandomGodNameCap] be praised!
+		name = EVTOPTA39224 # Praise the Lord!
+		name = EVTOPTA39652 # Praised be [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA50007 # Praise [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA63020 # Thank [Root.Religion.GetRandomGodName]!
+		name = EVTOPTALoR.200 # God be praised!
+
+		spawn_unit = {
+			owner = THIS
+			province = capital
+			earmark = fossado_army
+			attrition = 0.0
+			is_looter = yes
+			can_toggle_looting = no
+			match_character = THIS
+			match_mult = 0.05
+			troops = {
+				light_cavalry = { 50 50 }
+				knights = { 50 50 }
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				100 = {
+					modifier = { factor = 1.1 trait = just }
+					modifier = { factor = 1.1 trait = brave }
+					modifier = { factor = 1.1 trait = inspiring_leader }
+					modifier = { factor = 1.1 trait = crusader }
+					modifier = { factor = 1.1 trait = holy_warrior }
+					modifier = { factor = 1.1 trait = brilliant_strategist }
+					modifier = { factor = 1.1 trait = scarred }
+					modifier = { factor = 1.1 trait = strong }
+					modifier = { factor = 1.1 trait = quick }
+					modifier = { factor = 1.1 trait = genius }
+					modifier = { factor = 1.1 month < 4 }
+					character_event = { id = FOSSADO.200 days = 6 random = 3 }
+				}
+				100 = {
+					modifier = { factor = 1.1 trait = craven }
+					modifier = { factor = 1.1 trait = arbitrary }
+					modifier = { factor = 1.1 trait = deceitful }
+					modifier = { factor = 1.1 trait = kinslayer }
+					modifier = { factor = 1.1 trait = imbecile }
+					modifier = { factor = 1.1 trait = stressed }
+					modifier = { factor = 1.1 trait = bastard }
+					modifier = { factor = 1.1 trait = weak }
+					modifier = { factor = 1.1 trait = bad_priest_christian }
+					modifier = { factor = 1.1 trait = excommunicated }
+					modifier = { factor = 1.1 month > 4 }
+					narrative_event = { id = FOSSADO.300 days = 14 random = 7 }
+				}
+			}
+		}
+	}
+}
+
+#Fossado Begins!
+narrative_event = {
+	id = FOSSADO.300
+	title = EVTNAME_FOSSADO_1
+	desc = EVTDESC_FOSSADO_300.1
+	desc = EVTDESC_FOSSADO_300.2
+	desc = EVTDESC_FOSSADO_300.3
+	desc = EVTDESC_FOSSADO_300.4
+	#picture = GFX_evt_large_army
+	picture = GFX_evt_western_knights_byzantine
+	border = GFX_event_narrative_frame_war
+
+	is_triggered_only = yes
+	#is_independent = yes
+
+	option = {
+		name = EXCELLENT
+		name = EVTOPTD200 # To Arms!
+		name = EVTOPTA324 # For [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA8300 # Deus Vult!
+		name = EVTOPTA8305 # May the enemies of God tremble!
+		name = EVTOPTA8330 # Victory is ours!
+		name = EVTOPTA39652 # Praised be [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA60108 # May God have mercy on their souls.
+
+		clr_character_flag = preparing_fossado_flag
+		hidden_tooltip = { remove_character_modifier = held_fossado_mod }
+		add_character_modifier = { name = on_fossado_mod duration = -1 }
+		if = {
+			limit = { NOT = { trait = inspiring_leader } }
+			random = { chance = 5 add_trait = inspiring_leader }
+		}
+		hidden_tooltip = { character_event = { id = FOSSADO.400 days = 180 random = 10 } }
+		# Assign fossado forces fit for rank
+		# around 150 for counts, 300 for dukes, 900 for kings, 1500 for emperors
+		fn_twi_fossado_knights_x = yes
+	}
+}
+
+#Fossado Ends
+character_event = {
+	id = FOSSADO.400
+	title = EVTNAME_FOSSADO_1
+	desc = EVTDESC_FOSSADO_400
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+		name = GLORY
+		name = EVTOPTA324 # For [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA8330 # Victory is ours!
+		name = EVTOPTA39652 # Praised be [Root.Religion.GetRandomGodName]!
+		name = EVTOPTA_TOG_642 # Until next time!
+		name = EVTOPTA_WoL_4163 # Hail to the [Root.GetTitle]!
+
+		add_character_modifier = { name = held_fossado_mod duration = 365 }
+		capital_scope = {
+			hidden_tooltip = {
+				change_variable = { which = prosperity_value value = 12 }
+				remove_province_modifier = loot_prosperity_boost
+			}
+			add_province_modifier = { name = loot_prosperity_boost duration = 1825 }
+		}
+		hidden_tooltip = {
+			remove_character_modifier = on_fossado_mod
+			disband_event_forces = fossado_army
+			any_demesne_title = { refill_holding_levy = yes}
+			random_list = {
+				95 = {}
+				5 = {
+					if = {
+						limit = { NOT = { trait = organizer } }
+						character_event = { id = 96501 days = 5 } # Military traits
+					}
+				}
+			}
+		}
+	}
+}
+
+#00_on_actions
+#on_loot_settlement = {
+#	random_events = {
+#		5 = TOG.3300
+#		5 = TOG.3301
+#		5 = TOG.3302
+#		5 = TOG.3303
+#		35 = TOG.3320
+#		250 = 0
+#	}
+#}
+
+#spawn more during war (3 times each)
+#despawn half on peace, some stay
+#spawn_unit = {
+#owner = ROOT
+#province = ROOT
+#home = ROOT
+#troops = {
+#knights = { 50 50 }
+#maintenance_multiplier = 0
+#}
+#earmark = reconquista_knights (Reconquest Knights)
+#disband_on_peace = yes
+#}
+# modifier 1.5
+# any_attacker = { using_cb = crusade } #Scopes to all attackers in a war. Use this for defensive holy wars
+# any_war = { using_cb = crusade } #Scopes to any war the character is participating in as an active member; a liege participating would not count. When used in title scope, checks all wars for that title. 
+#				create_character = {
+#					random_traits = yes
+#					dynasty = none
+#					religion = ROOT
+#					culture = ROOT
+#old_frankish, frankish, english, norman, lombard
+#					female = no
+#					age = 23
+#					attributes = {
+#						martial >= 12
+#					}
+#					trait = tough_soldier
+#				}
+
+# relevant materials
+# gathering forces
+# GFX_evt_large_army
+# ready and setting out
+# GFX_evt_western_knights_byzantine
+# moorish riders sighted
+# GFX_evt_moors
+# battle between Saracens and Iberians
+#	name = EVTOPTB86102 # Charge!
+# GFX_evt_battle
+# Incursion Planing
+# GFX_evt_war_planning

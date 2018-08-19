@@ -1,0 +1,658 @@
+namespace = casgar
+character_event = {
+id = casgar.1
+desc = "EVTDESCCASGAR1"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_religion
+
+only_rulers = yes
+prisoner = no
+min_age = 16
+only_capable = yes
+
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+			is_patrician = yes
+		}
+		OR = {
+			capital_holding = { has_building = ca_garden_1 }
+			family_palace = { has_building = fp_garden_1 }
+		}
+		trait = stressed
+	}
+	mean_time_to_happen = {
+		years = 5
+		modifier = {
+			factor = 0.8
+			capital_holding = {
+				has_building = ca_garden_2
+			}
+		}
+		modifier = {
+			factor = 0.9
+			capital_holding = {
+				has_building = ca_garden_3
+			}
+		}
+		modifier = {
+			factor = 0.8
+			capital_holding = {
+				has_building = ca_garden_4
+			}
+		}
+	}
+	option = {
+		name = remove_stressed
+		remove_trait = stressed
+	}
+}
+character_event = {
+id = casgar.2
+desc = "EVTDESCCASGAR2"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_religion
+
+only_rulers = yes
+min_age = 16
+prisoner = no
+only_capable = yes
+
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+			is_patrician = yes
+		}
+		OR = {
+			capital_holding = { has_building = ca_garden_1 }
+			family_palace = { has_building = fp_garden_1 }
+		}
+		trait = depressed
+	}
+	mean_time_to_happen = {
+		years = 9
+		modifier = {
+			factor = 0.8
+			capital_holding = {
+				has_building = ca_garden_2
+			}
+		}
+		modifier = {
+			factor = 0.9
+			capital_holding = {
+				has_building = ca_garden_3
+			}
+		}
+		modifier = {
+			factor = 0.8
+			capital_holding = {
+				has_building = ca_garden_4
+			}
+		}
+	}
+	option = {
+		name = remove_depressed
+		remove_trait = depressed
+	}
+}
+character_event = {
+id = casgar.3
+desc = "EVTDESCCASGAR3"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_diplomacy
+
+only_rulers = yes
+min_age = 16
+prisoner = no
+only_capable = yes
+
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+		}
+		capital_holding = { has_building = ca_garden_2 }
+		NOT = { has_character_flag = garden_2_obtained }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	immediate = { set_character_flag = garden_2_obtained }
+	option = {
+		name = pond_yes
+		change_diplomacy = 1
+	}	
+	option = {
+		custom_tooltip = { text = pond_mad_reg  }
+		trigger = {
+			OR = {
+				trait = lunatic
+				trait = inbred
+				trait = imbecile
+				trait = slow
+			}
+		}
+		name = pond_mad
+		random_courtier = {
+			limit = {
+				prisoner = no
+			}
+			opinion = {
+				modifier = throw_pond_neg
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}
+character_event = {
+id = casgar.4
+desc = "EVTDESCCASGAR4"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_diplomacy
+
+only_rulers = yes
+min_age = 16
+prisoner = no
+only_capable = yes
+
+	mean_time_to_happen = {
+		months = 4
+	}
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+		}
+		capital_holding = { has_building = ca_garden_3 }
+		NOT = { has_character_flag = garden_3_obtained }
+	}
+	immediate = { set_character_flag = garden_3_obtained }
+	option = {
+		name = maze_yes
+		change_diplomacy = 1
+	}	
+	option = {
+		name = maze_no
+		change_intrigue = 1
+	}
+}
+#Dignitary comes, gives plant
+character_event = {
+id = casgar.5
+desc = "EVTDESCCASGAR5"
+picture = GFX_evt_carriage
+border = GFX_event_normal_frame_diplomacy
+
+ai = no
+only_rulers = yes
+min_age = 16
+prisoner = no
+only_capable = yes
+
+	mean_time_to_happen = {
+		years = 150
+	}
+	trigger = {
+		OR = {
+			capital_holding = { has_building = ca_garden_1 }
+			family_palace = { has_building = fp_garden_1 }
+		}
+		NOT = { has_character_modifier = exotic_plant_ca_garden }
+		NOT = { has_character_modifier = exotic_plant_ca_garden_courtier }
+		NOT = { has_character_flag = dignitary_gave_exotic_plant }
+		in_command = no
+	}
+	immediate = {
+		set_character_flag = dignitary_gave_exotic_plant
+	}
+	option = {
+		name = casgar5opt1
+		prestige = 50
+		hidden_tooltip = {
+			character_event = { id = casgar.6 days = 75 random = 25 }
+		}
+	}	
+	option = {
+		name = casgar5opt2
+		prestige = -15
+	}
+	option = {
+		name = casgar5opt3
+		trigger = {
+			any_courtier = {
+				has_minor_title = title_court_master_gardener
+			}
+		}
+		prestige = 40
+		random_courtier = {
+			limit = { has_minor_title = title_court_master_gardener }
+		}
+		add_character_modifier = {
+			name = exotic_plant_ca_garden_courtier
+			duration = -1
+			inherit = yes
+		}
+	}
+}
+#Plants plant, flowers seem to wilt
+character_event = {
+id = casgar.6
+desc = "EVTDESCCASGAR6"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar6opt1
+		hidden_tooltip = {
+			random_list = {
+				40 = {
+					character_event = { id = casgar.7 days = 75 random = 25 }
+				}
+				60 = {
+					character_event = { id = casgar.8 days = 75 random = 25 }
+				}
+			}
+		}
+	}
+	option = {
+		name = casgar6opt2
+		hidden_tooltip = {
+			random_list = {
+				60 = {
+					character_event = { id = casgar.7 days = 75 random = 25 }
+				}
+				40 = {
+					character_event = { id = casgar.8 days = 75 random = 25 }
+				}
+			}
+		}
+	}
+	option = {
+		trigger = {
+			trait = gardener
+		}
+		tooltip_info = gardener
+		name = casgar6opt3
+		hidden_tooltip = {
+			random_list = {
+				10 = {
+					character_event = { id = casgar.7 days = 75 random = 25 }
+				}
+				90 = {
+					character_event = { id = casgar.8 days = 75 random = 25 }
+				}
+			}
+		}
+	}
+}
+#Plant is dead
+character_event = {
+id = casgar.7
+desc = "EVTDESCCASGAR7"
+picture = GFX_evt_bad_news
+border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar7opt
+		prestige = -60
+	}
+}
+#Plant starts to bloom a lot
+character_event = {
+id = casgar.8
+desc = "EVTDESCCASGAR8"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar8opt1
+		hidden_tooltip = {
+			random_list = {
+				35 = {
+					character_event = { id = casgar.9 days = 75 random = 25 }
+				}
+				65 = {
+					character_event = { id = casgar.11 days = 75 random = 25 }
+				}
+			}
+		}
+	}
+	option = {
+		name = casgar8opt2
+		hidden_tooltip = {
+			random_list = {
+				20 = {
+					character_event = { id = casgar.10 days = 75 random = 25 }
+				}
+				80 = {
+					character_event = { id = casgar.11 days = 75 random = 25 }
+				}
+			}
+		}
+	}
+	option = {
+		trigger = {
+			trait = gardener
+		}
+		tooltip_info = gardener
+		name = casgar8opt3
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = casgar.10 days = 75 random = 25 }
+				}
+				95 = {
+					character_event = { id = casgar.11 days = 75 random = 25 }
+				}
+			}
+		}
+	}
+}
+#Plant overgrows and dies
+character_event = {
+id = casgar.9
+desc = "EVTDESCCASGAR9"
+picture = GFX_evt_bad_news
+border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar9opt
+		prestige = -40
+	}
+}
+#Plant doesn't grow properly and dies
+character_event = {
+id = casgar.10
+desc = "EVTDESCCASGAR10"
+picture = GFX_evt_bad_news
+border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar10opt
+		prestige = -40
+	}
+}
+#Plant is oozing... Blood?
+character_event = {
+id = casgar.11
+desc = "EVTDESCCASGAR11"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar11opt1
+		prestige = -20
+		piety = 20
+	}
+	option = {
+		name = casgar11opt2
+		trigger = {
+			OR = {
+				learning = 10
+				trait = gardener
+			}
+		}
+		custom_tooltip = { text = casgar11opt2tooltip }
+		health = 0.5
+		prestige = 25
+		hidden_tooltip = { character_event = { id = casgar.13 days = 75 random = 25 } }
+	}
+	option = {
+		name = casgar11opt3
+		trigger = {
+			OR = {
+				capital_holding = { has_building = ca_library }
+				family_palace = { has_building = fp_shrine_3 }
+				trait = scholar
+			}
+		}
+		custom_tooltip = { text = casgar11opt3tooltip }
+		wealth = 30
+		prestige = 25
+		hidden_tooltip = { character_event = { id = casgar.13 days = 75 random = 25 } }
+	}
+	option = {
+		name = casgar11opt4
+		hidden_tooltip = {
+			random_list = {
+				10 = {
+					character_event = { id = casgar.12 days = 75 random = 25 }
+				}
+				90 = {
+					character_event = { id = casgar.13 days = 75 random = 25 }
+				}
+			}
+		}
+	}
+}
+#Plant dies
+character_event = {
+id = casgar.12
+desc = "EVTDESCCASGAR12"
+picture = GFX_evt_bad_news
+border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar12opt
+		prestige = -20
+	}
+}
+#Plant survives
+character_event = {
+id = casgar.13
+desc = "EVTDESCCASGAR13"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_economy
+
+	is_triggered_only = yes
+
+	option = {
+		name = casgar13opt
+		add_character_modifier = {
+			name = exotic_plant_ca_garden
+			duration = -1
+			inherit = yes
+		}
+	}
+}
+#Ruler Discovers a vassal plot
+character_event = {
+id = casgar.14
+desc = "EVTDESCCASGAR14"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_intrigue
+
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+
+	trigger = {
+		in_command = no
+		OR = {
+			AND = {
+				capital_holding = { has_building = ca_garden_3 }
+				capital_holding = { has_building = ca_wine_cellar_2 }
+			}
+			AND = {
+				family_palace = { has_building = fp_garden_3 }
+				family_palace = { has_building = fp_vault_2 }
+			}
+		}
+		any_vassal = {
+			in_command = no
+			OR = {
+				has_plot = plot_gain_title
+				has_plot = plot_kill_character
+				has_plot = plot_kill_spouse
+				has_plot = plot_weaken_fellow_vassal
+				has_plot = plot_gain_liege_title
+				has_plot = plot_gain_fellow_vassal_title
+			}
+			NOT = { has_character_flag = ypc_plot_discovered }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 95
+	}
+	
+	option = {
+		name = casgar14opt
+		hidden_tooltip = {
+			random_vassal = {
+				limit = {
+					in_command = no
+					OR = {
+						has_plot = plot_gain_title
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+						has_plot = plot_weaken_fellow_vassal
+						has_plot = plot_gain_liege_title
+						has_plot = plot_gain_fellow_vassal_title
+					}
+					NOT = { has_character_flag = ypc_plot_discovered }
+				}
+				character_event = { id = casgar.15 }
+				set_character_flag = ypc_plot_discovered
+			}
+		}
+	}
+}
+#Plotter vassal ping
+character_event = {
+id = casgar.15
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		FROM = { character_event = { id = casgar.16 } }
+	}
+}
+#Vassal Plot revealed
+character_event = {
+id = casgar.16
+desc = "EVTDESCCASGAR16"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	option = {
+		name = casgar16opt
+		FROM = {
+			reveal_plot = yes
+		}
+	}
+}
+#Ruler Discovers a courtier's plot
+character_event = {
+id = casgar.17
+desc = "EVTDESCCASGAR17"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_intrigue
+
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+
+		trigger = {
+		in_command = no
+		OR = {
+			capital_holding = { has_building = ca_garden_3 }
+			family_palace = { has_building = fp_garden_3 }
+		}
+		any_courtier = {
+			in_command = no
+			OR = {
+				has_plot = plot_gain_title
+				has_plot = plot_kill_character
+				has_plot = plot_kill_spouse
+				has_plot = plot_weaken_fellow_vassal
+				has_plot = plot_gain_liege_title
+				has_plot = plot_gain_fellow_vassal_title
+			}
+			NOT = { has_character_flag = ypc_plot_discovered }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 75
+	}
+	
+	option = {
+		name = casgar17opt
+		hidden_tooltip = {
+			random_courtier = {
+				limit = {
+					in_command = no
+					OR = {
+						has_plot = plot_gain_title
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+						has_plot = plot_weaken_fellow_vassal
+						has_plot = plot_gain_liege_title
+						has_plot = plot_gain_fellow_vassal_title
+					}
+					NOT = { has_character_flag = ypc_plot_discovered }
+				}
+				character_event = { id = casgar.18 }
+				set_character_flag = ypc_plot_discovered
+			}
+		}
+	}
+}
+#Plotter vassal ping
+character_event = {
+id = casgar.18
+hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+		FROM = { character_event = { id = casgar.19 } }
+	}
+}
+#Courtier's Plot revealed
+character_event = {
+id = casgar.19
+desc = "EVTDESCCASGAR19"
+picture = GFX_evt_garden
+border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	
+	option = {
+		name = casgar19opt
+		FROM = {
+			reveal_plot = yes
+		}
+	}
+}

@@ -1,0 +1,824 @@
+decisions = {
+	use_study = {
+		potential = {
+			is_ruler = yes
+			OR = {
+				tier = KING
+				tier = EMPEROR
+				ai = no
+				AND = {
+					is_patrician = yes
+					tier = DUKE
+				}
+			}
+			OR = {
+				capital_holding = {
+					has_building = ca_study
+				}
+				family_palace = {
+					has_building = fp_study
+				}
+			}
+			NOT = {	has_character_flag = do_not_disturb }
+		}
+		allow = {
+			has_regent = no
+			in_command = no
+		}
+		
+		effect = {
+			set_character_flag = do_not_disturb
+			custom_tooltip = {
+				text = study_usage
+				hidden_tooltip = {
+					character_event = { id = percas.2 } 
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2
+			}
+			modifier = {
+				factor = 1.5
+				trait = scholar
+			}
+			modifier = {
+				factor = 0
+				NOT = { learning = 6 }
+			}
+			modifier = {
+				factor = 1.2
+				learning = 8
+			}
+			modifier = {
+				factor = 1.2
+				learning = 10
+			}
+			modifier = {
+				factor = 1.2
+				learning = 12
+			}
+			modifier = {
+				factor = 1.2
+				learning = 16
+			}
+		}
+	}
+	convert_mead_cellar_to_wine_cellar = {
+		potential = {
+			is_ruler = yes
+			NOT = { culture = norse }
+			capital_holding = {
+				has_building = ca_mead_cellar
+			}
+		}
+		allow = {
+			has_regent = no
+			in_command = no
+		}
+		
+		effect = {
+			capital_holding = {
+				add_building = ca_wine_cellar
+				remove_building = ca_mead_cellar
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	convert_wine_cellar_to_mead_cellar = {
+		potential = {
+			is_ruler = yes
+			culture = norse
+			capital_holding = {
+				has_building = ca_wine_cellar
+			}
+		}
+		allow = {
+			has_regent = no
+			in_command = no
+		}
+		
+		effect = {
+			capital_holding = {
+				add_building = ca_mead_cellar
+				remove_building = ca_wine_cellar
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	improve_martial_education = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				tier = KING
+				tier = EMPEROR
+				ai = no
+				is_patrician = yes
+			}
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			trait = misguided_warrior
+			NOT = {	has_character_flag = improving_martial_education }
+		}
+		allow = {
+			any_courtier = {
+				has_job_title = job_marshal
+				OR = {
+					trait = skilled_tactician
+					trait = brilliant_strategist
+				}
+			}
+			in_command = no
+			OR = {
+				capital_holding = {
+					has_building = ca_training_yard
+				}
+				family_palace = {
+					has_building = fp_bowyer_2
+				}
+			}
+			wealth = 100
+		}
+		
+		effect = {
+			set_character_flag = improving_martial_education
+			scaled_wealth = -0.4
+			custom_tooltip = {
+				text = martial_ed_improve_tooltip
+			}
+			hidden_tooltip = {
+				random_courtier = {
+					limit = {
+						has_job_title = job_marshal
+					}
+					character_event = { id = trayar.16 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2
+			}
+			modifier = {
+				factor = 4
+				trait = diligent
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+		}
+	}
+	improve_theological_education = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				tier = KING
+				tier = EMPEROR
+				ai = no
+				is_patrician = yes
+			}
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			trait = detached_priest
+			NOT = {	has_character_flag = improving_theological_education }
+		}
+		allow = {
+			any_courtier = {
+				has_job_title = job_spiritual
+				OR = {
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+				}
+			}
+			in_command = no
+			OR = {
+				capital_holding = {
+					has_building = ca_chapel
+				}
+				family_palace = {
+					has_building = fp_chapel
+				}
+			}
+			piety = 50
+		}
+		
+		effect = {
+			set_character_flag = improving_theological_education
+			scaled_wealth = -0.4
+			custom_tooltip = {
+				text = theological_ed_improve_tooltip
+			}
+			hidden_tooltip = {
+				random_courtier = {
+					limit = {
+						has_job_title = job_spiritual
+					}
+					character_event = { id = chaper.11 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2
+			}
+			modifier = {
+				factor = 4
+				trait = diligent
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+		}
+	}
+	improve_diplomatical_education = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				tier = KING
+				tier = EMPEROR
+				ai = no
+				is_patrician = yes
+			}
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			trait = naive_appeaser
+			NOT = {	has_character_flag = improving_diplomatical_education }
+		}
+		allow = {
+			any_courtier = {
+				has_job_title = job_chancellor
+				OR = {
+					trait = charismatic_negotiator
+					trait = grey_eminence
+				}
+			}
+			in_command = no
+			OR = {
+				capital_holding = {
+					has_building = ca_library
+				}
+				family_palace = {
+					has_building = fp_shrine_3
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = improving_diplomatical_education
+			scaled_wealth = -0.4
+			custom_tooltip = {
+				text = diplomatical_ed_improve_tooltip
+			}
+			hidden_tooltip = {
+				random_courtier = {
+					limit = {
+						has_job_title = job_chancellor
+					}
+					character_event = { id = eduimp.1 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2
+			}
+			modifier = {
+				factor = 4
+				trait = diligent
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+		}
+	}
+	improve_intrigue_education = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				tier = KING
+				tier = EMPEROR
+				ai = no
+				is_patrician = yes
+			}
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			trait = amateurish_plotter
+			NOT = {	has_character_flag = improving_intrigue_education }
+		}
+		allow = {
+			any_courtier = {
+				has_job_title = job_spymaster
+				OR = {
+					trait = intricate_webweaver
+					trait = elusive_shadow
+				}
+			}
+			in_command = no
+			OR = {
+				capital_holding = {
+					has_building = ca_secret_passages
+				}
+				family_palace = {
+					has_building = fp_vault_2
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = improving_intrigue_education
+			scaled_wealth = -0.4
+			custom_tooltip = {
+				text = intrigue_ed_improve_tooltip
+			}
+			hidden_tooltip = {
+				random_courtier = {
+					limit = {
+						has_job_title = job_spymaster
+					}
+					character_event = { id = eduimp.6 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2
+			}
+			modifier = {
+				factor = 4
+				trait = diligent
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+		}
+	}
+	improve_stewardship_education = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				tier = KING
+				tier = EMPEROR
+				ai = no
+				is_patrician = yes
+			}
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			trait = indulgent_wastrel
+			NOT = {	has_character_flag = improving_stewardship_education }
+		}
+		allow = {
+			any_courtier = {
+				has_job_title = job_treasurer
+				OR = {
+					trait = fortune_builder
+					trait = midas_touched
+				}
+			}
+			in_command = no
+			OR = {
+				capital_holding = {
+					has_building = ca_study
+				}
+				family_palace = {
+					has_building = fp_study
+				}
+			}
+		}
+		
+		effect = {
+			set_character_flag = improving_stewardship_education
+			scaled_wealth = -0.4
+			custom_tooltip = {
+				text = stewardship_ed_improve_tooltip
+			}
+			hidden_tooltip = {
+				random_courtier = {
+					limit = {
+						has_job_title = job_treasurer
+					}
+					character_event = { id = eduimp.11 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2
+			}
+			modifier = {
+				factor = 4
+				trait = diligent
+			}
+			modifier = {
+				factor = 4
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				trait = slothful
+			}
+		}
+	}
+	cure_1st_disease_spouse = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			spouse = {
+				NOT = {
+					has_character_modifier = 1st_cure_failed
+					has_character_flag = attempting_to_cure_disease
+				}
+				trait = ill
+			}
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_1
+				}
+				family_palace = {
+					has_building = fp_medical_1
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.1
+		}
+		effect = {
+			scaled_wealth = -0.1
+			custom_tooltip = { text = spouse_cure_1st_tooltip }
+			spouse = {
+				set_character_flag = attempting_to_cure_disease
+				hidden_tooltip = { character_event = { id = spoper.1 } }
+			}
+		}
+	}
+	cure_2nd_disease_spouse = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			spouse = {
+				NOT = {
+					has_character_modifier = 2nd_cure_failed
+					has_character_flag = attempting_to_cure_disease
+				}
+				OR = {
+					trait = has_tuberculosis
+					trait = has_typhoid_fever
+					trait = has_typhus
+					trait = has_small_pox
+					trait = has_measles
+				}
+			}
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_2
+				}
+				family_palace = {
+					has_building = fp_medical_2
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.25
+		}
+		effect = {
+			scaled_wealth = -0.25
+			custom_tooltip = { text = spouse_cure_2nd_tooltip }
+			spouse = {
+				set_character_flag = attempting_to_cure_disease
+				hidden_tooltip = { character_event = { id = spoper.2 } }
+			}
+		}
+	}
+	cure_syphilitic_spouse = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			spouse = {
+				NOT = {
+					has_character_modifier = syphilitic_cure_failed
+					has_character_flag = attempting_to_cure_disease
+				}
+				trait = syphilitic
+			}
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.4
+		}
+		effect = {
+			scaled_wealth = -0.4
+			custom_tooltip = { text = spouse_cure_syphilitic_tooltip }
+			spouse = {
+				set_character_flag = attempting_to_cure_disease
+				hidden_tooltip = { character_event = { id = spoper.3 } }
+			}
+		}
+	}
+	cure_plague_spouse = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			spouse = {
+				NOT = { 
+					has_character_modifier = plague_cure_failed
+					has_character_flag = attempting_to_cure_disease
+				}
+				trait = has_bubonic_plague
+			}
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.4
+		}
+		effect = {
+			scaled_wealth = -0.4
+			custom_tooltip = { text = spouse_cure_plague_tooltip }
+			spouse = {
+				set_character_flag = attempting_to_cure_disease
+				hidden_tooltip = { character_event = { id = spoper.4 } }
+			}
+		}
+	}
+	cure_pneumonic_spouse = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			spouse = {
+				NOT = {
+					has_character_modifier = pneumonic_cure_failed
+					has_character_flag = attempting_to_cure_disease
+				}
+				trait = pneumonic
+			}
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.4
+		}
+		effect = {
+			scaled_wealth = -0.4
+			custom_tooltip = { text = dynasty_cure_pneumonic_tooltip }
+			spouse = {
+				set_character_flag = attempting_to_cure_disease
+				hidden_tooltip = { character_event = { id = spoper.5 } }
+			}
+		}
+	}
+	cure_1st_disease_self = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			NOT = {
+				has_character_modifier = 1st_cure_failed
+				has_character_flag = attempting_to_cure_disease
+			}
+			trait = ill
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_1
+				}
+				family_palace = {
+					has_building = fp_medical_1
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.1
+		}
+		effect = {
+			scaled_wealth = -0.1
+			custom_tooltip = { text = self_cure_1st_tooltip }
+			set_character_flag = attempting_to_cure_disease
+			random_realm_character = {
+				limit = { has_minor_title = title_court_healer }
+				hidden_tooltip = { character_event = { id = selper.1 } }
+			}
+		}
+	}
+	cure_2nd_disease_self = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			NOT = {
+				has_character_modifier = 2nd_cure_failed
+				has_character_flag = attempting_to_cure_disease
+			}
+			OR = {
+				trait = has_tuberculosis
+				trait = has_typhoid_fever
+				trait = has_typhus
+				trait = has_small_pox
+				trait = has_measles
+			}
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_2
+				}
+				family_palace = {
+					has_building = fp_medical_2
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.25
+		}
+		effect = {
+			scaled_wealth = -0.25
+			custom_tooltip = { text = self_cure_2nd_tooltip }
+			set_character_flag = attempting_to_cure_disease
+			random_realm_character = {
+				limit = { has_minor_title = title_court_healer }
+				hidden_tooltip = { character_event = { id = selper.2 } }
+			}
+		}
+	}
+	cure_syphilitic_self = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			NOT = {
+				has_character_modifier = syphilitic_cure_failed
+				has_character_flag = attempting_to_cure_disease
+			}
+			trait = syphilitic
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.4
+		}
+		effect = {
+			scaled_wealth = -0.4
+			custom_tooltip = { text = self_cure_syphilitic_tooltip }
+			set_character_flag = attempting_to_cure_disease
+			random_realm_character = {
+				limit = { has_minor_title = title_court_healer }
+				hidden_tooltip = { character_event = { id = selper.3 } }
+			}
+		}
+	}
+	cure_plague_self = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			NOT = { 
+				has_character_modifier = plague_cure_failed
+				has_character_flag = attempting_to_cure_disease
+			}
+			trait = has_bubonic_plague
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.4
+		}
+		effect = {
+			scaled_wealth = -0.4
+			custom_tooltip = { text = self_cure_plague_tooltip }
+			set_character_flag = attempting_to_cure_disease
+			random_realm_character = {
+				limit = { has_minor_title = title_court_healer }
+				hidden_tooltip = { character_event = { id = selper.4 } }
+			}
+		}
+	}
+	cure_pneumonic_self = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			NOT = {
+				has_character_modifier = pneumonic_cure_failed
+				has_character_flag = attempting_to_cure_disease
+			}
+			trait = pneumonic
+			OR = {
+				capital_holding = {
+					has_building = ca_medical_3
+				}
+				family_palace = {
+					has_building = fp_medical_3
+				}
+			}
+		}
+		allow = {
+			in_command = no
+			any_realm_character = {
+				has_minor_title = title_court_healer
+			}
+			scaled_wealth = 0.4
+		}
+		effect = {
+			scaled_wealth = -0.4
+			custom_tooltip = { text = self_cure_pneumonic_tooltip }
+			set_character_flag = attempting_to_cure_disease
+			random_realm_character = {
+				limit = { has_minor_title = title_court_healer }
+				hidden_tooltip = { character_event = { id = selper.5 } }
+			}
+		}
+	}
+}

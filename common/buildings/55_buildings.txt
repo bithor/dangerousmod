@@ -1,0 +1,606 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #	
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+
+castle = {
+
+	ca_road_1 = {
+		desc = ca_road_1_desc
+		gold_cost = 250
+		build_time = 365
+		tax_income = 1
+		local_movement_speed = 0.1
+		local_build_cost_modifier = -0.1
+		local_build_time_modifier = -0.1
+		extra_tech_building_start = 0.8
+	}
+
+	ca_library_1 = {
+		desc = ca_library_1_desc
+		potential = {
+			FROM = {
+				primary_title = { higher_tier_than = COUNT }
+				capital_holding = { title = FROMFROM } # is_capital
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 350
+		build_time = 1460
+		ai_creation_factor = 98
+		learning = 1
+		extra_tech_building_start = 0.5
+	}
+
+}
+
+fort = {
+	fo_ditch_1 = {
+		desc = fo_ditch_1_desc
+		gold_cost = 25
+		build_time = 100
+		fort_level = 0.5
+		siege_defence = 0.1
+	}
+	fo_moat_1 = {
+		desc = fo_moat_1_desc
+		upgrades_from = fo_ditch_1
+		gold_cost = 25
+		build_time = 100
+		fort_level = 0.5
+		siege_defence = 0.1
+	}
+	fo_stakes_1 = {
+		desc = fo_stakes_1_desc
+		gold_cost = 10
+		build_time = 15
+		siege_defence = 0.05
+	}
+	fo_wooden_walls = {
+		desc = fo_wooden_walls_desc
+		gold_cost = 50
+		build_time = 50
+		fort_level = 1
+		tax_income = 0.1
+		siege_defence = 0.1
+		garrison_size = 0.25
+	}
+	fo_stone_walls = {
+		desc = fo_stone_walls_desc
+		upgrades_from = fo_wooden_walls
+		gold_cost = 75
+		build_time = 100
+		fort_level = 1
+		tax_income = 0.2
+		siege_defence = 0.1
+		garrison_size = 0.25
+	}
+	fo_slits_1 = {
+		desc = fo_slits_1_desc
+		prerequisites = { fo_wooden_walls }
+		gold_cost = 35
+		build_time = 200
+		fort_level = 0.5
+		siege_defence = 0.1
+		archers_defensive = 0.1
+	}
+	fo_keep_1 = {
+		desc = fo_keep_1_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
+		prerequisites = { fo_wooden_walls }
+		gold_cost = 100
+		build_time = 365
+		fort_level = 0.2
+		siege_defence = 0.1
+		garrison_size = 0.1
+	}
+	fo_battlements_1 = {
+		desc = fo_battlements_1_desc
+		prerequisites = { fo_wooden_walls }
+		gold_cost = 50
+		build_time = 200
+		fort_level = 1
+		siege_defence = 0.2
+		archers_defensive = 0.1
+		garrison_size = 0.1
+	}
+	fo_cornertower_1 = {
+		desc = fo_cornertower_1_desc
+		prerequisites = { fo_wooden_walls }
+		gold_cost = 100
+		build_time = 365
+		fort_level = 0.25
+		archers_defensive = 0.1
+		garrison_size = 0.1
+	}
+	fo_cornertower_2 = {
+		desc = fo_cornertower_1_desc
+		upgrades_from = fo_cornertower_1
+		gold_cost = 100
+		build_time = 365
+		fort_level = 0.25
+		archers_defensive = 0.1
+		garrison_size = 0.1
+	}
+	fo_cornertower_3 = {
+		desc = fo_cornertower_1_desc
+		upgrades_from = fo_cornertower_2
+		gold_cost = 100
+		build_time = 365
+		fort_level = 0.25
+		archers_defensive = 0.1
+		garrison_size = 0.1
+	}
+	fo_cornertower_4 = {
+		desc = fo_cornertower_1_desc
+		upgrades_from = fo_cornertower_3
+		gold_cost = 100
+		build_time = 365
+		fort_level = 0.25
+		archers_defensive = 0.1
+		garrison_size = 0.1
+	}
+	fo_cornertower_5 = {
+		desc = fo_cornertower_5_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
+		prerequisites = {fo_stone_walls}
+		upgrades_from = fo_cornertower_4
+		gold_cost = 500
+		build_time = 1095
+		fort_level = 1
+		archers_defensive = 0.6
+		siege_defence = 0.1
+		garrison_size = 0.1
+	}
+	fo_watchtower_1 = {
+		desc = fo_watchtower_1_desc
+		gold_cost = 50
+		build_time = 365
+		fort_level = 0.1
+		archers_defensive = 0.05
+		siege_defence = 0.05
+		garrison_size = 0.05
+		tradevalue = 0.5
+	}
+	fo_watchtower_2 = {
+		desc = fo_watchtower_1_desc
+		upgrades_from = fo_watchtower_1
+		gold_cost = 50
+		build_time = 365
+		fort_level = 0.1
+		archers_defensive = 0.05
+		siege_defence = 0.05
+		garrison_size = 0.05
+		tradevalue = 0.5
+	}
+	fo_watchtower_3 = {
+		desc = fo_watchtower_1_desc
+		upgrades_from = fo_watchtower_2
+		gold_cost = 50
+		build_time = 365
+		fort_level = 0.1
+		archers_defensive = 0.05
+		siege_defence = 0.05
+		garrison_size = 0.05
+		tradevalue = 0.5
+	}
+	fo_watchtower_4 = {
+		desc = fo_watchtower_1_desc
+		upgrades_from = fo_watchtower_3
+		gold_cost = 50
+		build_time = 365
+		fort_level = 0.1
+		archers_defensive = 0.05
+		garrison_size = 0.05
+		tradevalue = 0.5
+	}
+	fo_camp_1 = {
+		desc = fo_camp_1_desc
+		gold_cost = 50
+		build_time = 365
+		tax_income = 0.1
+		garrison_size = 0.05
+	}
+	fo_town_1 = {
+		desc = fo_town_1_desc
+		trigger = {TECH_CITY_CONSTRUCTION = 2}
+		prerequisites = { fo_camp_1 }
+		gold_cost = 100
+		build_time = 730
+		tax_income = 1
+		garrison_size = 0.1
+	}
+	fo_town_2 = {
+		desc = fo_town_1_desc
+		trigger = {TECH_CITY_CONSTRUCTION = 3}
+		upgrades_from = fo_town_1
+		gold_cost = 200
+		build_time = 730
+		tax_income = 1
+		garrison_size = 0.1
+	}
+	fo_town_3 = {
+		desc = fo_town_3_desc
+		trigger = {TECH_CITY_CONSTRUCTION = 4}
+		upgrades_from = fo_town_2
+		gold_cost = 300
+		build_time = 1095
+		tax_income = 1
+		garrison_size = 0.1
+	}
+	fo_harbor_1 = {
+		desc = no_harbor_desc
+		port = yes
+		trigger = { TECH_NAVAL = 1 }
+		gold_cost = 50
+		build_time = 365
+		galleys = 1
+		tax_income = 0.1
+	}
+	fo_harbor_2 = {
+		desc = shipyard_desc
+		port = yes
+		trigger = { TECH_NAVAL = 2 }
+		upgrades_from = fo_harbor_1
+		gold_cost = 100
+		build_time = 365
+		galleys = 1
+		tax_income = 0.1
+	}
+	fo_harbor_3 = {
+		desc = shipyard_desc
+		port = yes
+		trigger = { TECH_NAVAL = 3 }
+		upgrades_from = fo_harbor_2
+		gold_cost = 100
+		build_time = 365
+		galleys = 1
+		tax_income = 0.1
+	}
+	fo_depot_1 = {
+		desc = fo_depot_1_desc
+		gold_cost = 250
+		build_time = 365
+		disease_defence = 0.10
+		garrison_size = 0.3
+		siege_defence = 0.1
+		local_movement_speed = 0.05
+	}
+	fo_road_1 = {
+		desc = ca_road_1_desc
+		gold_cost = 250
+		build_time = 365
+		tax_income = 1
+		local_movement_speed = 0.1
+		local_build_cost_modifier = 0.1
+		local_build_time_modifier = 0.1
+	}
+	fo_shrine_1 = {
+		desc = fo_shrine_1_desc
+		gold_cost = 50
+		build_time = 365
+		light_infantry_morale = 0.1
+		heavy_infantry_morale = 0.1
+		pikemen_morale = 0.1
+		light_cavalry_morale = 0.1
+		knights_morale = 0.1
+		archers_morale = 0.1
+		horse_archers_morale = 0.1
+		camel_cavalry_morale = 0.1
+		war_elephants_morale = 0.1
+		monthly_character_piety = 0.05
+#		liege_piety = 0.01
+	}
+}
+
+city = {
+
+	ct_road_1 = {
+		desc = ca_road_1_desc
+		gold_cost = 250
+		build_time = 365
+		tax_income = 1
+		local_movement_speed = 0.1
+		local_build_cost_modifier = 0.1
+		local_build_time_modifier = 0.1
+		extra_tech_building_start = 0.3
+	}
+
+	ct_library_1 = {
+		desc = ca_library_1_desc
+		potential = {
+			FROM = {
+				primary_title = { higher_tier_than = BARON }
+				capital_holding = { title = FROMFROM } # is_capital
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 350
+		build_time = 1460
+		ai_creation_factor = 98
+		learning = 1
+		extra_tech_building_start = 0.5
+	}
+
+}
+
+temple = {
+
+	tp_road_1 = {
+		desc = ca_road_1_desc
+		gold_cost = 250
+		build_time = 365
+		tax_income = 1
+		local_movement_speed = 0.1
+		local_build_cost_modifier = 0.1
+		local_build_time_modifier = 0.1
+		extra_tech_building_start = 0.9
+	}
+
+	tp_library_1 = {
+		desc = ca_library_1_desc
+		potential = {
+			FROM = {
+				primary_title = { higher_tier_than = BARON }
+				capital_holding = { title = FROMFROM } # is_capital
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 350
+		build_time = 1460
+		ai_creation_factor = 98
+		learning = 1
+		extra_tech_building_start = 0.5
+	}
+
+}
+
+trade_post = {
+
+	tr_caravanserai_1 = {	# Minor Silk Road Inn
+		potential = {
+			trade_route = silk_road
+			silk_road_trade_post_trigger = yes
+		}
+		desc = tr_caravanserai_1_desc
+		trigger = { TECH_TRADE_PRACTICES = 1 }
+		gold_cost = 200
+		build_time = 150
+		tax_income = 1
+		trade_route_wealth = 1	# Affects total value of trade route
+		tradevalue = 5
+		monthly_grace = 1
+		extra_tech_building_start = 0.3
+	}
+	tr_caravanserai_2 = {	# Medium Silk Road Inn
+		potential = {
+			trade_route = silk_road
+			silk_road_trade_post_trigger = yes
+		}
+		desc = tr_caravanserai_1_desc
+		trigger = { TECH_TRADE_PRACTICES = 2 }
+		gold_cost = 400
+		build_time = 300
+		upgrades_from = tr_caravanserai_1
+		tax_income = 1
+		trade_route_wealth = 1	# Affects total value of trade route
+		tradevalue = 5
+		monthly_grace = 1
+	}
+	tr_caravanserai_3 = {	# Major Silk Road Inn
+		potential = {
+			trade_route = silk_road
+			silk_road_trade_post_trigger = yes
+		}
+		desc = tr_caravanserai_1_desc
+		trigger = { TECH_TRADE_PRACTICES = 4 }
+		gold_cost = 800
+		build_time = 600
+		upgrades_from = tr_caravanserai_2
+		trade_route_wealth = 3	# Affects total value of trade route
+		tax_income = 3
+		tradevalue = 10
+		tech_growth_modifier = 0.1
+		monthly_character_prestige = 0.1
+		monthly_grace = 1
+	}
+	tr_road_1 = {
+		desc = ca_road_1_desc
+		gold_cost = 250
+		build_time = 365
+		tax_income = 1
+		local_movement_speed = 0.1
+		local_build_cost_modifier = 0.1
+		local_build_time_modifier = 0.1
+		extra_tech_building_start = 0.9
+	}
+
+}
+
+tribal = {	
+
+	# Housecarls
+	tb_culture_group_north_germanic_1 = {
+		desc = ca_culture_group_north_germanic_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = north_germanic
+					culture = saxon
+					culture = old_saxon
+					culture = frisian
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		prestige_cost = 300
+		build_time = 730
+		pikemen = 10
+		pikemen_defensive = 0.15
+		heavy_infantry = 50
+		heavy_infantry_offensive = 0.15
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	tb_culture_group_north_germanic_2 = {
+		desc = ca_culture_group_north_germanic_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = north_germanic
+					culture = saxon
+					culture = old_saxon
+					culture = frisian
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		upgrades_from = ca_culture_group_north_germanic_1
+		prestige_cost = 300
+		build_time = 1095
+		pikemen = 10
+		pikemen_defensive = 0.15
+		heavy_infantry = 50
+		heavy_infantry_offensive = 0.15
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	tb_culture_group_north_germanic_3 = {
+		desc = ca_culture_group_north_germanic_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = north_germanic
+					culture = saxon
+					culture = old_saxon
+					culture = frisian
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+		upgrades_from = ca_culture_group_north_germanic_2
+		prestige_cost = 300
+		build_time = 2190
+		pikemen = 10
+		pikemen_defensive = 0.15
+		heavy_infantry = 50
+		heavy_infantry_offensive = 0.15
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	tb_culture_group_north_germanic_4 = {
+		desc = ca_culture_group_north_germanic_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = north_germanic
+					culture = saxon
+					culture = old_saxon
+					culture = frisian
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+		upgrades_from = ca_culture_group_north_germanic_3
+		prestige_cost = 300
+		build_time = 2190
+		pikemen = 10
+		pikemen_defensive = 0.15
+		heavy_infantry = 50
+		heavy_infantry_offensive = 0.15
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+
+
+
+	tb_road_1 = {
+		desc = ca_road_1_desc
+		gold_cost = 250
+		build_time = 365
+		tax_income = 1
+		local_movement_speed = 0.1
+		local_build_cost_modifier = -0.1
+		local_build_time_modifier = -0.1
+		extra_tech_building_start = 0.9
+	}
+
+	tb_library_1 = {
+		desc = ca_library_1_desc
+		potential = {
+			FROM = {
+				primary_title = { higher_tier_than = DUKE }
+				capital_holding = { title = FROMFROM } # is_capital
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 350
+		build_time = 1460
+		ai_creation_factor = 98
+		learning = 1
+		extra_tech_building_start = 0.5
+	}
+
+}
+
+# Building specific modifiers are:
+# tax_income 	Taxes from holding in demesne 	Flat
+# local_tax_modifier		Tax gained from every holding in a province 	Percent
+# local_build_cost_modifier		Cost of constructing a building in a province 	Percent
+# local_build_time_modifier		Time of constructing a building in a province 	Percent
+# levy_size 	Maximum levies. Does not influence fleet size. 	Percent
+# land_morale 	Morale of realm army 	Percent
+# garrison_size 	Size of holding garrison 	Percent
+# fort_level 	Holding fort level 	Flat
+# tech_growth_modifier 	Growth rate of all technology types. 	Percent
+# <tech_type>_techpoints 	Generation of technology points in province 	Percent
+# tradevalue 	Trade zone value 	Flat
+# trade_route_wealth
+# trade_route_value
+# max_population_mult 		Percent
+# diplomacy 	Diplomacy skill of a character 	Flat
+# stewardship 	Stewardship skill of a character 	Flat
+# martial 	Martial skill of a character 	Flat
+# intrigue 	Intrigue skill of a character 	Flat
+# learning 	Learning skill of a character 	Flat
+# fertility 	Fertility of a character. 	Percent
+# demesne_size 	Maximum demesne size 	Flat
+# monthly_character_prestige 	Prestige of a character earned each month 	Flat
+# liege_prestige 	Gives prestige to building owner and his/her liege	Flat
+# monthly_character_piety 	Piety of a character earned each month 	Flat
+# liege_piety 	Gives piety to building owner and his/her liege	Flat
+# moved_capital_months_mult 	Modifies the delay for how often one can change capital, if their government allows for more frequent switching than once per lifetime. Scripted on capital buildings.
+# nomad_tax_modifier
+# ai_feudal_modifier 	Influences the AI's building creation weight if the ai is feudal, or if tribal but strive to become feudal 	Flat
+# ai_republic_modifier 	Influences the AI's building creation weight if the ai is a republic, or if tribal but strive to become a republic 	Flat
+# vassal_opinion 	Changes a vassal's opinion of you 	Flat
+# sex_appeal_opinion 	Changes the other sex's opinion of you (or same sex if Homosexual), until age 45 for women and 65 for men 	Flat
+# church_opinion 	Changes the clergy's opinion of you 	Flat
+# clan_sentiment
+# levy_reinforce_rate 	Time for levies to regenerate 	Percent
+# <unit>_offensive 		Percent
+# <unit>_defensive 		Percent
+# <unit>_morale 		Percent
+# global_winter_supply 	Applicable on the capital.
+# global_movement_speed 		Percent
+# local_movement_speed 		Percent
+# retinuesize 	Number of retinues 	Flat
+# retinuesize_perc 	Number of retinues 	Percent
+# horde_maintenence_cost 	Applicable on characters, family palaces and the capital.
+# commander_limit 	Increases the number of commanders a ruler can have. Scripted in buildings for capital settlements. 	Flat
+# max_tradeposts 	Maximum number of trade posts 	Flat
+# global_trade_route_wealth 	Applicable on the capital of holders of a trade post.
+# global_trade_route_value 	Applicable on the capital of holders of a trade post.
+# global_tradevalue 	Applicable on the capital of holders of a trade post.
+# max_population 		Flat

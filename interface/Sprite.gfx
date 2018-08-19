@@ -1,0 +1,16 @@
+spriteTypes = {
+spriteType = {
+name = "GFX_trait_Pope_Slayer"
+texturefile = "gfx/traits/Pope_Slayer.tga" 
+noOfFrames = 1
+norefcount = yes
+effectFile = "gfx/FX/buttonstate.lua"
+}
+spriteType = {
+name = "GFX_trait_Patriarch_Slayer"
+texturefile = "gfx/traits/Patriarch_Slayer.tga" 
+noOfFrames = 1
+norefcount = yes
+effectFile = "gfx/FX/buttonstate.lua"
+}
+}

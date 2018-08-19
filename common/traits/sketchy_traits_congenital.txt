@@ -1,0 +1,105 @@
+
+
+#####################
+# POSSIBLY CONGENITAL
+#####################
+
+short = {
+	birth = 100
+	inherit_chance = 30
+
+	sex_appeal_opinion = -5
+        intrigue = 2
+        martial = -1
+
+	opposites = { tall dwarf }
+}
+
+tall = {
+	birth = 100
+	inherit_chance = 30
+
+	sex_appeal_opinion = 5
+        intrigue = -1
+        martial = 2
+
+	opposites = { short dwarf }
+}
+
+melodious = {
+	birth = 150
+	inherit_chance = 15
+	
+	sex_appeal_opinion = 15
+	diplomacy = 2
+	
+	opposites = { lisp stutter }
+}
+
+fluent = {
+	birth = 50
+	inherit_chance = 15
+	
+	diplomacy = 3
+	same_opinion = 5
+
+    opposites = { stutter }
+}
+
+well_endowed = {
+	birth = 50
+	inherit_chance = 15
+	
+	spouse_opinion = 30
+	sex_appeal_opinion = 30
+
+    opposite_opinion = -20
+
+    opposites = { meager }
+}
+
+meager = {
+	birth = 50
+	inherit_chance = 15
+	
+	spouse_opinion = -10
+	sex_appeal_opinion = -30
+
+        opposites = { well_endowed }
+}
+
+fertile = {
+	birth = 50
+	inherit_chance = 30
+	
+	fertility = 0.75
+
+        opposites = { barren }
+}
+
+barren = {
+	birth = 10
+	inherit_chance = 10
+	
+	fertility = -0.75
+
+        opposites = { fertile }
+}
+
+resilient = {
+	birth = 50
+	inherit_chance = 25
+
+	health = 2
+
+	opposites = { feeble }
+}
+
+feeble = {
+	birth = 10
+	inherit_chance = 5
+
+	health = -1
+
+	opposites = { resilient }
+}

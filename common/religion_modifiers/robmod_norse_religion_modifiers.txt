@@ -1,0 +1,13 @@
+#########################################################################
+# RELIGIOUS AUTHORITY MODIFIERS - fully scriptable
+##########################################################################
+
+robmod_norse_monks_activated = {
+	authority = 20
+	years = 100
+}
+
+robmodnorse_godslaws = {
+	authority = 10
+	years = 20
+}

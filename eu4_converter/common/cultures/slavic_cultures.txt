@@ -1,0 +1,18 @@
+east_slavic = {
+	ilmenian = {
+		primary = NOV
+		dynasty_names = $ilmenian$
+	}
+	volhynian = {
+		primary = KIE
+		dynasty_names = $volhynian$
+	}
+	severian = {
+		primary = KIE
+		dynasty_names = $severian$
+	}
+	russian_culture = {
+		primary = RUS
+		dynasty_names = $russian$
+	}
+}

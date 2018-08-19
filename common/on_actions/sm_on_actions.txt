@@ -1,0 +1,12 @@
+# ---------------------------------
+# - Soulmates Mod : On actions    -
+# - Written by Fox With A Shotgun -
+# - Last Modified 11-09-17        -
+# ---------------------------------
+
+on_birth = {
+	events = {
+		soulmates.5000
+		soulmates.1030
+	}
+}

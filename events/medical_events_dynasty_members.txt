@@ -1,0 +1,503 @@
+namespace = medper
+
+############ DYNASTY MEMBER CURE EVENTS #################
+
+# 1st tier bounce event
+character_event = {
+id = medper.1
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.6 } }
+	}
+}
+# 2nd tier bounce event
+character_event = {
+id = medper.2
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.11 } }
+	}
+}
+# syphilitic bounce event
+character_event = {
+id = medper.3
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.12 } }
+	}
+}
+# plague bounce event
+character_event = {
+id = medper.4
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.15 } }
+	}
+}
+# pneumonic bounce event
+character_event = {
+id = medper.5
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.16 } }
+	}
+}
+# 1st tier cure attempt others
+character_event = {
+id = medper.6
+desc = "EVTDESCMEDPER6"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = 1st_tier_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			50 = {
+				FROM = {
+					remove_trait = ill
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			50 = {
+				FROM = {
+					add_character_modifier = { name = 1st_cure_failed days = 100 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = 1st_tier_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			65 = {
+				FROM = {
+					remove_trait = ill
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			35 = {
+				FROM = {
+					add_character_modifier = { name = 1st_cure_failed days = 100 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Normal cure success bounce
+character_event = {
+id = medper.7
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.9 } }
+	}
+}
+# Normal cure failure bounce
+character_event = {
+id = medper.8
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.10 } }
+	}
+}
+# Normal cure success others
+character_event = {
+id = medper.9
+desc = "EVTDESCMEDPER9"
+picture = GFX_evt_recovery
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = cure_others_success_option
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Normal cure failure others
+character_event = {
+id = medper.10
+desc = "EVTDESCMEDPER10"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = cure_others_failure_option
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# 2nd tier cure attempt others
+character_event = {
+id = medper.11
+desc = "EVTDESCMEDPER11"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = 2nd_tier_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			40 = {
+				custom_tooltip = { text = 2nd_cure_works_chance }
+				hidden_tooltip = {
+					FROM = {
+						remove_trait = ill
+						remove_trait = has_tuberculosis
+						remove_trait = has_typhoid_fever
+						remove_trait = has_typhus
+						remove_trait = has_small_pox
+						remove_trait = has_measles
+						character_event = { id = medper.7 }
+					}
+				}
+			}
+			60 = {
+				FROM = {
+					add_character_modifier = { name = 2nd_cure_failed days = 150 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = 2nd_tier_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			55 = {
+				custom_tooltip = { text = 2nd_cure_works_chance }
+				hidden_tooltip = {
+					FROM = {
+						remove_trait = ill
+						remove_trait = has_tuberculosis
+						remove_trait = has_typhoid_fever
+						remove_trait = has_typhus
+						remove_trait = has_small_pox
+						remove_trait = has_measles
+						character_event = { id = medper.7 }
+					}
+				}
+			}
+			45 = {
+				FROM = {
+					add_character_modifier = { name = 2nd_cure_failed days = 150 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Syphilitic cure attempt others
+character_event = {
+id = medper.12
+desc = "EVTDESCMEDPER12"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = syphilitic_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			20 = {
+				FROM = {
+					remove_trait = ill
+					remove_trait = syphilitic
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			70 = {
+				FROM = {
+					add_character_modifier = { name = syphilitic_cure_failed days = 200 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+			10 = {
+				custom_tooltip = { text = cure_results_in_death_chance }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = medper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = syphilitic_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			35 = {
+				FROM = {
+					remove_trait = ill
+					remove_trait = syphilitic
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			60 = {
+				FROM = {
+					add_character_modifier = { name = syphilitic_cure_failed days = 200 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+			5 = {
+				custom_tooltip = { text = cure_results_in_death_chance }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = medper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Rare cure death bounce
+character_event = {
+id = medper.13
+hide_window = yes
+is_triggered_only = yes
+	option = {
+		name = OK
+		liege = { character_event = { id  = medper.14 } }
+	}
+}
+# Rare cure death event others
+character_event = {
+id = medper.14
+desc = "EVTDESCMEDPER14"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = cure_others_death_option
+		FROM = {
+			clr_character_flag = attempting_to_cure_disease
+			death = {
+				death_reason = death_trait
+			}
+		}
+	}
+}
+# Plague cure attempt others
+character_event = {
+id = medper.15
+desc = "EVTDESCMEDPER15"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = plague_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			10 = {
+				FROM = {
+					remove_trait = ill
+					remove_trait = has_bubonic_plague
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			80 = {
+				FROM = {
+					add_character_modifier = { name = plague_cure_failed days = 200 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+			10 = {
+				custom_tooltip = { text = cure_results_in_death_chance }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = medper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = plague_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			25 = {
+				FROM = {
+					remove_trait = ill
+					remove_trait = has_bubonic_plague
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			70 = {
+				FROM = {
+					add_character_modifier = { name = plague_cure_failed days = 200 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+			5 = {
+				custom_tooltip = { text = cure_results_in_death_chance }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = medper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}
+# Pneumonic cure attempt others
+character_event = {
+id = medper.16
+desc = "EVTDESCMEDPER16"
+picture = GFX_evt_illness
+border = GFX_event_normal_frame_religion
+is_triggered_only = yes
+
+	option = {
+		name = pneumonic_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				NOT = { learning = 16 }
+			}
+		}
+		custom_tooltip = { text = average_physician_tooltip }
+		random_list = {
+			10 = {
+				FROM = {
+					remove_trait = ill
+					remove_trait = pneumonic
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			80 = {
+				FROM = {
+					add_character_modifier = { name = pneumonic_cure_failed days = 200 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+			10 = {
+				custom_tooltip = { text = cure_results_in_death_chance }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = medper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = pneumonic_cure_option_others
+		trigger = {
+			any_realm_character = {
+				has_minor_title = title_court_healer
+				learning = 16
+			}
+		}
+		custom_tooltip = { text = good_physician_tooltip }
+		random_list = {
+			25 = {
+				FROM = {
+					remove_trait = ill
+					remove_trait = pneumonic
+					hidden_tooltip = { character_event = { id = medper.7 } }
+				}
+			}
+			70 = {
+				FROM = {
+					add_character_modifier = { name = pneumonic_cure_failed days = 200 }
+					hidden_tooltip = { character_event = { id = medper.8 } }
+				}
+			}
+			5 = {
+				custom_tooltip = { text = cure_results_in_death_chance }
+				hidden_tooltip = {
+					FROM = {
+						character_event = { id = medper.13 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cure_cancel_attempt
+		FROM = { clr_character_flag = attempting_to_cure_disease }
+	}
+}

@@ -1,0 +1,972 @@
+
+### Sword ###
+dynamic_sword_1 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	picture = "GFX_sword"
+	slot = weapon
+}
+dynamic_sword_2 = {
+	monthly_character_prestige = 0.1
+	martial = 2
+	combat_rating = 1
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_sword_T2"
+	slot = weapon
+}
+
+dynamic_sword_3_heartseeker = {
+	monthly_character_prestige = 1.5
+	martial = 3
+	combat_rating = 2
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_sword_T3_glow_purple"
+	slot = weapon
+}
+
+dynamic_sword_3_vengeance = {
+	monthly_character_prestige = 1.5
+	martial = 3
+	combat_rating = 2
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_sword_T3_glow_green"
+	slot = weapon
+}
+
+dynamic_sword_3_fury = {
+	monthly_character_prestige = 1.5
+	martial = 3
+	combat_rating = 2
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_sword_T3_glow_red"
+	slot = weapon
+}
+### Scimitar ###
+
+dynamic_scimitar_1 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_scimitar_T1"
+	slot = weapon
+}
+
+dynamic_scimitar_2 = {
+	monthly_character_prestige = 1
+	martial = 2
+	combat_rating = 1
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_scimitar_T2"
+	slot = weapon
+}
+
+dynamic_scimitar_3_golden = {
+	monthly_character_prestige = 1.5
+	martial = 3
+	combat_rating = 2
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_the_golden_scimitar"
+	slot = weapon
+}
+
+dynamic_scimitar_3_fortune = {
+	monthly_character_prestige = 1.5
+	martial = 3
+	combat_rating = 2
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_scimitar_T3"
+	slot = weapon
+}
+
+dynamic_scimitar_3_conquest = {
+	monthly_character_prestige = 1.5
+	martial = 3
+	combat_rating = 2
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_sword_muslim"
+	slot = weapon
+}
+### Lance ###
+dynamic_lance_1 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon lance created }
+	stacking = no
+	picture = "GFX_lance"
+	slot = weapon
+}
+
+dynamic_lance_2 = {
+	monthly_character_prestige = 1
+	martial = 1
+	combat_rating = 1
+	command_modifier = {
+		cavalry = 0.05
+	}
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon lance created }
+	stacking = no
+	picture = "GFX_twohanded_lance"
+	slot = weapon
+}
+
+dynamic_lance_3_impaler = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		cavalry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon lance created }
+	stacking = no
+	picture = "GFX_the_impaler"
+	slot = weapon
+}
+
+dynamic_lance_3_trident = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		cavalry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon lance created }
+	stacking = no
+	picture = "GFX_the_trident"
+	slot = weapon
+}
+
+dynamic_lance_3_piercer = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		cavalry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon lance created }
+	stacking = no
+	picture = "GFX_the_piercer"
+	slot = weapon
+}
+### Axe ###
+dynamic_axe_1 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon axe created }
+	stacking = no
+	picture = "GFX_axe_tier_1"
+	slot = weapon
+}
+
+dynamic_axe_2 = {
+	monthly_character_prestige = 1
+	martial = 1
+	combat_rating = 1
+	command_modifier = {
+		light_infantry = 0.05
+	}
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon axe created }
+	stacking = no
+	picture = "GFX_viking_axe"
+	slot = weapon
+}
+
+dynamic_axe_3_cleaver = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		light_infantry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon axe created }
+	stacking = no
+	picture = "GFX_cleaver"
+	slot = weapon
+}
+
+dynamic_axe_3_ravager = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		light_infantry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon axe created }
+	stacking = no
+	picture = "GFX_ravager"
+	slot = weapon
+}
+
+dynamic_axe_3_marauder = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		light_infantry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon axe created }
+	stacking = no
+	picture = "GFX_marauder"
+	slot = weapon
+}
+### Mace ###
+dynamic_mace_1 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon mace created }
+	stacking = no
+	picture = "GFX_mace_tier_1"
+	slot = weapon
+}
+
+dynamic_mace_2 = {
+	monthly_character_prestige = 1
+	martial = 1
+	combat_rating = 1
+	command_modifier = {
+		heavy_infantry = 0.05
+	}
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon mace created }
+	stacking = no
+	picture = "GFX_mace"
+	slot = weapon
+}
+
+dynamic_mace_3_foe_hammer = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		heavy_infantry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon mace created }
+	stacking = no
+	picture = "GFX_the_foe_hammer"
+	slot = weapon
+}
+
+dynamic_mace_3_bone_breaker = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		heavy_infantry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon mace created }
+	stacking = no
+	picture = "GFX_the_bone_breaker"
+	slot = weapon
+}
+
+dynamic_mace_3_shatterer = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = {
+		heavy_infantry = 0.1
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon mace created }
+	stacking = no
+	picture = "GFX_the_shatterer"
+	slot = weapon
+}
+### Bow - Nomads ###
+dynamic_bow_1 = {
+	monthly_character_prestige = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	picture = "GFX_self_bow_t1"
+	slot = weapon
+}
+
+dynamic_bow_2 = {
+	monthly_character_prestige = 1.5
+	combat_rating = 1
+	command_modifier = {
+		cavalry = 0.075
+	}
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	picture = "GFX_recurve_bow"
+	slot = weapon
+}
+
+dynamic_bow_3_silent_wind = {
+	monthly_character_prestige = 2
+	combat_rating = 2
+	command_modifier = {
+		cavalry = 0.15
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	picture = "GFX_silent_wind"
+	slot = weapon
+}
+
+dynamic_bow_3_lightning = {
+	monthly_character_prestige = 2
+	combat_rating = 2
+	command_modifier = {
+		cavalry = 0.15
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	picture = "GFX_lightning"
+	slot = weapon
+}
+
+dynamic_bow_3_eagle = {
+	monthly_character_prestige = 2
+	combat_rating = 2
+	command_modifier = {
+		cavalry = 0.15
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { combat_weapon bow created }
+	stacking = no
+	picture = "GFX_eagle"
+	slot = weapon
+}
+### Armor ###
+dynamic_armor_1 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_chain_mail"
+	slot = torso
+}
+dynamic_armor_2 = {
+	monthly_character_prestige = 1
+	martial = 1
+	combat_rating = 1
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_splint_mail"
+	slot = torso
+}
+dynamic_armor_3_guardian = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = { morale_offence = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_guardian_armor"
+	slot = torso
+}
+dynamic_armor_3_champion = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = { morale_offence = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_champion_armor"
+	slot = torso
+}
+dynamic_armor_3_warden = {
+	monthly_character_prestige = 1.5
+	martial = 1
+	combat_rating = 2
+	command_modifier = { morale_offence = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_warden_armor"
+	slot = torso
+}
+
+### Goldsmith ###
+#Christians#
+dynamic_crown_of_majesty = {
+	quality = 3
+	monthly_character_prestige = 0.8
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { christian crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_gold_fancy"
+	
+	slot = crown
+}
+
+dynamic_emerald_scepter = {
+	quality = 3
+	monthly_character_prestige = 0.6
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { scepter jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_scepter_emerald"
+	
+	slot = scepter
+}
+
+dynamic_sword_of_heroes = {
+	quality = 3
+	monthly_character_prestige = 0.6
+	tribal_opinion = 6
+	castle_opinion = 3
+	town_opinion = 2
+	flags = { sword jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_sword_of_heroes"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_crown_of_pearls = {
+	quality = 2
+	monthly_character_prestige = 0.4
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_of_pearls"
+	
+	slot = crown
+}
+
+dynamic_ruby_scepter = {
+	quality = 2
+	monthly_character_prestige = 0.4
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { scepter jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_sceptre_ruby"
+	
+	slot = scepter
+}
+
+dynamic_golden_sword = {
+	quality = 2
+	monthly_character_prestige = 0.4
+	tribal_opinion = 4
+	castle_opinion = 2
+	town_opinion = 2
+	flags = { sword jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_sword_golden"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_the_lily_crown = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_of_lilies"
+	
+	slot = crown
+}
+
+dynamic_noble_scepter = {
+	quality = 1
+	monthly_character_prestige = 0.1
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { scepter jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_royal_scepter"
+	
+	slot = scepter
+}
+
+dynamic_engraved_sword = {
+	quality = 1
+	monthly_character_prestige = 0.1
+	tribal_opinion = 2
+	castle_opinion = 1
+	town_opinion = 1
+	flags = { scepter jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_sword_engraved"
+	
+	slot = ceremonial_weapon
+}
+
+#Muslim sets & west african sets (daggers also indian)
+dynamic_dagger_of_glory = {
+	quality = 3
+	monthly_character_prestige = 1
+	tribal_opinion = 6
+	castle_opinion = 3
+	town_opinion = 2
+	flags = { dagger jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_inscriped_dagger"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_ruby_bracelets = {
+	quality = 3
+	monthly_character_prestige = 1
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { bracelet jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_bracelet_jeweled_gold"
+	
+	slot = wrist
+}
+
+dynamic_bejeweled_dagger = {
+	quality = 2
+	monthly_character_prestige = 0.6
+	tribal_opinion = 4
+	castle_opinion = 2
+	town_opinion = 2
+	flags = { dagger jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_indian_dagger"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_golden_bracelets = {
+	quality = 2
+	monthly_character_prestige = 0.6
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { bracelet jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_bracelet_gold"
+	
+	slot = wrist
+}
+
+dynamic_engraved_dagger = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	castle_opinion = 1
+	tribal_opinion = 2
+	town_opinion = 1
+	flags = { dagger jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_simple_dagger"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_silver_bracelets = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { bracelet jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_bracelet_silver"
+	
+	slot = wrist
+}
+
+#Indian sets
+dynamic_celestial_necklace = {
+	quality = 3
+	monthly_character_prestige = 1
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { necklace jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_indian_necklace"
+	
+	slot = neck
+}
+
+dynamic_necklace_of_radiance = {
+	quality = 2
+	monthly_character_prestige = 0.6
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { necklace jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_necklace_of_radiance"
+	
+	slot = neck
+}
+
+dynamic_collar_of_pearls = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { necklace jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_pearl_necklace"
+	
+	slot = neck
+}
+
+#Zoroastrian & zun sets
+dynamic_circlet_of_the_heavens = {
+	quality = 3
+	monthly_character_prestige = 1
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { circlet jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_bracelet_jeweled_silver"
+	
+	slot = crown
+}
+
+dynamic_staff_of_majesty = {
+	quality = 3
+	monthly_character_prestige = 1
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { staff jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_sceptre_ruby"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_circlet_of_the_sun = {
+	quality = 2
+	monthly_character_prestige = 0.6
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { circlet jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_bracelet_jeweled_gold"
+	
+	slot = crown
+}
+
+dynamic_golden_staff = {
+	quality = 2
+	monthly_character_prestige = 0.6
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { staff jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_royal_scepter"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_circlet_of_twilight = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { circlet jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_bracelet_silver"
+	
+	slot = crown
+}
+
+dynamic_silver_staff = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { staff jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_royal_scepter"
+	
+	slot = ceremonial_weapon
+}
+
+#Norse sets
+dynamic_crown_of_crows = {
+	quality = 3
+	monthly_character_prestige = 1.4
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_gold"
+	
+	slot = crown
+}
+
+dynamic_crown_of_the_sea = {
+	quality = 2
+	monthly_character_prestige = 0.8
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_silver"
+	
+	slot = crown
+}
+
+dynamic_iron_crown = {
+	quality = 1
+	monthly_character_prestige = 0.3
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_silver"
+	
+	slot = crown
+}
+
+
+
+#Slavic/baltic/finnish/tengri sets
+dynamic_heros_crown = {
+	quality = 3
+	monthly_character_prestige = 1
+	castle_opinion = 3
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_gold_fancy"
+	
+	slot = crown
+}
+
+dynamic_axe_of_the_ancestors = {
+	quality = 3
+	monthly_character_prestige = 1
+	tribal_opinion = 6
+	castle_opinion = 3
+	town_opinion = 2
+	flags = { axe jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_viking_axe"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_amber_crown = {
+	quality = 2
+	monthly_character_prestige = 0.6
+	castle_opinion = 2
+	tribal_opinion = 2
+	town_opinion = 2
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_gold"
+	
+	slot = crown
+}
+
+dynamic_obsidian_axe = {
+	quality = 2
+	monthly_character_prestige = 0.6
+	tribal_opinion = 4
+	castle_opinion = 2
+	town_opinion = 2
+	flags = { axe jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_viking_axe"
+	
+	slot = ceremonial_weapon
+}
+
+dynamic_engraved_crown = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	castle_opinion = 1
+	tribal_opinion = 1
+	town_opinion = 1
+	flags = { crown jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_crown_silver"
+	
+	slot = crown
+}
+
+dynamic_ceremonial_axe = {
+	quality = 1
+	monthly_character_prestige = 0.2
+	tribal_opinion = 2
+	castle_opinion = 1
+	town_opinion = 1
+	flags = { axe jewelry crown_jewel created }
+	stacking = no
+	picture = "GFX_viking_axe"
+	
+	slot = ceremonial_weapon
+}
+
+

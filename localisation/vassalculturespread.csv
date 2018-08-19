@@ -1,0 +1,2 @@
+invite_a_local;Invite a local;;;;Invitar a un lugareño;;;;;;;;;x
+invite_a_local_desc;Invite a local from these lands who belongs to [Root.Location.Culture.GetName] culture and follows [Root.Location.Religion.GetName] religion.;;;;Invitar a un lugareño de estas tierras que se identifique con la cultura [Root.Location.Culture.GetName] y siga la religión [Root.Location.Religion.GetName].;;;;;;;;;x

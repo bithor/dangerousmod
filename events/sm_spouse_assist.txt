@@ -1,0 +1,933 @@
+# ---------------------------------------------------
+# - Soulmates Mod : Spouse Assist Decision events   -
+# - Written by Fox With A Shotgun                   -
+# - Last Modified 28-09-17                          -
+# ---------------------------------------------------
+
+namespace = soulmates
+
+# Event table of contents:
+# 1000 - 1999 : Homosexual Female
+# 2000 - 2999 : Homosexual Male
+# 3000 - 3999 : Female neutral
+# 4000 - 4999 : Male neutral
+# 5000 - 5999 : Miscellaneous
+# 6000 - 6999 : Spouse Assist Decision Events
+
+# ---------------------------------------------------
+
+# Assist selector
+
+character_event = {
+	id = soulmates.6000
+	is_triggered_only = yes
+	
+	title = EVTTITLEsoulmatesSpouseAssistReq
+	desc = EVTDESCsoulmates.6000
+	picture = GFX_evt_war_planning
+	
+	# Administrative reform
+	option = {
+		name = EVTOPTAsoulmates.6000
+		ai_chance = {
+			factor = 10
+		}
+		trigger = {
+			spouse = {
+				OR = {
+					AND = {
+						OR = {
+							trait = midas_touched
+							trait = fortune_builder
+						}
+						stewardship = 10
+					}
+					stewardship = 25
+				}
+			}
+		}
+		tooltip_info = stewardship
+		character_event = { 
+			id = soulmates.6100 
+			days = 14 
+			random = 7 
+			tooltip = EVTOPTATTsoulmates.6000 
+		}
+	}
+	
+	# Diplomatic reform
+	option = {
+		name = EVTOPTBsoulmates.6000
+		ai_chance = {
+			factor = 10
+		}
+		trigger = {
+			spouse = {
+				OR = {
+					AND = {
+						OR = {
+							trait = grey_eminence
+							trait = charismatic_negotiator
+						}
+						diplomacy = 10
+					}
+					diplomacy = 25
+				}
+			}
+		}
+		tooltip_info = diplomacy
+		character_event = {
+			id = soulmates.6200
+			days = 14
+			random = 7
+			tooltip = EVTOPTBTTsoulmates.6000
+		}
+	}
+	
+	# Military reform
+	option = {
+		name = EVTOPTCsoulmates.6000
+		ai_chance = {
+			factor = 10
+		}
+		trigger = {
+			spouse = {
+				OR = {
+					AND = {
+						OR = {
+							trait = brilliant_strategist
+							trait = skilled_tactician
+						}
+						martial = 10
+					}
+					martial = 25
+				}
+			}
+		}
+		tooltip_info = martial
+		character_event = {
+			id = soulmates.6300
+			days = 14
+			random = 7
+			tooltip = EVTOPTCTTsoulmates.6000
+		}
+	}
+	
+	# Don't ask for reform help just yet.
+	option = {
+		name = EVTOPTDsoulmates.6000
+		ai_chance = {
+			factor = 10
+		}
+		custom_tooltip = {
+			text = EVTOPTDTTsoulmates.6000
+		}
+	}
+}
+
+# ------------------------------------------------------
+# Administrative reform events
+# Reserved space: 6100 - 6199
+# ------------------------------------------------------
+character_event = {
+	id = soulmates.6100
+	desc = EVTDESCsoulmates.6100
+	title = EVTTITLEsoulmatesSpouseAdmReform
+	picture = GFX_evt_construction_site
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.6100
+		
+		spouse = {
+			opinion = {
+				modifier = opinion_requested_help
+				who = ROOT
+				months = 60
+			}
+			set_character_flag = sm_adm_reform
+			clr_character_flag = sm_dip_reform
+			clr_character_flag = sm_mil_reform
+		}
+	}
+}
+
+# Administrative reform: Reducing Noble Tax Privileges
+character_event = {
+	id = soulmates.6101
+	desc = EVTDESCsoulmates.6101
+	title = EVTTITLEsoulmatesSpouseAdmNobleTax
+	picture = GFX_evt_monk
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = midas_touched
+					trait = fortune_builder
+				}
+				stewardship = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				stewardship = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				trait = administrator
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_adm_reform
+		}
+		any_vassal = {
+			is_feudal = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6101
+		custom_tooltip = { text = EVTOPTATTsoulmates.6101}
+		any_vassal = {
+			limit = { is_feudal = yes }
+			opinion = {
+				modifier = opinion_removed_tax_privileges
+				who = ROOT
+				months = 36
+			}
+		}
+		ROOT = {
+			scaled_wealth = 1.00
+		}
+	}
+	
+	option = {
+		name = EVTOPTBsoulmates.6101
+		custom_tooltip = { text = EVTOPTBTTsoulmates.6101 }
+	}
+}
+
+# Administrative reform: Promoting trade
+character_event = {
+	id = soulmates.6102
+	desc = EVTDESCsoulmates.6102
+	title = EVTTITLEsoulmatesSpouseAdmTradePromotion
+	picture = GFX_evt_busy_trading_dock_republic
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = midas_touched
+					trait = fortune_builder
+				}
+				stewardship = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				stewardship = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				trait = administrator
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_adm_reform
+		}
+		any_realm_province = {
+			NOT = {
+				has_province_modifier = trade_route
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6102
+		custom_tooltip = { text = EVTOPTATTsoulmates.6102 }
+		trigger = {
+			scaled_wealth = 0.5
+		}
+		
+		random_realm_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = trade_route
+				}
+			}
+			add_province_modifier = { 
+				name = trade_route
+				duration = -1
+			}
+		}
+		scaled_wealth = -0.5
+	}
+	
+	option = {
+		name = EVTOPTBsoulmates.6102
+		custom_tooltip = { text = EVTOPTBTTsoulmates.6102 }
+	}
+}
+
+# Administrative reform: Purging corruption
+character_event = {
+	id = soulmates.6103
+	desc = EVTDESCsoulmates.6103
+	title = EVTTITLEsoulmatesSpouseAdmPurge
+	picture = GFX_evt_judged_by_ruler
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = midas_touched
+					trait = fortune_builder
+				}
+				stewardship = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				stewardship = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				trait = administrator
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_adm_reform
+		}
+		any_vassal = {
+			trait = arbitrary
+			is_republic = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6103
+		random_vassal = {
+			limit = {
+				trait = arbitrary
+				is_republic = yes
+			}
+			
+			imprison = ROOT
+		}
+	}
+}
+
+# Administrative reform: Census
+character_event = {
+	id = soulmates.6104
+	desc = EVTDESCsoulmates.6104
+	title = EVTTITLEsoulmatesSpouseAdmCensus
+	picture = GFX_evt_monk
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = midas_touched
+					trait = fortune_builder
+				}
+				stewardship = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				stewardship = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				trait = administrator
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_adm_reform
+		}
+	}
+	
+	# Pay for a census.
+	option = {
+		name = EVTOPTAsoulmates.6104
+		custom_tooltip = { text = EVTOPTATTsoulmates.6104 }
+		
+		trigger = {
+			scaled_wealth = 0.8
+		}
+		
+		scaled_wealth = -0.8
+		economy_techpoints = 150
+	}
+	
+	# Too expensive.
+	option = {
+		name = EVTOPTBsoulmates.6104
+		custom_tooltip = { text = EVTOPTBTTsoulmates.6104 }
+	}
+}
+
+# Administrative reform: Stressed
+character_event = {
+	id = soulmates.6105
+	desc = EVTDESCsoulmates.6105
+	title = EVTTITLEsoulmatesSpouseAdmStressed
+	picture = GFX_evt_stressed_ruler
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 1.2
+			spouse = {
+				trait = content
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				trait = diligent
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				NOT = { stewardship = 20 }
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_adm_reform
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6105
+		custom_tooltip = { text = EVTOPTATTsoulmates.6105 }
+		
+		spouse = {
+			add_trait = stressed
+		}
+	}
+}
+
+# ------------------------------------------------------
+# Diplomatic reform events
+# Reserved space: 6200 - 6299
+# ------------------------------------------------------
+
+character_event = {
+	id = soulmates.6200
+	desc = EVTDESCsoulmates.6200
+	title = EVTTITLEsoulmatesSpouseDipReform
+	picture = GFX_evt_dancing
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.6200
+		
+		spouse = {
+			opinion = {
+				modifier = opinion_requested_help
+				who = ROOT
+				months = 60
+			}
+			set_character_flag = sm_dip_reform
+			clr_character_flag = sm_adm_reform
+			clr_character_flag = sm_mil_reform
+		}
+	}
+}
+
+# Diplomatic reform: Elaborate Court Life
+character_event = {
+	id = soulmates.6201
+	desc = EVTDESCsoulmates.6201
+	title = EVTTITLEsoulmatesSpouseDipReformCourtLife
+	picture = GFX_evt_dancing
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = grey_eminence
+					trait = charismatic_negotiator
+				}
+				diplomacy = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				diplomacy = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = socializer
+					trait = hedonist
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_dip_reform
+		}
+		primary_title = { higher_tier_than = DUKE }
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6201
+		custom_tooltip = { text = EVTOPTATTsoulmates.6201 }
+		
+		trigger = {
+			scaled_wealth = 1.0
+		}
+		
+		scaled_wealth = -1.0
+		any_vassal = {
+			opinion = {
+				modifier = opinion_glorious_court
+				who = ROOT
+				months = 120
+			}
+		}
+		any_courtier = {
+			opinion = {
+				modifier = opinion_glorious_court
+				who = ROOT
+				months = 240
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBsoulmates.6201
+		custom_tooltip = { text = EVTOPTBTTsoulmates.6201 }
+	}
+}
+
+# Diplomatic reform: Cultural Observations
+character_event = {
+	id = soulmates.6202
+	desc = EVTDESCsoulmates.6202
+	title = EVTTITLEsoulmatesSpouseDipReformCulturalObs
+	picture = GFX_evt_dancing
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = grey_eminence
+					trait = charismatic_negotiator
+				}
+				diplomacy = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				diplomacy = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = kind
+					trait = charitable
+					trait = patient
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_dip_reform
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6202		
+		culture_techpoints = 100
+	}
+}
+
+# Diplomatic reform: Positive Propaganda
+character_event = {
+	id = soulmates.6203
+	desc = EVTDESCsoulmates.6203
+	title = EVTTITLEsoulmatesSpouseDipReformPropaganda
+	picture = GFX_evt_monk
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = grey_eminence
+					trait = charismatic_negotiator
+				}
+				diplomacy = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				diplomacy = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = ambitious
+					trait = deceitful
+					trait = charitable
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_dip_reform
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6203
+		add_character_modifier = { name = popular_ruler duration = 1825 }
+	}
+}
+
+# Diplomatic reform: Diplomatic Faux Pas
+character_event = {
+	id = soulmates.6204
+	desc = EVTDESCsoulmates.6204
+	title = EVTTITLEsoulmatesSpouseDipReformFauxPas
+	picture = GFX_evt_accused
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				trait = naive_appeaser
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				NOT = { diplomacy = 20 }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = lunatic
+					trait = stressed
+					trait = possessed
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_dip_reform
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6204		
+		add_character_modifier = { name = vicious_rumors duration = 1825 }
+	}
+}
+
+# ------------------------------------------------------
+# Military reform events
+# Reserved space: 6300 - 6399
+# ------------------------------------------------------
+
+character_event = {
+	id = soulmates.6300
+	desc = EVTDESCsoulmates.6300
+	title = EVTTITLEsoulmatesSpouseMilReform
+	picture = GFX_evt_war_planning
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAsoulmates.6300
+		
+		spouse = {
+			opinion = {
+				modifier = opinion_requested_help
+				who = ROOT
+				months = 60
+			}
+			set_character_flag = sm_mil_reform
+			clr_character_flag = sm_adm_reform
+			clr_character_flag = sm_dip_reform
+		}
+	}
+}
+
+# Military reform: Annual Levy Training
+
+character_event = {
+	id = soulmates.6301
+	desc = EVTDESCsoulmates.6301
+	title = EVTTITLEsoulmatesSpouseMilReformLevyTraining
+	picture = GFX_evt_war_planning
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = brilliant_strategist
+					trait = skilled_tactician
+				}
+				martial = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				martial = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = duelist
+					trait = strategist
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_mil_reform
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6301		
+		add_character_modifier = { name = diligent_liege_size duration = 1825 }
+	}
+}
+
+# Military reform: Standardised Levy Equipment
+
+character_event = {
+	id = soulmates.6302
+	desc = EVTDESCsoulmates.6302
+	title = EVTTITLEsoulmatesSpouseMilReformLevyEquipment
+	picture = GFX_evt_war_planning
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = brilliant_strategist
+					trait = skilled_tactician
+				}
+				martial = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				martial = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = duelist
+					trait = strategist
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_mil_reform
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6302		
+		add_character_modifier = { name = diligent_liege_size duration = 1825 }
+	}
+}
+
+# Military reform: Improved Siege Defenses
+
+character_event = {
+	id = soulmates.6303
+	desc = EVTDESCsoulmates.6303
+	title = EVTTITLEsoulmatesSpouseMilReformSiegeDef
+	picture = GFX_evt_war_planning
+	
+	only_playable = yes
+	is_married = yes
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = brilliant_strategist
+					trait = skilled_tactician
+				}
+				martial = 15
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				martial = 20
+			}
+		}
+		modifier = {
+			factor = 0.8
+			spouse = {
+				OR = {
+					trait = duelist
+					trait = strategist
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		spouse = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_requested_help }
+			has_character_flag = sm_mil_reform
+		}
+	}
+	
+	option = {
+		name = EVTOPTAsoulmates.6303		
+		random_demesne_province = {
+			add_province_modifier = { name = giant_crossbow duration = 3650 }
+		}
+	}
+}

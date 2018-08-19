@@ -1,0 +1,156 @@
+namespace = winnor
+character_event = {
+id = winnor.1
+desc = "EVTDESCwinnor1"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_economy
+	
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	
+	mean_time_to_happen = { months = 3 }
+	
+	trigger = {
+		OR = {
+			tier = KING
+			tier = EMPEROR
+			ai = no
+		}
+		capital_holding = { has_building = ca_mead_cellar }
+		NOT = { has_character_flag = wine_cellar_obtained }
+	}
+	
+	immediate = { set_character_flag = wine_cellar_obtained }
+	
+	option = {
+		trigger = {
+			NOT = {
+				trait = drunkard
+			}
+		}
+		name = wine_cellar_yes
+		change_stewardship = 1
+		fertility = 0.05
+	}	
+	option = {
+		custom_tooltip = { text = likes_to_drink }
+		trigger = {
+			OR = {
+				trait = drunkard
+				trait = hedonist
+			}
+		}
+		name = wine_cellar_drunk
+		health = -1
+		fertility = 0.2
+	}
+}
+character_event = {
+id = winnor.2
+desc = "EVTDESCwinnor2"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+
+	mean_time_to_happen = { years = 50 }
+	
+	immediate = { set_character_flag = drunk_courtier_caught }
+	
+	trigger = {
+		OR = {
+			capital_holding = { has_building = ca_mead_cellar }
+			family_palace = { has_building = fp_cellar_1 }
+		}
+		any_courtier = {
+			OR = {
+				trait = drunkard
+				trait = hedonist
+			}
+			prisoner = no
+		}
+		NOT = { has_character_flag = drunk_courtier_caught }
+		NOT = { has_character_flag = NO_BOOZE_FOR_THIS_ONE }
+	}
+	option = {
+		name = wine_cellar_imprisonment
+		random_courtier = {
+			limit = {
+				OR = {
+					trait = drunkard
+					trait = hedonist
+				}
+				prisoner = no
+			}
+			imprison = yes
+		}
+	}
+	option = {
+		name = wine_cellar_no_evidence
+		add_trait = arbitrary
+	}	
+	option = {
+		custom_tooltip = { text = likes_to_drink }
+		trigger = {
+			OR = {
+				trait = drunkard
+				trait = hedonist
+			}
+		}
+		name = have_a_drink
+		random_courtier = {
+			limit = { 
+				OR = {
+					trait = drunkard
+					trait = hedonist
+				}
+				prisoner = no
+			}
+			opinion = {
+				modifier = drinking_buddy
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}
+#Broke but Full MEAD Cellar
+character_event = {
+id = winnor.5
+desc = "EVTDESCwinnor5"
+picture = GFX_personal_wine_cellar
+border = GFX_event_normal_frame_economy
+	
+	ai = no
+	only_rulers = yes
+	min_age = 16
+	prisoner = no
+	only_capable = yes
+	
+	mean_time_to_happen = {
+		years = 1
+	}
+	trigger = {
+		capital_holding = { has_building = ca_mead_cellar }
+		NOT = { wealth = -100 }
+		NOT = { has_character_flag = NO_BOOZE_FOR_THIS_ONE }
+		NOT = { has_character_flag = winnor5opt1 }
+	}
+	option = {
+		name = winnor5opt1
+		prestige = 25
+		set_character_flag = winnor5opt1
+	}
+	option = {
+		name = winnor5opt2
+		prestige = -25
+		wealth = 75
+		set_character_flag = NO_BOOZE_FOR_THIS_ONE
+	}
+}

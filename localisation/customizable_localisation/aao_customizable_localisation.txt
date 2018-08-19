@@ -1,0 +1,255 @@
+#AVIALABLE CUSTOM LOCALISATION KEYS
+#When adding new custom loc keys, add them to the appropriate category (or add a new one) and describe them. Name the strings "String_X" where x is its content.
+# To not display anything, you can use 'localisation_key = ""'
+
+
+defined_text = {
+	name = GetCustomArtifactEffects
+	
+	#general
+	text = {
+		trigger = { FROM = { artifact_type = strange_chest } }
+		localisation_key = strange_chest_effect
+	}
+	
+	
+	
+	#christian
+	text = {
+		trigger = { FROM = { artifact_type = iron_crown_of_lombardy } }
+		localisation_key = iron_crown_of_lombardy_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = spear_of_destiny } }
+		localisation_key = spear_of_destiny_effect
+	}
+	
+	
+	
+	#jewish
+	text = {
+		trigger = { FROM = { artifact_type = hezekiahs_hammer } }
+		localisation_key = hezekiahs_hammer_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = priestly_breastplate } }
+		localisation_key = priestly_breastplate_effect
+	}
+	
+	
+	
+	#muslim
+	text = {
+		trigger = { FROM = { artifact_type = sword_of_mohammad } }
+		localisation_key = sword_of_mohammad_effect
+	}
+	
+	
+	
+	#zoroastrian
+	
+	
+	
+	#zunist
+	text = {
+		trigger = { FROM = { artifact_type = blazing_crown } }
+		localisation_key = blazing_crown_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = ashrune } }
+		localisation_key = ashrune_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = sunlight_medallion } }
+		localisation_key = sunlight_medallion_effect
+	}
+	
+	
+	
+	#germanic
+	text = {
+		trigger = { FROM = { artifact_type = andvaranaut } }
+		localisation_key = andvaranaut_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = mjolnir } }
+		localisation_key = mjolnir_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = odins_eye } }
+		localisation_key = odins_eye_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = gungnir } }
+		localisation_key = gungnir_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = fafnirs_scale } }
+		localisation_key = fafnirs_scale_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = slayers_skull } }
+		localisation_key = slayers_skull_effect
+	}
+	
+	
+	
+	#west african
+	text = {
+		trigger = { FROM = { artifact_type = ashanti_doll } }
+		localisation_key = ashanti_doll_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = herbal_medicine } }
+		localisation_key = herbal_medicine_effect
+	}
+	
+	
+	#finnish
+	text = {
+		trigger = { FROM = { artifact_type = sampo } }
+		localisation_key = sampo_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = ukonvasara } }
+		localisation_key = ukonvasara_effect
+	}
+	
+	#slavic
+	text = {
+		trigger = { FROM = { artifact_type = axe_of_perun } }
+		localisation_key = axe_of_perun_effect
+	}
+	
+	
+	
+	#baltic
+	text = {
+		trigger = { FROM = { artifact_type = axe_of_perkunas } }
+		localisation_key = axe_of_perkunas_effect
+	}
+	
+	#tengri
+	
+	text = {
+		trigger = { FROM = { artifact_type = skai_unav } }
+		localisation_key = skai_unav_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = meteorite } }
+		localisation_key = meteorite_effect
+	}
+	
+	
+	
+	#indian
+	
+	
+	#cultural/misc
+	text = {
+		trigger = { FROM = { artifact_type = pandoras_box } }
+		localisation_key = pandoras_box_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = brionac } }
+		localisation_key = brionac_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = durandal } }
+		localisation_key = durandal_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = joyeuse } }
+		localisation_key = joyeuse_effect
+	}
+	text = {
+		trigger = { FROM = { artifact_type = joyeuse_ceromonial } }
+		localisation_key = joyeuse_ceromonial_effect
+	}
+	
+	
+	
+	
+	
+}
+
+
+defined_text = {
+	name = odins_quest_stage1
+	text = {
+		localisation_key = odins_quest_stage1A
+		trigger = { has_character_flag = odins_quest_fought_in_pit }
+	}
+	text = {
+		localisation_key = odins_quest_stage1B
+		trigger = { has_character_flag = odins_quest_watched_pit }
+	}
+	text = {
+		localisation_key = odins_quest_stage1C
+		trigger = { 
+			NOR = {
+				has_character_flag = odins_quest_fought_in_pit
+				has_character_flag = odins_quest_watched_pit 
+			}
+		}
+	}
+}
+defined_text = {
+	name = odins_quest_stage2
+	text = {
+		localisation_key = odins_quest_stage2A
+		trigger = { has_character_flag = odins_quest_correct_answer }
+	}
+	text = {
+		localisation_key = odins_quest_stage2B
+		trigger = { NOT = { has_character_flag = odins_quest_correct_answer } }
+	}
+}
+defined_text = {
+	name = odins_quest_stage3
+	text = {
+		localisation_key = odins_quest_stage3A
+		trigger = { has_character_flag = odins_quest_removed_eye }
+	}
+	text = {
+		localisation_key = odins_quest_stage3B
+		trigger = { has_character_flag = odins_quest_removed_other_eye }
+	}
+	text = {
+		localisation_key = odins_quest_stage3C
+		trigger = { has_character_flag = odins_quest_already_blind }
+	}
+	text = {
+		localisation_key = odins_quest_stage3D
+		trigger = { 
+			NOR = {
+				has_character_flag = odins_quest_removed_eye
+				has_character_flag = odins_quest_removed_other_eye
+				has_character_flag = odins_quest_already_blind 
+			}
+		}	
+	}
+}
+defined_text = {
+	name = odins_quest_stage4
+	text = {
+		localisation_key = odins_quest_stage4A
+		trigger = { check_variable = { which = raiding_score value <= 9 } }
+	}
+	text = {
+		localisation_key = odins_quest_stage4B
+		trigger = { check_variable = { which = raiding_score value > 9 } }
+	}
+}
+defined_text = {
+	name = odins_quest_result
+	text = {
+		localisation_key = odins_quest_fail
+		trigger = { check_variable = { which = odins_quest_counter value < 5 } }
+	}
+	text = {
+		localisation_key = odins_quest_success
+		trigger = { check_variable = { which = odins_quest_counter value >= 5 } }
+	}
+}
+	

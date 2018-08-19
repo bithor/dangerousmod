@@ -1,0 +1,935 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+
+
+
+
+#####################ARTIFACTS#####################
+
+##slots
+mask;Mask;;;;;;;;;;;;;x
+book;Books;;;;;;;;;;;;;x
+
+##custom desc
+artifact_blacklist;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+artifact_blacklist_with_death;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves. This artifact will always be destroyed on death!§!;;;;;;;;;;;;;x
+
+holy_weapon_inspire_effect;\n\n\n\n§GMay inspire friendly troops when wielded personally in battle against other religions.§!;;;;;;;;;;;;;x
+holy_weapon_terrify_effect;\n\n\n\n§GMay terrify enemy troops when wielded personally in battle against other religions.§!;;;;;;;;;;;;;x
+holy_weapon_definition;§BThis weapon is considered holy by the Christian faith.§!;;;;;;;;;;;;;x
+
+
+#vanilla overrides
+
+iron_crown_of_lombardy_desc;This jeweled circlet of gold has a central band of iron that was beaten out of a single Nail of the True Cross. It has been used for the coronations of the kings and queens of Lombardy, since.[GetCustomArtifactEffects];Ce cercle en or orné de pierreries a une bande centrale en fer qui a été forgé à partir d'un clou de la Vraie Croix. Depuis, il a été utilisé pour les couronnements des rois et reines de Lombardie.[GetCustomArtifactEffects];Im Zentrum des juwelenbesetzten Goldreifs befindet sich ein Eisenring aus einem der Nägel des Heiligen Kreuzes. Mit ihm ließen sich die Könige und Königinnen der Lombardei seither krönen.[GetCustomArtifactEffects];;Esta corona de oro adornada con joyas tiene una lámina central de hierro que se moldeó a partir de un solo clavo de la santa cruz. Desde entonces, se ha utilizado para las coronaciones de los reyes y reinas de Lombardía.[GetCustomArtifactEffects];;;;;;;;;x
+iron_crown_of_lombardy_effect;\n\n\n\n§BWill always remain with the King or Emperor of Italy unless Italy is a subject of the Holy Roman Empire or does not exist, in which case the Holy Roman Emperor will take possession. If no suitable candidates are found, the Pope will hold it until there is one.§!\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+
+crown_of_thorns_activation;Must have at least one virtue and no sins;;;;;;;;;;;;;x
+
+strange_chest_desc;This strange chest has been made out of an unknown type of metal. Despite not being able to open it, you can clearly tell the chest is not empty.[GetCustomArtifactEffects];Cet étrange coffre est d'un type inconnu de métal. Bien que vous n'arriviez pas à l'ouvrir, vous pouvez clairement dire qu'il n'est pas vide.[GetCustomArtifactEffects];Diese ungewöhnliche Truhe besteht aus einem unbestimmbaren Metall. Obwohl sie sich nicht öffnen lässt, steht für Euch fest, dass sie keineswegs leer ist.[GetCustomArtifactEffects];;Este extraño cofre está fabricado con un metal desconocido. A pesar de no ser capaz de abrirlo, sabes con certeza que no está vacío.[GetCustomArtifactEffects];;;;;;;;;x
+strange_chest_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+
+#holy weapons
+
+spear_of_destiny_desc;The spear that the Roman soldier Longinus thrust into the side of Jesus, as he hung from the cross, to ensure that Christ was dead. The miraculous combination of blood and water flowed from the wound and coated the lance.[GetCustomArtifactEffects];La lance que le soldat romain Longinus enfonça dans le flanc de Jésus, pendant qu'il était sur la croix, pour s'assurer que le Christ était mort. La combinaison miraculeuse du sang et de l'eau coulant de la plaie a recouvert la lance.[GetCustomArtifactEffects];Der Speer, den der römische Soldat Longinus dem gekreuzigten Jesus in die Seite stach, um zu überprüfen, ob dieser wirklich tot sei. Eine wundersame Mischung aus Wasser und Blut trat aus der Wunde aus und bedeckt seither den Speer.[GetCustomArtifactEffects];;La lanza que el soldado romano Longino clavó en el costado de Jesús mientras colgaba de la cruz para asegurarse de que Cristo estaba muerto. La milagrosa mezcla de sangre y agua brotó de la herida y cubrió la lanza.[GetCustomArtifactEffects];;;;;;;;;x
+spear_of_destiny_effect;\n\n\n\n§GMay inspire friendly troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Christian faith.§!;;;;;;;;;;;;;x
+
+sword_of_mohammad_desc;This fine and richly-decorated blade is of the Prophet's nine swords: Al-'Abd, Al-Ma'thur, Al-Rasub, Al-Battar, Hatf, Qal'i, Dhu al-Faqar, Al-Mikhdham, and Al-Qadib.[GetCustomArtifactEffects];Cette belle lame richement décorée est l'une des neuf épées du Prophète: Al-'Abd, Al-Ma'thur, Al-Rasub, Al-Battar, Hatf, Qal'i, Dhu al-Faqar, Al-Mikhdham, and Al-Qadib.[GetCustomArtifactEffects];Das reich verzierte, schön geschmiedete Schwert ist eines der neuen Schwerter des Propheten: Al-'Abd, Al-Ma'thur, Al-Rasub, Al-Battar, Hatf, Qal'i, Dhu al-Faqar, Al-Mikhdham und Al-Qadib.[GetCustomArtifactEffects];;Esta hoja fina y suntuosamente decorada es de una de las nueve espadas del profeta: Al-'Abd, Al-Ma'thur, Al-Rasub, Al-Battar, Hatf, Qal'i, Dhu al-Faqar, Al-Mikhdham y Al-Qadib.[GetCustomArtifactEffects];;;;;;;;;x
+sword_of_mohammad_effect;\n\n\n\n§GMay inspire friendly troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Muslim faith.§!;;;;;;;;;;;;;x
+
+mjolnir_desc;A strangely short-hafted hammer that looks as if it might have been flawed during production. It bears a striking resemblance to the hammer wielded by Thor, the Thundergod, as told in myth.[GetCustomArtifactEffects];Un marteau étrangement court dont on pourrait croire que sa création a été défectueuse. Il a une ressemblance frappante avec le marteau de Thor, le Dieu du Tonnerre, comme dit dans le mythe.[GetCustomArtifactEffects];Ein Hammer mit ungewöhnlich kurzem Stiel, der beinahe so wirkt, als handele es sich um einen Fehler bei der Fertigung. Er weist eine unverkennbare Ähnlichkeit mit dem Hammer auf, den der Donnergott Thor den Mythen zufolge verwendet.[GetCustomArtifactEffects];;Un martillo extrañamente corto que da la sensación de ser defectuoso. Tiene un parecido sorprendente con el martillo manejado por Thor, el dios del trueno, tal y como lo describe la leyenda.[GetCustomArtifactEffects];;;;;;;;;x
+mjolnir_effect;\n\n\n\n§GMay terrify enemy troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Germanic faith.§!;;;;;;;;;;;;;x
+
+axe_of_perkunas_desc;This stone axe strongly resembles the axe of Perkunas himself, as described in myth. Though not terribly useful in personal combat, you feel more confident in your military decisions while holding it...[GetCustomArtifactEffects];Cette hache en pierre ressemble fortement à la hache de Perkunas lui-même, telle que décrite dans le mythe. Bien que peu utile en combat personnel, vous vous sentez plus confiant[Root.GetNoneE] dans vos décisions militaires lorsque vous le tenez...[GetCustomArtifactEffects];Diese Steinaxt zeigt große Ähnlichkeit mit der Axt, die den Legenden zufolge von Perkunas persönlich geführt wurde. Für den Zweikampf ist sie nicht geeignet, aber wenn Ihr sie haltet, fühlt Ihr Euch sicherer in der militärischen Entscheidungsfindung.[GetCustomArtifactEffects];;Esta hacha de piedra se parece mucho al hacha del propio Perkunas, tal y como se describe en la leyenda. Aunque no es muy útil en el combate cuerpo a cuerpo, sientes más seguridad en tus decisiones militares mientras la sostienes...[GetCustomArtifactEffects];;;;;;;;;x
+axe_of_perkunas_effect;\n\n\n\n§GMay inspire friendly troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Baltic faith.§!;;;;;;;;;;;;;x
+
+axe_of_perun_desc;This exquisite bearded axe is adorned with the symbol of Perun himself: a lightning bolt. It seems to be the Thundergod's very own weapon![GetCustomArtifactEffects];Cette belle hache barbue est ornée du symbole de Péroun: un éclair. Il semble que ce soit l'arme du Dieu du Tonnerre![GetCustomArtifactEffects];Diese vorzügliche Bartaxt ist verziert mit dem persönlichen Symbol Peruns, dem Donnerkeil. Es scheint sich bei ihr um diejenige Waffe zu handeln, die der Gott des Donners selbst führte![GetCustomArtifactEffects];;Este exquisito skeggox está adornado con el símbolo de Perún: un rayo. ¡Parece ser la mismísima arma del dios del trueno![GetCustomArtifactEffects];;;;;;;;;x
+axe_of_perun_effect;\n\n\n\n§GMay inspire friendly troops if wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Slavic faith. The Slavic people demand a warrior [From.Owner.GetTitle], the weilder must prove their strength against challengers to keep the axe.§!\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+
+sampo_desc;A strangely well-crafted quern, bearing a striking resemblance to the Mill of Fortune. It is said to be able to produce gold, flour and salt from nothing at all.[GetCustomArtifactEffects];Un moulin à bras étrangement bien travaillé, ressemblant de façon frappante au Moulin de la Fortune. On dit qu'il est capable de produire de l'or, de la farine et du sel à partir de rien.[GetCustomArtifactEffects];Ein ungewöhnlich sorgfältig gearbeiteter Mühlstein mit einer verblüffenden Ähnlichkeit zur Zaubermühle. Wie es heißt, kann sie Gold, Mehl und Salz mahlen, ohne dass man sie jemals füllen müsste.[GetCustomArtifactEffects];;Un molinillo de mano sumamente bien elaborado, con un parecido sorprendente al molinillo de la fortuna. Se dice que es capaz de fabricar oro, harina y sal de la nada.[GetCustomArtifactEffects];;;;;;;;;x
+sampo_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+
+andvaranaut_desc;This beautiful golden ring seems to make wealth flood to its owner, though all know Andvari's Curse draws ever closer...[GetCustomArtifactEffects];Ce bel anneau en or semble faire apporter la richesse à son propriétaire, bien que tous savent que la malédiction d'Andvari se rapproche de plus en plus...[GetCustomArtifactEffects];Dieser schöne goldene Ring sorgt offenbar dafür, dass dem Besitzer der Reichtum buchstäblich zufließt, doch jedem ist bekannt, dass dabei auch Andvaris Fluch näher und näher rückt ...[GetCustomArtifactEffects];;Este precioso anillo de oro parece inundar a su dueño de fortuna, aunque todos saben que la maldición de Andvari se acerca...[GetCustomArtifactEffects];;;;;;;;;x
+andvaranaut_effect;\n\n\n\n§GWill create gold every two years, for a price.§!;;;;;;;;;;;;;x
+
+
+
+
+
+
+
+##Christian
+
+
+
+
+
+##Muslim
+
+##Jewish
+
+hezekiahs_hammer;Hezekiah's Hammer;;;;;;;;;;;;;x
+hezekiahs_hammer_desc;The hammer used by Hezekiah, the 13th King of Judea, to banish paganism from his realm.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+hezekiahs_hammer_effect;\n\n\n\n§GMay inspire friendly troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Jewish faith.§!;;;;;;;;;;;;;x
+menorah;The Menorah;;;;;;;;;;;;;x
+menorah_desc;This seven-branched candelabrum is one of the oldest symbols of the Jewish faith since the foundation of the first temple.;;;;;;;;;;;;;x 
+maccabean_shield;Maccabean Shield;;;;;;;;;;;;;x
+maccabean_shield_desc;A shield used by the Maccabean leaders of the Selucid revolt in Judea.;;;;;;;;;;;;;x
+himyarite_mask;Himyarite Mask;;;;;;;;;;;;;x
+himyarite_mask_desc;Abu Karab was the Himyarite king of Yemen and one of the first of several kings of Arabia to convert to Judaism.;;;;;;;;;;;;;x
+priestly_breastplate;Priestly Breastplate;;;;;;;;;;;;;x
+priestly_breastplate_desc;A Sacred breastplate worn only by the High Priest of the Israelites, the stones were used to determine God's will in a particular situation.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+priestly_breastplate_effect;\n\n\n\n§RWill cause displeasure with the Jewish Priesthood if worn by someone other than the Religious Head.§!;;;;;;;;;;;;;x
+brass_snake;Brass Snake;;;;;;;;;;;;;x
+brass_snake_desc;Believed to possess great healing powers, this broken brass figurine traces its origins back to the old heresies of Judea.;;;;;;;;;;;;;x
+
+##Zoroastrian
+
+##Germanic
+gungnir;Gungnir;;;;;;;;;;;;;x
+gungnir_desc;The legendary spear of Odin. Appeared during his champion's time of need.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+gungnir_effect;\n\n\n\n§GA Germanic army will rally to the wielder when declaring war on other religions.§!\n§BThis weapon is considered holy by the Germanic faith.§!;;;;;;;;;;;;;x
+gungnir_allow;Is a member of the Original Owner's Dynasty;;;;;;;;;;;;;x
+odins_eye;Odin's Eye;;;;;;;;;;;;;x
+odins_eye_desc;A small orb recieved from the Allfather. Has the power to reveal both the known and unknown.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+odins_eye_effect;\n\n\n\n§GGaze into the Eye if you wish to unravel the secrets of the universe.§!;;;;;;;;;;;;;x
+gleipnir;Gleipnir;;;;;;;;;;;;;x
+gleipnir_desc;The silken chains of the great wolf Fenrir. Now ruined and in tatters, yet still stronger than any mortal chains.;;;;;;;;;;;;;x
+jarngreipr;Jarngreipr;;;;;;;;;;;;;x
+jarngreipr_desc;The gauntlet of Thor, with which he holds mighty Mjolnir and is one of his three crucial possessions.;;;;;;;;;;;;;x
+fafnirs_scale;Fafnir's Scale;;;;;;;;;;;;;x
+fafnirs_scale_desc;One of the Cursed Dragon's scales. Despite being decayed, it is stronger than the strongest steel.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+fafnirs_scale_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+braggis_harp;Braggi's Harp;;;;;;;;;;;;;x
+braggis_harp_desc;Braggi was one of the most skilled Skalds to have ever existed. The tunes played on his harp can charm even the vilest of people.;;;;;;;;;;;;;x
+brisingamen;Brisingamen;;;;;;;;;;;;;x
+brisingamen_desc;The necklace of Freyja, the goddess of love and fertility.;;;;;;;;;;;;;x
+tarnkappe;Tarnkappe;;;;;;;;;;;;;x
+tarnkappe_desc;The fabled cloak of invisibility. Wearing it renders the user completely invisible, that is if you can find the cloak first.;;;;;;;;;;;;;x
+huginns_feather;Huginn's Feather;;;;;;;;;;;;;x
+huginns_feather_desc;The feather of one of Odin's twin ravens. They fly daily across the entire world then tell the Allfather all they have seen.;;;;;;;;;;;;;x
+muninns_feather;Muninn's Feather;;;;;;;;;;;;;x
+muninns_feather_desc;The feather of one of Odin's twin ravens. Although Odin feared for both of their safety, he feared more for Munnin.;;;;;;;;;;;;;x
+slayers_skull;[From.OriginalOwner.GetTitledFirstName]'s Skull;;;;;;;;;;;;;x
+slayers_skull_desc;All that remains of [From.OriginalOwner.GetBestName] as [From.OriginalOwner.GetSheHe] attempted to slay mighty Fenrir.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+slayers_skull_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves. This artifact will always be destroyed on death!§!;;;;;;;;;;;;;x
+
+
+##West African
+
+jaguar_spear;Jaguar Spear;;;;;;;;;;;;;x
+jaguar_spear_desc;A tribal spear that is given to the fiercest and most accomplished hunter.;;;;;;;;;;;;;x
+djembe;Djembe;;;;;;;;;;;;;x
+djembe_desc;A traditional drum to spread merriment to those who hear it, requires some skill to actually be effective.;;;;;;;;;;;;;x 
+dan_mask;Dan Mask;;;;;;;;;;;;;x
+dan_mask_desc;Dan masks are used for protection and as a channel for communication with the spirit world.;;;;;;;;;;;;;x 
+ashanti_doll;Ashanti Doll;;;;;;;;;;;;;x
+ashanti_doll_desc;Legend has it that the bearer of these fertility dolls will give birth to beautiful children.[GetCustomArtifactEffects];;;;;;;;;;;;;x 
+ashanti_doll_effect;\n\n\n\n§GChildren have a 15% chance to gain the attractive trait when born.§!\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves. This artifact will always be destroyed on death!§!;;;;;;;;;;;;;x
+herbal_medicine;Herbal Medicine;;;;;;;;;;;;;x
+herbal_medicine_desc;A pouch filled with various medicinal herbs.[GetCustomArtifactEffects];;;;;;;;;;;;;x 
+herbal_medicine_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves. This artifact will always be destroyed on death!§!;;;;;;;;;;;;;x
+
+##Finnish/Soume
+ukonvasara;Ukonvasara;;;;;;;;;;;;;x
+ukonvasara_desc;The Hammer of Ukko the God of Thunder. This large hammer can easily crush a man with its weight.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+ukonvasara_effect;\n\n\n\n§GMay terrify enemy troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Finnish faith.§!;;;;;;;;;;;;;x
+sampo_fragment;Sampo fragment;;;;;;;;;;;;;x
+sampo_fragment_desc;One of the nine pieces of the Legendary Sampo, it's power remains dormant.;;;;;;;;;;;;;x
+vipunens_magic_scroll;Vipunen's Magic Scroll;;;;;;;;;;;;;x
+vipunens_magic_scroll_desc;Antero Vipunen is a giant with considerable knowledge and spells and this is one of his scrolls. The nature of these spells require a great mind to decipher.;;;;;;;;;;;;;x
+vainamoinens_harp;Vainamoinen's Harp;;;;;;;;;;;;;x
+vainamoinens_harp_desc;The hero Vainamoinen fashioned this harp from a pike he killed at sea, plays a bewitching melody;;;;;;;;;;;;;x
+kalevanmiekka;Kalevanmiekka;;;;;;;;;;;;;x
+kalevanmiekka_desc;This is the sword of Kalevi, a great Finnish ruler. After he passed away, his sons quickly fell out of the grace of their people.;;;;;;;;;;;;;x
+beard_of_moss;Beard of Moss;;;;;;;;;;;;;x
+beard_of_moss_desc;A lump of moss gathered together in reverence of the Sea God Ahti. Believed to ward off storms at sea.;;;;;;;;;;;;;x
+axe_pendant;Axe Pendant;;;;;;;;;;;;;x
+axe_pendant_desc;These pendants are common symbols of the god Ukko. The axe represents his other weapon Ukonkirves.;;;;;;;;;;;;;x
+
+
+##Slavic
+svarogs_hammer;Svarog's Hammer;;;;;;;;;;;;;x
+svarogs_hammer_desc;The Blacksmith God, Svarog once struck a great rock with a hammer which gave birth to the gods of fire and wind. A powerful tool capable of creation can also cause destruction.;;;;;;;;;;;;;x
+kladenets;Kladenets;;;;;;;;;;;;;x
+kladenets_desc;The Sword of Steel, a fabulous magic sword of great power, thought to be mere myth.;;;;;;;;;;;;;x
+peruns_stones;Perun's Stones;;;;;;;;;;;;;x
+peruns_stones_desc;The lightning stones of Perun protected against bad luck, evil magic, disease, lightning itself.;;;;;;;;;;;;;x
+raskovnik;Raskovnik;;;;;;;;;;;;;x
+raskovnik_desc;Few people, if any, could actually recognize this herb. The Raskovnik could unlock any gate or padlock, regardless of its size, material or key.;;;;;;;;;;;;;x
+fern_flower;Fern Flower;;;;;;;;;;;;;x
+fern_flower_desc;A magic flower that blooms for a very short time on the eve of the Summer Solstice. Brings fortune to the person who finds it.;;;;;;;;;;;;;x
+axe_of_perun_req;Must have earned Perun's favor;;;;;;;;;;;;;x
+
+
+
+##Baltic/Romuvan
+world_tree_branch;Branch of the World Tree;;;;;;;;;;;;;x
+world_tree_branch_desc;A branch of the fabled World Tree that carries the World.;;;;;;;;;;;;;x
+velnias_bow;Velnias's Bow;;;;;;;;;;;;;x
+velnias_bow_desc;The Bow of the Devil was paid for in blood, yet it still yearns for more.;;;;;;;;;;;;;x
+laimas_scales;Laima's Scales;;;;;;;;;;;;;x
+laimas_scales_desc;Some people believe fate cannot be changed, but with the Scales of Fate perhaps it can be.;;;;;;;;;;;;;x
+evening_star_mark;Mark of the Evening Star;;;;;;;;;;;;;x
+evening_star_mark_desc;The Mark of the God of Fertility, Vakraine the dark of Venus.;;;;;;;;;;;;;x
+morning_star_mark;Mark of the Morning Star;;;;;;;;;;;;;x
+morning_star_mark_desc;The Mark of the Goddess of Fertility, Ausrine the light of Venus.;;;;;;;;;;;;;x
+
+##Tengri
+aram;Aram;;;;;;;;;;;;;x
+aram_desc;The Spear of Jangar, a legendary Mongol hero who became Khan at the age of three.;;;;;;;;;;;;;x
+asenas_paw;Asena's Paw;;;;;;;;;;;;;x
+asenas_paw_desc;The paw of the great wolf that gave birth to ten half-wolf Turks that later established the Ashina Clan.;;;;;;;;;;;;;x
+skai_unav;Skai Unav;;;;;;;;;;;;;x
+skai_unav_desc;A blade forged from a meteorite that fell from the sky, extremely durable.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+skai_unav_effect;\n\n\n\n§GMay terrify enemy troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Tengri faith.§!;;;;;;;;;;;;;x
+alpamyshs_chains;Alpamysh's Chains;;;;;;;;;;;;;x
+alpamyshs_chains_desc;Alpamysh was tricked by his foes and imprisoned, he managed to escape with the help of his shepherd servant.;;;;;;;;;;;;;x
+tengris_favor;Tengri's Favor;;;;;;;;;;;;;x
+tengris_favor_desc;A pendant depicting Tengri, the God of the Sky.;;;;;;;;;;;;;x
+meteorite;Meteorite;;;;;;;;;;;;;x
+meteorite_desc;A heavy stone that fell from the sky.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+meteorite_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+
+
+##Zunist
+
+blazing_crown;The Blazing Crown;;;;;;;;;;;;;x
+blazing_crown_desc;Adorned with fiery symbols, this crown proves complete dominance over the followers of Zun.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+blazing_crown_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+ashrune;Ashrune;;;;;;;;;;;;;x
+ashrune_desc;A mighty flail that is set eternally on fire. A fitting weapon to bring the light of Zun to the heathens.[GetCustomArtifactEffects];;;;;;;;;;;;;x 
+ashrune_effect;\n\n\n\n§GMay terrify enemy troops when wielded personally in battle against other religions.§!\n§BThis weapon is considered holy by the Zun faith.§!;;;;;;;;;;;;;x
+sun_scepter;Scepter of the Sun;;;;;;;;;;;;;x
+sun_scepter_desc;This scepter is one of the last remaining artifacts of a people that also worshipped the sun long ago.;;;;;;;;;;;;;x
+mask_of_terror;Mask of Terror;;;;;;;;;;;;;x
+mask_of_terror_desc;A mask created in a moment of madness to inspire fear in potential rivals.;;;;;;;;;;;;;x
+cylinder_of_secrets;Cylinder of Secrets;;;;;;;;;;;;;x
+cylinder_of_secrets_desc;A locked cylinder with unknown contents. No method exists that can open it.;;;;;;;;;;;;;x
+sunlight_medallion;Sunlight Medallion;;;;;;;;;;;;;x
+sunlight_medallion_desc;The mark of the Knights of the Sun, only given to worthy commanders.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+sunlight_medallion_effect;\n\n\n\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves. This artifact will always be destroyed on death!§!;;;;;;;;;;;;;x
+sunlight_medallion_activation;Is a former Knight of the Sun;;;;;;;;;;;;;x
+
+##Indian
+
+
+
+##Cultural/Misc
+pandoras_box;Pandora's Box;;;;;;;;;;;;;x
+pandoras_box_desc;The Box that contains all the misfortunes of the world. It is said that when Pandora opened the box all the evils escaped, but a sparkle of hope remained. Opening it would invite disaster to the realm, but man's curiosity is terrible indeed.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+pandoras_box_effect;\n\n\n\n§GCan be opened every five years, who knows what might happen?§!;;;;;;;;;;;;;x
+shield_of_achilles;Shield of Achilles;;;;;;;;;;;;;x
+shield_of_achilles_desc;The shield of the legendary greek hero Achilles. This fine shield was created by the god Hephaestus himself to serve as a replacement after Achilles lost his armor to the Trojan hero Hector.;;;;;;;;;;;;;x
+pelt_of_the_nemean_lion;Pelt of the Nemean Lion;;;;;;;;;;;;;x
+pelt_of_the_nemean_lion_desc;The pelt of the invincible Nemean Lion. No mortal weapon could harm it, the lion was ultimately killed by Heracles and skinned with it's own claws.;;;;;;;;;;;;;x
+alberichs_ring;Alberich's Ring;;;;;;;;;;;;;x
+alberichs_ring_desc;A magic ring that grants the power to rule the world, forged by the Nibelung dwarf Alberich from gold he stole from the Rhine maidens in the river Rhine. Was later stolen from him by the gods.;;;;;;;;;;;;;x
+nagelring;Nagelring;;;;;;;;;;;;;x
+nagelring_desc;The sword of Dietrich von Bern. This magical sword was given to Dietrich by the dwarf Alberich to slay the giants Grim and Hilde, for only it could pierce their skins. With the help of his mentor Hildebrand, Dietrich's quest was a success.;;;;;;;;;;;;;x
+brionac;Brionac;;;;;;;;;;;;;x
+brionac_desc;The spear of the Irish god Lugh, with which he blinded the Fomorian Balor by hurling it at his poisonous eye.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+brionac_effect;\n\n\n\n§GHas a chance to kill enemy commanders when wielded personally in battle.§!;;;;;;;;;;;;;x
+curtana;Curtana;;;;;;;;;;;;;x
+curtana_desc; Also known as the Sword of Mercy, it's end is blunted and squared for that reason. Believed to be the sword of the Arthurian Knight Tristan, it is used for the coronation of English Kings.;;;;;;;;;;;;;x
+durandal;Durandal;;;;;;;;;;;;;x
+durandal_desc;The sword of Roland, one of Charlemagne's twelve Paladins. The blade is made from an indestructable metal, which prevented Roland from destroying it at his heroic death.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+durandal_effect;\n\n\n\n§GThe wielder may use the unique combat tactic "Heroic Stand" when leading an army. Will always have a +30 opinion towards [From.Owner.GetHerHis] liege.§!;;;;;;;;;;;;;x
+joyeuse;Joyeuse;;;;;;;;;;;;;x
+joyeuse_desc;The sword of legendary Charlemagne. A blade sought after by the most ambitious of men in an attempt to unite Western Europe, just as it's owner did long ago.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+joyeuse_effect;\n\n\n\n§GThe wielder may use the unique casus belli "Carolingian Reconquest" on duchys of the old Carolingian Empire after the year 900.§!\n§BJoyeuse can only be claimed in war.§!\n§RThis artifact is highly prized by it's owner and will be invulnerable to the foolish attempts of thieves.§!;;;;;;;;;;;;;x
+joyeuse_activation;Is a Karling;;;;;;;;;;;;;x
+joyeuse_is_equipped;Joyeuse is equipped;;;;;;;;;;;;;x
+joyeuse_ceromonial;Joyeuse;;;;;;;;;;;;;x
+joyeuse_ceromonial_desc;The sword of legendary Charlemagne. Having restored the borders of Charlemagne's realm the sword has lost it's splendor as a weapon of war. Instead it is now one of the most prestigious artifacts of this age.[GetCustomArtifactEffects];;;;;;;;;;;;;x
+joyeuse_ceromonial_effect;\n\n\n\n§RThis artifact will always remain with the dynasty of it's original owner.§!;;;;;;;;;;;;;x
+
+
+
+
+#####################END OF ARTIFACTS#####################
+
+
+
+##game rules
+RULE_SUPERNATURAL_ARTIFACTS;§BAAO:§! Supernatural Artifacts and Events;;;;;;;;;;;;;x
+RULE_GROUP_AAO;AAO;;;;;;;;;;;;;x
+RULE_OPTION_ALL;All;Tout;Alle;;Todo;;;;;;;;;x
+RULE_SUPERNATURAL_ARTIFACTS_ALL_DESC;All custom artifacts and their associated events are available.;;;;;;;;;;;;;x
+RULE_OPTION_HISTORIC_MYTHOLOGICAL;Historical/Mythological only;;;;;;;;;;;;;x
+RULE_SUPERNATURAL_ARTIFACTS_HISTORIC_MYTHOLOGICAL_DESC;Only Supernatural Artifacts that have some historic or mytholigical basis will appear.;;;;;;;;;;;;;x
+RULE_SUPERNATURAL_ARTIFACTS_OFF_DESC;No Supernatural Artifacts or related events will appear.;;;;;;;;;;;;;x
+
+###CBS
+CB_NAME_CLAIM_JOYEUSE;Claim Joyeuse;;;;;;;;;;;;;x
+WAR_NAME_CLAIM_JOYEUSE;$ORDER$$FIRST_ADJ$ Claim on Joyeuse;;;;;;;;;;;;;x
+claim_joyeuse_cb_desc;The legendary Charlemagne's sword is in the possession of §Y$TARGET$§!, with enough prestige you may claim it as your own.;;;;;;;;;;;;;x
+
+CB_NAME_JOYEUSE_RECONQUEST;Carolingian Reconquest of [Title.GetBaseName];;;;;;;;;;;;;x
+WAR_NAME_JOYEUSE_RECONQUEST;$ORDER$$FIRST_ADJ$ Carolingian Reconquest of $OTHER_TITLE$;;;;;;;;;;;;;x
+joyeuse_reconquest_cb_desc;The Carolingian Empire is shattered, but with the sword of Charlemagne in your hands you can restore it!;;;;;;;;;;;;;x
+joyeuse_reconquest_cb_no_rome;§RRome will remain with the Pope.§!;;;;;;;;;;;;;x
+
+
+###combat tactics
+
+durandal_tactic;Heroic Stand;;;;;;;;;;;;;x
+
+
+###traits
+
+herald_of_zun;Herald of Zun;;;;;;;;;;;;;x
+herald_of_zun_desc;This character has declared [GetHerselfHimself] the manifestation of Zun's will.;;;;;;;;;;;;;x
+herald_of_zun_descendant;Herald of Zun's Descendant;;;;;;;;;;;;;x
+herald_of_zun_descendant_desc;This character is a descendant of the Herald of Zun.;;;;;;;;;;;;;x
+fafnir_regent;fafnir regency;;;;;;;;;;;;;x
+fafnir_regent_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+
+odin_child_sickness;Strange illness;;;;;;;;;;;;;x
+odin_child_sickness_desc;A strange illness has this character on death's door.;;;;;;;;;;;;;x
+
+durandal_trait;Loyal Subject;;;;;;;;;;;;;x
+durandal_trait_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+
+###modifiers
+
+pathetic_bribe;Pathetic;;;;;;;;;;;;;x
+denied_crown;Denied Crown;;;;;;;;;;;;;x
+levy_agreement_pos;Levy Transfer;;;;;;;;;;;;;x
+levy_agreement_neg;Levy Transfer;;;;;;;;;;;;;x
+tax_agreement_pos;Tax Transfer;;;;;;;;;;;;;x
+tax_agreement_neg;Tax Transfer;;;;;;;;;;;;;x
+perun_champion;Perun's Champion;;;;;;;;;;;;;x
+african_blessing_modifier;Blessed by the High Priest;;;;;;;;;;;;;x
+priestly_breastplate_debuff;Theft of the Priestly Breastplate;;;;;;;;;;;;;x
+christian_pilgrims;Christian Pilgrims;;;;;;;;;;;;;x
+muslim_pilgrims;Muslim Pilgrims;;;;;;;;;;;;;x
+both_pilgrims;Religious Pilgrims;;;;;;;;;;;;;x
+fafnir_curse;Fafnir;;;;;;;;;;;;;x
+fafnir_curse_desc;Your greed has turned you into a cursed dragon.;;;;;;;;;;;;;x
+odins_intervention;Odin's Intervention;;;;;;;;;;;;;x
+odins_intervention_desc;Believed to have been saved from death by the Allfather himself.;;;;;;;;;;;;;x
+
+pandoras_box_province_pos1;Loyal Peasants;;;;;;;;;;;;;x
+pandoras_box_province_pos2;Eager Recruits;;;;;;;;;;;;;x
+pandoras_box_province_pos3;Abundant Resources;;;;;;;;;;;;;x
+pandoras_box_province_pos4;Peaceful Province;;;;;;;;;;;;;x
+pandoras_box_province_pos5;Great Deals;;;;;;;;;;;;;x
+pandoras_box_province_neg1;Corrupt Administrators;;;;;;;;;;;;;x
+pandoras_box_province_neg2;Lethargic Soldiers;;;;;;;;;;;;;x
+pandoras_box_province_neg3;Fragile Stones;;;;;;;;;;;;;x
+pandoras_box_province_neg4;Chaotic Province;;;;;;;;;;;;;x
+pandoras_box_province_neg5;Shady Deals;;;;;;;;;;;;;x
+
+###religious modifiers
+menorah_authority;The Menorah is held by a Jew;;;;;;;;;;;;;x
+
+###modifier defs
+artifact_protection;Artifact Protection;;;;;;;;;;;;;x
+attractive_children_chance;Chance of Children Gaining Attractive on Birth;;;;;;;;;;;;;x
+religious_authority_artifact;Religious Authority;;;;;;;;;;;;;x
+
+###CDs and Timers
+active_heist;active heist;;;;;;;;;;;;;x
+active_heist_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+heist_cd;heist cd;;;;;;;;;;;;;x
+heist_cd_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+ai_steal_immunity;ai cant steal;;;;;;;;;;;;;x
+ai_steal_immunity_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+odins_eye_cd;odins eye cd;;;;;;;;;;;;;x
+odins_eye_cd_desc;if you see this please report it on the Artifact Aquisition and Overhaul mode page.;;;;;;;;;;;;;x
+pandoras_box_cd;pandora cd;;;;;;;;;;;;;x
+pandoras_box_cd_desc;if you see this please report it on the Artifact Aquisition and Overhaul mode page.;;;;;;;;;;;;;x
+
+
+###death
+death_fafnir_desc;was killed by Fafnir;;;;;;;;;;;;;x
+
+
+
+
+##opinions
+opinion_requested_crown;Requested Italian Crown;;;;;;;;;;;;;x
+opinion_axe_challenger;Challenger;;;;;;;;;;;;;x
+opinion_stole_artifact;Stole my Artifact;;;;;;;;;;;;x
+opinion_stole_artifact_my_vassal;Stole my Artifact;;;;;;;;;;;;x
+opinion_stole_artifact_other_vassal;Vassal Stole my Artifact;;;;;;;;;;;;x
+opinion_seized_artifact_tyranny;Seized a Prisoner's Artifact;;;;;;;;;;;;x
+seized_artifact;Forcefully Took my Artifact;;;;;;;;;;;;x
+seized_artifact_inheritance;Forcefully Taken my Predecessor's Artifact;;;;;;;;;;;;x
+seized_artifact_dynastic;Forcefully Taken one of my Dynasty's Artifacts;;;;;;;;;;;;x
+
+
+##nicknames
+nick_the_wrath_of_perun;the Wrath of Perun;;;;;;;;;;;;;x
+nick_the_son_of_odin;Odinson;;;;;;;;;;;;;x
+
+##Minor Titles
+title_treasury_guard;Treasury Guard;;;;;;;;;;;;;x
+title_treasury_guard_desc;Responsible for the safety and maintenance of his liege's personal vault.;;;;;;;;;;;;;x
+
+##Buildings
+ca_vault_1;Artifact Vault;;;;;;;;;;;;;x
+ca_vault_2;Great Artifact Vault;;;;;;;;;;;;;x
+ca_vault_3;Magnificent Artifact Vault;;;;;;;;;;;;;x
+ct_vault_1;Artifact Vault;;;;;;;;;;;;;x
+ct_vault_2;Great Artifact Vault;;;;;;;;;;;;;x
+ct_vault_3;Magnificent Artifact Vault;;;;;;;;;;;;;x
+tp_vault_1;Artifact Vault;;;;;;;;;;;;;x
+tp_vault_2;Great Artifact Vault;;;;;;;;;;;;;x
+tp_vault_3;Magnificent Artifact Vault;;;;;;;;;;;;;x
+tb_vault_1;Artifact Room;;;;;;;;;;;;;x
+tb_vault_2;Great Artifact Room;;;;;;;;;;;;;x
+tb_vault_3;Magnificent Artifact Room;;;;;;;;;;;;;x
+no_vault_1;Artifact Room;;;;;;;;;;;;;x
+no_vault_2;Great Artifact Room;;;;;;;;;;;;;x
+no_vault_3;Magnificent Artifact Room;;;;;;;;;;;;;x
+fp_avault_1;Artifact Vault;;;;;;;;;;;;;x
+fp_avault_2;Great Artifact Vault;;;;;;;;;;;;;x
+fp_avault_3;Magnificent Artifact Vault;;;;;;;;;;;;;x
+
+ca_vault_1_desc;A small vault to guard your personal artifacts.;;;;;;;;;;;;;x
+ca_vault_2_desc;A larger vault with sturdier doors and locks to keep thieves away.;;;;;;;;;;;;;x
+ca_vault_3_desc;A state of the art vault with multiple gates and traps to make sure unwanted guests are kept out.;;;;;;;;;;;;;x
+tb_vault_1_desc;A small room to guard your personal artifacts.;;;;;;;;;;;;;x
+tb_vault_2_desc;A room with a sturdier door and lock to keep thieves away.;;;;;;;;;;;;;x
+tb_vault_3_desc;A large room with a stronger door and guards to keep watch over your artifacts.;;;;;;;;;;;;;x
+
+
+
+
+
+#####################DECISIONS#####################
+
+
+steal_artifact;Steal Artifact;;;;;;;;;;;;;x
+steal_artifact_desc;You attempt to steal one of [Root.GetTitledName]'s artifacts;;;;;;;;;;;;;x
+steal_artifact_third_party;Artifact Requirements:;;;;;;;;;;;;;x
+steal_artifact_allow1;Is a created artifact;;;;;;;;;;;;;x
+steal_artifact_allow2;Is a book;;;;;;;;;;;;;x
+steal_artifact_allow3;Is a Hermatic ingredient;;;;;;;;;;;;;x
+steal_artifact_allow4;Is a highly prized artifact;;;;;;;;;;;;;x
+steal_artifact_allow5;Is already targeted by another character;;;;;;;;;;;;;x
+steal_artifact_active;[From.GetTitledName] is NOT already trying to steal an artifact;;;;;;;;;;;;;x
+steal_artifact_cd;[From.GetTitledName] Must NOT have attempted to steal an artifact in the past five years;;;;;;;;;;;;;x
+
+ai_steal_artifact;ai stealing chain;;;;;;;;;;;;;x
+ai_steal_artifact_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+
+retrieve_artifact;Retrieve Artifact;;;;;;;;;;;;;x
+retrieve_artifact_desc;Retrieve the artifact that [Root.GetBestName] stole from you.;;;;;;;;;;;;;x
+retrieve_artifact_allow;[Root.GetBestName] must be your prisoner;;;;;;;;;;;;;x
+retrieve_artifact_effect;Transfers the Artifact to your treasury;;;;;;;;;;;;;x
+
+seize_artifact;Seize Artifact;;;;;;;;;;;;;x
+seize_artifact_desc;Forcefully take one of [Root.GetBestName]'s equipped artifacts.;;;;;;;;;;;;;x
+seize_artifact_third_party;Artifact Requirements:;;;;;;;;;;;;;x
+seize_artifact_allow1;Is NOT a highly prized artifact;;;;;;;;;;;;;x
+seize_artifact_allow2;[Root.GetBestName] must be your prisoner;;;;;;;;;;;;;x
+seize_artifact_effect;Transfers the Artifact to your treasury;;;;;;;;;;;;;x
+seize_artifact_effect2;Your vassals will be displeased with your actions;;;;;;;;;;;;;x
+seize_artifact_effect3;[Root.GetBestName] and his dynasty will be outraged;;;;;;;;;;;;;x
+
+request_ita_crown;Request the Crown of Lombardy;;;;;;;;;;;;;x
+request_ita_crown_desc; Your liege currently holds your rightful crown as King of Italy, make a request for it.;;;;;;;;;;;;;x
+request_ita_crown_allow;You have not already made this request to your current liege;;;;;;;;;;;;;x
+
+rebuild_sampo; Rebuild the Legendary Sampo;;;;;;;;;;;;;x
+rebuild_sampo_desc;The Sampo lies shattered into nine pieces. With all of them in your possession, you seek the greatest minds to reconstruct this legendary artifact.;;;;;;;;;;;;;x
+rebuild_sampo_allow;Must have all nine pieces of the Sampo;;;;;;;;;;;;;x
+
+fragments_search;Search for a fragment of the Sampo;;;;;;;;;;;;;x
+fragments_search_desc;Go looking for a fragment of the Sampo, you are not sure if you may succeed.;;;;;;;;;;;;;x
+fragments_search_allow;Must NOT have previously searched for a fragment;;;;;;;;;;;;;x
+ai_fragments_search;ai sampo search;;;;;;;;;;;;;x
+ai_fragments_search_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+
+forge_meteorite;Forge Meteorite Blade;;;;;;;;;;;;;x
+forge_meteorite_desc;The stone you found is very durable but useless to you in it's current form. Forge it into a powerful blade worthy of you.;;;;;;;;;;;;;x
+
+become_herald_of_zun;Declare yourself the Herald of Zun;;;;;;;;;;;;;x
+become_herald_of_zun_allow;All vassals are either Zunists or Old Zunists;;;;;;;;;;;;;x
+become_herald_of_zun_desc;The heathens have been driven back and you have carved yourself a large realm from their remains, ruled solely by the worshippers of mighty Zun. Perhaps it is time to become something more than a mere ruler.;;;;;;;;;;;;;x
+send_son_to_zun;Send Son to Knights of the Sun;;;;;;;;;;;;;x
+send_son_to_zun_desc;Your son wastes away in court. His abilities would be better used to fight the enemies of Zun. Yet he will not forget his duties and shall return after a decade.;;;;;;;;;;;;;x
+
+create_herbal_medicine;Collect Some Herbal Medicine;;;;;;;;;;;;;x
+create_herbal_medicine_allow;Has a competent Court Physician;;;;;;;;;;;;;x
+create_herbal_medicine_desc;Either using your own knowledge or your physician's, gathering some medicinal plants will surely keep sickness at bay.;;;;;;;;;;;;;x
+african_blessing;Ask the High Priest for a Blessing;;;;;;;;;;;;;x
+african_blessing_desc;The word of the High Priest is respected by your pagan brethren. Ask him to bestow his favor on you, if you think you're pious enough.;;;;;;;;;;;;;x
+african_blessing_allow;The High Priest will only give one blessing per ruler;;;;;;;;;;;;;x
+african_blessing_effect;The High Priest will consider your request;;;;;;;;;;;;;x
+
+open_jerusalem;Open Jerusalem to Other Faiths;;;;;;;;;;;;;x
+open_jerusalem_desc;Allowing pilgrims to enter the Holy Land will surely bring you both wealth and respect.;;;;;;;;;;;;;x
+open_jerusalem_effect;Decide who can enter;;;;;;;;;;;;;x
+jerusalem_change_pilgrims;Change Allowed Pilgrims;;;;;;;;;;;;;x
+jerusalem_change_pilgrims_desc;Change which pilgrims may enter the Holy Land.;;;;;;;;;;;;;x
+jerusalem_change_pilgrims_effect;Decide who can enter;;;;;;;;;;;;;x
+
+face_fafnir;Face Fafnir;;;;;;;;;;;;;x
+face_fafnir_desc;You travel to the dragon's lair in order to slay it and claim it's treasure. This will probably be extremely dangerous and should not be taken lightly.;;;;;;;;;;;;;x
+face_fafnir_allow;Fafnir is not currently in combat;;;;;;;;;;;;;x
+face_fafnir_effect;You set out;;;;;;;;;;;;;x
+face_fafnir_ai;ai fafnir chain;;;;;;;;;;;;;x
+face_fafnir_ai_desc;if you see this please report it on the Artifact Aquisition and Overhaul mod page.;;;;;;;;;;;;;x
+carve_out_eye;Carve Out an Eye;;;;;;;;;;;;;x
+carve_out_eye_desc;Remove one of your eyes in prepartion for using the powerful artifact Odin's Eye.;;;;;;;;;;;;;x
+gaze_into_eye;Gaze into Odin's Eye;;;;;;;;;;;;;x
+gaze_into_eye_desc;Look into the Eye, who knows what secrets it may reveal?;;;;;;;;;;;;;x
+gaze_into_eye_allow1;Odin's Eye is active;;;;;;;;;;;;;x
+gaze_into_eye_allow2;Due to fatigue you can only use the Eye every 8 years;;;;;;;;;;;;;x
+gaze_into_eye_effect;Unravel life's mysterys;;;;;;;;;;;;;x
+
+open_pandoras_box;Open Pandora's Box;;;;;;;;;;;;;x
+open_pandoras_box_desc;What wonders and horrors does this mythical box contain? Only one way to find out.;;;;;;;;;;;;;x
+open_pandoras_box_allow1;Pandora's Box is active;;;;;;;;;;;;;x
+open_pandoras_box_allow2;NOT opened Pandora's Box in the last five years;;;;;;;;;;;;;x
+open_pandoras_box_effect;Unleash Pandemonium!;;;;;;;;;;;;;x
+
+joyeuse_restore_carolingian_empire;Restore the Carolingian Empire;;;;;;;;;;;;;x
+joyeuse_restore_carolingian_empire_desc;The great conquests are over, the old borders of the Carolingian Empire are finally under your control.;;;;;;;;;;;;;x
+joyeuse_restore_carolingian_empire_allow1;Completely controls all of Frisia except Brittany;;;;;;;;;;;;;x
+joyeuse_restore_carolingian_empire_allow2;Completely controls all of Francia except Brittany;;;;;;;;;;;;;x
+joyeuse_restore_carolingian_empire_allow3;Completely controls all of Germania except for the Bohemian region, the Pommeranian region and the Duchies of Brandenburg and Meissen;;;;;;;;;;;;;x
+joyeuse_restore_carolingian_empire_allow4;Completely controls all of Northern Italy up to the Duchy of Spoleto except for the County of Roma;;;;;;;;;;;;;x
+joyeuse_restore_carolingian_empire_effect1;All Titles of the Carolingian Empire will become dejure vassals of [Root.PrimaryTitle.GetFullName];;;;;;;;;;;;;x
+joyeuse_restore_carolingian_empire_effect2;Joyeuse will become a ceromonial artifact of the [Root.GetOnlyDynastyName] dynasty;;;;;;;;;;;;;x
+
+#####################EVENTS#####################
+
+##Vanilla rumors
+EVTDESAmnm.9600;[relic_hunter.GetTitledFirstName] has returned and brought with [relic_hunter.GetHerHim] a beautiful shield. [relic_hunter.GetSheHeCap] has proof that it originates from the Maccabean Revolt from ages past that purged the Hellenic influences on the Jewish people.;;;;;;;;;;;;;x
+EVTDESAmnm.9601;[relic_hunter.GetJobTitle] [relic_hunter.GetFirstName] has finally returned from [relic_hunter.GetHerHis] travels, and has brought with [relic_hunter.GetHerHim] a small snake figurine. [relic_hunter.GetSheHeCap] tells me that this is a remnant of the old pagan ways of Judea.;;;;;;;;;;;;;x
+EVTDESAmnm.9602;[relic_hunter.GetTitledFirstName] has returned and brought with [relic_hunter.GetHerHim] a pair of golden scales. [relic_hunter.GetSheHeCap] says that these are the Goddess Laima's Scales of Fate, and with them you can control fate itself!;;;;;;;;;;;;;x
+EVTDESAmnm.9603;Returning from [relic_hunter.GetHerHis] travels, [relic_hunter.GetTitledFirstName] has brought with [relic_hunter.GetHerHim] some metal chains. [relic_hunter.GetSheHeCap] claims that these were chains that bound Alpamysh, who was imprisoned by his foes. Alpamysh was later able to escape imprisonment with the aid a shepard who was later installed as Khan by the freed Alpamysh.;;;;;;;;;;;;;x
+
+
+
+
+##tooltip infos
+Success_diplomacy;§GSuccess§! depends on your diplomatic abilities.;;;;;;;;;;;;;x
+Success_martial;§GSuccess§! depends on your physical strength.;;;;;;;;;;;;;x
+Success_stewardship;§GSuccess§! depends on your administrative capabilities.;;;;;;;;;;;;;x
+Success_intrigue;§GSuccess§! depends on your finesse.;;;;;;;;;;;;;x
+Success_learning;§GSuccess§! depends on your scholary knowledge.;;;;;;;;;;;;;x
+Success_diplomacy_intrigue;§GSuccess§! depends on your diplomatic abilities and finesse.;;;;;;;;;;;;;x
+Success_stewardship_learning;§GSuccess§! depends on your administrative capabilities and scholary knowledge.;;;;;;;;;;;;;x
+Success_alchemy;§GSuccess§! depends on your skill with Alchemy and scholary knowledge.;;;;;;;;;;;;;x
+Success_seduction;§GSuccess§! depends on your attractiveness and diplomatic abilities.;;;;;;;;;;;;;x
+Success_everything;§GSuccess§! depends on a little bit of everything.;;;;;;;;;;;;;x
+Success_split_up;§GSuccess§! depends slightly on your administrative capabilities and scholary knowledge, and heavily on your accomplices'.;;;;;;;;;;;;;x
+Success_magic;§GSuccess§! depends on your knowledge of the arcane and scholary knowledge.;;;;;;;;;;;;;x
+Success_audience;§GSuccess§! depends on your diplomatic abilities and your opponent's personality.;;;;;;;;;;;;;x
+EVTSuccess;success;;;;;;;;;;;;;x
+EVTFail;failure;;;;;;;;;;;;;x
+EVTEscape;successfully escaping;;;;;;;;;;;;;x
+EVTsharedfate;Your accomplice shares your fate;;;;;;;;;;;;;x
+
+
+
+
+EVTDESAaao.002;Who shall be your accomplice? You will begin once preparations are completed.;;;;;;;;;;;;;x
+EVTOPTAaao.002;[Root.job_marshal.GetTitledFirstName], my marshal;;;;;;;;;;;;;x
+EVTOPTBaao.002;[Root.job_spymaster.GetTitledFirstName], my spymaster;;;;;;;;;;;;;x
+EVTOPTCaao.002;My lover;;;;;;;;;;;;;x
+EVTOPTDaao.002;My friend;;;;;;;;;;;;;x
+EVTOPTEaao.002;[Root.Heir.GetTitledFirstName], my heir;;;;;;;;;;;;;x
+EVTOPTFaao.002;I've changed my mind.;;;;;;;;;;;;;x
+EVTDESAaao.003;You have arrived at [FromFromFrom.GetTitledName]'s capital, as expected it's heavily guarded. There's a group of guards at the main door, a servant's entrance at the back, and a window near the stables.;;;;;;;;;;;;;x
+EVTOPTAaao.003;Force my way inside;;;;;;;;;;;;;x
+EVTOPTBaao.003;Sneak in through the window;;;;;;;;;;;;;x
+EVTOPTCaao.003;Convince some servants to let me in;;;;;;;;;;;;;x
+EVTDESAaao.004;Failure! The guards quickly start surrounding you.;;;;;;;;;;;;;x
+EVTOPTAaao.004;Run away!;;;;;;;;;;;;;x
+EVTOPTBaao.004;Beg for forgiveness.;;;;;;;;;;;;;x
+EVTOPTCaao.004;Fight my way out!;;;;;;;;;;;;;x
+EVTDESAaao.005;You've managed to evade most patrols until you come up outside the treasury. Two bored guards stand between you and your prize.;;;;;;;;;;;;;x
+EVTOPTAaao.005;Rush them before they raise the alarm;;;;;;;;;;;;;x
+EVTOPTBaao.005;Pose as a servant and give them poisoned drinks.;;;;;;;;;;;;;x
+EVTOPTCaao.005;Use your hermatic knowledge to create a noxious gas.;;;;;;;;;;;;;x
+EVTOPTDaao.005;One of us will seduce them.;;;;;;;;;;;;;x
+EVTDESAaao.006;Failure! You weren't as crafty as you thought, the guards draw their swords and approach you!;;;;;;;;;;;;;x
+EVTOPTAaao.006;Fight my way out!;;;;;;;;;;;;;x
+EVTOPTBaao.006;Hopefully money will sway their minds.;;;;;;;;;;;;;x
+EVTOPTCaao.006;Quick, out the window!;;;;;;;;;;;;;x
+EVTDESAaao.007;Now that you have dealt with the guards, you're free to search the treasury for your target. Time is short and the treasury is filled with documents, jewels, and many miscellaneous items.;;;;;;;;;;;;;x
+EVTOPTAaao.007;Search carefully for the item;;;;;;;;;;;;;x
+EVTOPTBaao.007;Search franticly making a lot of noise;;;;;;;;;;;;;x
+EVTOPTCaao.007;Split up to cover more ground;;;;;;;;;;;;;x
+EVTOPTDaao.007;Time to get unconventional!;;;;;;;;;;;;;x
+EVTDESAaao.008;Oops, you've taken too long and some guards found you.;;;;;;;;;;;;;x
+EVTOPTAaao.008;Surrender and hope for the best;;;;;;;;;;;;;x
+EVTOPTBaao.008;Fight your way out, but theres a lot of them;;;;;;;;;;;;;x
+EVTOPTCaao.008;Demand an audience with their liege;;;;;;;;;;;;;x
+levy_agreement;you come to a levy transfer agreement;;;;;;;;;;;;;x
+tax_agreement;you come to a tax transfer agreement;;;;;;;;;;;;;x
+no_mercy;you get executed;;;;;;;;;;;;;x
+EVTDESAaao.009;After making your escape, you finally feel relieved. You've managed to steal one fine artifact for your collection and your foe has no idea.;;;;;;;;;;;;;x
+EVTOPTAaao.009;That went better than I thought;;;;;;;;;;;;;x
+EVTDESAaao.010;You've failed in your heist, and now suffer the shame.;;;;;;;;;;;;;x
+EVTOPTAaao.010;It could have been worse I suppose;;;;;;;;;;;;;x
+EVTDESAaao.011;Your guard storms into your court, "My liege, I have failed you! One of your artifacts has gone missing!". [From.GetTitledName] has made off with one of your artifacts.;;;;;;;;;;;;;x
+EVTOPTAaao.011;This is treason!;;;;;;;;;;;;;x
+EVTOPTBaao.011;Damn [From.GetHerHim];;;;;;;;;;;;;x
+EVTOPTCaao.011;Curse [From.GetHerHim] and his liege!;;;;;;;;;;;;;x
+EVTOPTDaao.011;Why doesn't my liege do something?!;;;;;;;;;;;;;x
+EVTOPTEaao.011;All the realm shall know!;;;;;;;;;;;;;x
+EVTDESAaao.012;Your guards have caught [From.GetTitledName] trying to steal one of your artifacts!;;;;;;;;;;;;;x
+EVTOPTAaao.012;To the dungeons with the traitor!;;;;;;;;;;;;;x
+EVTOPTBaao.012;To the dungeons with [From.GetHerHim]!;;;;;;;;;;;;;x
+
+
+EVTDESAaao.204;Your guard storms into your court, "My liege, I have failed you! One of your artifacts has gone missing!". [From.GetTitledName] has made off with one of your artifacts.;;;;;;;;;;;;;x
+EVTOPTAaao.204;This is treason!;;;;;;;;;;;;;x
+EVTOPTBaao.204;Damn [From.GetHerHim];;;;;;;;;;;;;x
+EVTOPTCaao.204;Curse [From.GetHerHim] and his liege!;;;;;;;;;;;;;x
+EVTOPTDaao.204;Why doesn't my liege do something?!;;;;;;;;;;;;;x
+EVTOPTEaao.204;All the realm shall know!;;;;;;;;;;;;;x
+EVTTOOLTIPAaao.204;You notify the entire realm;;;;;;;;;;;;;x
+EVTDESAaao.205;Your guards have caught [From.GetTitledName] trying to steal one of your artifacts!;;;;;;;;;;;;;x
+EVTOPTAaao.205;To the dungeons with the traitor!;;;;;;;;;;;;;x
+EVTOPTBaao.205;To the dungeons with [From.GetHerHim]!;;;;;;;;;;;;;x
+
+
+####artifact events
+
+#Christian
+
+EVTDESAaaoa.200;Your vassal [From.GetFullName] the current [From.GetKingQueen] of Italy has come to you with a request. [From.GetSheHeCap] asks for the Iron Crown of Lombardy to be returned to [From.GetHerHim] as [From.GetSheHe] is the rightful [From.GetKingQueen] of the Lombards.;;;;;;;;;;;;;x
+EVTOPTAaaoa.200; It is [From.GetHerHis] right;;;;;;;;;;;;;x
+EVTOPTBaaoa.200; The crown shall stay with the Emperor;;;;;;;;;;;;;x
+EVTDESAaaoa.201; Your liege has accepted your request, The Iron Crown of Lombardy is now in your possession.;;;;;;;;;;;;;x
+EVTDESBaaoa.201; Your liege has refused you the Iron Crown. An insult that shall not be forgotten!;;;;;;;;;;;;;x
+EVTOPTAaaoa.201; I am thankful;;;;;;;;;;;;;x
+EVTOPTBaaoa.201; Curse [From.GetHerHim]!;;;;;;;;;;;;;x
+
+#Muslim
+
+#Jewish
+
+EVTDESAaaoa.603;[From.GetTitledName] has accused you of the unrightful possession of the Priestly Breastplate. According to the Jewish faith only he has the right to wear it, how will you respond?;;;;;;;;;;;;;x
+EVTOPTAaaoa.603;I shall return it at once;;;;;;;;;;;;;x
+EVTOPTBaaoa.603;But it looks so good on me;;;;;;;;;;;;;x
+EVTDESAaaoa.604;With the declaration of the Kingdom of Israel, Jews from all over the world flock to your realm. One of them hands you Hezekiah's Hammer for granting him and his family a safe haven.;;;;;;;;;;;;;x
+EVTOPTAaaoa.604;Thank you, my friend;;;;;;;;;;;;;x
+EVTDESAaaoa.605;Years have passed since the Third Temple has been built. As you survey the building you notice some workers clearing away all the junk from the construction site. A rusty shield catches your eye as the men load it into the cart.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.605;Wait, Let me have a look at that;;;;;;;;;;;;;x 
+EVTDESAaaoa.606;With the Holy Land under your control, you can allow foreign pilgrims to freely enter Jerusalem. This will surely please them, until the inevitable Jihad or Crusade is called against you.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.606;Let the Christians in;;;;;;;;;;;;;x 
+EVTOPTBaaoa.606;Let the Muslims in;;;;;;;;;;;;;x 
+EVTOPTCaaoa.606;Let them both in;;;;;;;;;;;;;x 
+EVTDESAaaoa.607;"Why are these infidels entering my lands?!" you yell at your council. Since becoming zealous, you no longer have the patience for these people.;;;;;;;;;;;;;x 
+EVTDESBaaoa.607;With Jerusalem under attack, getting the pilgrims killed will likely make you the most hates ruler around.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.607;Stop the pilgrims from entering;;;;;;;;;;;;;x 
+EVTDESAaaoa.608;One of the pilgrims asks for an audience, he claims to have a great gift for you.\n He enters and says "Benevolent [Root.GetRulerTitle], thank you for allowing us to visit the holy land. We have brought you The Menorah as thanks. We realise it has great meaning to your faith and since there was no established Jewish realm it was just gathering dust in our vault.".;;;;;;;;;;;;;x 
+EVTOPTAaaoa.608;Thank you for returning it to us.;;;;;;;;;;;;;x
+
+#Zoroastrian
+
+#Germanic
+
+EVTTITLEAaaoa.1000;The Birds of Odin;;;;;;;;;;;;;x
+EVTDESAaaoa.1000;The Germanic faith has been able to withstand the Christians so far, but for how much longer you wonder. You spot two ravens flying above, all the doubt has been purged from your mind as the Gods have shown you a sign!\n The birds of Odin have appeared, and with them the strength and wisdom to destroy your enemies. You rush home to spread the word of what you have witnessed.;;;;;;;;;;;;;x
+EVTDESBaaoa.1000;Word has reached you that [From.GetTitledName] has spotted Odin's two ravens in the sky. This is surely a sign from the Gods that will strengthen the Germanic people against the Christian onslaught.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1000;All must hear of this!;;;;;;;;;;;;;x
+EVTOPTBaaoa.1000;For Odin!;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1000;The Ravens' feathers are found throughout Germanic realms;;;;;;;;;;;;;x
+EVTDESAaaoa.1001;The cursed ring of Andvari has created gold from nothing, but with a price.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1001;I'll probably be fine.;;;;;;;;;;;;;x
+EVTOPTBaaoa.1001;I'll probably be fine, and don't worry me about this anymore;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1001;You will be cursed;;;;;;;;;;;;;x
+EVTTOOLTIPBaaoa.1001;you will not be notified when this happens anymore but you might still get cursed;;;;;;;;;;;;;x
+EVTDESAaaoa.1003;That rock just insulted you, you are sure of it. At least, thats what Andvaranaut told you. You order your guards to throw it in the dungeon, when they look at you in confusion you throw them into the dungeon as well. ;;;;;;;;;;;;;x
+EVTDESBaaoa.1003;"Can you not see that I am descended from the Gods?!" you yell at your court. Nobody believes it, but you're sure it's true.;;;;;;;;;;;;;x
+EVTDESCaaoa.1003;Your body is turning pale, and your face appears old and malformed. Slowly you are losing your body.;;;;;;;;;;;;;x
+EVTDESDaaoa.1003;Speaking has become more difficult of late. You are not sure why, but you have started to stutter.;;;;;;;;;;;;;x
+EVTDESEaaoa.1003;All the strength has left your body, you have become a shadow of what you once were. Lethargy and weakness is all you feel now.;;;;;;;;;;;;;x
+EVTDESFaaoa.1003;Gold has become all you care about. You shall surely become the wealthiest [Root.GetManWoman] alive.;;;;;;;;;;;;;x
+EVTDESGaaoa.1003;You no longer care about what happens around you, why should you when you possess a ring that gives you all the riches in the world?;;;;;;;;;;;;;x
+EVTDESHaaoa.1003;What was that? Who's there? The continued use of Andvaranaut has made you distrust everyone around you.;;;;;;;;;;;;;x
+EVTDESIaaoa.1003;You feel tired, a moment later you fall down. You wonder how much longer your body can handle the effects of the ring.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1003;My word is law!;;;;;;;;;;;;;x
+EVTOPTBaaoa.1003;How else would I have this ring then?;;;;;;;;;;;;;x
+EVTOPTCaaoa.1003;Perhaps I should take off the ring;;;;;;;;;;;;;x
+EVTOPTDaaoa.1003;Is it because of the ring?;;;;;;;;;;;;;x
+EVTOPTEaaoa.1003;I'll have to rely on my vast amount of gold now;;;;;;;;;;;;;x
+EVTOPTFaaoa.1003;More, I must have more;;;;;;;;;;;;;x
+EVTOPTGaaoa.1003;I don't care anymore;;;;;;;;;;;;;x
+EVTOPTHaaoa.1003;My precious;;;;;;;;;;;;;x
+EVTOPTIaaoa.1003;I feel death approaching;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1004;The Cursed Dragon;;;;;;;;;;;;;x
+EVTDESAaaoa.1004;Your skin has turned pale, your height has increased, so has your weight. An acidic substance wells up in your chest as scales start covering your body. Sharp pain overwhelms your body as you fall unconcious.\n Hours later you awaken, but no longer a [Root.GetManWoman].;;;;;;;;;;;;;x
+EVTDESBaaoa.1004;As you were growing up you heard tales of Dragons and other mythical creatures. Mere stories you thought, yet word has reached you that such a creature has been spotted.\n Great treasures await the person that can slay the beast, for it was originally a [From.GetManWoman] that got too greedy.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1004;What has happened to me?;;;;;;;;;;;;;x
+EVTOPTBaaoa.1004;Finally a task worthy of me;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1006;A Human Approaches;;;;;;;;;;;;;x
+EVTDESAaaoa.1006;Perhaps it was your vast treasure hoard that attracted [From.GetHerHim], or dreams of glory, or perhaps just foolishness. Whatever the case, [From.GetTitledFirstName] approaches you with [From.GetHerHis] weapon drawn in an attempt to slay you.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1006;Foolish human;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1007;Fafnir, the Cursed Dragon;;;;;;;;;;;;;x
+EVTDESAaaoa.1007;You come upon the creature's lair. The place is littered with the bones of the dead, perhaps those that tried to do what you now attempt.\n A menacing growl echos around you. The beast knows you are here.\n Finally you spot it, a large malformed dragon. Scars cover it's body, and the creature seems weak. Perhaps it's not that menacing after all.;;;;;;;;;;;;;x
+EVTDESBaaoa.1007;You come upon the creature's lair. The place is littered with the bones of the dead, perhaps those that tried to do what you now attempt.\n A menacing growl echos around you. The beast knows you are here.\n Finally you spot it, a large malformed dragon. The dragon looks up at you for a moment before it lunges toward you.;;;;;;;;;;;;;x
+EVTDESCaaoa.1007;You come upon the creature's lair. The place is littered with the bones of the dead, perhaps those that tried to do what you now attempt.\n A menacing growl echos around you. The beast knows you are here.\n Finally you spot it, a large malformed dragon. Just the sight of this hulking monstrosity fills you with dread. This beast is not to be taken lightly.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1007;Fall to me Dragon!;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1007;You charge at Fafnir;;;;;;;;;;;;;x
+EVTOPTBaaoa.1007;This was foolish, I must flee!;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1008;The Cowardly Human;;;;;;;;;;;;;x
+EVTDESAaaoa.1008;As you lunge towards the human, [From.GetSheHe] drops [From.GetHerHis] weapon and flees! You manage to wound [From.GetHerHim] as [From.GetSheHe] runs, but otherwise nothing worthwhile came from this encounter.;;;;;;;;;;;;;x
+EVTDESBaaoa.1008;As you lunge towards the human, [From.GetSheHe] drops [From.GetHerHis] weapon and flees! You easily catch up and capture your prey.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1008;I woke up for this coward?;;;;;;;;;;;;;x
+EVTOPTBaaoa.1008;One more skull for the pile;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1009;A Deadly Battle;;;;;;;;;;;;;x
+EVTDESAaaoa.1009;You roar ferociously as you try to kill the invader, but [From.GetFirstName]'s skills far outmatch yours. One mistake is all [From.GetSheHe] needed to pierce your heart, unfortunately you just made one.;;;;;;;;;;;;;x
+EVTDESBaaoa.1009;You slash and swipe relentlessly at your opponent, giving [From.GetHerHim] no time to retaliate. In mere moments you have crushed the foolish invader and can now return to your slumber.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1009;Free from this curse at last...;;;;;;;;;;;;;x
+EVTOPTBaaoa.1009;One more skull for the pile;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1010;A Deadly Battle;;;;;;;;;;;;;x
+EVTDESAaaoa.1010;Fafnir roars as [From.GetSheHe] charges at you, but you skillfully evade [From.GetHerHim]. Again and again this happens for what seems like hours, each attack deadlier than the last.\n The beast grows restless and starts thrashing about wildly, desperately trying to kill you. In it's blind rage it leaves an opening, this was it's last mistake. You thrust your blade directly into it's heart.\n With Fafnir dead, you make your way towards the treasures it was guarding. Among the gold and baubles you spy an earie looking ring, it feels heavy as if cursed. You wonder if this is what lead to the existence of Fafnir, and will it lead you to the same fate? Only time will tell.;;;;;;;;;;;;;x
+EVTDESBaaoa.1010;Fafnir roars as [From.GetSheHe] charges forward, you try to evade [From.GetHerHim] but are too slow. Again and again this happens for what seems like hours, each attack deadlier than the last.\n The beast grows restless and starts thrashing about wildly, desperately trying to kill you. In the end you could not keep up with it and Fafnir manages to kill you.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1010;Not even dragons can defeat me!;;;;;;;;;;;;;x
+EVTOPTBaaoa.1010;I have failed...;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1011;The Death of Fafnir;;;;;;;;;;;;;x
+EVTDESAaaoa.1011;Word has reached you that [From.GetTitledName] has managed to slay Fafnir. [FromFrom.GetTitledName] has been freed from [FromFrom.GetHerHis] curse at last.\n Now [From.GetFirstName] has claimed all of Fafnir's wealth and treasures, only time will tell if [From.GetSheHe] will succumb to the same fate.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1011;Interesting;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1012;Shackles of Fenrir;;;;;;;;;;;;;x
+EVTDESAaaoa.1012;The mighty wolf Fenrir will one day break free from his chains and devour Odin. That's what the myths say at least. Yet before you lies some silken chains, and they are shredded.\n A coincidence or perhaps something more ominious? Only time will tell...;;;;;;;;;;;;;x
+EVTDESBaaoa.1012;Word has reached you that [From.GetTitledName] has found the broken shackles of Fenrir. Dark times are ahead...;;;;;;;;;;;;;x
+EVTOPTAaaoa.1012;May the Gods have mercy on us all;;;;;;;;;;;;;x
+EVTOPTBaaoa.1012;May the Gods have mercy on us all;;;;;;;;;;;;;x
+EVTDESAaaoa.1013;One day as you are returning to your great hall, you notice on old man hunched over on a tree stump, curious you move towards him.\n You look at him and notice he looks crestfallen, he gazes at you with his one eye in sadness and says "Stranger, have you forgotten the old ways as well? All these Jarls and Kings and not one of them honors the gods of old, one day we will all be punished for it.";;;;;;;;;;;;;x 
+EVTTITLEAaaoa.1013;The Old Man;;;;;;;;;;;;;x 
+EVTOPTAaaoa.1013;That is not true, for I still follow the old ways!;;;;;;;;;;;;;x 
+EVTTOOLTIPAaaoa.1013;You set out to honor the gods.;;;;;;;;;;;;;x 
+EVTOPTBaaoa.1013;Times are changing, old one;;;;;;;;;;;;;x 
+EVTDESAaaoa.1014;You have organized a giant brawl with your men, a simple contest of strength. The crowd cheers as the men fight to prove themselves in vicious combat.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.1014;Thor, lend me strength!;;;;;;;;;;;;;x
+EVTOPTBaaoa.1014;I'll just watch them go at it;;;;;;;;;;;;;x 
+EVTOPTCaaoa.1014;On second thought, I have other matters;;;;;;;;;;;;;x 
+EVTDESAaaoa.1015;As you leave the fighting pit, you spot a skald explaining the tale of Ragnarok to some children. "When Ragnarok comes, the Giant Surt shall slay Thor, Jormungandr shall swallow Odin whole, and the dreaded Fenrir shall devour Heimdall..." This Skald is spewing nonsense, you decide to correct him.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.1015;Surt kills Odin, Jormungandr kills Loki, Fenrir kills Tyr;;;;;;;;;;;;;x 
+EVTOPTBaaoa.1015;Surt kills Loki, Jormungandr kills Freyr, Fenrir kills Heimdall;;;;;;;;;;;;;x
+EVTOPTCaaoa.1015;Surt kills Freyr, Jormungandr kills Thor, Fenrir kills Odin;;;;;;;;;;;;;x
+EVTOPTDaaoa.1015;Surt kills Tyr, Jormungandr kills Heimdall, Fenrir kills Thor;;;;;;;;;;;;;x
+EVTDESAaaoa.1016;Legends say that Odin sacrificed his eye for knowledge. What value is your eye compared to wisdom?;;;;;;;;;;;;;x
+EVTOPTAaaoa.1016;In the Allfather's steps I follow;;;;;;;;;;;;;x
+EVTOPTBaaoa.1016;I've already lost an eye, where's the harm in taking the other?;;;;;;;;;;;;;x
+EVTOPTCaaoa.1016;Forgive me Allfather, for I have no more eyes to give;;;;;;;;;;;;;x
+EVTOPTDaaoa.1016;Superstitious nonsense, my eye is far too valuable;;;;;;;;;;;;;x
+EVTDESAaaoa.1017;Theres nothing vikings love more than raiding. So what better way to honor the gods than killing helpless fools in their names?;;;;;;;;;;;;;x
+EVTOPTAaaoa.1017;For treasure and glory!;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1017;To continue the quest you must personally raid holdings, the tougher the holding the better;;;;;;;;;;;;;x
+EVTOPTBaaoa.1017;This is for the AI, if you see this please report it.;;;;;;;;;;;;;x
+EVTDESAaaoa.1019;You have done all you can think of to honor the gods. Now to find the old man again and see what he thinks now.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1019;Surely this is more than enough;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1020;Journey's End;;;;;;;;;;;;;x
+EVTDESAaaoa.1020;After hours of searching the area you finally find the old man. Eager to tell him of your deeds you begin speaking yet he raises his hand and says "I already know all that you have done."\n [odins_quest_stage1] [odins_quest_stage2] [odins_quest_stage3] [odins_quest_stage4] [odins_quest_result];;;;;;;;;;;;;x
+odins_quest_stage1A;"You fought against your fellow warriors, a brave thing to do.;;;;;;;;;;;;;x
+odins_quest_stage1B;"You organized a contest of strength, yet merely watched it unfold.;;;;;;;;;;;;;x
+odins_quest_stage1C;"You organized a contest of strength, yet did not care about the outcome. Did you think that would be enough?;;;;;;;;;;;;;x
+odins_quest_stage2A;You have shown your knowledge of the gods by correcting the foolish skald.;;;;;;;;;;;;;x
+odins_quest_stage2B;You could not even correct a foolish man attempting to teach children about the gods, making you the bigger fool.;;;;;;;;;;;;;x
+odins_quest_stage3A;You have removed your eye in an imitation of Odin, an act worthy of praise.;;;;;;;;;;;;;x
+odins_quest_stage3B;Although you already were missing an eye, you chose to remove the other one in honor of Odin. This goes beyond merely honoring the gods.;;;;;;;;;;;;;x
+odins_quest_stage3C;You are already blind my friend, and thus cannot judge you for what you could not do.;;;;;;;;;;;;;x
+odins_quest_stage3D;You considered removing an eye in honor of Odin, but cowardly banished the thought later.;;;;;;;;;;;;;x
+odins_quest_stage4A;You raided villages, churches,  and peasants, wheres the glory in taking from those who can barely defend themselves?";;;;;;;;;;;;;x
+odins_quest_stage4B;You raided castles and lords, taking their earnings by force. A commendable feat.";;;;;;;;;;;;;x
+odins_quest_fail;The old man looks away from you and sighs "I should not have expected anything from these mortal fools." He barely finished talking and just disappeared. You look around but can no longer find him.;;;;;;;;;;;;;x
+odins_quest_success;The old man grins and stands up. "You have proven me wrong my friend. Your courage and fervor I admire, truly the gods smile upon you. For I already do." He shoves a small object wrapped in a cloth into your hands."Here mortal, a gift." You look up at him confused, but you are met with more confusion as the old man has completely disappeared.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1020;What? What nonsense is this?;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1020;You failed to impress the old man;;;;;;;;;;;;;x
+EVTOPTBaaoa.1020;What? I..what?;;;;;;;;;;;;;x
+EVTDESAaaoa.1021;Gazing into the eye you spot nobles conspiring, thieves skulking, and assassins waiting. The eye has revealed a sinister plot.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1021;Interesting;;;;;;;;;;;;;x
+EVTDESAaaoa.1022;Infinite knowledge lies in the palm of your hand, you need only grasp and understand it.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1022;Knowledge benefits us all;;;;;;;;;;;;;x
+EVTDESAaaoa.1023;You see through the eyes of the heroes of old, facing the challenges brought upon them by the gods. Through their hardships, you learn to adapt and improve.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1023;I have become a greater [Root.GetManWoman];;;;;;;;;;;;;x
+EVTDESAaaoa.1025;Your son [From.GetFirstName] has been showing signs of a strange illness recently. Neither you or anyone close to you recognizes the disease. He has a very high fever, and it's possible that he may not survive.;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1025;Dark Days;;;;;;;;;;;;;x
+EVTOPTAaaoa.1025;Call the physician at once!;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1025;The Court Physician is summoned;;;;;;;;;;;;;x
+EVTOPTBaaoa.1025;Doesn't anyone know anything?;;;;;;;;;;;;;x
+EVTTOOLTIPBaaoa.1025;Without a physician all you have left is hope;;;;;;;;;;;;;x
+EVTDESAaaoa.1026;Your lord's son is suffering from a strange illness. He has summoned you to attempt to cure him.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1026;I will try;;;;;;;;;;;;;x
+EVTDESAaaoa.1027;Your son gets worse. He starts to shiver and sweat uncontrolably. Your physician is franticly trying everything he can but will it be enough?;;;;;;;;;;;;;x
+EVTDESBaaoa.1027;Your son gets worse. He starts to shiver and sweat uncontrolably. You feel helpless as you have no idea what to do, looking for a physician now would be too late.;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1027;Dark Days;;;;;;;;;;;;;x
+EVTOPTAaaoa.1027;May the gods show mercy;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1027;You pray to the gods;;;;;;;;;;;;;x
+EVTDESAaaoa.1028;A few moments pass, then a few more, yet nothing happens. Your son is still alive, his fever gone, his strength returned. The disease disappeared as mysteriously as it appeared. Out the window a lone raven has perched.;;;;;;;;;;;;;x
+EVTDESBaaoa.1028;A few moments pass, then a few more, yet nothing happens. Your son is still alive, but weak. The worse has passed and he will surely recover in time.;;;;;;;;;;;;;x
+EVTDESCaaoa.1028;A few moments pass, then a few more, your son keeps shaking violently until he shakes no more. He is dead, a victim of this strange illness.;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1028;Dark Days;;;;;;;;;;;;;x
+EVTOPTAaaoa.1028;I shall sacrifice a ram to the Allfather!;;;;;;;;;;;;;x
+EVTOPTBaaoa.1028;Thank the gods!;;;;;;;;;;;;;x
+EVTOPTCaaoa.1028;My poor boy...;;;;;;;;;;;;;x
+EVTDESAaaoa.1029;As you face your enemy's army you realize that you've been seperated from your forces. You stand alone, surrounded by men eager to end your life. Slowly they close in on you. One of them gets eager and rushes forward, you manage to impale him on your spear but have now lost your only weapon. Death draws near...\n You grab a nearby stick, trying to poke your enemies away in a futile attempt at survival. The blunt stick has impaled a soldier...how? You pull it out and stand aghast as the stick now has an elaborate spearhead on the tip. You know not how a stick transformed into a spear, and you do not care as now your enemies bewildered by what they saw flee from you.;;;;;;;;;;;;;x
+EVTDESBaaoa.1029;[From.GetFullName] is rumored to have been saved by the Allfather from a deadly illness at infancy. Rumors have turned to reality as he now weilds the mighty spear Gungnir into battle. His foes now tremble at his approach, and the Germanic people rally behind him.;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1029;Alone and Surrounded;;;;;;;;;;;;;x
+EVTOPTAaaoa.1029;With this spear I shall stand atop the world;;;;;;;;;;;;;x
+EVTOPTBaaoa.1029;A great man indeed;;;;;;;;;;;;;x
+EVTDESAaaoa.1030;You have surrounded [From.GetBestName]. His spear is broken and shield sundered. Yet despite all this he charges towards his enemies with a broken stick. The faces of his foes turn from laughter to fear, as his stick has changed into an ornate spear which easily peirces their thick armor.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1030;No, stay away demon!;;;;;;;;;;;;;x
+
+
+
+#West African
+
+EVTDESAaaoa.1201;The High Priest thinks that perhaps you should make some attempt at following the teachings of The Legends before making such ridiculous requests.;;;;;;;;;;;;;x  
+EVTDESBaaoa.1201;The High Priest is pleased with your actions and thus decided to bless your rule.;;;;;;;;;;;;;x 
+EVTDESCaaoa.1201;The High Priest is impressed with you, and has decided to bestow upon you the greatest gift he has.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.1201;Well, I don't like him either;;;;;;;;;;;;;x 
+EVTOPTBaaoa.1201;This will surely help;;;;;;;;;;;;;x 
+EVTOPTCaaoa.1201;I am humbled by his generosity;;;;;;;;;;;;;x 
+
+#Finnish/Soume
+
+EVTDESAaaoa.1400;As you sit in your court, a shifty man asks for an audience. He tells you that he has something you may want, the sword of Kalevi. Kalevi was reputed to be a legendary hero and ruler, surely having his sword would be a powerful boon to you and your family. The shifty man offers to give it to you, for the right price of course.;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1400;Kalevanmiekka;;;;;;;;;;;;;x
+EVTOPTAaaoa.1400;He shall have his money;;;;;;;;;;;;;x
+EVTOPTBaaoa.1400;That's not worth the price;;;;;;;;;;;;;x
+EVTDESAaaoa.1401;The Sampo lies broken, and most of it's pieces are lost. With such a daunting task ahead, you depart on your journey.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1401;May fortune be with me;;;;;;;;;;;;;x
+EVTDESAaaoa.1403;After a year of chasing rumors and whispers, you have managed to locate a fragment.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1403;One step closer;;;;;;;;;;;;;x
+EVTDESAaaoa.1404;Searching everywhere and following every rumor for the past year has left you exhausted. The fragment could be anywhere and who knows how long this would take.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1404;Perhaps it was not meant to be;;;;;;;;;;;;;x
+EVTDESAaaoa.1405;The craftsmen bring before you a large box. As your men proceed to break it open, a single gold coin rolls falls to the floor through one of the box's widening cracks, you pick it up. In the opened box you see a very well-made quern. The craftsmen speak "This is not the first time we have found coins near the Sampo on our way back here. Flour and salt, too... It seems one's fortunes increase just by being near it." Rolling the coin on your knuckles you ponder the importance of this. You may have found the means to create wealth from nothingness itself.;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1405;The Sampo Rebuilt;;;;;;;;;;;;;x
+EVTOPTAaaoa.1405;Eternal wealth shall be mine!;;;;;;;;;;;;;x
+EVTDESAaaoa.1406;A very loud merchant is desperately trying to sell a scroll. He claims that a strange man sold it to him, but he is unable to make sense of the words on it. You take a look at the scroll and recognize the old Finnish Runes, but you can't make any sense of it either.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1406;I shall buy it and study it further;;;;;;;;;;;;;x
+EVTOPTBaaoa.1406;What rubbish;;;;;;;;;;;;;x
+EVTDESAaaoa.1407;You gather all your books on Finnish myths and history, and prepare to unravel the meaning of the strange scroll.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1407;Time to find the truth behind this;;;;;;;;;;;;;x
+EVTDESAaaoa.1408;After months of hard work, you have finally deciphered the scroll. This is the magic scroll of Antero Vipunen, a great giant said to possess incredible magical knowledge. While some may question the existence of such magic, you have no doubt that it will be of some use to you.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1408;A treasure trove of knowledge!;;;;;;;;;;;;;x
+EVTDESAaaoa.1409;Months have passed, and you are still no closer to discovering the meaning of this scroll. You tell one of your servants to get rid of the scroll as you leave in frustration.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1409;What a waste of time!;;;;;;;;;;;;;x
+
+#Slavic
+
+EVTDESAaaoa.1600;On Kupala day, young people jump over the flames of bonfires in a ritual test of bravery and faith. The failure of a couple in love to complete the jump while holding hands is a sign of their destined separation.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1600;I shall prove my worth;;;;;;;;;;;;;x
+EVTOPTBaaoa.1600;Let us jump, my love;;;;;;;;;;;;;x
+EVTOPTCaaoa.1600;I don't want to participate;;;;;;;;;;;;;x
+EVTDESAaaoa.1601;After the rituals are complete, everyone has gone off to search for the fabled Fern Flowers said to bloom only on the day of the Kupala Festival. Prosperity and luck await those who find one.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1601;Join the search;;;;;;;;;;;;;x
+EVTDESAaaoa.1602;You manage to find a few rare herbs and such but no Fern Flower. Yet you still had a wonderful time today.;;;;;;;;;;;;;x
+EVTDESBaaoa.1602;As you look around the bushes you spy a pretty unique looking herb, could this be it? Is it the fabled Fern Flower?;;;;;;;;;;;;;x
+EVTOPTAaaoa.1602;There's always next time;;;;;;;;;;;;;x
+EVTOPTBaaoa.1602;It sure is;;;;;;;;;;;;;x
+EVTTITLEAaaoa.1603;The Hidden Blade;;;;;;;;;;;;;x
+EVTDESAaaoa.1603;As you return to your castle you decide to take a shortcut through the nearby woods. You spot a great oak tree overlooking a small pond, but something about the tree strikes you as odd. As you move closer you see a small hole beneath the tree, and theres something shining inside. You reach inside and pull out a large sword which you immediately recognize from the old legends. This is Kladenets, the Hidden Blade, the Self Swinging Sword and the Sword of Steel.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1603;It shall serve me well;;;;;;;;;;;;;x
+EVTDESAaaoa.1605;You have inherited the Axe of Perun from your predecessor, but are too young to face the Slavic challengers. Be ready for them when you come of age.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1605;I hope I'll be strong enough by then;;;;;;;;;;;;;x
+EVTDESAaaoa.1607;You have inherited the Axe of Perun from your predecessor, the strongest Slavic warriors shall fight for their right to challenge you for it. Until you prove yourself worthy, you may not wield the Thunder God's axe.;;;;;;;;;;;;;x
+EVTDESBaaoa.1607;You have finally come of age and now the strongest Slavic warriors shall fight for their right to challenge you for the Axe of Perun. Until you prove yourself worthy, you may not wield the Thunder God's axe.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1607;Let them come!;;;;;;;;;;;;;x
+EVTDESAaaoa.1608;I [From.GetTitledName] await all those who would challenge me for the Thunder God's axe, come and face me if you think yourself worthy!;;;;;;;;;;;;;x
+EVTOPTAaaoa.1608;The axe shall be mine!;;;;;;;;;;;;;x
+EVTOPTBaaoa.1608;I don't think I'm strong enough;;;;;;;;;;;;;x
+EVTDESAaaoa.1609;The lords have finally decided on the location of the challenge grounds, and so you prepare to depart.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1609;To glory!;;;;;;;;;;;;;x
+EVTDESAaaoa.1610;As you arrive you notice that three other great warriors have gathered to challenge [From.GetTitledName] for the axe. Yet only the strongest has the honor to face [From.GetHerHim].;;;;;;;;;;;;;x
+EVTOPTAaaoa.1610;I shall prevail!;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1610;You enter the melee;;;;;;;;;;;;;x
+EVTDESAaaoa.1613;You have emerged victorious! Now for the final challenge against [From.GetTitledName].;;;;;;;;;;;;;x
+EVTOPTAaaoa.1613;I shall destroy [From.GetHerHim]!;;;;;;;;;;;;;x
+EVTDESAaaoa.1614;You were no match for the other challengers. Defeated and shamed, you start the journey home.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1614;If only I was stronger;;;;;;;;;;;;;x
+EVTDESAaaoa.1615;At last the challengers have faced eachother in a brawl and the winner stands before you eager to take his prize. The final duel is about to begin.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1615;The axe belongs to the strong!;;;;;;;;;;;;;x
+EVTDESAaaoa.1616;Your opponent lies broken before you, there can be no doubt to your strength among the Slavic people. As you walk away, you hear a crack of thunder in the distance, the Thunder God gives his approval.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1616;I am Perun's Champion!;;;;;;;;;;;;;x
+EVTDESAaaoa.1617;You lie on the cold hard ground as your opponent grins, you have lost. Has Perun forsaken you, or are you simply too weak?;;;;;;;;;;;;;x
+EVTOPTAaaoa.1617;God of Thunder, why?;;;;;;;;;;;;;x
+EVTDESAaaoa.1618;[From.GetTitledName] is utterly defeated, and you emerge victorious with your new prize. You are truly the strongest among the Slavic people.;;;;;;;;;;;;;x
+EVTDESBaaoa.1618;[From.GetTitledName] has defeated while skillfully evading all your attacks, the crowd is confused on how you got this far. The axe has slipped further beyond your reach.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1618;I am Perun's Champion!;;;;;;;;;;;;;x
+EVTTOOLTIPAaaoa.1618;You take the axe with you;;;;;;;;;;;;;x
+EVTOPTBaaoa.1618;Why has the God of Thunder forsaken me?;;;;;;;;;;;;;x
+EVTwinning;of winning;;;;;;;;;;;;;x
+EVTlosing;of losing;;;;;;;;;;;;;x
+
+#Baltic/Romuvan
+
+EVTDESAaaoa.1800;Alone at night in your room, a sense of dread fills you. Slowly the form of a man materializes in front of you. "Greetings impious wretch, I am Velnias." The devil himself has appeared before you, and offers you an item of great power, for a price.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1800;A few lives mean nothing to me!;;;;;;;;;;;;;x
+EVTOPTBaaoa.1800;My children? Never!;;;;;;;;;;;;;x
+EVTDESAaaoa.1801;With the new scriptures and traditions in place, the newly appointed head of the Romuvan faith presents you with a branch he claims to come from the World Tree itself. For you have ensured the survival of your pagan faith.;;;;;;;;;;;;;x
+EVTOPTAaaoa.1801;For the Romuvan faith!;;;;;;;;;;;;;x
+
+#Tengri
+
+EVTDESAaaoa.2000;One of your oldest guards comes up to you with his spear, he says "My Khan, I will soon pass from this world, and with no sons im afraid my familys legacy will fade into nothingness. You are strong and fearless, you should be the one holding his spear not some old man.".;;;;;;;;;;;;;x
+EVTOPTAaaoa.2000;I am honored my friend.;;;;;;;;;;;;;x
+EVTDESAaaoa.2001;As you ride around the battlefield, a strange looking stone crashes mere feet in front of you. You decide to quickly take it and return to battle.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2001;This might be useful;;;;;;;;;;;;;x
+EVTDESAaaoa.2002;With the help of your smiths, you have forged a powerful blade that will inspire awe in all those who see it.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2002;I shall name it Skai Unav, the Sword of the Sky;;;;;;;;;;;;;x 
+
+#Zunist
+
+EVTDESAaaoa.2203;Your son [From.GetFirstName] has finally returned from his service at the Knights of the Sun, and he brings with him all the knowledge and experience he gained by serving mighty Zun. Now he stands ready to serve his dynasty once more.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.2203;He has returned a better man;;;;;;;;;;;;;x 
+EVTDESAaaoa.2204;You now stand more akin a god than a man, such prominence requires a fitting symbol. The royal smith smiles as he presents to you his masterpiece, a majestic crown unlike any made before.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.2204;I am the greatest;;;;;;;;;;;;;x 
+EVTTITLEAaaoa.2207;The Eternal Flame;;;;;;;;;;;;;x 
+EVTDESAaaoa.2207;As you and your men go around desecrating the heathens' temples, you find an odd reliquary hidden away in one of them. It's locked and a note is wrapped around the handle, it reads "Beware to who find this, turn back and forget it's existence. This flame cannot be extinguished. It has burned all who touch it to ash, let it be locked away and forgotten, lest it claim more lives." You give your men a shrug and break the lock, inside rests a flail burning with such intensity that your men scamper away, but you feel nothing. You reach in and claim the flail as your own.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.2207;May it burn the heathens in the Fires of Zun;;;;;;;;;;;;;x 
+EVTDESAaaoa.2208;Enough is enough, your vassals constantly scheme to undermine your authority. Your courtiers are useless, and nothing gets done. Perhaps they need something to remind them what happens to those who fail to produce results. You order your blacksmith to fashion a mask that should get the job done. He is hesitant at first, but decides its best to follow your orders and gets to work. He then presents you with the mask.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.2208;This should do it!;;;;;;;;;;;;;x 
+
+
+#Indian
+
+
+#Cultural/Misc
+EVTDESAaaoa.2600;The Box lies open before you, darkness engulfs the room then light shines. One moment you hear birds singing the other people screaming. You feel weak, then strong. Nothing makes sense. After closing the box, you feel different somehow.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.2600;I feel odd...;;;;;;;;;;;;;x 
+EVTDESAaaoa.2601;Against the wishes of your entire council you have decided to open Pandora's Box. A wave of dread washes over the room as soon as you open it, followed by warmth. You feel sick, then well. Your court laughs then cries. Nothing makes sense. The fate of the realm is unknown.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2601;Quick, check on everything!;;;;;;;;;;;;;x 
+EVTTOOLTIPAaaoa.2601;Up to three of your demesne provinces will suffer random effects;;;;;;;;;;;;;x 
+EVTDESAaaoa.2602;You may have opened the box before, or perhaps you didn't, you're not so sure anymore. It matters not as you decide to open Pandora's Box. As soon as you open it images of [pandoras_child.GetFirstName] flood your mind. As the images fade, you wonder what they mean.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2602;What has happened to [pandoras_child.GetFirstName]?;;;;;;;;;;;;;x 
+EVTDESAaaoa.2603;Whatever change happened to [pandoras_child.GetFirstName] seems to have disappeared. Fate is indeed cruel.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.2603;But..but why?;;;;;;;;;;;;;x 
+EVTDESAaaoa.2604;You peer into the open box, nothing. You look harder, nothing. With a sigh you step back and look up, nothing.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2604;Only darkness...;;;;;;;;;;;;;x 
+EVTDESAaaoa.2605;Years ago you tried to wear the Pelt of the Nemean Lion, but it proved too heavy for you. That was then, now over the years your body has grown stronger. Wearing is now a trivial matter.;;;;;;;;;;;;;x 
+EVTOPTAaaoa.2605;I feel stronger!;;;;;;;;;;;;;x
+EVTDESAaaoa.2606;You spot the enemy commander in the midst of battle, reaching him won't be easy. But with the Brionac you won't need to, you hurl over an impressive distance and strike your foe straight in the chest.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2606;Like hunting wild boar;;;;;;;;;;;;;x 
+
+
+#Holy Weapons
+
+EVTDESAaaoa.2804;Your men watch as you seamlessly skewer the infidels on your holy lance. Religious fervor wells up in them as they charge to aid you!;;;;;;;;;;;;;x 
+EVTDESBaaoa.2804;While originally made for a different purpose, Hezekiah's Hammer is nevertheless a useful tool for both inspiring your men and crushing your enemies.;;;;;;;;;;;;;x 
+EVTDESCaaoa.2804;The Prophet Mohammad held nine swords, and you wield one of them in defense of Islam. Your fellow muslims flock to your aid!;;;;;;;;;;;;;x
+EVTDESDaaoa.2804;Your foes crumble before the might of Mjolnir. More and more of them start scampering away as you move through the battlefield.;;;;;;;;;;;;;x
+EVTDESEaaoa.2804;You have already proven your strength in order to wield the Axe of Perun, yet your men are still amazed as your enemies' blood covers the ground in your wake.;;;;;;;;;;;;;x
+EVTDESFaaoa.2804;Your men thought the stone Axe of Perkunas was unwieldy in actual combat, you have proven them wrong.;;;;;;;;;;;;;x 
+EVTDESGaaoa.2804;True to it's name, your flail is burning away the heathens in holy fire. With only ashes in sight, your foes flee.;;;;;;;;;;;;;x
+EVTDESHaaoa.2804;The sound of bones breaking with each strike of your hammer terrifies your foes. One by one they try to escape before they meet the same fate as their comrades.;;;;;;;;;;;;;x 
+EVTDESIaaoa.2804;Your meteor forged blade cuts through your foes with ease. In fact it feels even easier than carving a cake.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2804;For [Root.Religion.GetHighGodName]!;;;;;;;;;;;;;x
+EVTDESAaaoa.2805;Inspired by their commander's prowess with his remarkable weapon, your enemies fight with renewed vigor!;;;;;;;;;;;;;x
+EVTDESBaaoa.2805;You gaze in horror as the enemy commander cuts through your troops with ease. His weapon dripping with your men's blood, he is slowly making his way towards you.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2805;Curses!;;;;;;;;;;;;;x
+EVTOPTBaaoa.2805;No, stay away!;;;;;;;;;;;;;x
+EVTDESAaaoa.2806;War has come. Vikings from across the lands rally towards you, the wielder of Gungnir. Sate their desire for bloodlust quickly, as they will surely leave when the war is over.;;;;;;;;;;;;;x
+EVTOPTAaaoa.2806;To battle!;;;;;;;;;;;;;x
+
+
+
+#####################END OF EVENTS#####################
+
+
+
+
+

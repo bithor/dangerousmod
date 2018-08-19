@@ -1,0 +1,13 @@
+Pope_Slayer = {
+	trait_name = "Pope Slayer"
+	ruler_designer_cost = 20
+	random = no
+	monthly_character_prestige = 1.0
+	monthly_character_piety = 1.0
+	diplomacy = 1
+	martial = 1
+	christian_opinion = -25
+	same_religion_opinion = 25
+	same_opinion = 100
+	inherit_chance = 0
+}

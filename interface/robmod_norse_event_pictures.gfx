@@ -1,0 +1,130 @@
+#########################################################
+# "WAY OF LIFE" EVENT PICTURES
+#########################################################
+
+spriteTypes = 
+{
+	spriteType = {
+		name = "GFX_evt_thor"
+		texturefile = "gfx\\event_pictures\thor.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_gods_war"
+		texturefile = "gfx\\event_pictures\gods_war.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_norse_shepherd"
+		texturefile = "gfx\\event_pictures\norse_shepherd.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_holmgang"
+		texturefile = "gfx\\event_pictures\holmgang.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_golden_lady"
+		texturefile = "gfx\\event_pictures\golden_lady.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_odin_beggar"
+		texturefile = "gfx\\event_pictures\odin.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_odin_king"
+		texturefile = "gfx\\event_pictures\odin_king.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_skald"
+		texturefile = "gfx\\event_pictures\skald.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_norse_monastic_carving"
+		texturefile = "gfx\\event_pictures\norse_monastic_carving.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_norse_wolf_spirit"
+		texturefile = "gfx\\event_pictures\norse_wolf_spirit.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_tyr_battle"
+		texturefile = "gfx\\event_pictures\tyr_battle.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_loki_mischief"
+		texturefile = "gfx\\event_pictures\loki_mischief.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_freyja_necklace"
+		texturefile = "gfx\\event_pictures\freyja_necklace.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_seidrkona"
+		texturefile = "gfx\\event_pictures\seidrkona.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_raven_perching"
+		texturefile = "gfx\\event_pictures\raven_perching.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_kappi_mestr"
+		texturefile = "gfx\\event_pictures\kappi_mestr.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_odinsraven"
+		texturefile = "gfx\\event_pictures\odinsraven.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_norse_coronation"
+		texturefile = "gfx\\event_pictures\norse_coronation.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_raven_coronation"
+		texturefile = "gfx\\event_pictures\raven_coronation.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_goddess_frigg"
+		texturefile = "gfx\\event_pictures\goddess_frigg.tga"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_norse_godi"
+		texturefile = "gfx\\event_pictures\norse_godi.tga"
+		allwaystransparent = yes
+	}
+}

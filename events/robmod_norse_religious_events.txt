@@ -1,0 +1,4813 @@
+#####---------====<[ROBMOD]>====----------#####
+#---------------------------------------------#
+####----=<NORSE RELIGIOUS EVENTS>=----####
+# last edited 08-07-2017
+# IDs
+# 00001-00002 - create norse monks
+# 00003-00010 - oathsmen and friggsisters
+# 00011-00013 - choose your pantheon
+# 00014-00028 - Beyd ceremony
+# 00100-00119 - monastic events
+# 00029-00037 - Gods events
+# 00038-00043 - First raven events
+# 00044-000?? - create norse monks continued
+
+namespace = robmodnorse
+
+### --=DECISION EVENTS=-- ###
+
+##-- First Raven events --##
+
+# From on_action event on_reform_religion
+character_event = {
+	id = robmodnorse.00038
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {	# Not sure if on_action on_reform_religion fires on them before they convert!
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+	}
+	
+	immediate = {
+		character_event = {
+			id = robmodnorse.00041
+			months = 2
+		}
+		set_character_flag = robmodnorse_firstraven
+	}
+}
+
+# Backup in case first raven dies
+character_event = {
+	id = robmodnorse.00039
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = { has_character_flag = robmodnorse_firstraven }
+	
+	immediate = {
+		current_heir = {
+			character_event = { id = robmodnorse.00040 }
+		}
+	}
+}
+
+# Ping to new first raven in case current heir is no longer the Odinsraven
+character_event = {
+	id = robmodnorse.00040
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_character = {
+			limit = {
+				religion = norse_pagan_reformed
+				controls_religion = yes
+			}
+			if = { 
+				limit = { 
+					NOT = { has_global_flag = robmodnorse_firstraven_happened }
+				}
+				character_event = {
+					id = robmodnorse.00041
+					months = 2
+				}
+			}
+			if = { 
+				limit = { has_global_flag = robmodnorse_firstraven_happened }
+				character_event = {
+					id = robmodnorse.00042	# Receives nickname
+					months = 1
+				}
+			}
+			set_character_flag = robmodnorse_firstraven
+		}
+	}
+}
+
+# Writing the Godslaws
+narrative_event = {
+	id = robmodnorse.00041
+	title = EVTTITLE_ROBMODNORSE_00041
+	desc = {
+		trigger = { religion = norse_pagan_reformed }
+		text = EVTDESC_ROBMODNORSE_00041_BEYD
+	}
+	desc = {
+		trigger = { religion = norse_pagan }
+		text = EVTDESC_ROBMODNORSE_00041_OLD
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				religion = norse_pagan_reformed
+				religion = norse_pagan
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00041_INFIDEL
+	}
+	picture = GFX_evt_odinsraven
+	border = GFX_event_narrative_frame_religion
+	show_ROOT = yes
+	hide_from = yes
+	only_playable = yes
+	major = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = norse_pagan_reformed
+		controls_religion = yes
+		NOT = { has_global_flag = robmodnorse_firstraven_happened }
+	}
+	
+	major_trigger = {
+		OR = {
+			capital_scope = {
+				NOT = {
+					distance = {
+						where = 266 # Sjaelland
+						value = 800	# Same part of the world
+					}
+				}
+			}
+			religion = norse_pagan_reformed
+			religion = norse_pagan
+		}
+	}
+	
+	immediate = { set_global_flag = robmodnorse_firstraven_happened }
+
+	option = { # OK
+		name = {
+			trigger = { religion = norse_pagan_reformed }
+			text = EVTOPTA_ROBMODNORSE_00041_BEYD
+		}
+		name = {
+			trigger = { religion = norse_pagan }
+			text = EVTOPTA_ROBMODNORSE_00041_OLD
+		}
+		name = {
+			trigger = {
+				NOR = {
+					religion = norse_pagan_reformed
+					religion = norse_pagan
+				}
+			}
+			text = EVTOPTA_ROBMODNORSE_00041_INFIDEL
+		}
+		if = { 
+			limit = { character = ROOT }
+			piety = 100
+			religion_authority = {
+				modifier = robmodnorse_godslaws
+				years = 20
+			}
+			any_vassal = {
+				limit = {
+					religion = norse_pagan_reformed
+					is_priest = yes
+				}
+				opinion = {
+					modifier = opinion_robmodnorse_godslaws
+					who = ROOT
+					years = 10
+				}
+			}
+			hidden_tooltip = {
+				character_event = {
+					id = robmodnorse.00042	# Coronation
+					months = 1
+				}
+			}
+		}
+		if = {
+			limit = { religion = norse_pagan }
+			opinion = {
+				modifier = opinion_robmodnorse_godslaws_hate
+				who = ROOT
+				years = 100
+			}
+		}
+	}
+}
+
+# Coronation, and receives nickname if wanted
+long_character_event = {
+	id = robmodnorse.00042
+	picture = GFX_evt_raven_coronation
+	desc = EVTDESC_ROBMODNORSE_00042
+	border = GFX_event_long_frame_religion
+	show_ROOT = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = robmodnorse_firstraven
+		any_character = {
+			limit = { 
+				religion = norse_pagan_reformed
+				NOT = { character = ROOT }
+			}
+			character_event = {
+				id = robmodnorse.00043
+				days = 1
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00042	# take nickname
+		ai_chance = { factor = 1 }
+		give_nickname = nick_firstraven
+		add_trait = robmodnorse_firstraven
+		add_artifact = crown_of_crows
+		hidden_tooltip = {
+			any_child_even_if_dead  = {	# gives ravenschild to all children, and patrilineally descended grandchildren (and great-grandchildren, and great-great-grandchildren, just in case!)
+				add_trait = robmodnorse_ravenschild
+				if = {
+					limit = { is_female = no }
+					any_child_even_if_dead = {
+						add_trait = robmodnorse_ravenschild
+						if = {
+							limit = { is_female = no }
+							any_child_even_if_dead = {
+								add_trait = robmodnorse_ravenschild
+								if = {
+									limit = { is_female = no }
+									any_child_even_if_dead = {
+										add_trait = robmodnorse_ravenschild
+										if = {
+											limit = { is_female = no }
+											any_child_even_if_dead = {
+												add_trait = robmodnorse_ravenschild
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00042	# don't take nickname
+		ai_chance = { factor = 0 }
+		custom_tooltip = { text = EVTTOOLTIPB_ROBMODNORSE_00042 }
+		add_trait = robmodnorse_firstraven
+		add_artifact = crown_of_crows
+		hidden_tooltip = {
+			any_child_even_if_dead  = {	# gives ravenschild to all children, and patrilineally descended grandchildren (and great-grandchildren, and great-great-grandchildren, just in case!)
+				add_trait = robmodnorse_ravenschild
+				if = {
+					limit = { is_female = no }
+					any_child_even_if_dead = {
+						add_trait = robmodnorse_ravenschild
+						if = {
+							limit = { is_female = no }
+							any_child_even_if_dead = {
+								add_trait = robmodnorse_ravenschild
+								if = {
+									limit = { is_female = no }
+									any_child_even_if_dead = {
+										add_trait = robmodnorse_ravenschild
+										if = {
+											limit = { is_female = no }
+											any_child_even_if_dead = {
+												add_trait = robmodnorse_ravenschild
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+character_event = {
+	id = robmodnorse.00043
+	picture = GFX_evt_raven_coronation
+	desc = EVTDESC_ROBMODNORSE_00043
+	border = GFX_event_normal_frame_religion
+	show_ROOT = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00043
+		tooltip = { 
+			FROM = { give_nickname = nick_firstraven }
+		}
+		tooltip = {
+			FROM = { add_trait = robmodnorse_firstraven }
+		}
+	}
+}
+
+##-- Establishing the Norse monastic order --##
+
+#- Oathsmen emerging -#
+narrative_event = {
+	id = robmodnorse.00044
+	title = EVTTITLE_ROBMODNORSE_00044
+	desc = EVTDESC_ROBMODNORSE_00044
+	picture = GFX_evt_norse_godi
+	border = GFX_event_narrative_frame_religion
+
+	only_playable = yes
+	religion = norse_pagan_reformed
+	only_capable = yes
+	prisoner = no
+	war = no
+	
+	trigger = {
+		controls_religion = yes
+		piety = 200
+		religion_authority = 0.5
+		NOT = { has_global_flag = robmodnorse_oathsmen_emerged }
+		NOT = { has_global_flag = robmodnorse_monks_activated }
+	}
+	
+	mean_time_to_happen = {
+		years = 50
+		modifier = {
+			factor = 0.8
+			piety = 200
+			NOT = { piety = 300 }
+		}
+		modifier = {
+			factor = 0.7
+			piety = 300
+			NOT = { piety = 400 }
+		}
+		modifier = {
+			factor = 0.6
+			piety = 400
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}
+	}
+	
+	immediate = {
+		set_global_flag = robmodnorse_oathsmen_emerged
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				female = no
+				dynasty = NONE
+				religion = ROOT
+				culture = norse
+				age = 44
+				trait = skilled_tactician
+				trait = robmodnorse_oathsman
+				trait = one_eyed
+				trait = viking
+				trait = quick
+				trait = robust
+				trait = celibate
+				trait = proud
+				trait = temperate
+				trait = patient
+				trait = brave
+				trait = zealous
+				trait = erudite
+			}
+			new_character = {
+				give_nickname = nick_oathswriter
+				prestige = 161
+				piety = 341
+				save_event_target_as = robmodnorse_oathwriter
+			}
+		}
+	}
+
+	option = { # OK
+		name = EVTOPTA_ROBMODNORSE_00044
+		hidden_tooltip = {
+			event_target:robmodnorse_oathwriter= {
+				character_event = { id = robmodnorse.00045 }
+			}
+		}
+	}
+}
+
+# Ping from Oathswriter
+character_event = {
+	id = robmodnorse.00045
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = {
+				id = robmodnorse.00046
+				days = 4
+			}
+		}
+	}
+}
+
+# Told about the Oathsmen - 1
+long_character_event = {
+	id = robmodnorse.00046
+	picture = GFX_evt_norse_godi
+	desc = EVTDESC_ROBMODNORSE_00046
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00046
+		hidden_tooltip = {
+			character_event = { 
+				id = robmodnorse.00048
+				days = 2
+			}
+		}
+	}
+}
+
+# Told about the Oathsmen - 2
+long_character_event = {
+	id = robmodnorse.00048
+	picture = GFX_evt_norse_godi
+	desc = EVTDESC_ROBMODNORSE_00048
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00048
+		opinion = {
+			modifier = opinion_very_grateful
+			who = FROMFROM
+			years = 100
+		}
+	}
+}
+
+#- Sisters emerging -#
+narrative_event = {
+	id = robmodnorse.00047
+	title = EVTTITLE_ROBMODNORSE_00047
+	desc = EVTDESC_ROBMODNORSE_00047
+	picture = GFX_evt_goddess_frigg
+	border = GFX_event_narrative_frame_religion
+
+	only_playable = yes
+	religion = norse_pagan_reformed
+	only_capable = yes
+	prisoner = no
+	war = no
+	has_global_flag = robmodnorse_oathsmen_emerged
+	
+	trigger = {
+		controls_religion = yes
+		NOT = { has_global_flag = robmodnorse_sisters_emerged }
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.8
+			piety = 200
+			NOT = { piety = 300 }
+		}
+		modifier = {
+			factor = 0.7
+			piety = 300
+			NOT = { piety = 400 }
+		}
+		modifier = {
+			factor = 0.6
+			piety = 400
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}
+	}
+	
+	immediate = {
+		set_global_flag = robmodnorse_sisters_emerged
+		hidden_tooltip = {
+			create_character = {
+				random_traits = no
+				female = yes
+				dynasty = NONE
+				religion = ROOT
+				culture = norse
+				age = 27
+				trait = mastermind_theologian
+				trait = robmodnorse_friggsister
+				trait = fair
+				trait = celibate
+				trait = temperate
+				trait = mystic
+				trait = zealous
+			}
+			new_character = {
+				give_nickname = nick_firstsister
+				prestige = 74
+				piety = 189
+				save_event_target_as = robmodnorse_firstsister
+				add_character_modifier = {
+					modifier = robmodnorse_seidrkona
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = { # OK
+		name = EVTOPTA_ROBMODNORSE_00047
+		custom_tooltip = { text = EVTTOOLTIPA_ROBMODNORSE_00047 }
+	}
+}
+
+#- Norse monastic order established narrative event -#
+narrative_event = {
+	id = robmodnorse.00001
+	title = EVTTITLE_ROBMODNORSE_00001
+	desc = {
+		trigger = { religion = norse_pagan_reformed }
+		text = EVTDESC_ROBMODNORSE_00001_01
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				religion = norse_pagan_reformed
+				religion = norse_pagan
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00001_02
+	}
+	desc = {
+		trigger = { religion = norse_pagan }
+		text = EVTDESC_ROBMODNORSE_00001_03
+	}
+	picture = GFX_norse_monastic_carving
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	is_triggered_only = yes
+	
+	major_trigger = {
+		OR = {
+			capital_scope = {
+				NOT = {
+					distance = {
+						where = 266 # Sjaelland
+						value = 800	# Same part of the world
+					}
+				}
+			}
+			religion = norse_pagan_reformed
+			religion = norse_pagan
+		}
+	}
+
+	option = { # OK
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00001_01
+			trigger = {	religion = norse_pagan_reformed }
+		}
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00001_02
+			trigger = {
+				NOR = {
+				religion = norse_pagan_reformed
+				religion = norse_pagan
+				}
+			}
+		}
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00001_03
+			trigger = {	religion = norse_pagan }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				trait = greedy
+			}
+			modifier = {
+				factor = 5
+				OR = {
+					trait = cynical
+					trait = rationalist
+				}
+			}
+		}
+	}
+	
+	option = { # OK
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00001_01
+			trigger = {	religion = norse_pagan_reformed }
+		}
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00001_02
+			trigger = {
+				NOR = {
+				religion = norse_pagan_reformed
+				religion = norse_pagan
+				}
+			}
+		}
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00001_03
+			trigger = {	religion = norse_pagan }
+		}
+	}
+}
+
+##-Oathsmen and Friggsisters-##
+
+# Oathseeker death during tutelage #
+
+character_event = {
+	id = robmodnorse.00008
+	hide_window = yes
+	
+	ai = yes
+	has_character_flag = robmodnorse_tooktrials
+	
+	is_triggered_only = yes
+	
+	trigger = { trait = robmodnorse_oathseeker }
+	
+	immediate = {
+		liege = {
+			character_event = { id = robmodnorse.00098 }
+		}
+	}
+}
+
+# Oathseeker - liege told of death
+
+character_event = {
+	id = robmodnorse.00098
+	desc = EVTDESC_ROBMODNORSE_00009
+	picture = GFX_evt_death
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00009
+		if = {
+			limit = { has_character_modifier = robmodnorse_orderedoathsman }
+			remove_character_modifier = robmodnorse_orderedoathsman
+		}
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00009 }
+	}
+}
+
+#-Result of Trials of Thor-#
+
+character_event = {
+	id = robmodnorse.00003
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { 
+				OR = {
+					trait = strong
+					trait = robust
+					trait = duelist
+					trait = varangian
+					trait = viking
+					trait = ravager
+					trait = seaking
+					combat_rating = 2
+					martial = 15
+					trait = shieldmaiden
+				}
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						trait = strong
+						trait = robust
+						trait = duelist
+						trait = aggressive_leader
+						trait = crusader
+						trait = varangian
+						trait = viking
+						trait = ravager
+						trait = seaking
+						combat_rating = 2
+						martial = 15
+						trait = shieldmaiden
+					}
+				}
+			}
+			random_list = {
+				90 = { # successful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_oathsman
+					add_trait = one_eyed
+					prestige = 100
+					piety = 100
+					random_list = {
+						20 = { add_trait = brave }
+						20 = { add_trait = holy_warrior }
+						20 = { add_trait = robust }
+						20 = { add_trait = duelist }
+						20 = {
+							if = {
+								limit = { trait = skilled_tactician	}
+								remove_trait = skilled_tactician
+								add_trait = brilliant_strategist
+							}
+							if = {
+								limit = { trait = tough_soldier }
+								remove_trait = tough_soldier
+								add_trait = skilled_tactician
+							}
+							if = {
+								limit = { trait = misguided_warrior }
+								remove_trait = misguided_warrior
+								add_trait = tough_soldier
+							}
+						}
+					}
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { 
+							id = robmodnorse.00005
+							days = 1
+						}
+					}			
+				}
+				10 = { # unsuccessful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_unworthy
+					prestige = -100
+					piety = -100
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { id = robmodnorse.00006 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				calc_true_if = {
+					amount = 2
+					trait = strong
+					trait = robust
+					trait = duelist
+					trait = varangian
+					trait = viking
+					trait = ravager
+					trait = seaking
+					combat_rating = 2
+					martial = 15
+					trait = shieldmaiden
+				}
+			}
+			remove_trait = robmodnorse_oathseeker
+			add_trait = robmodnorse_oathsman
+			add_trait = one_eyed
+			prestige = 100
+			piety = 100
+			random_list = {
+				20 = { add_trait = brave }
+				20 = { add_trait = holy_warrior }
+				20 = { add_trait = robust }
+				20 = { add_trait = duelist }
+				20 = {
+					if = {
+						limit = { trait = skilled_tactician }
+						remove_trait = skilled_tactician
+						add_trait = brilliant_strategist
+					}
+					if = {
+						limit = { trait = tough_soldier }
+						remove_trait = tough_soldier
+						add_trait = skilled_tactician
+					}
+					if = {
+						limit = { trait = misguided_warrior }
+						remove_trait = misguided_warrior
+						add_trait = tough_soldier
+					}
+				}
+			}
+			random_list = {
+				20 = { add_trait = celibate }
+				20 = { add_trait = chaste }
+				20 = { add_trait = zealous }
+				40 = { }
+			}
+			random_list = {
+				20 = { add_trait = scarred }
+				2 = { add_trait = disfigured }
+				2 = { add_trait = one_handed }
+				2 = { add_trait = one_legged }
+				74 = { }
+			}
+			liege = { 
+				character_event = { 
+					id = robmodnorse.00005
+					days = 1
+				}
+			}
+		}
+		if = {
+			limit = { 
+				NOR = {
+					trait = strong
+					trait = robust
+					trait = duelist
+					trait = varangian
+					trait = viking
+					trait = ravager
+					trait = seaking
+					combat_rating = 2
+					martial = 15
+					trait = shieldmaiden
+				}
+			}
+			random_list = {
+				70 = { # successful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_oathsman
+					add_trait = one_eyed
+					prestige = 100
+					piety = 100
+					random_list = {
+						20 = { add_trait = brave }
+						20 = { add_trait = holy_warrior }
+						20 = { add_trait = robust }
+						20 = { add_trait = duelist }
+						20 = {
+							if = {
+								limit = { trait = skilled_tactician	}
+								remove_trait = skilled_tactician
+								add_trait = brilliant_strategist
+							}
+							if = {
+								limit = { trait = tough_soldier }
+								remove_trait = tough_soldier
+								add_trait = skilled_tactician
+							}
+							if = {
+								limit = { trait = misguided_warrior }
+								remove_trait = misguided_warrior
+								add_trait = tough_soldier
+							}
+						}
+					}
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { 
+							id = robmodnorse.00005
+							days = 1
+						}
+					}			
+				}
+				30 = { # unsuccessful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_unworthy
+					prestige = -100
+					piety = -100
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { id = robmodnorse.00006 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				NOR = {
+					trait = strong
+					trait = robust
+					trait = duelist
+					trait = varangian
+					trait = viking
+					trait = ravager
+					trait = seaking
+					combat_rating = 2
+					martial = 15
+					trait = shieldmaiden
+				}
+				OR = {
+					NOT = { martial = 5 }
+					NOT = { combat_rating = 0 }
+					trait = feeble
+					trait = weak
+					trait = craven
+				}
+				NOT = {
+					calc_true_if = {
+						amount = 2
+						NOT = { martial = 5 }
+						NOT = { combat_rating = 0 }
+						trait = feeble
+						trait = weak
+						trait = craven
+					}
+				}
+			}
+			random_list = {
+				30 = { # successful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_oathsman
+					add_trait = one_eyed
+					prestige = 100
+					piety = 100
+					random_list = {
+						20 = { add_trait = brave }
+						20 = { add_trait = holy_warrior }
+						20 = { add_trait = robust }
+						20 = { add_trait = duelist }
+						20 = {
+							if = {
+								limit = { trait = skilled_tactician	}
+								remove_trait = skilled_tactician
+								add_trait = brilliant_strategist
+							}
+							if = {
+								limit = { trait = tough_soldier }
+								remove_trait = tough_soldier
+								add_trait = skilled_tactician
+							}
+							if = {
+								limit = { trait = misguided_warrior }
+								remove_trait = misguided_warrior
+								add_trait = tough_soldier
+							}
+						}
+					}
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { 
+							id = robmodnorse.00005
+							days = 1
+						}
+					}			
+				}
+				70 = { # unsuccessful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_unworthy
+					prestige = -100
+					piety = -100
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { id = robmodnorse.00006 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				NOR = {
+					trait = strong
+					trait = robust
+					trait = duelist
+					trait = crusader
+					trait = varangian
+					trait = viking
+					trait = ravager
+					trait = seaking
+					combat_rating = 2
+					martial = 15
+					trait = shieldmaiden
+				}
+				calc_true_if = {
+					amount = 2
+					NOT = { martial = 5 }
+					NOT = { combat_rating = 0 }
+					trait = feeble
+					trait = weak
+					trait = craven
+				}
+			}
+			random_list = {
+				10 = { # successful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_oathsman
+					add_trait = one_eyed
+					prestige = 100
+					piety = 100
+					random_list = {
+						20 = { add_trait = brave }
+						20 = { add_trait = holy_warrior }
+						20 = { add_trait = robust }
+						20 = { add_trait = duelist }
+						20 = {
+							if = {
+								limit = { trait = skilled_tactician	}
+								remove_trait = skilled_tactician
+								add_trait = brilliant_strategist
+							}
+							if = {
+								limit = { trait = tough_soldier }
+								remove_trait = tough_soldier
+								add_trait = skilled_tactician
+							}
+							if = {
+								limit = { trait = misguided_warrior }
+								remove_trait = misguided_warrior
+								add_trait = tough_soldier
+							}
+						}
+					}
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { 
+							id = robmodnorse.00005
+							days = 1
+						}
+					}			
+				}
+				90 = { # unsuccessful
+					remove_trait = robmodnorse_oathseeker
+					add_trait = robmodnorse_unworthy
+					prestige = -100
+					piety = -100
+					random_list = {
+						20 = { add_trait = celibate }
+						20 = { add_trait = chaste }
+						20 = { add_trait = zealous }
+						40 = { }
+					}
+					random_list = {
+						20 = { add_trait = scarred }
+						2 = { add_trait = disfigured }
+						2 = { add_trait = one_handed }
+						2 = { add_trait = one_legged }
+						74 = { }
+					}
+					liege = { 
+						character_event = { id = robmodnorse.00006 }
+					}
+				}
+			}
+		}
+	}
+}
+
+#-Event 3 - Successful trial of Thor liege notification-#
+
+long_character_event = {
+	id = robmodnorse.00005
+	desc = {
+		trigger = {
+			FROM = {
+				NOT = { is_child_of = ROOT }
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00005_01
+	}
+	desc = {
+		trigger = {
+			FROM = { is_child_of = ROOT }
+		}
+		text = EVTDESC_ROBMODNORSE_00005_02
+	}
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # OK
+		name = EVTOPTA_ROBMODNORSE_00005
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00005 }
+		if = {
+			limit = {
+				FROM = {
+					NOT = { is_child_of = ROOT }
+				}
+			}
+			prestige = 50
+			opinion = {
+				modifier = opinion_delighted
+				who = FROM
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+				FROM = { is_child_of = ROOT }
+			}
+			prestige = 200
+			opinion = {
+				modifier = opinion_proud
+				who = FROM
+				years = 10
+			}
+		}
+		hidden_tooltip = {
+			remove_character_modifier = robmodnorse_orderedoathsman
+		}
+	}
+}
+
+#-Event 4 - Unsuccessful trial of Thor liege notification-#
+
+long_character_event = {
+	id = robmodnorse.00006
+	desc = {
+		trigger = {
+			FROM = {
+				NOT = { is_child_of = ROOT }
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00006_01
+	}
+	desc = {
+		trigger = {
+			FROM = { is_child_of = ROOT }
+		}
+		text = EVTDESC_ROBMODNORSE_00006_02
+	}
+	picture = GFX_evt_midwinter_blot_oldgods
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # OK
+		name = EVTOPTA_ROBMODNORSE_00006
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00006 }
+		if = {
+			limit = {
+				FROM = {
+					NOT = { is_child_of = ROOT }
+				}
+			}
+			prestige = -50
+			opinion = {
+				modifier = opinion_robmodnorse_disgrace
+				who = FROM
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+				FROM = { is_child_of = ROOT }
+			}
+			prestige = -200
+			opinion = {
+				modifier = opinion_robmodnorse_disgrace_son
+				who = FROM
+				years = 10
+			}
+		}
+		hidden_tooltip = {
+			remove_character_modifier = robmodnorse_orderedoathsman
+		}
+	}
+}
+
+# Friggsister death during training #
+
+character_event = {
+	id = robmodnorse.00009
+	hide_window = yes
+	
+	ai = yes
+	has_character_flag = robmodnorse_friggtraining
+	
+	is_triggered_only = yes
+	
+	trigger = { trait = robmodnorse_friggseeker }
+	
+	immediate = {
+		liege = {
+			character_event = { id = robmodnorse.00010 }
+		}
+	}
+}
+
+# Friggseeker - liege told of death
+
+character_event = {
+	id = robmodnorse.00010
+	desc = EVTDESC_ROBMODNORSE_00010
+	picture = GFX_evt_death
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00010
+		if = {
+			limit = { has_character_modifier = robmodnorse_orderedfriggsister }
+			remove_character_modifier = robmodnorse_orderedfriggsister
+		}
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00010 }
+	}
+}
+
+#-Result of Friggsister training-#
+
+character_event = {
+	id = robmodnorse.00004
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_trait = robmodnorse_friggseeker
+		add_trait = robmodnorse_friggsister
+		prestige = 50
+		piety = 50
+		random_list = {
+			25 = { add_trait = shrewd }
+			25 = { add_trait = erudite }
+			25 = {
+				if = {
+					limit = { trait = scholarly_theologian	}
+					remove_trait = scholarly_theologian
+					add_trait = mastermind_theologian
+				}
+				if = {
+					limit = { trait = martial_cleric }
+					remove_trait = martial_cleric
+					add_trait = scholarly_theologian
+				}
+				if = {
+					limit = { trait = detached_priest }
+					remove_trait = detached_priest
+					add_trait = martial_cleric
+				}
+			}
+			25 = { }
+		}
+		random_list = {
+			20 = {
+				add_character_modifier = {
+					modifier = robmodnorse_potions
+					duration = -1
+				}
+			}
+			20 = {
+				add_character_modifier = {
+					modifier = robmodnorse_seidrkona
+					duration = -1
+				}
+				random_list = {
+					10 = { give_nickname = nick_volur }
+					10 = { give_nickname = nick_seidkonur }
+				}
+			}
+			20 = { add_trait = mystic }
+			20 = { add_trait = physician }
+			20 = { }
+		}
+		random_list = {
+			20 = { add_trait = celibate }
+			20 = { add_trait = chaste }
+			20 = { add_trait = zealous }
+			40 = { }
+		}
+		liege = { 
+			character_event = { 
+			id = robmodnorse.00007
+			days = 1
+			}
+		}
+	}
+}
+
+#-Event 3 - Friggsister liege notification-#
+
+long_character_event = {
+	id = robmodnorse.00007
+	desc = {
+		trigger = {
+			FROM = {
+				NOT = { is_child_of = ROOT }
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00007_01
+	}
+	desc = {
+		trigger = {
+			FROM = { is_child_of = ROOT }
+		}
+		text = EVTDESC_ROBMODNORSE_00007_02
+	}
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # OK
+		name = EVTOPTA_ROBMODNORSE_00007
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00007 }
+		if = {
+			limit = {
+				FROM = {
+					NOT = { is_child_of = ROOT }
+				}
+			}
+			piety = 25
+			opinion = {
+				modifier = opinion_delighted
+				who = FROM
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+				FROM = { is_child_of = ROOT }
+			}
+			piety = 50
+			opinion = {
+				modifier = opinion_proud
+				who = FROM
+				years = 10
+			}
+		}
+		hidden_tooltip = {
+			remove_character_modifier = robmodnorse_orderedfriggsister
+		}
+	}
+}
+
+##-Choose your pantheon-##
+
+# Choice of pantheon
+narrative_event = {
+	title = EVTTITLE_ROBMODNORSE_00011
+	id = robmodnorse.00011
+	desc = EVTDESC_ROBMODNORSE_00011
+	picture = GFX_evt_gods_war
+	border = GFX_event_narrative_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # Æsir
+		name = EVTOPTA_ROBMODNORSE_00011
+		ai_chance = { 
+			factor = 10
+			modifier = { #education modifier
+				factor = 1.2
+				OR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+				}
+			}
+			modifier = { #gender
+				factor = 1.1
+				is_female = no
+			}
+			modifier = { #holding type modifier
+				factor = 1.1
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+			modifier = { #personality modifier
+				factor = 1.3
+				OR = {
+					trait = strategist
+					trait = duelist
+					trait = hunter
+					trait = wroth
+					trait = proud
+					trait = brave
+					trait = ambitious
+					trait = cruel
+					trait = viking
+					trait = ravager
+					trait = seaking
+					trait = sea_queen
+					trait = shieldmaiden
+					trait = robmodnorse_oathsman
+					trait = valhalla_bound
+				}
+			}
+			modifier = { #personality x2 modifier
+				factor = 1.5
+				calc_true_if = {
+					amount = 2
+					trait = strategist
+					trait = duelist
+					trait = hunter
+					trait = wroth
+					trait = proud
+					trait = brave
+					trait = ambitious
+					trait = cruel
+					trait = viking
+					trait = ravager
+					trait = seaking
+					trait = sea_queen
+					trait = shieldmaiden
+					trait = robmodnorse_oathsman
+					trait = valhalla_bound
+				}
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00011_01 }
+		add_trait = robmodnorse_aesir
+		random_vassal = {
+			limit = { trait = robmodnorse_aesir }
+			opinion = {
+				modifier = opinion_approves
+				who = FROM
+				years = 5
+			}
+		}
+		if = {
+			limit = { ai = no }
+			hidden_tooltip = {
+				character_event = {
+					id = robmodnorse.00012
+					days = 15
+				}
+			}
+		}
+	}
+	
+	option = { # Vanir
+		name = EVTOPTB_ROBMODNORSE_00011
+		ai_chance = { 
+			factor = 10
+			modifier = { #education modifier
+				factor = 1.2
+				OR = {
+					trait = detached_priest
+					trait = martial_cleric
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+				}
+			}
+			modifier = { #holding type modifier
+				factor = 1.1
+				is_priest = yes
+			}
+			modifier = { #gender
+				factor = 1.1
+				is_female = yes
+			}
+			modifier = { #personality modifier
+				factor = 1.2
+				OR = {
+					trait = mystic
+					trait = gardener
+					trait = theologian
+					trait = lustful
+					trait = humble
+					trait = kind
+					trait = temperate
+					trait = craven
+					trait = content
+					trait = zealous
+					trait = trusting
+					trait = honest
+					trait = robmodnorse_friggsister
+					trait = homosexual
+				}
+			}
+			modifier = { #personality x2 modifier
+				factor = 1.5
+				calc_true_if = {
+					amount = 2
+					trait = mystic
+					trait = gardener
+					trait = theologian
+					trait = lustful
+					trait = humble
+					trait = kind
+					trait = temperate
+					trait = craven
+					trait = content
+					trait = zealous
+					trait = trusting
+					trait = honest
+					trait = robmodnorse_friggsister
+					trait = homosexual
+				}
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00011_02 }
+		add_trait = robmodnorse_vanir
+		random_vassal = {
+			limit = { trait = robmodnorse_vanir }
+			opinion = {
+				modifier = opinion_approves
+				who = FROM
+				years = 5
+			}
+		}
+		if = {
+			limit = { ai = no }
+			hidden_tooltip = {
+				character_event = {
+					id = robmodnorse.00012
+					days = 15
+				}
+			}
+		}
+	}
+}
+
+# build your shrine
+character_event = {
+	id = robmodnorse.00012
+	desc = {
+		trigger = { trait = robmodnorse_aesir }
+		text = EVTDESC_ROBMODNORSE_00012_01
+	}
+	desc = {
+		trigger = { trait = robmodnorse_vanir }
+		text = EVTDESC_ROBMODNORSE_00012_02
+	}
+	picture = GFX_evt_religious_exultation
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # Lavish
+		name = EVTOPTA_ROBMODNORSE_00012
+		scaled_wealth = {
+			value = -1.5 
+			min = -250
+			max = -100
+		}
+		prestige = 100
+		piety = 20
+		character_event = {
+			id = robmodnorse.00013
+			tooltip = EVTTOOLTIP_ROBMODNORSE_00012_01
+			days = 100
+		}
+		set_character_flag = robmod_lavish_shrine
+	}
+	
+	option = { # Reasonable
+		name = EVTOPTB_ROBMODNORSE_00012
+		scaled_wealth = {
+			value = -0.7 
+			min = -150
+			max = -50
+		}
+		prestige = 50
+		piety = 10
+		character_event = {
+			id = robmodnorse.00013
+			tooltip = EVTTOOLTIP_ROBMODNORSE_00012_02
+			days = 100
+		}
+		set_character_flag = robmod_reasonable_shrine
+	}
+	
+	option = { # Cheap
+		name = EVTOPTC_ROBMODNORSE_00012
+		scaled_wealth = {
+			value = -0.1 
+			min = -20
+			max = -5
+		}
+		character_event = {
+			id = robmodnorse.00013
+			tooltip = EVTTOOLTIP_ROBMODNORSE_00012_03
+			days = 100
+		}
+		set_character_flag = robmod_cheap_shrine
+	}
+}
+
+# shrine built
+long_character_event = {
+	id = robmodnorse.00013
+	desc = {
+		trigger = { has_character_flag = robmod_lavish_shrine }
+		text = EVTDESC_ROBMODNORSE_00013_01
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_reasonable_shrine }
+		text = EVTDESC_ROBMODNORSE_00013_02
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_cheap_shrine }
+		text = EVTDESC_ROBMODNORSE_00013_03
+	}
+	picture = GFX_evt_tribal_shrine
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = { # OK
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00013_01
+			trigger = { has_character_flag = robmod_lavish_shrine }
+		}
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00013_02
+			trigger = { has_character_flag = robmod_reasonable_shrine }
+		}
+		name = {
+			text = EVTOPTA_ROBMODNORSE_00013_03
+			trigger = { has_character_flag = robmod_cheap_shrine }
+		}
+		if = {
+			limit = { has_character_flag = robmod_lavish_shrine }
+			add_character_modifier = {
+				modifier = robmodnorse_lavish_shrine
+				years = 5
+			}
+			random_vassal = {
+				limit = {
+					NOT = { is_foe = ROOT }
+					is_incapable = no
+					in_command = no
+					NOT = { age = 35 }
+				}
+				opinion = {
+					modifier = opinion_impressed
+					who = FROM
+					years = 2
+				}
+			}
+			random_vassal = {
+				limit = {
+					NOT = { is_foe = ROOT }
+					is_incapable = no
+					in_command = no
+					age = 35
+				}
+				opinion = {
+					modifier = opinion_impressed
+					who = FROM
+					years = 2
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_cheap_shrine }
+			add_character_modifier = {
+				modifier = robmodnorse_cheap_shrine
+				years = 5
+			}
+			random_vassal = {
+				limit = {
+					NOT = { is_foe = ROOT }
+					is_incapable = no
+					in_command = no
+					NOT = { age = 35 }
+				}
+				opinion = {
+					modifier = opinion_lost_respect
+					who = FROM
+					years = 2
+				}
+			}
+			random_vassal = {
+				limit = {
+					NOT = { is_foe = ROOT }
+					is_incapable = no
+					in_command = no
+					age = 35
+				}
+				opinion = {
+					modifier = opinion_lost_respect
+					who = FROM
+					years = 2
+				}
+			}
+		}
+	}
+}
+
+###--=BEYD CEREMONY EVENT CHAIN=--###
+
+##-Choosing a spirit animal-##
+# orphaned child has a pet chosen for them
+character_event = {
+	id = robmodnorse.00014
+	picture = GFX_evt_norse_wolf_spirit
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_dog }
+		text = EVTDESC_ROBMODNORSE_00114_DOG
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_wolf }
+		text = EVTDESC_ROBMODNORSE_00114_WOLF
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_owl }
+		text = EVTDESC_ROBMODNORSE_00114_OWL
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_cat }
+		text = EVTDESC_ROBMODNORSE_00114_CAT
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_raven }
+		text = EVTDESC_ROBMODNORSE_00114_RAVEN
+	}
+	border = GFX_event_normal_frame_religion
+
+	religion = norse_pagan_reformed
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		mother_even_if_dead = { 
+			OR = {
+				is_alive = no
+				NOT = { religion = norse_pagan_reformed }
+			}
+		}
+		father_even_if_dead = { 
+			OR = {
+				is_alive = no
+				NOT = { religion = norse_pagan_reformed }
+			}
+		}
+		NOR = {
+			has_character_flag = robmod_beyd_dog
+			has_character_flag = robmod_beyd_wolf
+			has_character_flag = robmod_beyd_owl
+			has_character_flag = robmod_beyd_cat
+			has_character_flag = robmod_beyd_raven
+			has_character_flag = robmod_beyd_complete
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			25 = { set_character_flag = robmod_beyd_dog }
+			25 = { set_character_flag = robmod_beyd_wolf }
+			25 = { set_character_flag = robmod_beyd_owl }
+			25 = { set_character_flag = robmod_beyd_cat }
+			25 = { set_character_flag = robmod_beyd_raven }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00014
+		if = {
+			limit = { has_character_flag = robmod_beyd_dog }
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_dog
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_wolf }
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_wolf
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_owl }
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_owl
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_cat }
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_cat
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_raven }
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_raven
+				duration = -1
+			}
+		}
+	}
+}
+
+# non-orphaned child pings to parent
+character_event = {
+	id = robmodnorse.00015
+	hide_window = yes
+
+	religion = norse_pagan_reformed
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			mother_even_if_dead = { 
+				is_alive = yes
+				religion = norse_pagan_reformed
+			}
+			father_even_if_dead = { 
+				is_alive = yes
+				religion = norse_pagan_reformed
+			}
+		}
+		NOR = {
+			has_character_flag = robmod_beyd_dog
+			has_character_flag = robmod_beyd_wolf
+			has_character_flag = robmod_beyd_owl
+			has_character_flag = robmod_beyd_cat
+			has_character_flag = robmod_beyd_raven
+			has_character_flag = robmod_beyd_complete
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				father_even_if_dead = { 
+					is_alive = yes
+					religion = norse_pagan_reformed
+				}
+				mother = { ai = yes }
+			}
+			father = {
+				character_event = { id = robmodnorse.00016 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					father_even_if_dead = { 
+						OR = {
+							is_alive = no
+							NOT = { religion = norse_pagan_reformed }
+						}
+					}
+					mother = {
+						ai = no
+						religion = norse_pagan_reformed
+					}
+				}
+			}
+			mother = {
+				character_event = { id = robmodnorse.00016 }
+			}
+		}
+	}
+}
+
+# parent chooses - 1st
+character_event = {
+	id = robmodnorse.00016
+	picture = GFX_evt_norse_wolf_spirit
+	desc = EVTDESC_ROBMODNORSE_00016
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00016 #DOG
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.2
+				OR = {
+					trait = naive_appeaser
+					trait = underhanded_rogue
+					trait = charismatic_negotiator
+					trait = grey_eminence
+				}
+			}
+		}
+		FROM = {
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_dog
+				duration = -1
+			}
+			hidden_tooltip = {
+				character_event = { 
+					id = robmodnorse.00018
+					days = 7
+				}
+			}
+			set_character_flag = robmod_beyd_dog
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00016 #WOLF
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.2
+				OR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+				}
+			}
+		}
+		FROM = {
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_wolf
+				duration = -1
+			}
+			hidden_tooltip = {
+				character_event = {
+					id = robmodnorse.00018
+					days = 7
+				}
+			}
+			set_character_flag = robmod_beyd_wolf
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_ROBMODNORSE_00016 #OWL
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.2
+				OR = {
+					trait = indulgent_wastrel
+					trait = thrifty_clerk
+					trait = fortune_builder
+					trait = midas_touched
+				}
+			}
+		}
+		FROM = {
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_owl
+				duration = -1
+			}
+			hidden_tooltip = {
+				character_event = {
+					id = robmodnorse.00018
+					days = 7
+				}
+			}
+			set_character_flag = robmod_beyd_owl
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_ROBMODNORSE_00016 #MORE OPTIONS
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.4
+				OR = {
+					trait = detached_priest
+					trait = martial_cleric
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+					trait = amateurish_plotter
+					trait = flamboyant_schemer
+					trait = intricate_webweaver
+					trait = elusive_shadow
+				}
+			}
+		}
+		FROM = {
+			character_event = {
+				id = robmodnorse.00025
+				tooltip = EVTTOOLTIP_ROBMODNORSE_00016_OTHER
+			}
+		}
+	}
+}
+
+# Ping back 1st
+character_event = {
+	id = robmodnorse.00025
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = robmodnorse.00017 }
+		}
+	}
+}
+
+# parent chooses - 2nd
+character_event = {
+	id = robmodnorse.00017
+	picture = GFX_evt_norse_wolf_spirit
+	desc = EVTDESC_ROBMODNORSE_00016
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTE_ROBMODNORSE_00016 #CAT
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.2
+				OR = {
+					trait = amateurish_plotter
+					trait = flamboyant_schemer
+					trait = intricate_webweaver
+					trait = elusive_shadow
+				}
+			}
+		}
+		FROM = {
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_cat
+				duration = -1
+			}
+			hidden_tooltip = {
+				character_event = { 
+					id = robmodnorse.00018
+					days = 7
+				}
+			}
+			set_character_flag = robmod_beyd_cat
+		}
+	}
+	
+	option = {
+		name = EVTOPTF_ROBMODNORSE_00016 #RAVEN
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.2
+				OR = {
+					trait = detached_priest
+					trait = martial_cleric
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+				}
+			}
+		}
+		FROM = {
+			add_character_modifier = {
+				modifier = robmodnorse_beyd_raven
+				duration = -1
+			}
+			hidden_tooltip = {
+				character_event = {
+					id = robmodnorse.00018
+					days = 7
+				}
+			}
+			set_character_flag = robmod_beyd_raven
+		}
+	}
+	
+	option = {
+		name = EVTOPTG_ROBMODNORSE_00016 #BACK
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.6
+				OR = {
+					trait = indulgent_wastrel
+					trait = thrifty_clerk
+					trait = fortune_builder
+					trait = midas_touched
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+					trait = naive_appeaser
+					trait = underhanded_rogue
+					trait = charismatic_negotiator
+					trait = grey_eminence
+				}
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = robmodnorse.00026 }
+			}
+		}
+	}
+}
+
+# Ping back 2nd
+character_event = {
+	id = robmodnorse.00026
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = robmodnorse.00016 }
+		}
+	}
+}
+
+# non-orphaned child had a pet chosen for them
+character_event = {
+	id = robmodnorse.00018
+	picture = GFX_evt_norse_wolf_spirit
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_dog }
+		text = EVTDESC_ROBMODNORSE_00018_DOG
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_wolf }
+		text = EVTDESC_ROBMODNORSE_00018_WOLF
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_owl }
+		text = EVTDESC_ROBMODNORSE_00018_OWL
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_cat }
+		text = EVTDESC_ROBMODNORSE_00018_CAT
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_beyd_raven }
+		text = EVTDESC_ROBMODNORSE_00018_RAVEN
+	}
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00014
+		if = {
+			limit = { has_character_flag = robmod_beyd_dog }
+			tooltip = {
+				add_character_modifier = {
+					modifier = robmodnorse_beyd_dog
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_wolf }
+			tooltip = {
+				add_character_modifier = {
+					modifier = robmodnorse_beyd_wolf
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_owl }
+			tooltip = {
+				add_character_modifier = {
+					modifier = robmodnorse_beyd_owl
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_cat }
+			tooltip = {
+				add_character_modifier = {
+					modifier = robmodnorse_beyd_cat
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_raven }
+			tooltip = {
+				add_character_modifier = {
+					modifier = robmodnorse_beyd_raven
+					duration = -1
+				}
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = robmodnorse.00027 }
+			}
+		}
+	}
+}
+
+#child loved the pet
+character_event = {
+	id = robmodnorse.00027
+	desc = {
+		trigger = { FROM = { has_character_flag = robmod_beyd_dog } }
+		text = EVTDESC_ROBMODNORSE_00027_DOG
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = robmod_beyd_wolf } }
+		text = EVTDESC_ROBMODNORSE_00027_WOLF
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = robmod_beyd_owl } }
+		text = EVTDESC_ROBMODNORSE_00027_OWL
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = robmod_beyd_cat } }
+		text = EVTDESC_ROBMODNORSE_00027_CAT
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = robmod_beyd_raven } }
+		text = EVTDESC_ROBMODNORSE_00027_RAVEN
+	}
+	picture = GFX_evt_child_play
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00027
+	}
+}
+
+##-Ceremony-##
+
+#Beyd ceremony - orphaned child has a choice whether to sacrifice or not
+character_event = {
+	id = robmodnorse.00019
+	picture = GFX_evt_cathedral_norse_pagan_reformed
+	desc = EVTDESC_ROBMODNORSE_00019
+	border = GFX_event_normal_frame_religion
+
+	religion = norse_pagan_reformed
+	min_age = 9
+	max_age = 10
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		mother_even_if_dead = { 
+			OR = {
+				is_alive = no
+				NOT = { religion = norse_pagan_reformed }
+			}
+		}
+		father_even_if_dead = { 
+			OR = {
+				is_alive = no
+				NOT = { religion = norse_pagan_reformed }
+			}
+		}
+		OR = {
+			has_character_flag = robmod_beyd_dog
+			has_character_flag = robmod_beyd_wolf
+			has_character_flag = robmod_beyd_owl
+			has_character_flag = robmod_beyd_cat
+			has_character_flag = robmod_beyd_raven
+		}
+		NOT = { has_character_flag = robmod_beyd_complete }
+		age = 9
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00019 #AGREE
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.2
+				OR = {
+					trait = affectionate
+					trait = willful
+					trait = kind
+					trait = stubborn
+				}
+			}
+		}
+		if = {
+			limit = { trait = affectionate }
+			random = {
+				chance = 50
+				add_trait = depressed
+				hidden_tooltip = {
+					character_event = { id = 38288 }
+				}
+			}
+		}
+		set_character_flag = robmod_beyd_complete
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00019 #REFUSE
+		ai_chance = { factor = 15 }
+		add_character_modifier = {
+			modifier = robmod_norse_refused_beyd
+			duration = -1
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_raven }
+			remove_character_modifier = robmodnorse_beyd_raven
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_dog }
+			remove_character_modifier = robmodnorse_beyd_dog
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_wolf }
+			remove_character_modifier = robmodnorse_beyd_wolf
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_owl }
+			remove_character_modifier = robmodnorse_beyd_owl
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_cat }
+			remove_character_modifier = robmodnorse_beyd_cat
+		}
+		if = {
+			limit = { trait = willful }
+			random = {
+				chance = 50
+				add_trait = stubborn
+				remove_trait = willful
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = willful }
+			}
+			random = {
+				chance = 15
+				add_trait = stubborn
+			}
+		}
+		set_character_flag = robmod_beyd_complete
+	}
+}
+
+# non-orphaned child pings to parent
+character_event = {
+	id = robmodnorse.00020
+	hide_window = yes
+
+	religion = norse_pagan_reformed
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			mother_even_if_dead = { 
+				is_alive = yes
+				religion = norse_pagan_reformed
+			}
+			father_even_if_dead = { 
+				is_alive = yes
+				religion = norse_pagan_reformed
+			}
+		}
+		OR = {
+			has_character_flag = robmod_beyd_dog
+			has_character_flag = robmod_beyd_wolf
+			has_character_flag = robmod_beyd_owl
+			has_character_flag = robmod_beyd_cat
+			has_character_flag = robmod_beyd_raven
+		}
+		NOT = { has_character_flag = robmod_beyd_complete }
+		age = 9
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				father_even_if_dead = { 
+					is_alive = yes
+					religion = norse_pagan_reformed
+				}
+				mother = { ai = yes }
+			}
+			father = {
+				character_event = { id = robmodnorse.00021 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					father_even_if_dead = { is_alive = no }
+					mother = {
+						ai = no
+						religion = norse_pagan_reformed
+					}
+				}
+			}
+			mother = {
+				character_event = { id = robmodnorse.00021 }
+			}
+		}
+	}
+}
+
+#parent pings choice event back to child
+long_character_event = {
+	id = robmodnorse.00021
+	desc = EVTDESC_ROBMODNORSE_00021
+	picture = GFX_evt_cathedral_norse_pagan_reformed
+	border = GFX_event_long_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00021
+		FROM = {
+			character_event = {
+				id = robmodnorse.00022
+				tooltip = EVTTOOLTIP_ROBMODNORSE_00021
+				days = 7
+			}
+		}
+	}
+}
+
+# non-orphaned child choice
+character_event = {
+	id = robmodnorse.00022
+	picture = GFX_evt_cathedral_norse_pagan_reformed
+	desc = EVTDESC_ROBMODNORSE_00022
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00019 #AGREE
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.2
+				OR = {
+					trait = affectionate
+					trait = willful
+					trait = kind
+					trait = stubborn
+				}
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = robmodnorse.00023 } #Agreed
+			}
+		}
+		if = {
+			limit = { trait = affectionate }
+			random = {
+				chance = 50
+				add_trait = depressed
+				hidden_tooltip = {
+					character_event = { id = 38288 }
+				}
+			}
+		}
+		set_character_flag = robmod_beyd_complete
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00019 #REFUSE
+		ai_chance = { factor = 5 }
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = robmodnorse.00024 } #Refused
+			}
+		}
+		add_character_modifier = {
+			modifier = robmod_norse_refused_beyd
+			duration = -1
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_raven }
+			remove_character_modifier = robmodnorse_beyd_raven
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_dog }
+			remove_character_modifier = robmodnorse_beyd_dog
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_wolf }
+			remove_character_modifier = robmodnorse_beyd_wolf
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_owl }
+			remove_character_modifier = robmodnorse_beyd_owl
+		}
+		if = {
+			limit = { has_character_flag = robmod_beyd_cat }
+			remove_character_modifier = robmodnorse_beyd_cat
+		}
+		if = {
+			limit = { trait = willful }
+			random = {
+				chance = 50
+				add_trait = stubborn
+				remove_trait = willful
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = willful }
+			}
+			random = {
+				chance = 15
+				add_trait = stubborn
+			}
+		}
+		set_character_flag = robmod_beyd_complete
+	}
+}
+
+#Child agreed
+character_event = {
+	id = robmodnorse.00023
+	desc = EVTDESC_ROBMODNORSE_00023
+	picture = GFX_evt_norse_wolf_spirit
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00023
+		if = {
+			limit = { 
+				FROM = { trait = affectionate }
+			}
+			random = {
+				chance = 50
+				tooltip = { FROM = { add_trait = depressed } }
+			}
+		}
+	}
+}
+
+#Child refused
+character_event = {
+	id = robmodnorse.00024
+	desc = EVTDESC_ROBMODNORSE_00024
+	picture = GFX_evt_cathedral_norse_pagan_reformed
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00024
+		if = {
+			limit = {
+				primary_title = { tier = COUNT }
+			}
+			piety = -20
+		}
+		if = {
+			limit = {
+				primary_title = { tier = DUKE }
+			}
+			piety = -50
+		}
+		if = {
+			limit = {
+				OR = {
+					primary_title = { tier = KING }
+					primary_title = { tier = EMPEROR }
+				}	
+			}
+			piety = -100
+		}
+		tooltip = {
+			FROM = {
+				add_character_modifier = {
+					modifier = robmod_norse_refused_beyd
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = { FROM = { has_character_flag = robmod_beyd_raven } }
+			tooltip = {
+				FROM = { remove_character_modifier = robmodnorse_beyd_raven }
+			}
+		}
+		if = {
+			limit = { FROM = { has_character_flag = robmod_beyd_dog } }
+			tooltip = {
+				FROM = { remove_character_modifier = robmodnorse_beyd_dog }
+			}
+		}
+		if = {
+			limit = { FROM = { has_character_flag = robmod_beyd_wolf } }
+			tooltip = {
+				FROM = { remove_character_modifier = robmodnorse_beyd_wolf }
+			}
+		}
+		if = {
+			limit = { FROM = { has_character_flag = robmod_beyd_owl } }
+			tooltip = {
+				FROM = { remove_character_modifier = robmodnorse_beyd_owl }
+			}
+		}
+		if = {
+			limit = { FROM = { has_character_flag = robmod_beyd_cat } }
+			tooltip = {
+				FROM = { remove_character_modifier = robmodnorse_beyd_cat }
+			}
+		}
+		if = {
+			limit = { FROM = { trait = willful } }
+			tooltip = {
+				random = {
+					chance = 50
+					FROM = {
+						add_trait = stubborn
+						remove_trait = willful
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = { NOT = { trait = willful } }
+			}
+			tooltip = {
+				random = {
+					chance = 15
+					FROM = { add_trait = stubborn }
+				}
+			}
+		}
+	}
+}
+
+### --=GODS EVENTS=-- ###
+
+##-Tyr joined you on the battlefield-##
+
+#A man saved you on the battlefield
+long_character_event = {
+	id = robmodnorse.00029
+	picture = GFX_evt_viking_battle_oldgods
+	desc = EVTDESC_ROBMODNORSE_00029
+	border = GFX_event_long_frame_war
+	hide_from = yes
+	
+	only_playable = yes
+	religion = norse_pagan_reformed
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		martial = 10
+		NOT = { trait = craven }
+		piety = 300
+		combat_rating = 1
+		NOT = { has_character_flag = robmod_god_tyr_happened }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			combat_rating = 3
+			NOT = { combat_rating = 5 }
+		}
+		modifier = {
+			factor = 4
+			combat_rating = 5
+		}
+		modifier = {
+			factor = 1.5
+			martial = 15
+			NOT = { martial = 20 }
+		}
+		modifier = {
+			factor = 2
+			martial = 20
+			NOT = { martial = 25 }
+		}
+		modifier = {
+			factor = 2.5
+			martial = 25
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 2
+			trait = berserker
+		}
+		modifier = {
+			factor = 2
+			trait = valhalla_bound
+		}
+		modifier = {
+			factor = 1.5
+			piety = 500
+			NOT = { piety = 750 }
+		}
+		modifier = {
+			factor = 2
+			piety = 750
+			NOT = { piety = 1000 }
+		}
+		modifier = {
+			factor = 2.5
+			piety = 1000
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00029
+		hidden_tooltip = {
+			character_event = { 
+				id = robmodnorse.00032
+				days = 5
+			}
+		}
+		set_character_flag = robmod_god_tyr_happened
+	}
+}
+
+#Rumours spread
+long_character_event = {
+	id = robmodnorse.00032
+	picture = GFX_evt_tyr_battle
+	desc = EVTDESC_ROBMODNORSE_00032
+	border = GFX_event_long_frame_war
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00032
+		piety = 20
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				OR = {
+					trait = cynical
+					trait = rationalist
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = doctrinaire
+			}
+		}
+		character_event = {
+			id = robmodnorse.00030
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_00032
+			days = 30
+		}
+		if = {
+			limit = { trait = cynical }
+			random = {
+				chance = 50
+				remove_trait = cynical
+				hidden_tooltip = {
+					character_event = { id = 38316 }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00032
+		trigger = {
+			NOT = { trait = zealous }
+		}
+		ai_chance = { factor = 50 }
+		character_event = {
+			id = robmodnorse.00031
+			tooltip = EVTTOOLTIPB_ROBMODNORSE_00032
+			days = 10
+		}
+		if = {
+			limit = {
+				NOT = { trait = cynical }
+			}
+			random = {
+				chance = 30
+				add_trait = cynical
+				hidden_tooltip = {
+					character_event = { id = 38258 }
+				}
+			}
+		}
+	}
+}
+
+#Council of Godis say it was Tyr
+character_event = {
+	id = robmodnorse.00030
+	picture = GFX_evt_tyr_battle
+	desc = EVTDESC_ROBMODNORSE_00030
+	border = GFX_event_normal_frame_war
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00030
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00030 }
+		piety = 50
+		add_character_modifier = {
+			modifier = robmod_norse_tyr_battle
+			duration = -1
+		}
+		if = {
+			limit = { has_nickname = no }
+			give_nickname = nick_blessed_tyr
+		}
+	}
+}
+
+#Find hero
+
+character_event = {
+	id = robmodnorse.00031
+	picture = GFX_evt_viking_throneroom_oldgods
+	desc = EVTDESC_ROBMODNORSE_00031
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			dynasty = NONE
+			religion = ROOT
+			culture = norse
+			age = 29
+			trait = skilled_tactician
+			trait = one_handed
+			trait = brave
+			trait = robust
+			trait = scarred
+		}
+		hidden_tooltip = {
+			new_character = {
+				add_character_modifier = {
+					modifier = wol_great_warrior
+					duration = -1
+				}
+				random_list = {
+					25 = { add_trait = lustful }
+					25 = { add_trait = gluttonous }
+					25 = { add_trait = wroth }
+					25 = { add_trait = proud }
+				}
+				random_list = {
+					33 = { add_trait = charitable }
+					33 = { add_trait = diligent }
+					33 = { add_trait = kind }
+				}
+				random = {
+					chance = 50
+					add_trait = berserker
+				}
+				save_event_target_as = robmod_norse_not_tyr
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00031
+		prestige = 50
+		opinion = {
+			modifier = opinion_very_grateful
+			who = event_target:robmod_norse_not_tyr
+			years = 100
+		}
+		event_target:robmod_norse_not_tyr = {
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+		}
+	}
+}
+
+##-Loki steals something and attempts to possess you-##
+
+#Things are going missing
+long_character_event = {
+	id = robmodnorse.00033
+	desc = EVTDESC_ROBMODNORSE_00033
+	picture = GFX_evt_loki_mischief
+	border = GFX_event_long_frame_intrigue
+
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+
+	trigger = {
+		any_courtier_or_vassal = { has_minor_title = title_volva }
+		NOT = { trait = possessed }
+		NOT = { has_character_flag = robmod_norse_loki_stole_happened }
+		any_artifact = {
+			is_indestructible = no
+			is_artifact_active = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4000
+		modifier = {
+			factor = 0.2
+			is_evil_trigger = yes
+		}
+		modifier = {
+			factor = 5
+			is_benevolent_trigger = yes
+		}
+	}
+	
+	immediate = {
+		set_character_flag = robmod_norse_loki_stole_happened
+		random_courtier = {
+			limit = { has_minor_title = title_volva }
+			save_event_target_as = robmodnorse_volva
+		}
+		random_vassal = {
+			limit = { has_minor_title = title_volva }
+			save_event_target_as = robmodnorse_volva
+		}
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00033 #Begin the search
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = wroth
+					trait = proud
+				}
+			}
+			modifier = {
+				factor = 5
+				OR = {
+					trait = cynical
+					trait = rationalist
+				}
+			}
+		}
+		piety = -5
+		character_event = {
+			id = robmodnorse.00034
+			days = 15
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_00033
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00033 #Don't search
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 3
+				OR = {
+					trait = zealous
+					trait = doctrinaire
+				}
+			}
+		}
+		random_artifact = {
+			limit = { 
+				is_artifact_active = yes
+				is_indestructible = no
+			}
+			destroy_artifact = yes
+		}
+		prestige = -20
+		piety = 5
+	}
+}
+
+long_character_event = {
+	id = robmodnorse.00034
+	picture = GFX_evt_bloody_man
+	desc = EVTDESC_ROBMODNORSE_00034
+	border = GFX_event_long_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00034 #Pick it up anyway
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = wroth
+					trait = proud
+				}
+			}
+			modifier = {
+				factor = 5
+				OR = {
+					trait = cynical
+					trait = rationalist
+				}
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIPA_ROBMODNORSE_00034 }
+		prestige = 50
+		piety = -5
+		event_target:robmodnorse_volva = {
+			opinion = {
+				modifier = opinion_denied_advice
+				who = ROOT
+				years = 2
+			}
+		}
+		random_list = {
+			30 = {
+				modifier = {
+					factor = 5
+					is_evil_trigger = yes
+				}
+				character_event = {
+					id = robmodnorse.00035
+					tooltip = EVTTOOLTIPA_ROBMODNORSE_00034_01
+				}
+				add_trait = possessed
+				set_character_flag = robmod_norse_loki_possessed	
+			}
+			70 = {
+				modifier = {
+					factor = 3
+					is_benevolent_trigger = yes
+				}
+				character_event = {
+					id = robmodnorse.00035
+					tooltip = EVTTOOLTIPA_ROBMODNORSE_00034_02
+				}
+				set_character_flag = robmod_norse_loki_not_possessed
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00034 #Magic
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 3
+				OR = {
+					trait = zealous
+					trait = doctrinaire
+				}
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIPB_ROBMODNORSE_00034 }
+		piety = 10
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0.5
+					event_target:robmodnorse_volva = { learning = 15 }
+				}
+				character_event = {
+					id = robmodnorse.00035
+					tooltip = EVTTOOLTIPB_ROBMODNORSE_00034_01
+				}
+				random_artifact = {
+					limit = { 
+						is_artifact_active = yes
+						is_indestructible = no
+					}
+					destroy_artifact = yes
+				}
+				set_character_flag = robmod_norse_loki_artifact_destroyed	
+			}
+			50 = {
+				character_event = {
+					id = robmodnorse.00035
+					tooltip = EVTTOOLTIPB_ROBMODNORSE_00034_02
+				}
+				set_character_flag = robmod_norse_loki_artifact_saved
+			}
+		}
+	}
+}
+
+character_event = {
+	id = robmodnorse.00035
+	desc = {
+		trigger = { has_character_flag = robmod_norse_loki_possessed }
+		text = EVTDESC_ROBMODNORSE_00035_POS
+		picture = GFX_evt_loki_mischief
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_norse_loki_not_possessed }
+		text = EVTDESC_ROBMODNORSE_00035_NOTPOS
+		picture = GFX_evt_pagan_artifacts
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_norse_loki_artifact_destroyed }
+		text = EVTDESC_ROBMODNORSE_00035_ARTDEST
+		picture = GFX_evt_magic_ritual
+	}
+	desc = {
+		trigger = { has_character_flag = robmod_norse_loki_artifact_saved }
+		text = EVTDESC_ROBMODNORSE_00035_ARTSAVED
+		picture = GFX_evt_magic_ritual
+	}
+	border = GFX_event_normal_frame_intrigue
+	picture = GFX_evt_loki_mischief
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = {
+			trigger = { has_character_flag = robmod_norse_loki_possessed }
+			text = EVTOPTA_ROBMODNORSE_00035_POS
+		}
+		name = {
+			trigger = { 
+				NOT = { has_character_flag = robmod_norse_loki_possessed }
+			}
+			text = EVTOPTA_ROBMODNORSE_00035_NOTPOS
+		}
+		if = {
+			limit = { has_character_flag = robmod_norse_loki_possessed }
+			tooltip = {
+				add_trait = possessed
+			}
+		}
+		clr_character_flag = robmod_norse_loki_possessed
+		clr_character_flag = robmod_norse_loki_not_possessed
+		clr_character_flag = robmod_norse_loki_artifact_destroyed
+		clr_character_flag = robmod_norse_loki_artifact_saved
+	}
+}
+
+##-Freyr gives you a boost in bed-##
+
+#Amazing night
+character_event = {
+	id = robmodnorse.00099
+	desc = EVTDESC_ROBMODNORSE_00099
+	picture = GFX_evt_dark_love
+	border = GFX_event_normal_frame_intrigue
+	hide_from = yes
+
+	min_age = 16
+	max_age = 50
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	only_men = yes
+	war = no
+	is_married = yes
+	
+	trigger = {
+		NOT = { trait = celibate }
+		spouse = {
+			opinion = {
+				who = ROOT 
+				value = 0
+			}
+		}
+		NOT = { has_character_flag = robmod_norse_freyr_blessing_happened }
+	}
+	
+	mean_time_to_happen = {
+		months = 4000
+		modifier = {
+			factor = 0.5
+			trait = lustful
+		}
+		modifier = {
+			factor = 5
+			trait = chaste
+		}
+	}
+	
+	immediate = {
+		set_character_flag = robmod_norse_freyr_blessing_happened
+		random_courtier = {
+			limit = { has_minor_title = title_volva }
+			save_event_target_as = robmodnorse_volva
+		}
+		random_vassal = {
+			limit = { has_minor_title = title_volva }
+			save_event_target_as = robmodnorse_volva
+		}
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00099 #OK
+		hidden_tooltip = {
+			character_event = {
+				id = robmodnorse.00037
+				days = 2
+			}
+		}
+	}
+}
+
+#Rumours spread
+long_character_event = {
+	id = robmodnorse.00037
+	picture = GFX_evt_freyja_necklace
+	desc = EVTDESC_ROBMODNORSE_00037
+	border = GFX_event_long_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00037 #OK
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				OR = {
+					trait = chaste
+					trait = shy
+				}
+			}
+			modifier = {
+				factor = 0.3
+				OR = {
+					trait = cynical
+					trait = rationalist
+				}
+			}
+		}
+		piety = 5
+		character_event = {
+			id = robmodnorse.00036
+			days = 15
+			tooltip = EVTTOOLTIPA_ROBMODNORSE_00037
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00035 #Private matter!
+		custom_tooltip = { text = EVTTOOLTIPB_ROBMODNORSE_00037 }
+		ai_chance = { factor = 30 }
+		prestige = 5
+	}
+}
+
+#Council of Godis say it was Freyr
+character_event = {
+	id = robmodnorse.00036
+	picture = GFX_evt_freyja_necklace
+	desc = EVTDESC_ROBMODNORSE_00036
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00036
+		piety = 20
+		add_character_modifier = {
+			modifier = robmod_norse_freyr_blessing
+			duration = -1
+		}
+	}
+}
+
+### --=MONASTERY EVENTS 001xx=-- ###
+
+# Local Oathsmen offer to defend against infidels
+character_event = {
+	id = robmodnorse.00114
+	desc = {
+		trigger = {
+			NOT = {
+				any_courtier = {
+					NOT = { is_foe = ROOT }
+					trait = robmodnorse_oathsman
+					is_incapable = no
+				}
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00114_01
+	}
+	desc = {
+		trigger = {
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_oathsman
+				is_incapable = no
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00114_02
+	}
+	picture = GFX_norse_monastic_carving
+	border = GFX_event_normal_frame_religion
+
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+	war = yes
+	
+	trigger = {
+		NOT = { has_character_modifier = in_seclusion }
+		any_war = {
+			any_defender = {
+				character = ROOT
+				is_primary_war_defender = yes
+			}
+			#Defender is Germanic reformed but attacker is not
+			attacker = {
+				NOT = { religion = norse_pagan_reformed }
+			}
+		}
+		piety = 50
+		NOT = { has_character_flag = robmod_didnt_return_oathsman_favour }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 0.5
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_oathsman
+				is_incapable = no
+			}
+		}
+		modifier = {
+			factor = 0.8
+			has_character_flag = robmod_returned_oathsman_favour
+		}
+		modifier = {
+			factor = 0.9
+			piety = 100
+			NOT = { piety = 200 }
+		}
+		modifier = {
+			factor = 0.8
+			piety = 200
+			NOT = { piety = 300 }
+		}
+		modifier = {
+			factor = 0.7
+			piety = 300
+			NOT = { piety = 400 }
+		}
+		modifier = {
+			factor = 0.6
+			piety = 400
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = robmod_norse_accepted_oathsmen
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_oathsman
+				is_incapable = no
+			}
+			save_event_target_as = robmod_oathsman
+		}
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00114
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.2
+				trait = proud
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00114 }
+		piety = -50
+		hidden_tooltip = {
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = ROOT
+						home = PREV
+						province = PREV
+						disband_on_peace = yes
+						maintenance_multiplier = 0
+						attrition = 1.0
+						earmark = "OATHSMEN"
+						troops = {
+							archers = { 100 100 }
+							light_infantry = { 500 500 }
+							heavy_infantry = { 250 250 }
+							light_cavalry = { 150 150 }
+						}
+						can_toggle_looting = no
+					}
+				}
+			}
+			set_character_flag = robmod_norse_accepted_oathsmen
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00114
+		ai_chance = {
+			factor = 40
+		}
+		prestige = 10
+	}
+}
+
+# Local Oathsmen ask you to return the favour
+character_event = {
+	id = robmodnorse.00118
+	desc = EVTDESC_ROBMODNORSE_00118
+	picture = GFX_norse_monastic_carving
+	border = GFX_event_normal_frame_religion
+
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_character_flag = robmod_norse_accepted_oathsmen
+	
+	mean_time_to_happen = {
+		years = 50
+		modifier = {
+			factor = 0.5
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 1.5
+			piety = 1000
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { has_empty_holding = yes }
+			save_event_target_as = robmod_church_build_province
+		}
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00118 # Build a church
+		trigger = {
+			any_demesne_province = {
+				has_empty_holding = yes			
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				NOT = { wealth = 400 }
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00118_01 }
+		wealth = -400
+		hidden_tooltip = {
+			event_target:robmod_church_build_province = {
+				province_event = { id = robmodnorse.00119 }
+			}
+		}
+		set_character_flag = robmod_returned_oathsman_favour
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00118 # Make a donation
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.2
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				NOT = { wealth = 200 }
+			}
+		}
+		wealth = -200
+		set_character_flag = robmod_returned_oathsman_favour
+	}
+	option = {
+		name = EVTOPTC_ROBMODNORSE_00118 # Send men to help
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				trait = greedy
+			}
+		}
+		add_character_modifier = {
+			modifier = robmodnorse_helping_oathsmen
+			years = 10
+		}
+	}
+	option = {
+		name = EVTOPTD_ROBMODNORSE_00118 # I will not help!
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				trait = greedy
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIP_ROBMODNORSE_00118_02 }
+		piety = -250
+		random_vassal = {
+			limit = { is_priest = yes }
+			opinion = {
+				modifier = opinion_dishonorable
+				who = ROOT
+				years = 5
+			}
+		}
+		random_courtier = {
+			limit = { trait = robmodnorse_oathsman }
+			opinion = {
+				modifier = opinion_dishonorable
+				who = ROOT
+				years = 5
+			}
+		}
+		set_character_flag = robmod_didnt_return_oathsman_favour
+	}
+}
+
+# Hof built
+province_event = {
+	id = robmodnorse.00119
+	desc = EVTDESC_ROBMODNORSE_00119
+	picture = GFX_evt_cathedral_norse_pagan_reformed
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00119
+		build_holding = {
+		   type = temple
+		   holder = FROM
+		}
+	}
+}
+
+# Oathsmen make fantastic mead
+character_event = {
+	id = robmodnorse.00101
+	desc = EVTDESC_ROBMODNORSE_00101
+	picture = GFX_evt_midwinter_blot_oldgods
+	border = GFX_event_normal_frame_religion
+
+	ai = no
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+		months = 3000
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00101
+		random = {
+			chance = 50
+			change_learning = 1
+		}
+		if = {
+			limit = { NOT = { trait = drunkard } }
+			random = {
+				chance = 20
+				add_trait = drunkard
+				hidden_tooltip = {
+					character_event = {
+						id = 38286 #Notify Drunkard
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00101
+		if = {
+			limit = { NOT = { trait = temperate } }
+			random = {
+				chance = 20
+				add_trait = temperate
+				hidden_tooltip = {
+					character_event = {
+						id = 38276 #Notify Temperate
+					}
+				}
+			}
+		}
+	}
+}
+
+# Friggsisters make a war-tonic
+character_event = {
+	id = robmodnorse.00102
+	desc = {
+		trigger = {
+			NOT = {
+				any_courtier = {
+					NOT = { is_foe = ROOT }
+					trait = robmodnorse_friggsister
+					is_incapable = no
+				}
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00102_01
+	}
+	desc = {
+		trigger = {
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00102_02
+	}
+	picture = GFX_evt_cathedral_pagan_group
+	border = GFX_event_normal_frame_religion
+
+	ai = no
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+
+	trigger = {
+		piety = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 5000
+		modifier = {
+			factor = 0.5
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+			}
+		}
+		modifier = {
+			factor = 0.9
+			piety = 100
+			NOT = { piety = 200 }
+		}
+		modifier = {
+			factor = 0.8
+			piety = 200
+			NOT = { piety = 300 }
+		}
+		modifier = {
+			factor = 0.7
+			piety = 300
+			NOT = { piety = 400 }
+		}
+		modifier = {
+			factor = 0.6
+			piety = 400
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+			}
+			save_event_target_as = robmod_friggsister_wartonic
+		}
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00102
+		wealth = -10
+		add_character_modifier = {
+			modifier = robmod_norse_wartonic
+			duration = -1
+		}
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			random = {
+				chance = 20
+				add_trait = lunatic
+				hidden_tooltip = {
+					character_event = {
+						id = 38304 #Notify lunatic
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00102
+	}
+}
+
+# Friggsister can perform a healing spell
+character_event = {
+	id = robmodnorse.00103
+	desc = {
+		trigger = {
+			NOT = {
+				any_courtier = {
+					NOT = { is_foe = ROOT }
+					trait = robmodnorse_friggsister
+					is_incapable = no
+				}
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00103_01
+	}
+	desc = {
+		trigger = {
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+			}
+		}
+		text = EVTDESC_ROBMODNORSE_00103_02
+	}
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	ai = no
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	is_sick = yes
+	has_global_flag = robmod_norse_monks_activated
+
+	trigger = {
+		is_ill = yes
+		piety = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.5
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+			}
+		}
+		modifier = {
+			factor = 0.9
+			piety = 100
+			NOT = { piety = 200 }
+		}
+		modifier = {
+			factor = 0.8
+			piety = 200
+			NOT = { piety = 300 }
+		}
+		modifier = {
+			factor = 0.7
+			piety = 300
+			NOT = { piety = 400 }
+		}
+		modifier = {
+			factor = 0.6
+			piety = 400
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+			}
+			save_event_target_as = robmod_friggsister_healer
+		}
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00103
+		random = {
+			chance = 60
+			cure_illness = yes
+		}
+		random = {
+			chance = 10
+			add_trait = possessed
+			hidden_tooltip = {
+				character_event = {
+					id = 38315 #Notify Possessed
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00103
+		if = {
+			limit = { NOT = { trait = cynical } }
+			random = {
+				chance = 20
+				add_trait = cynical
+				character_event = {
+					id = 38258 #Notify cynical
+				}
+			}
+		}
+	}
+}
+
+# Friggsister is fantastic runewriter
+character_event = {
+	id = robmodnorse.00104
+	desc = EVTDESC_ROBMODNORSE_00104
+	picture = GFX_evt_runestone_raising_oldgods
+	border = GFX_event_normal_frame_religion
+
+	ai = no
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+	
+	trigger = {		
+		NOT = { trait = blinded }
+	}
+	
+	mean_time_to_happen = {
+		months = 4000
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00104
+		wealth = -10
+		prestige = 30
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00104
+	}
+}
+
+# Oathsmen forge beautiful ornamental armour
+character_event = {
+	id = robmodnorse.00105
+	desc = EVTDESC_ROBMODNORSE_00105
+	picture = GFX_evt_weaponsmith
+	border = GFX_event_normal_frame_religion
+
+	ai = no
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+	
+	trigger = {
+		NOT = { trait = blinded }
+	}
+	
+	mean_time_to_happen = {
+		months = 3000
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00105
+		wealth = -50
+		prestige = 40
+		random = {
+			chance = 20
+			change_martial = 1
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00105
+		
+	}
+}
+
+# Local Oathsman could train you
+character_event = {
+	id = robmodnorse.00106
+	desc = EVTDESC_ROBMODNORSE_00106
+	picture = GFX_evt_midwinter_blot_oldgods
+	border = GFX_event_normal_frame_religion
+
+	ai = no
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+	
+	trigger = {
+		NOT = { has_character_modifier = in_seclusion }
+	}
+	
+	mean_time_to_happen = {
+		months = 3000
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00106
+		prestige = 20
+		random_list = {
+			50 = { change_martial = 2 }
+			20 = { add_trait = duelist }
+			20 = { add_trait = wounded }
+			5 = { add_maimed_trait_effect = yes }
+			5 = {
+				death = { death_reason = death_robmodnorse_training	}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00106
+	}
+}
+
+# Son wants to be Oathsman - select child
+character_event = {
+	id = robmodnorse.00107
+
+	hide_window = yes
+
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+
+	trigger = {
+		any_child = {
+			is_ruler = no
+			age = 16
+			is_female = no
+			is_married = no
+			NOT = { trait = cynical }
+			NOT = { trait = craven }
+			NOT = { trait = rationalist }
+			NOT = { trait = lustful }
+			NOT = { is_ascetic_trigger = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	immediate = {
+		random_child = {
+			limit = {
+				is_ruler = no
+				age = 16
+				is_female = no
+				is_married = no
+				NOT = { trait = cynical }
+				NOT = { trait = craven }
+				NOT = { trait = rationalist }
+				NOT = { trait = lustful }
+				NOT = { is_ascetic_trigger = yes }
+			}
+			character_event = { id = robmodnorse.00108 }
+		}
+	}
+}
+
+# Son bounce event
+character_event = {
+	id = robmodnorse.00108
+
+	is_triggered_only = yes
+
+	hide_window = yes
+
+	immediate = {
+		FROM = {
+			character_event = { id = robmodnorse.00109 }
+		}
+	}
+}
+
+# Son wants to be Oathsman - parent response
+character_event = {
+	id = robmodnorse.00109
+	desc = EVTDESC_ROBMODNORSE_00109
+	picture = GFX_evt_son_asking_father
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00109
+		custom_tooltip = { text = EVTTOOLTIPA_ROBMODNORSE_00109 }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				OR = {
+					trait = zealous
+					trait = doctrinaire
+				}
+			}
+			modifier = {
+				factor = 10
+				num_of_children = 5
+			}
+		}
+		FROM = {
+			set_character_flag = robmodnorse_tooktrials
+			hidden_tooltip = {
+				character_event = { 
+					id = robmodnorse.00003
+					days = 700
+					random = 50
+				}
+			}
+			add_trait = robmodnorse_oathseeker
+			opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 100
+			}
+		}
+		piety = 10
+		wealth = -10
+		add_character_modifier = {
+			modifier = robmodnorse_orderedoathsman
+			years = 2
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00109
+		custom_tooltip = { text = EVTTOOLTIPB_ROBMODNORSE_00109 }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5
+				OR = {
+					trait = cynical
+					trait = rationalist
+				}
+			}
+			modifier = {
+				factor = 1000
+				NOT = { num_of_children = 2 }
+			}
+		}
+		FROM = {
+			add_trait = stressed
+			opinion = {
+				modifier = opinion_angry
+				who = ROOT
+				years = 3
+			}
+		}
+		piety = -10
+	}
+}
+
+# Daughter wants to be Friggsister - select child
+character_event = {
+	id = robmodnorse.00110
+
+	hide_window = yes
+
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+
+	trigger = {
+		any_child = {
+			is_ruler = no
+			age = 16
+			is_female = yes
+			is_married = no
+			NOT = { trait = cynical }
+			NOT = { trait = lustful }
+			NOT = { trait = rationalist }
+			NOT = { is_ascetic_trigger = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	immediate = {
+		random_child = {
+			limit = {
+				is_ruler = no
+				age = 16
+				is_female = yes
+				is_married = no
+				NOT = { trait = cynical }
+				NOT = { trait = lustful }
+				NOT = { trait = rationalist }
+				NOT = { is_ascetic_trigger = yes }
+			}
+			character_event = { id = robmodnorse.00111 }
+		}
+	}
+}
+
+# Daughter bounce event
+character_event = {
+	id = robmodnorse.00111
+
+	is_triggered_only = yes
+
+	hide_window = yes
+
+	immediate = {
+		FROM = {
+			character_event = { id = robmodnorse.00112 }
+		}
+	}
+}
+
+# Daughter wants to be Friggsister - parent response
+character_event = {
+	id = robmodnorse.00112
+	desc = EVTDESC_ROBMODNORSE_00112
+	picture = GFX_evt_daughter_asking_father
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00112
+		custom_tooltip = { text = EVTTOOLTIPA_ROBMODNORSE_00112 }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				OR = {
+					trait = zealous
+					trait = doctrinaire
+				}
+			}
+			modifier = {
+				factor = 10
+				num_of_children = 5
+			}
+		}
+		FROM = {
+			hidden_tooltip = {
+				character_event = { 
+					id = robmodnorse.00004
+					days = 700
+					random = 50
+				}
+			}
+			add_trait = robmodnorse_friggseeker
+			opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 100
+			}
+		}
+		piety = 10
+		wealth = -10
+		add_character_modifier = {
+			modifier = robmodnorse_orderedfriggsister
+			years = 2
+		}
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00109
+		custom_tooltip = { text = EVTTOOLTIPB_ROBMODNORSE_00109 }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5
+				OR = {
+					trait = cynical
+					trait = rationalist
+				}
+			}
+			modifier = {
+				factor = 1000
+				NOT = { num_of_children = 2 }
+			}
+		}
+		FROM = {
+			add_trait = stressed
+			opinion = {
+				modifier = opinion_angry
+				who = ROOT
+				years = 3
+			}
+		}
+		piety = -10
+	}
+}
+
+# Donate to local Oaths-Hall
+character_event = {
+	id = robmodnorse.00113
+	desc = EVTDESC_ROBMODNORSE_00113
+	picture = GFX_norse_monastic_carving
+	border = GFX_event_normal_frame_religion
+	
+	mean_time_to_happen = {
+		months = 5000
+		modifier = {
+			factor = 0.5
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+				OR = {
+					learning = 12
+					trait = mystic
+					society_member_of = monastic_order_norse
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			piety = 100
+			NOT = { piety = 200 }
+		}
+		modifier = {
+			factor = 0.8
+			piety = 200
+			NOT = { piety = 300 }
+		}
+		modifier = {
+			factor = 0.7
+			piety = 300
+			NOT = { piety = 400 }
+		}
+		modifier = {
+			factor = 0.6
+			piety = 400
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = robmod_friggsister_potion_happened
+		}
+	}
+
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+	
+	trigger = {
+		scaled_wealth = 0.1
+	}
+	
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00113
+		wealth = -30
+		piety = 30
+	}
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00113
+		piety = -5
+	}
+}
+
+# Friggsisters offers to make a magic item
+character_event = {
+	id = robmodnorse.00115
+	desc = EVTDESC_ROBMODNORSE_00115
+	picture = GFX_evt_midwinter_blot_oldgods
+	border = GFX_event_normal_frame_religion
+
+	ai = no
+	min_age = 16
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	religion = norse_pagan_reformed
+	has_global_flag = robmod_norse_monks_activated
+
+	trigger = {
+		piety = 1
+		any_courtier = {
+			NOT = { is_foe = ROOT }
+			trait = robmodnorse_friggsister
+			is_incapable = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 5000
+		modifier = {
+			factor = 0.5
+			any_courtier = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+				OR = {
+					learning = 12
+					trait = mystic
+					society_member_of = monastic_order_norse
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			piety = 100
+			NOT = { piety = 200 }
+		}
+		modifier = {
+			factor = 0.8
+			piety = 200
+			NOT = { piety = 300 }
+		}
+		modifier = {
+			factor = 0.7
+			piety = 300
+			NOT = { piety = 400 }
+		}
+		modifier = {
+			factor = 0.6
+			piety = 400
+			NOT = { piety = 500 }
+		}
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = robmod_friggsister_potion_happened
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				NOT = { is_foe = ROOT }
+				trait = robmodnorse_friggsister
+				is_incapable = no
+			}
+			save_event_target_as = robmod_friggsister_magic
+		}
+		set_character_flag = robmod_friggsister_potion_happened
+	}
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00115 # sweet salve
+		wealth = -10
+		trigger = { 
+			NOT = { has_character_modifier = robmod_norse_sweet_salve }
+		}
+		character_event = {
+			id = robmodnorse.00117
+			tooltip = "EVTTOOLTIP_ROBMODNORSE_00115_01"
+			days = 20
+		}
+		set_character_flag = robmod_friggsister_req_salve
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00115 # war tonic
+		wealth = -10
+		trigger = { 
+			NOT = { has_character_modifier = robmod_norse_wartonic }
+		}
+		character_event = {
+			id = robmodnorse.00117
+			tooltip = "EVTTOOLTIP_ROBMODNORSE_00115_02"
+			days = 20
+		}
+		set_character_flag = robmod_friggsister_req_war
+	}
+	
+	option = {
+		name = EVTOPTC_ROBMODNORSE_00115 # sniffing potion
+		wealth = -10
+		trigger = { 
+			NOT = { has_character_modifier = robmod_norse_sniff }
+		}
+		character_event = {
+			id = robmodnorse.00117
+			tooltip = "EVTTOOLTIP_ROBMODNORSE_00115_03"
+			days = 20
+		}
+		set_character_flag = robmod_friggsister_req_sniff
+	}
+	
+	option = {
+		name = EVTOPTD_ROBMODNORSE_00115 # More choices
+		trigger = { 
+			NOT = { 
+				has_character_modifier = robmod_norse_crystals
+				has_character_modifier = robmod_norse_hat
+			}
+		}
+		hidden_tooltip = {
+			character_event = {
+				id = robmodnorse.00116
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTE_ROBMODNORSE_00115 # No thanks
+		trigger = {  
+			has_character_modifier = robmod_norse_crystals
+			has_character_modifier = robmod_norse_hat
+		}
+	}
+}
+
+## friggsister offers to make magical item
+
+# offer
+character_event = {
+	id = robmodnorse.00116
+	desc = EVTDESC_ROBMODNORSE_00115
+	picture = GFX_evt_midwinter_blot_oldgods
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTF_ROBMODNORSE_00115 # warning crystals
+		wealth = -10
+		trigger = { 
+			NOT = { has_character_modifier = robmod_norse_crystals }
+		}
+		character_event = {
+			id = robmodnorse.00117
+			tooltip = "EVTTOOLTIP_ROBMODNORSE_00115_04"
+			days = 20
+		}
+		set_character_flag = robmod_friggsister_req_crystals
+	}
+	
+	option = {
+		name = EVTOPTG_ROBMODNORSE_00115 # hat of learning
+		wealth = -10
+		trigger = { 
+			NOT = { has_character_modifier = robmod_norse_hat }
+		}
+		character_event = {
+			id = robmodnorse.00117
+			tooltip = "EVTTOOLTIP_ROBMODNORSE_00115_05"
+			days = 20
+		}
+		set_character_flag = robmod_friggsister_req_hat
+	}
+	
+	option = {
+		name = EVTOPTH_ROBMODNORSE_00115 # Back
+		hidden_tooltip = {
+			character_event = {
+				id = robmodnorse.00115
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTE_ROBMODNORSE_00115 # No thanks
+	}
+}
+
+# receive magical item
+character_event = {
+	id = robmodnorse.00117
+	desc = {
+		trigger = {
+			has_character_flag = robmod_friggsister_req_salve
+		}
+		text = EVTDESC_ROBMODNORSE_00117_01
+	}
+	desc = {
+		trigger = {
+			has_character_flag = robmod_friggsister_req_war
+		}
+		text = EVTDESC_ROBMODNORSE_00117_02
+	}
+	desc = {
+		trigger = {
+			has_character_flag = robmod_friggsister_req_sniff
+		}
+		text = EVTDESC_ROBMODNORSE_00117_03
+	}
+	desc = {
+		trigger = {
+			has_character_flag = robmod_friggsister_req_crystals
+		}
+		text = EVTDESC_ROBMODNORSE_00117_04
+	}
+	desc = {
+		trigger = {
+			has_character_flag = robmod_friggsister_req_hat
+		}
+		text = EVTDESC_ROBMODNORSE_00117_05
+	}
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_ROBMODNORSE_00117 # I'll take it!
+		if = {
+			limit = { has_character_flag = robmod_friggsister_req_salve }
+			add_character_modifier = {
+				modifier = robmod_norse_sweet_salve
+				duration = -1
+			}
+			if = {
+				limit = { 
+					NOR = { 
+						trait = lustful
+						trait = chaste
+						trait = celibate
+					} 
+				}
+				random = {
+					chance = 20
+					add_trait = lustful
+					hidden_tooltip = {
+						character_event = {
+							id = 38272 #Notify lustful
+						}
+					}
+				}
+			}
+			if = {
+				limit = { trait = chaste }
+				random = {
+					chance = 50
+					remove_trait = chaste
+					hidden_tooltip = {
+						character_event = {
+							id = 38303 #Notify lost chaste
+						}
+					}
+				}
+			}
+			if = {
+				limit = { trait = celibate }
+				random = {
+					chance = 50
+					remove_trait = celibate
+				}
+			}
+			clr_character_flag = robmod_friggsister_req_salve
+		}
+		if = {
+			limit = { has_character_flag = robmod_friggsister_req_war }
+			add_character_modifier = {
+				modifier = robmod_norse_wartonic
+				duration = -1
+			}
+			if = {
+				limit = { NOT = { trait = lunatic } }
+				random = {
+					chance = 15
+					add_trait = lunatic
+					hidden_tooltip = {
+						character_event = {
+							id = 38304 #Notify lunatic
+						}
+					}
+				}
+			}
+			clr_character_flag = robmod_friggsister_req_war
+		}
+		if = {
+			limit = { has_character_flag = robmod_friggsister_req_sniff }
+			add_character_modifier = {
+				modifier = robmod_norse_sniff
+				duration = -1
+			}
+			if = {
+				limit = { NOT = { trait = stressed } }
+				random = {
+					chance = 15
+					add_trait = stressed
+					hidden_tooltip = {
+						character_event = {
+							id = 38282 #Notify stressed
+						}
+					}
+				}
+			}
+			clr_character_flag = robmod_friggsister_req_sniff
+		}
+		if = {
+			limit = { has_character_flag = robmod_friggsister_req_crystals }
+			add_character_modifier = {
+				modifier = robmod_norse_crystals
+				duration = -1
+			}
+			if = {
+				limit = { NOT = { trait = paranoid  } }
+				random = {
+					chance = 15
+					add_trait = paranoid 
+					hidden_tooltip = {
+						character_event = {
+							id = 38275 #Notify paranoid 
+						}
+					}
+				}
+			}
+			clr_character_flag = robmod_friggsister_req_crystals
+		}
+		if = {
+			limit = { has_character_flag = robmod_friggsister_req_hat }
+			add_character_modifier = {
+				modifier = robmod_norse_hat
+				duration = -1
+			}
+			if = {
+				limit = { 
+					NOR = { 
+						trait = feeble
+						trait = robust
+					} 
+				}
+				random = {
+					chance = 15
+					add_trait = feeble
+				}
+			}
+			if = {
+				limit = { trait = robust } 
+				random = {
+					chance = 15
+					remove_trait = robust
+				}
+			}
+			clr_character_flag = robmod_friggsister_req_hat
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_ROBMODNORSE_00117 # on second thoughts...
+		clr_character_flag = robmod_friggsister_req_salve
+		clr_character_flag = robmod_friggsister_req_hat
+		clr_character_flag = robmod_friggsister_req_crystals
+		clr_character_flag = robmod_friggsister_req_sniff
+		clr_character_flag = robmod_friggsister_req_war
+	}
+}

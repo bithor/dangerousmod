@@ -1,0 +1,154 @@
+# Crown level (de jure) laws
+# Laws ending with 0 will be default laws at game start
+law_groups = {
+	primae_noctis_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+	round_table_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+	
+}
+
+de_jure_laws = {
+
+	# Round Table (Celts, ponder Anglo-Saxons)
+	round_table_law_0 = {
+		#show_as_title = yes
+		group = round_table_law
+		default = yes
+		potential = {
+			NOT = { has_global_flag = round_table_initiation }
+			higher_tier_than = king
+			holder_scope = {
+				OR = {
+					culture_group = celtic
+					culture_group = west_germanic
+					has_landed_title = e_britannia
+				}
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = { always = yes }
+		revoke_allowed = { always = no }			
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		effect = {
+			hidden_tooltip = {
+				clear_delayed_event = { id = RTABLE.100 } # Master
+				revoke_law = round_table_law_0
+				revoke_law = round_table_law_1
+			}
+		}
+	}
+
+	round_table_law_1 = {
+		show_as_title = yes
+		group = round_table_law
+		default = no
+
+		global_revolt_risk = -0.05
+		short_reign_length = -5
+		vassal_opinion = 5
+		feudal_opinion = 5
+		vassal_limit = 5
+		tribal_opinion = 5
+		#breton_opinion = 10 # Kaputt
+		#irish_opinion = 10 # Kaputt
+		#scottish_opinion = 10 # Kaputt
+		#pictish_opinion = 10 # Kaputt
+		#welsh_opinion = 10 # Kaputt
+		#english_opinion = 10 # Kaputt
+		#saxon_opinion = 10 # Kaputt
+
+		potential = {
+			holder_scope = {
+				OR = {
+					culture_group = celtic
+					culture_group = west_germanic
+				}
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = { holder_scope = { prestige > 500 } }
+		revoke_allowed = { always = no }			
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		effect = {
+			hidden_tooltip = {
+				set_global_flag = round_table_initiation
+				holder_scope = { narrative_event = { id = RTABLE.1 days = 3 random = 1 } } # Round Table Restored
+				revoke_law = round_table_law_0
+				revoke_law = round_table_law_1
+			}
+		}
+	}
+}
+
+laws = {
+
+# Jus Primae Noctis
+	# Inactive
+	primae_noctis_law_0 = {
+		show_as_title = yes
+		group = primae_noctis_law
+		default = yes
+		potential = {
+			holder_scope = {
+				#is_tribal = no
+				is_nomadic = no
+			}
+		}
+		allow = { always = yes }
+		revoke_allowed = { always = no }			
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = primae_noctis_law_0
+				revoke_law = primae_noctis_law_1
+			}
+		}
+	}
+	
+	# Active
+	primae_noctis_law_1 = {
+		show_as_title = yes
+		#global_revolt_risk = 0.02 # A 2% increase in the odds of a global revolt from such an unpopular law
+		city_opinion = -5 # Unpopular among citizenry
+		feudal_opinion = 5 # Popular among nobility
+		group = primae_noctis_law
+		potential = {
+			holder_scope = {
+				is_nomadic = no
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = { factor = 0 modifier = { factor = 0.01 } #rare
+			modifier = {
+				factor = 0 # Only lustful AI enacts
+				OR = {
+					holder_scope = { NOT = { trait = lustful } }
+					NOT = { has_law = primae_noctis_law_0 }
+				}
+			}
+		}
+		ai_will_revoke = { factor = 0 }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = primae_noctis_law_0
+				revoke_law = primae_noctis_law_1
+			}
+		}
+	}	
+}
